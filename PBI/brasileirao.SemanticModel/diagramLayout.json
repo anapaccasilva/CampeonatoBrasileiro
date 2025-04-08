@@ -104,9 +104,22 @@
             "x": 1988,
             "y": 50
           },
-          "nodeIndex": "Ranking_Clubes_Ano",
+          "nodeIndex": "fct_classificacao",
           "size": {
             "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2272,
+            "y": 0
+          },
+          "nodeIndex": "dim_jogadores",
+          "nodeLineageTag": "33aeea26-f2b9-49e3-b904-0f873a42d10d",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0

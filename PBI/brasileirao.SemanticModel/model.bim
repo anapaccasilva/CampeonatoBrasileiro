@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"campeonato-brasileiro-cartoes\",\"campeonato-brasileiro-estatisticas-full\",\"campeonato-brasileiro-full\",\"campeonato-brasileiro-gols\",\"dim_clubes\",\"campeonato-brasileiro-full - mandantes\",\"campeonato-brasileiro-full - visitantes\",\"full - unpivot\",\"Tabela\",\"serie\"]"
+        "value": "[\"campeonato-brasileiro-cartoes\",\"campeonato-brasileiro-estatisticas-full\",\"campeonato-brasileiro-full\",\"campeonato-brasileiro-gols\",\"dim_clubes\",\"campeonato-brasileiro-full - mandantes\",\"campeonato-brasileiro-full - visitantes\",\"full - unpivot\",\"Tabela\",\"serie\",\"dim_jogadores\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -3971,7 +3971,7 @@
               "ranking_clubes_ano": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano"
+                    "ConceptualEntity": "fct_classificacao"
                   }
                 },
                 "State": "Generated",
@@ -4000,7 +4000,7 @@
               "ranking_clubes_ano.ano": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "Ano"
                   }
                 },
@@ -4016,7 +4016,7 @@
               "ranking_clubes_ano.gol_pro": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "GolsPro"
                   }
                 },
@@ -4039,7 +4039,7 @@
               "ranking_clubes_ano.gols_contra": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "GolsContra"
                   }
                 },
@@ -4069,7 +4069,7 @@
               "ranking_clubes_ano.ranking": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "Ranking"
                   }
                 },
@@ -4155,7 +4155,7 @@
               "ranking_clubes_ano.saldo_gol": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "SaldoGols"
                   }
                 },
@@ -4178,7 +4178,7 @@
               "ranking_clubes_ano.time": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "time"
                   }
                 },
@@ -4244,7 +4244,7 @@
               "ranking_clubes_ano.total_derrota": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "TotalDerrotas"
                   }
                 },
@@ -4287,7 +4287,7 @@
               "ranking_clubes_ano.total_empate": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "TotalEmpates"
                   }
                 },
@@ -4330,7 +4330,7 @@
               "ranking_clubes_ano.total_jogo": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "TotalJogos"
                   }
                 },
@@ -4379,7 +4379,7 @@
               "ranking_clubes_ano.total_ponto": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "TotalPontos"
                   }
                 },
@@ -4422,7 +4422,7 @@
               "ranking_clubes_ano.total_vitoria": {
                 "Definition": {
                   "Binding": {
-                    "ConceptualEntity": "Ranking_Clubes_Ano",
+                    "ConceptualEntity": "fct_classificacao",
                     "ConceptualProperty": "TotalVitorias"
                   }
                 },
@@ -8716,7 +8716,7 @@
               },
               "ranking_clubes_ano_has_ano": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8749,7 +8749,7 @@
               },
               "ranking_clubes_ano_has_gol_pro": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8782,7 +8782,7 @@
               },
               "ranking_clubes_ano_has_gols_contra": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8815,7 +8815,7 @@
               },
               "ranking_clubes_ano_has_ranking": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8848,7 +8848,7 @@
               },
               "ranking_clubes_ano_has_saldo_gol": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8881,7 +8881,7 @@
               },
               "ranking_clubes_ano_has_time": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8914,7 +8914,7 @@
               },
               "ranking_clubes_ano_has_total_derrota": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8947,7 +8947,7 @@
               },
               "ranking_clubes_ano_has_total_empate": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -8980,7 +8980,7 @@
               },
               "ranking_clubes_ano_has_total_jogo": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -9013,7 +9013,7 @@
               },
               "ranking_clubes_ano_has_total_ponto": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -9046,7 +9046,7 @@
               },
               "ranking_clubes_ano_has_total_vitoria": {
                 "Binding": {
-                  "ConceptualEntity": "Ranking_Clubes_Ano"
+                  "ConceptualEntity": "fct_classificacao"
                 },
                 "Phrasings": [
                   {
@@ -9350,6 +9350,14 @@
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_2ea599c2-7a12-48e5-845a-02093c9b8bcd"
+      },
+      {
+        "name": "73aab90f-e705-43f1-ae19-360aa351b45e",
+        "fromColumn": "Dt Nascimento",
+        "fromTable": "dim_jogadores",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422"
       }
     ],
     "sourceQueryCulture": "pt-BR",
@@ -9807,7 +9815,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "lineageTag": "c5cd787e-479a-4b97-8f2e-2d5bdfb55c01",
             "sourceColumn": "data",
             "summarizeBy": "none",
@@ -11416,6 +11424,111 @@
             ],
             "formatString": "0",
             "lineageTag": "8bd74a70-2db1-4a31-8022-4db8725a4043"
+          },
+          {
+            "name": "Cards",
+            "expression": [
+              "",
+              "VAR _Image = MIN(dim_jogadores[Imagem])",
+              "VAR _ItemName = MIN(dim_jogadores[atleta])",
+              "VAR _ItemOrders = min(dim_jogadores[Dt Nascimento])",
+              "VAR _ItemProfit = min(dim_jogadores[Nacionalidade])",
+              "VAR _ItemValue = 0  /* Assuming you have this measure/column in your dataset */",
+              "VAR _ItemPrice = 0",
+              "",
+              "Return",
+              "",
+              "\"<!DOCTYPE html>",
+              "<html lang='en'>",
+              "<head>",
+              "    <meta charset='UTF-8'>",
+              "    <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+              "    <title>Enhanced Gallery Card</title>",
+              "    <style>",
+              "        body {",
+              "            margin: 0;",
+              "            padding: 20px;",
+              "            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;",
+              "        }",
+              "        .card {",
+              "            width: 230px;",
+              "            margin: 20px auto; /* Center the card and provide space for hover effect */",
+              "            border-radius: 12px;",
+              "            overflow: hidden;",
+              "            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);",
+              "            transition: transform 0.3s ease, box-shadow 0.3s ease;",
+              "            background-color: #ffffff;",
+              "        }",
+              "        .card:hover {",
+              "            transform: translateY(-10px);",
+              "            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);",
+              "        }",
+              "        .card-image-container {",
+              "            position: relative;",
+              "            height: 300px;",
+              "            overflow: hidden;",
+              "        }",
+              "        .card-image {",
+              "            width: 100%;",
+              "            height: 100%;",
+              "            object-fit: cover;",
+              "            transition: transform 0.3s ease;",
+              "        }",
+              "        .card:hover .card-image {",
+              "            transform: scale(1.05);",
+              "        }",
+              "        .card-content {",
+              "            padding: 15px;",
+              "        }",
+              "        .card-title {",
+              "            margin: 0;",
+              "            font-size: 13px;",
+              "            font-weight: 600;",
+              "            color: #333;",
+              "        }",
+              "        .card-subtitle {",
+              "            margin: 8px 0 0;",
+              "            font-size: 16px;",
+              "            color: #003449;",
+              "            font-weight: 500;",
+              "        }",
+              "        .card-subtitle-small {",
+              "            margin: 4px 0 0;",
+              "            font-size: 14px;",
+              "            color: #666;",
+              "            font-weight: 400;",
+              "        }",
+              "        .price-tag {",
+              "            position: absolute;",
+              "            top: 10px;",
+              "            right: 10px;",
+              "            background-color: rgba(0, 120, 212, 0.9);",
+              "            color: white;",
+              "            padding: 5px 10px;",
+              "            border-radius: 20px;",
+              "            font-size: 14px;",
+              "            font-weight: bold;",
+              "        }",
+              "    </style>",
+              "</head>",
+              "<body>",
+              "    <div class='card'>",
+              "        <div class='card-image-container'>",
+              "            <img src='\"&_Image&\"' alt='\"&_ItemName&\"' class='card-image'>",
+              "            <span class='price-tag'>\"&\"£\"&FORMAT ( _ItemPrice, \"#,##\" )&\"</span>",
+              "        </div>",
+              "        <div class='card-content'>",
+              "            <h2 class='card-title'>\"&_ItemName&\"</h2>",
+              "            <p class='card-subtitle'> \"&_ItemOrders & \" Orders\"&\" </p>",
+              "            <p class='card-subtitle-small'>Revenue: \"&\"£\"&FORMAT ( _ItemValue, \"#,##\" )&\"</p>",
+              "            <p class='card-subtitle-small'>Profit: \"&\"£\"&FORMAT ( _ItemProfit, \"#,##\" )&\"</p>",
+              "        </div>",
+              "    </div>",
+              "</body>",
+              "</html>\"",
+              ""
+            ],
+            "lineageTag": "a908d202-904d-4027-b157-5534c69eeae1"
           }
         ],
         "partitions": [
@@ -11644,7 +11757,7 @@
         "showAsVariationsOnly": true
       },
       {
-        "name": "Ranking_Clubes_Ano",
+        "name": "fct_classificacao",
         "annotations": [
           {
             "name": "PBI_Id",
@@ -11717,7 +11830,7 @@
               "RETURN",
               "RANKX(",
               "    FILTER(",
-              "        Ranking_Clubes_Ano,",
+              "        fct_classificacao,",
               "        [Ano] = AnoAtual",
               "    ),",
               "    [TotalPontos],",
@@ -11853,9 +11966,40 @@
           }
         ],
         "lineageTag": "542f90ee-9360-4b32-8af8-77287be71bf2",
+        "measures": [
+          {
+            "name": "Medida",
+            "annotations": [
+              {
+                "name": "43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c",
+                "value": "True"
+              }
+            ],
+            "lineageTag": "c8c216c6-b9b2-4bfa-b0cc-160a5c9c59c3"
+          },
+          {
+            "name": "teste_game _",
+            "expression": [
+              "",
+              "\"<div style='font-family: Arial, sans-serif; padding: 20px; text-align: center;'>",
+              "    <h2>Pergunta: Qual é a capital da França?</h2>",
+              "    <div>",
+              "        <button>Paris</button>",
+              "        <button>Londres</button>",
+              "        <button>Roma</button>",
+              "    </div>",
+              "    <p style='font-size: 18px;'>Sua resposta: \" & ",
+              "     ",
+              "    \"</p>",
+              "</div>\"",
+              ""
+            ],
+            "lineageTag": "36a95905-6d7b-4f33-adc9-870fd480b087"
+          }
+        ],
         "partitions": [
           {
-            "name": "Ranking_Clubes_Ano",
+            "name": "fct_classificacao",
             "mode": "import",
             "source": {
               "expression": [
@@ -11878,6 +12022,417 @@
             }
           }
         ]
+      },
+      {
+        "name": "dim_jogadores",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "clube",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6345cd9c-376e-41c8-a211-16607573f8ee",
+            "sourceColumn": "clube",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "atleta",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9073d774-102c-4868-a9d4-47daaf487170",
+            "sourceColumn": "atleta",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "check",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "064b31db-a2fc-4e1b-a9a9-4237a65ded78",
+            "sourceColumn": "check",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Imagem",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "491eb021-c823-48db-b409-077e532542a8",
+            "sourceColumn": "Imagem",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Dt Nascimento",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "0015dbc2-50a8-4dfa-bf92-0d36175a7eca",
+            "sourceColumn": "Dt Nascimento",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Hierarquia de datas",
+                  "table": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422"
+                },
+                "isDefault": true,
+                "relationship": "73aab90f-e705-43f1-ae19-360aa351b45e"
+              }
+            ]
+          },
+          {
+            "name": "Local Nascimento",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "885d01b3-c9b6-463a-a566-c539fa06eacc",
+            "sourceColumn": "Local Nascimento",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Nacionalidade",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9a23b68c-f979-4f35-bcdb-26fd58adfacb",
+            "sourceColumn": "Nacionalidade",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Posição",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f0b4f8d7-d951-45ec-99e2-daf96bc2fd01",
+            "sourceColumn": "Posição",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Pré-Preferencial",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ac8e34f0-a0cc-4777-848c-d9f291b5c6af",
+            "sourceColumn": "Pré-Preferencial",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Situação",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a17182c5-3120-41ae-a453-e3569108cb65",
+            "sourceColumn": "Situação",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Clube Atual",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cde7d4af-5482-43d1-870c-fd4cf2db6d50",
+            "sourceColumn": "Clube Atual",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Biografia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d8434654-5bc0-4cad-b03c-9ff435e8afae",
+            "sourceColumn": "Biografia",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "33aeea26-f2b9-49e3-b904-0f873a42d10d",
+        "partitions": [
+          {
+            "name": "dim_jogadores",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Excel.Workbook(File.Contents(\"C:\\Users\\MSI\\Documents\\PBI\\Brasileirao\\jogadores.xlsx\"), null, true),",
+                "    campeonato_brasileiro_gols_Table = Fonte{[Item=\"campeonato_brasileiro_gols\",Kind=\"Table\"]}[Data],",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(campeonato_brasileiro_gols_Table,{{\"clube\", type text}, {\"atleta\", type text}, {\"check\", type text}, {\"Imagem\", type text}, {\"Dt Nascimento\", type date}, {\"Local Nascimento\", type text}, {\"Nacionalidade\", type text}, {\"Posição\", type text}, {\"Pré-Preferencial\", type text}, {\"Situação\", type text}, {\"Clube Atual\", type text}, {\"Biografia\", type text}})",
+                "in",
+                "    #\"Tipo Alterado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "a68d3a49-e3b6-4d5d-bee2-f45e46f24d23",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "1bf8245e-d974-4c66-afe2-f0db1f149b73",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "eaf06f56-e04d-4270-baef-cfbcd30a2790",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "e2303525-c1ca-40ae-baa0-56f16f079ba7",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "1e9f0e0b-9299-4a47-ba78-6f5b4892700d",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "06f3a2b8-0577-4534-a876-e181ba8fffd8",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "4df19694-f45f-43f1-96f9-9f346245e00b",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarquia de datas",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Ano",
+                "column": "Ano",
+                "lineageTag": "bc9d08f4-6728-44b3-b587-fa61826b7774",
+                "ordinal": 0
+              },
+              {
+                "name": "Trimestre",
+                "column": "Trimestre",
+                "lineageTag": "4364a033-92e0-4352-be53-f206b97b539e",
+                "ordinal": 1
+              },
+              {
+                "name": "Mês",
+                "column": "Mês",
+                "lineageTag": "044b05f8-c6c3-43ff-9bc3-065b6a4c3ad5",
+                "ordinal": 2
+              },
+              {
+                "name": "Dia",
+                "column": "Dia",
+                "lineageTag": "cb090c85-c5c6-4e7d-86ec-56f1d8246418",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "40249674-f2b9-46c9-9ae0-d5e7e8044943"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "242c79af-d306-4b74-9915-7880ff8966cc",
+        "partitions": [
+          {
+            "name": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('dim_jogadores'[Dt Nascimento])), 1, 1), Date(Year(MAX('dim_jogadores'[Dt Nascimento])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
       }
     ]
   }
