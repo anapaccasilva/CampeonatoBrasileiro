@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 1703.9719198351709,
+        "x": 2645.3271028037384,
         "y": 0
       },
       "nodes": [
@@ -130,6 +130,30 @@
             "y": 50
           },
           "nodeIndex": "TabelaGolsPorClube",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2840,
+            "y": 50
+          },
+          "nodeIndex": "dCalendar",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3124,
+            "y": 50
+          },
+          "nodeIndex": "dAno",
           "size": {
             "height": 200,
             "width": 234

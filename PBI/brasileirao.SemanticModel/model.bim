@@ -3997,22 +3997,6 @@
                   }
                 ]
               },
-              "ranking_clubes_ano.ano": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "fct_classificacao",
-                    "ConceptualProperty": "Ano"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "ano": {
-                      "State": "Generated"
-                    }
-                  }
-                ]
-              },
               "ranking_clubes_ano.gol_pro": {
                 "Definition": {
                   "Binding": {
@@ -9276,14 +9260,6 @@
     ],
     "relationships": [
       {
-        "name": "eff09a0d-adf8-4c77-b8f2-f37eac71757d",
-        "fromColumn": "data",
-        "fromTable": "campeonato-brasileiro-full",
-        "joinOnDateBehavior": "datePartOnly",
-        "toColumn": "Date",
-        "toTable": "LocalDateTable_ce9ff99e-3407-4270-999a-ec9df07621ab"
-      },
-      {
         "name": "7485692f-a21c-ed78-46ac-ff7e067e30de",
         "fromColumn": "clube",
         "fromTable": "campeonato-brasileiro-cartoes",
@@ -9322,14 +9298,6 @@
         "toTable": "dim_clubes"
       },
       {
-        "name": "d6697340-e0fa-47fc-80e8-0db72a570eb5",
-        "fromColumn": "data",
-        "fromTable": "full - unpivot",
-        "joinOnDateBehavior": "datePartOnly",
-        "toColumn": "Date",
-        "toTable": "LocalDateTable_9ac1311b-29e3-473d-b8cf-e0946361cf49"
-      },
-      {
         "name": "b35b2f32-6cd9-bb2f-9626-2c745a5a829a",
         "fromColumn": "time",
         "fromTable": "full - unpivot",
@@ -9352,14 +9320,6 @@
         "toTable": "LocalDateTable_2ea599c2-7a12-48e5-845a-02093c9b8bcd"
       },
       {
-        "name": "73aab90f-e705-43f1-ae19-360aa351b45e",
-        "fromColumn": "Dt Nascimento",
-        "fromTable": "dim_jogadores",
-        "joinOnDateBehavior": "datePartOnly",
-        "toColumn": "Date",
-        "toTable": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422"
-      },
-      {
         "name": "1d95649b-067b-260e-7b14-244f4b2c5bbb",
         "fromColumn": "atleta",
         "fromTable": "campeonato-brasileiro-gols",
@@ -9379,6 +9339,48 @@
         "fromTable": "TabelaGolsPorClube",
         "toColumn": "Clube_s_acentos",
         "toTable": "dim_clubes"
+      },
+      {
+        "name": "dec125e1-28b3-cb8e-1958-2a0a4262f28f",
+        "fromColumn": "data",
+        "fromTable": "campeonato-brasileiro-full",
+        "toColumn": "Date",
+        "toTable": "dCalendar"
+      },
+      {
+        "name": "af234060-970c-3270-4b43-b008a5e71424",
+        "fromColumn": "Dt Nascimento",
+        "fromTable": "dim_jogadores",
+        "toColumn": "Date",
+        "toTable": "dCalendar"
+      },
+      {
+        "name": "b6dc83ee-06a7-cb97-42c8-9b3cdcfa3166",
+        "fromColumn": "atleta",
+        "fromTable": "campeonato-brasileiro-cartoes",
+        "toColumn": "atleta",
+        "toTable": "dim_jogadores"
+      },
+      {
+        "name": "95648a65-ec66-f428-bf13-9ccd3ebb0986",
+        "fromColumn": "data",
+        "fromTable": "full - unpivot",
+        "toColumn": "Date",
+        "toTable": "dCalendar"
+      },
+      {
+        "name": "51f2cb50-9d7b-9a7f-3f49-d008938ba8a9",
+        "fromColumn": "Ano",
+        "fromTable": "dCalendar",
+        "toColumn": "Ano",
+        "toTable": "dAno"
+      },
+      {
+        "name": "3a340562-2cd7-bdfa-150c-ee498a4603df",
+        "fromColumn": "Ano",
+        "fromTable": "fct_classificacao",
+        "toColumn": "Ano",
+        "toTable": "dAno"
       }
     ],
     "sourceQueryCulture": "pt-BR",
@@ -9565,9 +9567,12 @@
                 "let",
                 "    Fonte = Csv.Document(File.Contents(\"C:\\Users\\MSI\\Documents\\PBI\\Brasileirao\\07-Brasileirao\\campeonato-brasileiro-cartoes.csv\"),[Delimiter=\",\", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Cabeçalhos Promovidos\" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
-                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Cabeçalhos Promovidos\",{{\"partida_id\", Int64.Type}, {\"rodata\", Int64.Type}, {\"clube\", type text}, {\"cartao\", type text}, {\"atleta\", type text}, {\"num_camisa\", Int64.Type}, {\"posicao\", type text}, {\"minuto\", type text}})",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Cabeçalhos Promovidos\",{{\"partida_id\", Int64.Type}, {\"rodata\", Int64.Type}, {\"clube\", type text}, {\"cartao\", type text}, {\"atleta\", type text}, {\"num_camisa\", Int64.Type}, {\"posicao\", type text}, {\"minuto\", type text}}),",
+                "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Tipo Alterado\",\"Clayson\",\"Clayson Henrique da Silva Vieira\",Replacer.ReplaceValue,{\"atleta\"}),",
+                "    #\"Valor Substituído1\" = Table.ReplaceValue(#\"Valor Substituído\",\"\",\"Everton Kempes dos Santos\",Replacer.ReplaceValue,{\"atleta\"}),",
+                "    #\"Valor Substituído2\" = Table.ReplaceValue(#\"Valor Substituído1\",\"Gabriel Barbosa Almeida\",\"Gabriel Barbosa\",Replacer.ReplaceText,{\"atleta\"})",
                 "in",
-                "    #\"Tipo Alterado\""
+                "    #\"Valor Substituído2\""
               ],
               "type": "m"
             }
@@ -9839,18 +9844,7 @@
             "formatString": "Short Date",
             "lineageTag": "c5cd787e-479a-4b97-8f2e-2d5bdfb55c01",
             "sourceColumn": "data",
-            "summarizeBy": "none",
-            "variations": [
-              {
-                "name": "Variation",
-                "defaultHierarchy": {
-                  "hierarchy": "Hierarquia de datas",
-                  "table": "LocalDateTable_ce9ff99e-3407-4270-999a-ec9df07621ab"
-                },
-                "isDefault": true,
-                "relationship": "eff09a0d-adf8-4c77-b8f2-f37eac71757d"
-              }
-            ]
+            "summarizeBy": "none"
           },
           {
             "name": "hora",
@@ -10282,217 +10276,15 @@
         ]
       },
       {
-        "name": "LocalDateTable_ce9ff99e-3407-4270-999a-ec9df07621ab",
-        "annotations": [
-          {
-            "name": "__PBI_LocalDateTable",
-            "value": "true"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "dataCategory": "PaddedDateTableDates",
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "isHidden": true,
-            "isNameInferred": true,
-            "lineageTag": "e780c8a4-5184-4d30-9847-02cf410de3a2",
-            "sourceColumn": "[Date]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
-          },
-          {
-            "name": "Ano",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Year"
-              }
-            ],
-            "dataCategory": "Years",
-            "dataType": "int64",
-            "expression": "YEAR([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "cc136599-e458-487e-9fdf-9fd339174924",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "MonthNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "MonthNumber"
-              }
-            ],
-            "dataCategory": "MonthOfYear",
-            "dataType": "int64",
-            "expression": "MONTH([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "bfdff9eb-3875-4fef-a549-dc860475b5c3",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Mês",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Month"
-              }
-            ],
-            "dataCategory": "Months",
-            "dataType": "string",
-            "expression": "FORMAT([Date], \"MMMM\")",
-            "isHidden": true,
-            "lineageTag": "3b70b97e-fc00-44f6-bf70-4341ddf54ab2",
-            "sortByColumn": "MonthNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "QuarterNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "QuarterNumber"
-              }
-            ],
-            "dataCategory": "QuarterOfYear",
-            "dataType": "int64",
-            "expression": "INT(([MonthNo] + 2) / 3)",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "c873b844-b037-4445-a334-2f6ee04acf0a",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Trimestre",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Quarter"
-              }
-            ],
-            "dataCategory": "Quarters",
-            "dataType": "string",
-            "expression": "\"Qtr \" & [QuarterNo]",
-            "isHidden": true,
-            "lineageTag": "a224fbd3-d8c2-402c-809f-d0ea2cb31ae3",
-            "sortByColumn": "QuarterNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Dia",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Day"
-              }
-            ],
-            "dataCategory": "DayOfMonth",
-            "dataType": "int64",
-            "expression": "DAY([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "88da6fd8-b370-41d6-b422-daa27667a508",
-            "summarizeBy": "none",
-            "type": "calculated"
-          }
-        ],
-        "hierarchies": [
-          {
-            "name": "Hierarquia de datas",
-            "annotations": [
-              {
-                "name": "TemplateId",
-                "value": "DateHierarchy"
-              }
-            ],
-            "levels": [
-              {
-                "name": "Ano",
-                "column": "Ano",
-                "lineageTag": "ad01bdcf-09f1-4523-ba93-ee4ffa33e2fa",
-                "ordinal": 0
-              },
-              {
-                "name": "Trimestre",
-                "column": "Trimestre",
-                "lineageTag": "98740d38-28bb-43f7-95c4-0458d026515e",
-                "ordinal": 1
-              },
-              {
-                "name": "Mês",
-                "column": "Mês",
-                "lineageTag": "d58c9f57-cf92-4201-8cc5-2d960c126641",
-                "ordinal": 2
-              },
-              {
-                "name": "Dia",
-                "column": "Dia",
-                "lineageTag": "7a501921-7ba3-449b-a052-9d647ac9396d",
-                "ordinal": 3
-              }
-            ],
-            "lineageTag": "70233497-c50b-477e-9f62-75475ab59782"
-          }
-        ],
-        "isHidden": true,
-        "lineageTag": "3b5961b5-7b0f-4dd8-9389-fa1ce6477198",
-        "partitions": [
-          {
-            "name": "LocalDateTable_ce9ff99e-3407-4270-999a-ec9df07621ab",
-            "mode": "import",
-            "source": {
-              "expression": "Calendar(Date(Year(MIN('campeonato-brasileiro-full'[data])), 1, 1), Date(Year(MAX('campeonato-brasileiro-full'[data])), 12, 31))",
-              "type": "calculated"
-            }
-          }
-        ],
-        "showAsVariationsOnly": true
-      },
-      {
         "name": "campeonato-brasileiro-gols",
         "annotations": [
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
           }
         ],
         "columns": [
@@ -10587,9 +10379,11 @@
                 "let",
                 "    Fonte = Csv.Document(File.Contents(\"C:\\Users\\MSI\\Documents\\PBI\\Brasileirao\\07-Brasileirao\\campeonato-brasileiro-gols.csv\"),[Delimiter=\",\", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Cabeçalhos Promovidos\" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
-                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Cabeçalhos Promovidos\",{{\"partida_id\", Int64.Type}, {\"rodata\", Int64.Type}, {\"clube\", type text}, {\"atleta\", type text}, {\"minuto\", type text}, {\"tipo_de_gol\", type text}})",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Cabeçalhos Promovidos\",{{\"partida_id\", Int64.Type}, {\"rodata\", Int64.Type}, {\"clube\", type text}, {\"atleta\", type text}, {\"minuto\", type text}, {\"tipo_de_gol\", type text}}),",
+                "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Tipo Alterado\",\"Everton Kempes dos Santos Gonçalves\",\"Everton Kempes dos Santos\",Replacer.ReplaceText,{\"atleta\"}),",
+                "    #\"Valor Substituído1\" = Table.ReplaceValue(#\"Valor Substituído\",\"Gabriel Barbosa Almeida\",\"Gabriel Barbosa\",Replacer.ReplaceText,{\"atleta\"})",
                 "in",
-                "    #\"Tipo Alterado\""
+                "    #\"Valor Substituído1\""
               ],
               "type": "m"
             }
@@ -10872,18 +10666,7 @@
             "formatString": "Long Date",
             "lineageTag": "894ef71e-38c2-468c-9996-bbb5ac7a72b0",
             "sourceColumn": "data",
-            "summarizeBy": "none",
-            "variations": [
-              {
-                "name": "Variation",
-                "defaultHierarchy": {
-                  "hierarchy": "Hierarquia de datas",
-                  "table": "LocalDateTable_9ac1311b-29e3-473d-b8cf-e0946361cf49"
-                },
-                "isDefault": true,
-                "relationship": "d6697340-e0fa-47fc-80e8-0db72a570eb5"
-              }
-            ]
+            "summarizeBy": "none"
           },
           {
             "name": "hora",
@@ -11128,212 +10911,6 @@
             }
           }
         ]
-      },
-      {
-        "name": "LocalDateTable_9ac1311b-29e3-473d-b8cf-e0946361cf49",
-        "annotations": [
-          {
-            "name": "__PBI_LocalDateTable",
-            "value": "true"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "dataCategory": "PaddedDateTableDates",
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "isHidden": true,
-            "isNameInferred": true,
-            "lineageTag": "c644e415-7249-47a3-af7c-c0d891bb2bf3",
-            "sourceColumn": "[Date]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
-          },
-          {
-            "name": "Ano",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Year"
-              }
-            ],
-            "dataCategory": "Years",
-            "dataType": "int64",
-            "expression": "YEAR([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "16a9161b-984d-4ae4-a5aa-334aeb399b32",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "MonthNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "MonthNumber"
-              }
-            ],
-            "dataCategory": "MonthOfYear",
-            "dataType": "int64",
-            "expression": "MONTH([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "107efc94-47ec-43ff-a25b-c3077ef08570",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Mês",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Month"
-              }
-            ],
-            "dataCategory": "Months",
-            "dataType": "string",
-            "expression": "FORMAT([Date], \"MMMM\")",
-            "isHidden": true,
-            "lineageTag": "32b45254-efae-474a-96bc-077f4cab02d2",
-            "sortByColumn": "MonthNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "QuarterNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "QuarterNumber"
-              }
-            ],
-            "dataCategory": "QuarterOfYear",
-            "dataType": "int64",
-            "expression": "INT(([MonthNo] + 2) / 3)",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "44852652-b7be-4954-8eaf-9403265049d6",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Trimestre",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Quarter"
-              }
-            ],
-            "dataCategory": "Quarters",
-            "dataType": "string",
-            "expression": "\"Qtr \" & [QuarterNo]",
-            "isHidden": true,
-            "lineageTag": "bb20db24-7c4c-4baf-8baa-63198fc2a077",
-            "sortByColumn": "QuarterNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Dia",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Day"
-              }
-            ],
-            "dataCategory": "DayOfMonth",
-            "dataType": "int64",
-            "expression": "DAY([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "c9cb924c-bee1-4192-bf0b-35a38251dcee",
-            "summarizeBy": "none",
-            "type": "calculated"
-          }
-        ],
-        "hierarchies": [
-          {
-            "name": "Hierarquia de datas",
-            "annotations": [
-              {
-                "name": "TemplateId",
-                "value": "DateHierarchy"
-              }
-            ],
-            "levels": [
-              {
-                "name": "Ano",
-                "column": "Ano",
-                "lineageTag": "e78392e5-f097-4f94-823d-639ff3747fa4",
-                "ordinal": 0
-              },
-              {
-                "name": "Trimestre",
-                "column": "Trimestre",
-                "lineageTag": "13ae9c10-de50-421d-8bdb-40f78a32b326",
-                "ordinal": 1
-              },
-              {
-                "name": "Mês",
-                "column": "Mês",
-                "lineageTag": "bbb2f618-43ea-4fd2-8ded-e2bd54b7bd02",
-                "ordinal": 2
-              },
-              {
-                "name": "Dia",
-                "column": "Dia",
-                "lineageTag": "6e861946-5754-4d72-acaf-ddc720950d55",
-                "ordinal": 3
-              }
-            ],
-            "lineageTag": "10eb6a6c-316f-46d2-b09a-0d163aac068c"
-          }
-        ],
-        "isHidden": true,
-        "lineageTag": "32379553-e377-47c6-893f-d2d7d5c7a1b3",
-        "partitions": [
-          {
-            "name": "LocalDateTable_9ac1311b-29e3-473d-b8cf-e0946361cf49",
-            "mode": "import",
-            "source": {
-              "expression": "Calendar(Date(Year(MIN('full - unpivot'[data])), 1, 1), Date(Year(MAX('full - unpivot'[data])), 12, 31))",
-              "type": "calculated"
-            }
-          }
-        ],
-        "showAsVariationsOnly": true
       },
       {
         "name": "Tabela",
@@ -12223,23 +11800,6 @@
             "type": "calculatedTableColumn"
           },
           {
-            "name": "Ano",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "isDataTypeInferred": true,
-            "isNameInferred": true,
-            "lineageTag": "a5ccac79-8d59-4e57-9e78-7b6abbec6ead",
-            "sourceColumn": "full - unpivot[Ano]",
-            "summarizeBy": "sum",
-            "type": "calculatedTableColumn"
-          },
-          {
             "name": "TotalPontos",
             "annotations": [
               {
@@ -12404,6 +11964,23 @@
             "sourceColumn": "[GolsContra]",
             "summarizeBy": "sum",
             "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "f8194a54-83ee-4ecb-bde2-c98acf17babe",
+            "sourceColumn": "full - unpivot[Ano]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
           }
         ],
         "lineageTag": "542f90ee-9360-4b32-8af8-77287be71bf2",
@@ -12448,16 +12025,17 @@
                 "SUMMARIZE(",
                 "    'full - unpivot',",
                 "    'full - unpivot'[time],",
-                "    'full - unpivot'[Ano],",
+                "    'full - unpivot'[Ano], ",
                 "    \"TotalJogos\", DISTINCTCOUNT('full - unpivot'[ID]),",
-                "    \"TotalPontos\",  sum('full - unpivot'[Pontos]),",
+                "    \"TotalPontos\", SUM('full - unpivot'[Pontos]),",
                 "    \"TotalVitorias\", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = \"V\"),",
                 "    \"TotalDerrotas\", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = \"D\"),",
                 "    \"TotalEmpates\", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = \"E\"),",
-                "    \"GolsPro\", sum('full - unpivot'[gols_pro]),",
-                "    \"GolsContra\", sum('full - unpivot'[gols_contra]),",
-                "    \"SaldoGols\", sum('full - unpivot'[Saldo Gols])",
-                ")"
+                "    \"GolsPro\", SUM('full - unpivot'[gols_pro]),",
+                "    \"GolsContra\", SUM('full - unpivot'[gols_contra]),",
+                "    \"SaldoGols\", SUM('full - unpivot'[Saldo Gols])",
+                ")",
+                ""
               ],
               "type": "calculated"
             }
@@ -12519,18 +12097,7 @@
             "formatString": "Long Date",
             "lineageTag": "0015dbc2-50a8-4dfa-bf92-0d36175a7eca",
             "sourceColumn": "Dt Nascimento",
-            "summarizeBy": "none",
-            "variations": [
-              {
-                "name": "Variation",
-                "defaultHierarchy": {
-                  "hierarchy": "Hierarquia de datas",
-                  "table": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422"
-                },
-                "isDefault": true,
-                "relationship": "73aab90f-e705-43f1-ae19-360aa351b45e"
-              }
-            ]
+            "summarizeBy": "none"
           },
           {
             "name": "Local Nascimento",
@@ -12671,212 +12238,6 @@
         ]
       },
       {
-        "name": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422",
-        "annotations": [
-          {
-            "name": "__PBI_LocalDateTable",
-            "value": "true"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "dataCategory": "PaddedDateTableDates",
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "isHidden": true,
-            "isNameInferred": true,
-            "lineageTag": "a68d3a49-e3b6-4d5d-bee2-f45e46f24d23",
-            "sourceColumn": "[Date]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
-          },
-          {
-            "name": "Ano",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Year"
-              }
-            ],
-            "dataCategory": "Years",
-            "dataType": "int64",
-            "expression": "YEAR([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "1bf8245e-d974-4c66-afe2-f0db1f149b73",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "MonthNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "MonthNumber"
-              }
-            ],
-            "dataCategory": "MonthOfYear",
-            "dataType": "int64",
-            "expression": "MONTH([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "eaf06f56-e04d-4270-baef-cfbcd30a2790",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Mês",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Month"
-              }
-            ],
-            "dataCategory": "Months",
-            "dataType": "string",
-            "expression": "FORMAT([Date], \"MMMM\")",
-            "isHidden": true,
-            "lineageTag": "e2303525-c1ca-40ae-baa0-56f16f079ba7",
-            "sortByColumn": "MonthNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "QuarterNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "QuarterNumber"
-              }
-            ],
-            "dataCategory": "QuarterOfYear",
-            "dataType": "int64",
-            "expression": "INT(([MonthNo] + 2) / 3)",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "1e9f0e0b-9299-4a47-ba78-6f5b4892700d",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Trimestre",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Quarter"
-              }
-            ],
-            "dataCategory": "Quarters",
-            "dataType": "string",
-            "expression": "\"Qtr \" & [QuarterNo]",
-            "isHidden": true,
-            "lineageTag": "06f3a2b8-0577-4534-a876-e181ba8fffd8",
-            "sortByColumn": "QuarterNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Dia",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Day"
-              }
-            ],
-            "dataCategory": "DayOfMonth",
-            "dataType": "int64",
-            "expression": "DAY([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "4df19694-f45f-43f1-96f9-9f346245e00b",
-            "summarizeBy": "none",
-            "type": "calculated"
-          }
-        ],
-        "hierarchies": [
-          {
-            "name": "Hierarquia de datas",
-            "annotations": [
-              {
-                "name": "TemplateId",
-                "value": "DateHierarchy"
-              }
-            ],
-            "levels": [
-              {
-                "name": "Ano",
-                "column": "Ano",
-                "lineageTag": "bc9d08f4-6728-44b3-b587-fa61826b7774",
-                "ordinal": 0
-              },
-              {
-                "name": "Trimestre",
-                "column": "Trimestre",
-                "lineageTag": "4364a033-92e0-4352-be53-f206b97b539e",
-                "ordinal": 1
-              },
-              {
-                "name": "Mês",
-                "column": "Mês",
-                "lineageTag": "044b05f8-c6c3-43ff-9bc3-065b6a4c3ad5",
-                "ordinal": 2
-              },
-              {
-                "name": "Dia",
-                "column": "Dia",
-                "lineageTag": "cb090c85-c5c6-4e7d-86ec-56f1d8246418",
-                "ordinal": 3
-              }
-            ],
-            "lineageTag": "40249674-f2b9-46c9-9ae0-d5e7e8044943"
-          }
-        ],
-        "isHidden": true,
-        "lineageTag": "242c79af-d306-4b74-9915-7880ff8966cc",
-        "partitions": [
-          {
-            "name": "LocalDateTable_a5477d3a-04d3-4b15-8cd5-0fad606d6422",
-            "mode": "import",
-            "source": {
-              "expression": "Calendar(Date(Year(MIN('dim_jogadores'[Dt Nascimento])), 1, 1), Date(Year(MAX('dim_jogadores'[Dt Nascimento])), 12, 31))",
-              "type": "calculated"
-            }
-          }
-        ],
-        "showAsVariationsOnly": true
-      },
-      {
         "name": "TabelaGolsPorClube",
         "annotations": [
           {
@@ -12953,6 +12314,224 @@
                 "        'campeonato-brasileiro-gols'[tipo_de_gol] <> \"Gol Contra\"",
                 "    )",
                 ")"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dCalendar",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "4a732000d2d9491986a3ede10c077508"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isDataTypeInferred": true,
+            "isKey": true,
+            "isNameInferred": true,
+            "lineageTag": "68b70bed-2639-45dc-9d2d-12852eefe449",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "6a81c3b7-8815-4f68-a8ab-3b1499eddbba",
+            "sourceColumn": "[Ano]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "d60158f6-cda9-4198-b934-154d6c8079c8",
+            "sourceColumn": "[Mês]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "NomeMês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "2a1c826f-1010-4a63-9a87-19b0f2d7594a",
+            "sourceColumn": "[NomeMês]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "598d3e0a-56e9-4642-9a79-31a254bbd318",
+            "sourceColumn": "[Trimestre]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "5b61496b-d1b8-4ed4-b667-ce8ff8324729",
+            "sourceColumn": "[Dia]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Nome do Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "0a6688f5-db52-46b0-89cc-072b23ab52a7",
+            "sourceColumn": "[Nome do Dia]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano-Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "d4ca6568-dc97-4d04-8050-cfa5efe2580d",
+            "sourceColumn": "[Ano-Mês]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "dataCategory": "Time",
+        "lineageTag": "e37ced23-f267-4f11-8f0f-59626d48e161",
+        "partitions": [
+          {
+            "name": "dCalendar",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "VAR MinDataNascimento = ",
+                "    CALCULATE(",
+                "        MIN(dim_jogadores[Dt Nascimento]),",
+                "        NOT(ISBLANK(dim_jogadores[Dt Nascimento]))",
+                "    )",
+                "RETURN",
+                "ADDCOLUMNS(",
+                "    CALENDAR(MinDataNascimento, TODAY()),",
+                "    \"Ano\", YEAR([Date]),",
+                "    \"Mês\", MONTH([Date]),",
+                "    \"NomeMês\", FORMAT([Date], \"MMMM\"),",
+                "    \"Trimestre\", \"T\" & FORMAT([Date], \"Q\"),",
+                "    \"Dia\", DAY([Date]),",
+                "    \"Nome do Dia\", FORMAT([Date], \"dddd\"),",
+                "    \"Ano-Mês\", FORMAT([Date], \"YYYY-MM\")",
+                ")",
+                ""
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dAno",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "6dcb3cac74cf45baa76054a997842210"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "0c45b3fe-3bef-4263-89d6-fbad19f951b5",
+            "sourceColumn": "[Value]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "27bcc12f-7130-432f-8547-f738d5852de6",
+        "partitions": [
+          {
+            "name": "dAno",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "    GENERATESERIES(2003, 2023, 1)",
+                ""
               ],
               "type": "calculated"
             }
