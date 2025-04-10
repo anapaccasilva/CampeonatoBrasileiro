@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2645.3271028037384,
+        "x": 2929.2056074766356,
         "y": 0
       },
       "nodes": [
@@ -154,6 +154,31 @@
             "y": 50
           },
           "nodeIndex": "dAno",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3408,
+            "y": 74
+          },
+          "nodeIndex": "Param_Estatistica",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3692,
+            "y": 50
+          },
+          "nodeIndex": "dim_cores",
+          "nodeLineageTag": "930cc5ec-6408-47dc-b0a8-25cd5b35fa6d",
           "size": {
             "height": 200,
             "width": 234
