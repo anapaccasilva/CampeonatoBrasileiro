@@ -1,0 +1,77 @@
+expression 'campeonato-brasileiro-full - mandantes' =
+		let
+		    Fonte = #"campeonato-brasileiro-full",
+		    #"Colunas Removidas" = Table.RemoveColumns(Fonte,{"formacao_visitante", "tecnico_visitante"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"mandante_Placar", "gols_pro"}, {"visitante_Placar", "gols_contra"}}),
+		    #"Colunas Removidas1" = Table.RemoveColumns(#"Colunas Renomeadas",{"visitante_Estado"}),
+		    #"Colunas Renomeadas1" = Table.RenameColumns(#"Colunas Removidas1",{{"formacao_mandante", "formacao"}, {"tecnico_mandante", "tecnico"}}),
+		    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Colunas Renomeadas1", "R", each if [mandante] = [vencedor] then "V" else if [vencedor] = "-" then "E" else "D"),
+		    #"Personalização Adicionada" = Table.AddColumn(#"Coluna Condicional Adicionada", "mandante_flag", each "S"),
+		    #"Colunas Renomeadas2" = Table.RenameColumns(#"Personalização Adicionada",{{"mandante", "time"}, {"visitante", "adversario"}})
+		in
+		    #"Colunas Renomeadas2"
+	lineageTag: ea77ef8f-45ed-44c4-86f0-78f539dca78f
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'campeonato-brasileiro-full - visitantes' =
+		let
+		    Fonte = #"campeonato-brasileiro-full",
+		    #"Colunas Removidas" = Table.RemoveColumns(Fonte,{ "formacao_mandante", "tecnico_mandante"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"visitante_Placar", "gols_pro"}, {"mandante_Placar", "gols_contra"}}),
+		    #"Colunas Removidas1" = Table.RemoveColumns(#"Colunas Renomeadas",{"visitante_Estado"}),
+		    #"Colunas Renomeadas1" = Table.RenameColumns(#"Colunas Removidas1",{{"formacao_visitante", "formacao"}, {"tecnico_visitante", "tecnico"}}),
+		    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Colunas Renomeadas1", "R", each if [visitante] = [vencedor] then "V" else if [vencedor] = "-" then "E" else "D"),
+		    #"Personalização Adicionada" = Table.AddColumn(#"Coluna Condicional Adicionada", "mandante_flag", each "N"),
+		    #"Colunas Renomeadas2" = Table.RenameColumns(#"Personalização Adicionada",{{"visitante", "time"}, {"mandante", "adversario"}})
+		in
+		    #"Colunas Renomeadas2"
+	lineageTag: 2b56c0c5-db0a-43a4-b528-544261a84c12
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression serie =
+		let
+		    Fonte = Excel.Workbook(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\bases\serie.xlsx"), null, true),
+		    Planilha1_Sheet = Fonte{[Item="Planilha1",Kind="Sheet"]}[Data],
+		    #"Tipo Alterado" = Table.TransformColumnTypes(Planilha1_Sheet,{{"Column1", type text}, {"Column2", type any}, {"Column3", type any}, {"Column4", type any}, {"Column5", type any}, {"Column6", type any}, {"Column7", type any}, {"Column8", type any}, {"Column9", type any}, {"Column10", type any}, {"Column11", type any}, {"Column12", type any}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}}),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+		    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"2003", type text}, {"2004", type text}, {"2005", type text}, {"2006", type text}, {"2007", type text}, {"2008", type text}, {"2009", type text}, {"2010", type text}, {"2011", type text}, {"2012", type text}, {"2013", type text}, {"2014", type text}, {"2015", type text}, {"2016", type text}, {"2017", type text}, {"2018", type text}, {"2019", type text}, {"2020", type text}, {"2021", type text}, {"2022", type text}, {"2023", type text}}),
+		    #"Texto Aparado" = Table.TransformColumns(#"Tipo Alterado1",{{"Time", Text.Trim, type text}}),
+		    #"Outras Colunas Não Dinâmicas" = Table.UnpivotOtherColumns(#"Texto Aparado", {"Time"}, "Atributo", "Valor"),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Outras Colunas Não Dinâmicas",{{"Atributo", "Ano"}, {"Valor", "Serie"}})
+		in
+		    #"Colunas Renomeadas"
+	lineageTag: 9733a9aa-69ac-470e-a9db-59f0d3ab89ee
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression campeonato-brasileiro-full =
+		let
+		    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-full.csv"),[Delimiter=",", Columns=16, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID", Int64.Type}, {"rodata", Int64.Type}, {"data", type date}, {"hora", type time}, {"mandante", type text}, {"visitante", type text}, {"formacao_mandante", type text}, {"formacao_visitante", type text}, {"tecnico_mandante", type text}, {"tecnico_visitante", type text}, {"vencedor", type text}, {"arena", type text}, {"mandante_Placar", Int64.Type}, {"visitante_Placar", Int64.Type}, {"mandante_Estado", type text}, {"visitante_Estado", type text}}),
+		    #"Coluna Duplicada" = Table.DuplicateColumn(#"Tipo Alterado", "data", "Ano"),
+		    #"Ano Extraído" = Table.TransformColumns(#"Coluna Duplicada",{{"Ano", Date.Year, Int64.Type}}),
+		    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Ano Extraído",{{"Ano", type text}}),
+		    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado1", {"mandante", "Ano"}, serie, {"Time", "Ano"}, "serie", JoinKind.LeftOuter),
+		    #"serie Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "serie", {"Serie"}, {"Serie Mandante"}),
+		    Personalizar1 = Table.NestedJoin(#"serie Expandido", {"visitante", "Ano"}, serie, {"Time", "Ano"}, "serie", JoinKind.LeftOuter),
+		    #"serie Expandido1" = Table.ExpandTableColumn(Personalizar1, "serie", {"Serie"}, {"Serie Visitante"}),
+		    // Devido a pandemia de Covid a temporada de 2020 terminou em janeiro de 2021, de modo que em um mesmo ano alguns clubes jogaram em mais de uma divisão, porém em temporadas diferentes
+		    #"Coluna Condicional Adicionada" = Table.AddColumn(#"serie Expandido1", "Série", each if [Serie Mandante] = [Serie Visitante] then [Serie Mandante] else "A"),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Coluna Condicional Adicionada",{"Ano", "Serie Mandante", "Serie Visitante"})
+		in
+		    #"Colunas Removidas"
+	lineageTag: d62f6c19-216e-4769-ab65-bd29e20c8c2a
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,77 @@
+relationship 7485692f-a21c-ed78-46ac-ff7e067e30de
+	isActive: false
+	fromColumn: campeonato-brasileiro-cartoes.clube
+	toColumn: dim_clubes.Clube_s_acentos
+
+relationship 4ce88cbb-9a99-57ec-5273-eee35e11f492
+	isActive: false
+	fromColumn: campeonato-brasileiro-estatisticas-full.clube
+	toColumn: dim_clubes.Clube_s_acentos
+
+relationship e69b2d93-c2f9-378d-928e-e8e508c40545
+	fromColumn: campeonato-brasileiro-gols.clube
+	toColumn: dim_clubes.Clube_s_acentos
+
+relationship b35b2f32-6cd9-bb2f-9626-2c745a5a829a
+	fromColumn: 'full - unpivot'.time
+	toColumn: dim_clubes.Clube_s_acentos
+
+relationship d4eaba62-9703-6eff-982f-01b8e3886a5b
+	fromColumn: dim_clubes.Cores
+	toColumn: Tabela.'Coluna 1'
+
+relationship 266e4fa8-1fc9-4be9-b247-e3d996aa4ef8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_clubes.Fundacao
+	toColumn: LocalDateTable_2ea599c2-7a12-48e5-845a-02093c9b8bcd.Date
+
+relationship 1d95649b-067b-260e-7b14-244f4b2c5bbb
+	fromColumn: campeonato-brasileiro-gols.atleta
+	toColumn: dim_jogadores.atleta
+
+relationship 4e45539d-8661-c63f-136c-6afea0ed92d2
+	fromColumn: TabelaGolsPorClube.atleta
+	toColumn: dim_jogadores.atleta
+
+relationship ca954fa8-28d3-e1eb-1f4f-1edc64c72c0d
+	fromColumn: TabelaGolsPorClube.clube
+	toColumn: dim_clubes.Clube_s_acentos
+
+relationship b6dc83ee-06a7-cb97-42c8-9b3cdcfa3166
+	fromColumn: campeonato-brasileiro-cartoes.atleta
+	toColumn: dim_jogadores.atleta
+
+relationship 95648a65-ec66-f428-bf13-9ccd3ebb0986
+	fromColumn: 'full - unpivot'.data
+	toColumn: dCalendar.Date
+
+relationship 1552c350-e6b7-c066-cbec-7463cc615f0a
+	fromColumn: dCalendar.Ano-Campeonato
+	toColumn: dAno.Ano
+
+relationship e7b94801-9900-a912-557b-62e867d9d1d6
+	fromColumn: fct_classificacao.time
+	toColumn: dim_clubes.Clube_s_acentos
+
+relationship 3a340562-2cd7-bdfa-150c-ee498a4603df
+	fromColumn: fct_classificacao.Ano
+	toColumn: dAno.Ano
+
+relationship e72fa365-0992-b9bf-770b-a0b417c4b329
+	fromColumn: dim_clubes.Cores
+	toColumn: dim_cores.Cor
+
+relationship AutoDetected_0a430a71-595b-412e-92cd-27929d06705a
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'full - unpivot'.id_time
+	toColumn: campeonato-brasileiro-estatisticas-full.id_time
+
+relationship 53887932-ad46-4220-8e0f-1675baad1392
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_jogadores.'Dt Nascimento'
+	toColumn: LocalDateTable_6b161db7-deac-48d9-b7e0-6ec0cc4fc765.Date
+
+relationship 4ed7969c-3dc4-6a8e-fda5-a503605cb842
+	fromColumn: campeonato-brasileiro-cartoes.id_time
+	toColumn: 'full - unpivot'.id_time
+

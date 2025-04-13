@@ -1,0 +1,107 @@
+table dCalendar
+	lineageTag: e37ced23-f267-4f11-8f0f-59626d48e161
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 68b70bed-2639-45dc-9d2d-12852eefe449
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		formatString: 0
+		lineageTag: 6a81c3b7-8815-4f68-a8ab-3b1499eddbba
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês
+		formatString: 0
+		lineageTag: d60158f6-cda9-4198-b934-154d6c8079c8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Mês]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeMês
+		lineageTag: 2a1c826f-1010-4a63-9a87-19b0f2d7594a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NomeMês]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		lineageTag: 598d3e0a-56e9-4642-9a79-31a254bbd318
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		formatString: 0
+		lineageTag: 5b61496b-d1b8-4ed4-b667-ce8ff8324729
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Dia]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome do Dia'
+		lineageTag: 0a6688f5-db52-46b0-89cc-072b23ab52a7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nome do Dia]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano-Campeonato
+		formatString: 0
+		lineageTag: bc9f44d2-f67c-4be9-b303-1a529c11ae13
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ano-Campeonato]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendar = calculated
+		mode: import
+		source = ```
+				
+				VAR MinDataNascimento = 
+				    CALCULATE(
+				        MIN(dim_jogadores[Dt Nascimento]),
+				        NOT(ISBLANK(dim_jogadores[Dt Nascimento]))
+				    )
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(MinDataNascimento, TODAY()),
+				    "Ano", YEAR([Date]),
+				    "Mês", MONTH([Date]),
+				    "NomeMês", FORMAT([Date], "MMMM"),
+				    "Trimestre", "T" & FORMAT([Date], "Q"),
+				    "Dia", DAY([Date]),
+				    "Nome do Dia", FORMAT([Date], "dddd"),
+				    "Ano-Campeonato", 
+				        VAR AnoData = YEAR([Date])
+				        VAR MesData = MONTH([Date])
+				        RETURN 
+				            IF(
+				                AnoData = 2021 && MesData <= 3, 
+				                2020, 
+				                AnoData
+				            )
+				)
+				
+				```
+
+	annotation PBI_Id = 4a732000d2d9491986a3ede10c077508
+

@@ -1,0 +1,41 @@
+table dim_cores
+	lineageTag: 930cc5ec-6408-47dc-b0a8-25cd5b35fa6d
+
+	column Índice
+		dataType: int64
+		formatString: 0
+		lineageTag: 825fb12f-7d0f-4698-8fea-41b2e0c473db
+		summarizeBy: none
+		sourceColumn: Índice
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cor
+		dataType: string
+		lineageTag: b3b4cc98-cdcc-4c79-8ee8-fa1b02f9cfe1
+		summarizeBy: none
+		sourceColumn: Cor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Código Hexadecimal'
+		dataType: string
+		lineageTag: 24629a4b-c774-487f-ad0f-88abe51e79d2
+		summarizeBy: none
+		sourceColumn: Código Hexadecimal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cores = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("dZI9EsIgEIWvksE2BZsEk5TGSWorm0wKVEaL/DiMWngbz+LFJJDgghEq2I/H4y11TYCEZC/kSQQiOEjeHwe1sYIiZUlBmrAmkQE60V4GhylpoqZmYpe5SnHzEabWm+e9dSSigkFe6fp6qofBY+kyRKaWNGXF8Y5L0fpgNoKm4hqvSgpMI7la70a3y2KIBIqCQghKCmyWSO0sRf9++SQONQy4nwvKDWL7XB3rv1QgcSR/WazJvkYX08ZWx8YU82tsZ6kehpgb4jvK7EnnmkWNfP4ex5ZL1wxlGWwNFtG5Xy4xCTUf", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Índice = _t, Cor = _t, #"Código Hexadecimal" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Índice", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

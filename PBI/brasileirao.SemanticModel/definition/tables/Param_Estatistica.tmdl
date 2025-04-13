@@ -1,0 +1,819 @@
+table Param_Estatistica
+	lineageTag: ba276148-95a0-405a-bf26-03f37a1ad10e
+
+	measure Card_Desempenho = ```
+			
+			VAR Total = [_jogos]
+			VAR V = [_vitorias]
+			VAR E = [_empates]
+			VAR D = [_derrotas]
+			
+			VAR PctV = DIVIDE(V, Total, 0)
+			VAR PctE = DIVIDE(E, Total, 0)
+			VAR PctD = DIVIDE(D, Total, 0)
+			
+			VAR AnoSelecionado = SELECTEDVALUE(dCalendar[Ano-Campeonato], "Ano não selecionado")
+			
+			RETURN
+			"
+			<div style='width: 408px; height: 288px; background-color: #1a1a1a; padding: 20px; border-radius: 12px; font-family: Arial, sans-serif; color: white; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: space-between; gap: 16px;'>
+			
+			    <div style='text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 16px;'>
+			        Brasileirão - " & AnoSelecionado & "
+			    </div>
+			
+			    <div>
+			        <div style='margin-bottom: 4px;'>🟢 <strong>" & V & " Vitórias</strong> — " & FORMAT(PctV, "0.0%") & "</div>
+			        <div style='height: 12px; background-color: #333; border-radius: 6px; overflow: hidden;'>
+			            <div style='height: 100%; width: " & FORMAT(PctV * 100, "0") & "%; background-color: #2ecc71; transition: width 1s ease-in-out;'></div>
+			        </div>
+			    </div>
+			
+			    <div>
+			        <div style='margin-bottom: 4px;'>🟡 <strong>" & E & " Empates</strong> — " & FORMAT(PctE, "0.0%") & "</div>
+			        <div style='height: 12px; background-color: #333; border-radius: 6px; overflow: hidden;'>
+			            <div style='height: 100%; width: " & FORMAT(PctE * 100, "0") & "%; background-color: #f1c40f; transition: width 1s ease-in-out;'></div>
+			        </div>
+			    </div>
+			
+			    <div>
+			        <div style='margin-bottom: 4px;'>🔴 <strong>" & D & " Derrotas</strong> — " & FORMAT(PctD, "0.0%") & "</div>
+			        <div style='height: 12px; background-color: #333; border-radius: 6px; overflow: hidden;'>
+			            <div style='height: 100%; width: " & FORMAT(PctD * 100, "0") & "%; background-color: #e74c3c; transition: width 1s ease-in-out;'></div>
+			        </div>
+			    </div>
+			
+			</div>
+			"
+			
+			```
+		lineageTag: c491fe47-97ff-4d52-921a-79ca7c45ce07
+
+	measure Card_Vazio = ```
+			
+			"<html>
+			<head>
+			    <meta charset=""UTF-8"">
+			    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+			    <title>Card Vazio</title>
+			    <style>
+			        /* ===== VARIÁVEIS GLOBAIS ===== */
+			        :root {
+			            --cor-fundo: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+			            --cor-borda: rgba(255, 255, 255, 0.1);
+			            --cor-sombra: rgba(0, 0, 0, 0.1);
+			            --card-largura: 300px;
+			            --card-altura: 150px;
+			            --card-padding: 2rem;
+			            --card-borda-raio: 20px;
+			        }
+			
+			        /* ===== ESTILOS BASE ===== */
+			        * {
+			            margin: 0;
+			            padding: 0;
+			            box-sizing: border-box;
+			        }
+			
+			        body {
+			            min-height: 100vh;
+			            display: flex;
+			            justify-content: center;
+			            align-items: center;
+			            font-family: 'Segoe UI', sans-serif;
+			        }
+			
+			        /* ===== COMPONENTE CARD ===== */
+			        .kpi-card {
+			            background: rgba(255, 255, 255, 0.1);
+			            backdrop-filter: blur(10px);
+			            border-radius: var(--card-borda-raio);
+			            padding: var(--card-padding);
+			            width: var(--card-largura);
+			            height: var(--card-altura);
+			            color: white;
+			            position: relative;
+			            overflow: hidden;
+			            box-shadow: 0 8px 32px var(--cor-sombra);
+			            border: 1px solid var(--cor-borda);
+			        }
+			    </style>
+			</head>
+			<body>
+			    <div class=""kpi-card""></div>
+			</body>
+			</html>"
+			
+			```
+		lineageTag: fceb08f1-c0b1-4f9d-9bc7-3783d693d911
+
+	measure Card_vazio2 = ""
+		lineageTag: 6a23b4f9-8c1d-4b1d-919e-a481b19d4270
+
+	measure Card_Desempenho2 = ```
+			
+			VAR Total = [_jogos]
+			VAR V = [_vitorias]
+			VAR E = [_empates]
+			VAR D = [_derrotas]
+			
+			VAR PctV = DIVIDE(V, Total, 0)
+			VAR PctE = DIVIDE(E, Total, 0)
+			VAR PctD = DIVIDE(D, Total, 0)
+			
+			VAR AnoSelecionado = SELECTEDVALUE(dCalendar[Ano-Campeonato], "Ano não selecionado")
+			
+			VAR _cores = IF(
+			    NOT(ISBLANK(CALCULATE(
+			        SELECTEDVALUE(dim_cores[Código Hexadecimal]), 
+			        FILTER(
+			            dim_cores, 
+			            dim_cores[Cor] = SELECTEDVALUE(dim_clubes[Cores])
+			        )
+			    ))),
+			    CALCULATE(
+			        SELECTEDVALUE(dim_cores[Código Hexadecimal]), 
+			        FILTER(
+			            dim_cores, 
+			            dim_cores[Cor] = SELECTEDVALUE(dim_clubes[Cores])
+			        )
+			    ),
+			    "#1a1a1a"  -- Tom de preto mais neutro/opaco
+			)
+			
+			var _card =  "
+			    <div style='width: 408px; height: 288px; background-color: " & _cores & "; padding: 20px; border-radius: 12px; font-family: Arial, sans-serif; color: white; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: space-between; gap: 16px;'>
+			
+			        <div style='text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 16px;'>
+			            Brasileirão Série A - " & AnoSelecionado & "
+			        </div>
+			
+			        <div>
+			            <div style='margin-bottom: 4px;'><strong>" & V & " Vitórias</strong> — " & FORMAT(PctV, "0.0%") & "</div>
+			            <div style='height: 12px; background-color: #e0e0e0; border-radius: 6px; overflow: hidden;'>
+			                <div style='height: 100%; width: " & FORMAT(PctV * 100, "0") & "%; background-color: #ffffff; transition: width 1s ease-in-out;'></div>
+			            </div>
+			        </div>
+			
+			        <div>
+			            <div style='margin-bottom: 4px;'><strong>" & E & " Empates</strong> — " & FORMAT(PctE, "0.0%") & "</div>
+			            <div style='height: 12px; background-color: #e0e0e0; border-radius: 6px; overflow: hidden;'>
+			                <div style='height: 100%; width: " & FORMAT(PctE * 100, "0") & "%; background-color: #ffffff; transition: width 1s ease-in-out;'></div>
+			            </div>
+			        </div>
+			
+			        <div>
+			            <div style='margin-bottom: 4px;'><strong>" & D & " Derrotas</strong> — " & FORMAT(PctD, "0.0%") & "</div>
+			            <div style='height: 12px; background-color: #e0e0e0; border-radius: 6px; overflow: hidden;'>
+			                <div style='height: 100%; width: " & FORMAT(PctD * 100, "0") & "%; background-color: #ffffff; transition: width 1s ease-in-out;'></div>
+			            </div>
+			        </div>
+			
+			    </div>
+			    "
+			
+			
+			RETURN
+			IF(
+			    ISBLANK(_card),
+			    // Retângulo branco com mensagem
+			    "
+			    <div style='width: 384px; height: 448px; background-color: white; padding: 20px; border-radius: 12px; font-family: Arial, sans-serif; color: #1a1a1a; font-size: 16px; display: flex; align-items: center; justify-content: center; text-align: center;'>
+			        Time não disputou a primeira divisão do campeonato nesse ano
+			    </div>
+			    ",
+			    _card
+			)
+			   
+			```
+		lineageTag: 3201cabb-b9f6-4a4e-aeb7-2976cb777317
+
+	measure Figurinha = ```
+			
+			VAR _Imagem = MIN(dim_jogadores[Imagem])
+			VAR _Posicao = MIN(dim_jogadores[Posição]) 
+			VAR _Nascimento = MIN(dim_jogadores[Dt Nascimento]) 
+			VAR _Nacionalidade = MIN(dim_jogadores[Nacionalidade])  
+			
+			RETURN
+			"<!DOCTYPE html>
+			<html lang='en'>
+			<head>
+			    <meta charset='UTF-8'>
+			    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+			    <title>Panini Style Card</title>
+			    <style>
+			        body {
+			            margin: 0;
+			            padding: 8px;
+			            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			        }
+			        .card {
+			            width: 215px;
+			            margin: 12px auto;
+			            border: 1px solid #ccc;
+			            background-color: #f9f9f9;
+			            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			        }
+			        .card-image-container {
+			            position: relative;
+			            height: 245px;
+			            border: 6px solid #fff;
+			            box-sizing: border-box;
+			        }
+			        .card-image {
+			            width: 100%;
+			            height: 100%;
+			            object-fit: cover;
+			        }
+			        .card-content {
+			            padding: 12px;
+			            text-align: center;
+			        }
+			        .card-subtitle {
+			            font-size: 11px;
+			            font-weight: 500;
+			            color: #555;
+			            margin: 3px 0;
+			        }
+			        .birth-box {
+			            display: inline-block;
+			            background-color: #eee;
+			            color: #666666;
+			            padding: 5px 10px;
+			            font-size: 11px;
+			            font-weight: 600;
+			            margin-top: 10px;
+			        }
+			    </style>
+			</head>
+			<body>
+			    <div class='card'>
+			        <div class='card-image-container'>
+			            <img src='"&_Imagem&"' alt='"&_Posicao&"' class='card-image'>
+			        </div>
+			        <div class='card-content'>
+			            <div class='card-subtitle'>"&_Nacionalidade&" - "&_Posicao&"</div>
+			            <div class='birth-box'>"&_Nascimento&"</div>
+			        </div>
+			    </div>
+			</body>
+			</html>"
+			```
+		lineageTag: 6b3ac8ee-3a7e-41b6-933a-b83a142d9b81
+
+	measure _nome = SELECTEDVALUE(dim_jogadores[_apelido])
+		lineageTag: bd2e50cc-db4e-46a5-a3a0-be134948c04c
+
+	measure _status = SELECTEDVALUE(dim_jogadores[Situação])
+		lineageTag: df1b3b54-777c-46d3-a013-3c370fa0baf3
+
+	measure _pe = SELECTEDVALUE(dim_jogadores[Pé-Preferencial])
+		lineageTag: d1a8ce4b-e5ad-4fb9-9536-dee9096d921c
+
+	measure _nascimento = SELECTEDVALUE(dim_jogadores[Local Nascimento])
+		lineageTag: 7def390a-afb0-4c7e-948a-d69222cc8c16
+
+	measure _clubeatual = SELECTEDVALUE(dim_jogadores[Clube Atual])
+		lineageTag: b2566479-e664-4706-81dc-c08aaf38aa1a
+
+	measure 'Medida 2'
+		lineageTag: 084b491e-91d5-4383-ad02-99907efccd86
+
+	measure teste = SELECTEDVALUE(dim_jogadores[_apelido])
+		lineageTag: 2e8eca85-c2cc-4d6f-814a-c44a8bda5257
+
+	measure _GolsSofridosJogador = ```
+			
+			CALCULATE(
+			    sum('full - unpivot'[gols_contra]),
+			    FILTER(
+			        'full - unpivot',
+			        'full - unpivot'[id] IN
+			        (
+			            SELECTCOLUMNS(
+			                UNION(
+			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
+			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                ),
+			                "partida_id", [partida_id]
+			            )
+			        )
+			    ),
+			    FILTER(
+			        'campeonato-brasileiro-gols', 
+			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			    ),
+			    FILTER(
+			        'campeonato-brasileiro-cartoes', 
+			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: e1a87402-3fd7-461f-9f76-a6138b03e510
+
+	measure '_GolsSofridosJogadorLabel %' =
+			
+			VAR golssofridos = [_GolsSofridosJogador]
+			VAR proporcao = FORMAT(DIVIDE(golssofridos, golssofridos+[_GolsFeitos]), "0.00%")
+			
+			RETURN
+			
+			IF(NOT(ISBLANK(golssofridos)), " (" & proporcao & ")", "")
+		lineageTag: 9f0c1b21-1e7f-4625-8252-340a703c7869
+
+	measure _GolsSofridosJogadorLabel = COALESCE([_GolsSofridosJogador], "")
+		lineageTag: 58b96636-c67e-4fda-b7ba-a3ab6a35d43d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _GolsFeitosJogadorLabel = COALESCE([_GolsFeitos], "")
+		lineageTag: 3f05fb31-cbd9-4ca3-b581-51bdab1b85a0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '_GolsFeitosJogadorLabel %' =
+			
+			VAR golsfeitos = [_GolsFeitos]
+			VAR proporcao = FORMAT(DIVIDE(golsfeitos, golsfeitos+[_GolsSofridosJogador]), "0.00%")
+			
+			RETURN
+			
+			IF(NOT(ISBLANK(golsfeitos)), " (" & proporcao & ")", "")
+		lineageTag: faf5a507-a32c-493d-993a-866aa7feeab6
+
+	measure _DesempenhoGolsFeitosPenalty = ```
+			
+			VAR JogosValidosDoAtleta =
+			    CALCULATETABLE(
+			        VALUES('full - unpivot'[id]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[id] IN
+			            SELECTCOLUMNS(
+			                UNION(
+			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
+			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                ),
+			                "partida_id", [partida_id]
+			            )
+			        ),
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			        ),
+			        FILTER(
+			            'campeonato-brasileiro-cartoes',
+			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			        )
+			    )
+			
+			VAR GOLS = 
+			CALCULATE(
+			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
+			        'campeonato-brasileiro-gols'[tipo_de_gol] = "Penalty",
+			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
+			    )
+			
+			RETURN
+			COALESCE(GOLS, 0)
+			```
+		formatString: 0
+		lineageTag: 0b8ad818-da7b-443f-807a-e878454edf9e
+
+	measure _DesempenhoGolsFeitosNormal =
+			
+			COALESCE(CALCULATE(
+			    COUNTROWS('campeonato-brasileiro-gols'),
+			    FILTER(
+			        'campeonato-brasileiro-gols',
+			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]) &&
+			        'campeonato-brasileiro-gols'[tipo_de_gol] = BLANK()
+			    )
+			),0)
+		formatString: 0
+		lineageTag: d050ab75-ec8f-4e41-995d-dde87f8947fc
+
+	measure Dummy = ```
+			-1
+			
+			```
+		formatString: 0
+		lineageTag: 0f923228-98e6-4925-a031-62bf18f9d3b9
+
+	measure _GolACadaXMinutos =
+			
+			VAR TotalGols =
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-gols'),
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]) &&
+			            'campeonato-brasileiro-gols'[tipo_de_gol] = BLANK()
+			        )
+			    )
+			
+			VAR MinutosTotais = [_jogosAtleta] * 90
+			VAR MinutosPorGol = DIVIDE(TotalGols, MinutosTotais, 0)  -- Calculando gols por minuto
+			
+			RETURN
+			MinutosPorGol
+		formatString: 0.000
+		lineageTag: f1ae06cf-12d1-471b-9bbc-402e373d01c2
+
+	measure _MediaGolsPorJogo =
+			
+			VAR TotalGols =
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-gols'),
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]) &&
+			            'campeonato-brasileiro-gols'[tipo_de_gol] = BLANK()
+			        )
+			    )
+			VAR TotalJogos =
+			    CALCULATE(
+			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			        )
+			    )
+			VAR MediaGols = DIVIDE(TotalGols, TotalJogos, 0)
+			
+			VAR gols =
+			IF(
+			    TotalJogos > 0,
+			    FORMAT(MediaGols, "0.00"),
+			    BLANK()
+			)
+			
+			
+			RETURN
+			COALESCE(GOLS, 0)
+		lineageTag: b36e7077-4e2c-47b5-b85a-f87747cd29d8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _ParticipacaoPorPartida = ```
+			
+			VAR GolsFeitosJogadorPorPartida =
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-gols'),
+			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
+			        'campeonato-brasileiro-gols'[tipo_de_gol] = BLANK(),
+			        ALLEXCEPT('campeonato-brasileiro-gols', 'campeonato-brasileiro-gols'[partida_id])
+			    )
+			
+			VAR GolsFeitosTimePorPartida =
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-gols'),
+			        'campeonato-brasileiro-gols'[clube] = MAX('campeonato-brasileiro-gols'[clube]),
+			        'campeonato-brasileiro-gols'[tipo_de_gol] = BLANK(),
+			        ALLEXCEPT('campeonato-brasileiro-gols', 'campeonato-brasileiro-gols'[partida_id])
+			    )
+			
+			VAR ParticipacaoPorPartida =
+			    IF(
+			        GolsFeitosTimePorPartida > 0,
+			        DIVIDE(GolsFeitosJogadorPorPartida, GolsFeitosTimePorPartida, 0),
+			        0
+			    )
+			
+			VAR MediaParticipacao =
+			    AVERAGEX(
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			        ),
+			        ParticipacaoPorPartida
+			    )
+			
+			RETURN
+			IF(
+			    GolsFeitosTimePorPartida > 0,
+			    FORMAT(MediaParticipacao, "0.00%"),
+			    "0%"
+			)
+			
+			```
+		lineageTag: d72ceda7-703d-4879-9f31-c73f4f66c0a9
+
+	measure _GolssofridosComJogador = ```
+			
+			
+			VAR PartidasJogadas =
+			    CALCULATETABLE(
+			        VALUES('full - unpivot'[id]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[id] IN
+			            SELECTCOLUMNS(
+			                UNION(
+			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
+			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                ),
+			                "partida_id", [partida_id]
+			            )
+			        ),
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			        ),
+			        FILTER(
+			            'campeonato-brasileiro-cartoes',
+			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			        )
+			    )
+			
+			VAR GolsSofridos = 
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-gols'),
+			        'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra",
+			        'campeonato-brasileiro-gols'[clube] <> MAX('campeonato-brasileiro-gols'[clube]),
+			        'campeonato-brasileiro-gols'[partida_id] IN PartidasJogadas
+			    )
+			
+			return COALESCE(GolsSofridos,0)
+			
+			```
+		formatString: 0
+		lineageTag: 833281a1-d4e2-45b4-b990-5e2f896903a6
+
+	measure _MediaGolsSofridosPorJogo =
+			
+			COALESCE(
+			    DIVIDE(
+			        [_GolssofridosComJogador],
+			        [_jogosAtleta]
+			    ),
+			    0
+			)
+		lineageTag: 56c19c63-0857-4793-b6a7-2338999c435a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _TotalCartoesAmarelos =
+			
+			COALESCE(
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-cartoes'),
+			        'campeonato-brasileiro-cartoes'[cartao] = "Amarelo",
+			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			    ),
+			    0
+			)
+		formatString: 0
+		lineageTag: e6a0ff28-ef20-46c6-9067-e8cae752f405
+
+	measure _TotalCartoesVermelhos =
+			
+			COALESCE(
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-cartoes'),
+			        'campeonato-brasileiro-cartoes'[cartao] = "Vermelho",
+			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			    ),
+			    0
+			)
+		formatString: 0
+		lineageTag: 725cb1df-0772-4f96-8f9c-087210bbcbfa
+
+	measure _CartoesPorJogo =
+			
+			VAR TotalCartoes =
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-cartoes'),
+			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			    )
+			RETURN
+			COALESCE(
+			    DIVIDE(TotalCartoes, [_jogosVAtleta]),
+			    0
+			)
+		lineageTag: b7c97b4b-b865-4e18-be39-d5dcac15d06c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _CartoesPorMinuto =
+			
+			VAR TotalCartoes =
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-cartoes'),
+			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			    )
+			VAR MinutosJogador =
+			    CALCULATE(
+			        SUM('campeonato-brasileiro-gols'[minuto]),  -- Aqui estamos somando a minutagem dos gols do jogador
+			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			    )
+			RETURN
+			COALESCE(
+			    DIVIDE(TotalCartoes, MinutosJogador),
+			    0
+			)
+		lineageTag: 841a0bac-0bb3-499d-bb39-33df6918da77
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Jogos Com Gol' =
+			
+			VAR JogosValidosDoAtleta =
+			    CALCULATETABLE(
+			        VALUES('full - unpivot'[id]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[id] IN
+			            SELECTCOLUMNS(
+			                UNION(
+			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
+			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                ),
+			                "partida_id", [partida_id]
+			            )
+			        ),
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			        ),
+			        FILTER(
+			            'campeonato-brasileiro-cartoes',
+			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			        )
+			    )
+			
+			VAR JogosComGol =
+			    CALCULATE(
+			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
+			        'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra",
+			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
+			    )
+			
+			VAR TotalJogos =
+			    COUNTROWS(JogosValidosDoAtleta)
+			
+			RETURN
+			COALESCE(DIVIDE(JogosComGol, TotalJogos, 0),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4376544a-9494-44a8-b5d8-6e8b44d91f05
+
+	measure '% Jogos Com Cartão' = ```
+			
+			VAR JogosComCartao =
+			    CALCULATE(
+			        DISTINCTCOUNT('campeonato-brasileiro-cartoes'[partida_id]),
+			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta]),
+			        TREATAS(
+			            VALUES('full - unpivot'[id]),
+			            'campeonato-brasileiro-cartoes'[partida_id]
+			        )  -- Garantir que estamos considerando apenas os jogos que estão na unpivot
+			    )
+			
+			VAR JogosAtletaComParticipacao =
+			    CALCULATE(
+			        DISTINCTCOUNT('full - unpivot'[id]),
+			        'full - unpivot'[id] IN VALUES('campeonato-brasileiro-cartoes'[partida_id]) || 
+			        'full - unpivot'[id] IN VALUES('campeonato-brasileiro-gols'[partida_id]),
+			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
+			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			    )
+			
+			RETURN
+			COALESCE(
+			    DIVIDE(JogosComCartao, JogosAtletaComParticipacao, 0),
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 91744f15-6147-4207-a58d-b31d876f390f
+
+	measure _GolsClutch =
+			
+			CALCULATE(
+			    COUNTROWS('campeonato-brasileiro-gols'),
+			    'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
+			    'campeonato-brasileiro-gols'[minuto] >= 75,
+			    TREATAS(
+			        VALUES('full - unpivot'[id]),
+			        'campeonato-brasileiro-gols'[partida_id]
+			    )
+			)
+		formatString: 0
+		lineageTag: 7898c992-745f-4b6e-9ef4-93b6e0d7b906
+
+	measure _GolsSofridosACadaXMinutos =
+			
+			VAR TotalGolsSofridos =
+			    CALCULATE(
+			        COUNTROWS('campeonato-brasileiro-gols'),
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[clube] <> MAX('campeonato-brasileiro-gols'[clube]) &&
+			            'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra"  -- Gols sofridos (não gol contra)
+			        )
+			    )
+			
+			VAR MinutosTotais = [_jogosAtleta] * 90  -- Total de minutos jogados
+			VAR MinutosPorGolSofrido = DIVIDE(TotalGolsSofridos, MinutosTotais, 0)  -- Calculando gols sofridos por minuto
+			
+			RETURN
+			MinutosPorGolSofrido
+		formatString: 0.000
+		lineageTag: fc75c999-cd41-4343-bf5b-3f01bb3bc367
+
+	measure SVG = ```
+			
+			VAR Percentage = [% Jogos Com Cartão]
+			VAR ProgressWidth = ROUND(300 * Percentage / 100, 0)
+			VAR ArrowCondition = [_jogosAtleta]
+			VAR SVG =
+			    "data:image/svg+xml;utf8, <svg xmlns=""http://www.w3.org/2000/svg"" viewBox=""0 0 600 70""> //
+			        <g>
+			            <!-- Background bar (100% gray bar) -->
+			            <rect x=""50"" y=""20"" width=""300"" height=""20"" rx=""10"" ry=""10"" fill=""#E0E0E0"" />
+			            
+			            <!-- Progress bar with dynamic width based on Percentage -->
+			            <rect x=""50"" y=""20"" width=""" & FORMAT(ProgressWidth, "0") & """ height=""20"" rx=""10"" ry=""10"" fill=""#7161CE"" />
+			            
+			            <!-- Percentage label centered relative to the trend indicator -->
+			            <text x=""420"" y=""35"" font-family=""Segoe UI"" font-size=""25"" fill=""#333333"" text-anchor=""middle"">" & FORMAT(Percentage, "0") & "%</text>
+			            
+			            <!-- Vertical separator line next to the percentage label -->
+			            <line x1=""470"" y1=""5"" x2=""470"" y2=""50"" stroke=""#CCCCCC"" stroke-width=""2"" />
+			            
+			            " & 
+			            IF(ArrowCondition > 0, // Condition to determine which trend indicator to show
+			                "<g transform=""translate(530, 27)""> <!-- Centered position -->
+			                    <!-- Trend indicator (green circle) -->
+			                    <circle cx=""0"" cy=""0"" r=""16"" fill=""#5DD7AA"" />
+			                    <!-- Custom upward arrow -->
+			                    <polyline points=""-8,6 0,-8 8,6 0,1 -8,6"" fill=""white"" stroke=""white"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"" />
+			                </g>",
+			                "<g transform=""translate(530, 27)""> <!-- Centered position -->
+			                    <!-- Trend indicator (red circle) -->
+			                    <circle cx=""0"" cy=""0"" r=""16"" fill=""#D75DA7"" />
+			                    <!-- Custom downward arrow -->
+			                    <polyline points=""-8,-6 0,8 8,-6 0,-1 -8,-6"" fill=""white"" stroke=""white"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"" />
+			                </g>"
+			            ) & "
+			        </g>
+			    </svg>"
+			
+			RETURN SVG 
+			```
+		lineageTag: 54e2902b-abaf-4b5d-a69a-3bb679c0cb45
+
+	column Parâmetro
+		lineageTag: ae3ccc9d-1865-4171-bbfb-e1656d4b8ebf
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		isHidden
+		lineageTag: 94ebfbb7-bf43-49e4-a0b5-0b7e0bd8168e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "kind": 2,
+				  "version": 3
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: b495d8c2-7952-48b4-9ee1-037e5006e2b6
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Param_Estatistica = calculated
+		mode: import
+		source =
+				{
+				    ("Pontuação", NAMEOF([_pontosAno]), 0),
+				    ("Classificação", NAMEOF([_PosicaoMaximaAno]), 1),
+				    ("Gols Pro", NAMEOF([_golsProAno]), 2),
+				    ("Gols Contra", NAMEOF([_golsContraAno]), 3),
+				    ("Saldo de Gols", NAMEOF([_golsSGAno]), 4)
+				}
+
+	annotation PBI_Id = 3572fb447f164050a1dcf0822cc610d2
+

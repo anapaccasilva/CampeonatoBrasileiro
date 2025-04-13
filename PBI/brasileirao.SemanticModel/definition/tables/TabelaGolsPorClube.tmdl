@@ -1,0 +1,46 @@
+table TabelaGolsPorClube
+	lineageTag: 7e839f21-c458-4602-befe-2735165dda1c
+
+	column clube
+		lineageTag: ef81f6ff-2cb2-4313-9128-d6ee3c22707b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: campeonato-brasileiro-gols[clube]
+
+		annotation SummarizationSetBy = Automatic
+
+	column atleta
+		lineageTag: a5c70e03-3df3-42cb-a2ef-c6f81cf7fe11
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: campeonato-brasileiro-gols[atleta]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalGols
+		formatString: 0
+		lineageTag: 5a2a4918-c726-41e7-ab4f-7b2555bb4dbe
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalGols]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TabelaGolsPorClube = calculated
+		mode: import
+		source = ```
+				
+				SUMMARIZE(
+				    'campeonato-brasileiro-gols', 
+				    'campeonato-brasileiro-gols'[clube], 
+				    'campeonato-brasileiro-gols'[atleta], 
+				    "TotalGols", 
+				    CALCULATE(
+				        COUNTROWS('campeonato-brasileiro-gols'),
+				        'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra"
+				    )
+				)
+				```
+
+	annotation PBI_Id = e31bb0eb488e423985b9b809860c5dc4
+

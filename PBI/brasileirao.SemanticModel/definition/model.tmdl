@@ -1,0 +1,35 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Tabela","serie","dim_jogadores","dim_cores"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.141.1580.0 (25.03)+aa8628f0e8285c810874f1464275f27e3b63a25b
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table campeonato-brasileiro-cartoes
+ref table campeonato-brasileiro-estatisticas-full
+ref table DateTableTemplate_009a5668-6064-4e0d-bf66-b0c62ba2080c
+ref table campeonato-brasileiro-gols
+ref table dim_clubes
+ref table 'full - unpivot'
+ref table Tabela
+ref table LocalDateTable_2ea599c2-7a12-48e5-845a-02093c9b8bcd
+ref table fct_classificacao
+ref table dim_jogadores
+ref table TabelaGolsPorClube
+ref table dCalendar
+ref table dAno
+ref table Param_Estatistica
+ref table dim_cores
+ref table LocalDateTable_6b161db7-deac-48d9-b7e0-6ec0cc4fc765
+
+ref cultureInfo pt-BR
+
