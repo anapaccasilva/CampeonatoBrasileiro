@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Tabela","serie","dim_jogadores","dim_cores"]
+annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Tabela","serie","dim_jogadores","dim_cores","dim_formacao"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -30,6 +30,9 @@ ref table dAno
 ref table Param_Estatistica
 ref table dim_cores
 ref table LocalDateTable_6b161db7-deac-48d9-b7e0-6ec0cc4fc765
+ref table dim_formacao
+ref table RadarChart_Mandante
+ref table RadarChart_Visitante
 
 ref cultureInfo pt-BR
 

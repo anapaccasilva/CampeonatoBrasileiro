@@ -75,3 +75,11 @@ relationship 4ed7969c-3dc4-6a8e-fda5-a503605cb842
 	fromColumn: campeonato-brasileiro-cartoes.id_time
 	toColumn: 'full - unpivot'.id_time
 
+relationship ff2d9f2c-2a24-81d8-0bb1-06c6a68ccc85
+	fromColumn: RadarChart_Mandante.id_time
+	toColumn: campeonato-brasileiro-estatisticas-full.id_time
+
+relationship 860f8375-3827-de03-e8fc-62f9b1913d3c
+	fromColumn: RadarChart_Visitante.id_time
+	toColumn: campeonato-brasileiro-estatisticas-full.id_time
+

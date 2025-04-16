@@ -1,0 +1,26 @@
+table dim_formacao
+	lineageTag: 104ec447-5fd4-466f-bb52-131e8cd47a5c
+
+	column formacao
+		dataType: string
+		lineageTag: b2e3463c-23c4-43eb-8816-ad1d7f0b328c
+		summarizeBy: none
+		sourceColumn: formacao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_formacao = m
+		mode: import
+		source =
+				let
+				    Fonte = #"full - unpivot",
+				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"formacao"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Outras Colunas Removidas", each [formacao] <> null and [formacao] <> ""),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Linhas Filtradas")
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -913,7 +913,6 @@ table Tabela
 			VAR GOLS = 
 			CALCULATE(
 			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
-			        'campeonato-brasileiro-gols'[tipo_de_gol] = "",
 			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
 			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
 			    )
@@ -966,6 +965,7 @@ table Tabela
 
 	measure _jogosAtleta = ```
 			
+			VAR jogos = 
 			CALCULATE(
 			    DISTINCTCOUNT('full - unpivot'[id]),
 			    FILTER(
@@ -990,6 +990,9 @@ table Tabela
 			        'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
 			    )
 			)
+			
+			RETURN 
+			COALESCE(jogos,0)
 			```
 		formatString: 0
 		lineageTag: f9110076-c562-4c91-8972-57fc38c347c6
@@ -1023,6 +1026,279 @@ table Tabela
 			```
 		formatString: 0
 		lineageTag: 3d547981-a384-42ce-a2f8-d98acd89d448
+
+	measure _TimesJogador = ```
+			
+			VAR Atleta = MAX(dim_jogadores[atleta])
+			
+			-- Clubes dos gols
+			VAR ClubesGols = 
+			    SELECTCOLUMNS(
+			        FILTER('campeonato-brasileiro-gols', 'campeonato-brasileiro-gols'[atleta] = Atleta),
+			        "clube", 'campeonato-brasileiro-gols'[clube]
+			    )
+			
+			-- Clubes dos cartões
+			VAR ClubesCartoes = 
+			    SELECTCOLUMNS(
+			        FILTER('campeonato-brasileiro-cartoes', 'campeonato-brasileiro-cartoes'[atleta] = Atleta),
+			        "clube", 'campeonato-brasileiro-cartoes'[clube]
+			    )
+			
+			-- União de todos os clubes onde ele atuou
+			VAR TodosClubes = 
+			    DISTINCT(
+			        UNION(ClubesGols, ClubesCartoes)
+			    )
+			
+			-- Concatenar os nomes dos clubes
+			RETURN
+			CONCATENATEX(TodosClubes, [clube], ", ")
+			
+			```
+		lineageTag: 367e7302-a540-4033-89c9-7c2cf8568e79
+
+	measure Placar = ```
+			
+			CONCATENATEX(
+			    CALCULATETABLE(
+			        'full - unpivot',
+			        'full - unpivot'[mandante_flag] = "S",
+			        USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
+			            'full - unpivot'[id_time]
+			        )
+			    ),
+			    VAR _DataHora = FORMAT('full - unpivot'[data], "DD/MM/YYYY") & " " & FORMAT('full - unpivot'[hora], "HH:mm")
+			    VAR _Mandante = 'full - unpivot'[time]
+			    VAR _MandantePlacar = 'full - unpivot'[gols_pro]
+			    VAR _Visitante = 'full - unpivot'[adversario]
+			    VAR _VisitantePlacar = 'full - unpivot'[gols_contra]
+			    VAR _Arena = 'full - unpivot'[arena]
+			    VAR _Estado = IF(ISBLANK('full - unpivot'[mandante_Estado]), "", " (" & 'full - unpivot'[mandante_Estado] & ")")
+			    VAR _PartidaID = 'full - unpivot'[ID]
+			    VAR _MandanteID = 'full - unpivot'[id_time]
+			
+			    -- Artilheiros do mandante
+			    VAR _MandanteGols = 
+			    CONCATENATEX(
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[partida_id] = _PartidaID &&
+			            'campeonato-brasileiro-gols'[id_time] = _MandanteID
+			        ),
+			        'campeonato-brasileiro-gols'[atleta] & " " & 
+			        'campeonato-brasileiro-gols'[minuto] & 
+			        IF(
+			            NOT(ISBLANK('campeonato-brasileiro-gols'[tipo_de_gol])) && 'campeonato-brasileiro-gols'[tipo_de_gol] <> "", 
+			            "' (" & 'campeonato-brasileiro-gols'[tipo_de_gol] & ")", 
+			            "'"
+			        ),
+			        UNICHAR(10),
+			        'campeonato-brasileiro-gols'[minuto], ASC
+			    )
+			
+			
+			    -- Artilheiros do visitante
+			    VAR _VisitanteGols = 
+			    CONCATENATEX(
+			        FILTER(
+			            'campeonato-brasileiro-gols',
+			            'campeonato-brasileiro-gols'[partida_id] = _PartidaID &&
+			            'campeonato-brasileiro-gols'[id_time] <> _MandanteID
+			        ),
+			        'campeonato-brasileiro-gols'[atleta] & " " & 
+			        'campeonato-brasileiro-gols'[minuto] & 
+			        IF(
+			            NOT(ISBLANK('campeonato-brasileiro-gols'[tipo_de_gol])) && 'campeonato-brasileiro-gols'[tipo_de_gol] <> "", 
+			            " (" & 'campeonato-brasileiro-gols'[tipo_de_gol] & ")", 
+			            ""
+			        ) & "'",
+			        UNICHAR(10),
+			        'campeonato-brasileiro-gols'[minuto], ASC
+			    )
+			
+			
+			    -- Cartões mandante
+			    VAR _MandanteCartoes = 
+			    CONCATENATEX(
+			        FILTER(
+			            'campeonato-brasileiro-cartoes',
+			            'campeonato-brasileiro-cartoes'[partida_id] = _PartidaID &&
+			            'campeonato-brasileiro-cartoes'[id_time] = _MandanteID
+			        ),
+			        IF('campeonato-brasileiro-cartoes'[cartao] = "Vermelho", "🟥", "🟨") & " " &
+			        'campeonato-brasileiro-cartoes'[atleta] & " " &
+			        'campeonato-brasileiro-cartoes'[minuto] & "'",
+			        UNICHAR(10),
+			        'campeonato-brasileiro-cartoes'[minuto], ASC
+			    )
+			
+			
+			    -- Cartões visitante
+			    VAR _VisitanteCartoes = 
+			    CONCATENATEX(
+			        FILTER(
+			            'campeonato-brasileiro-cartoes',
+			            'campeonato-brasileiro-cartoes'[partida_id] = _PartidaID &&
+			            'campeonato-brasileiro-cartoes'[id_time] <> _MandanteID
+			        ),
+			        'campeonato-brasileiro-cartoes'[atleta] & " " &
+			        'campeonato-brasileiro-cartoes'[minuto] & "' " &
+			        IF('campeonato-brasileiro-cartoes'[cartao] = "Vermelho", "🟥", "🟨"),
+			        UNICHAR(10),
+			        'campeonato-brasileiro-cartoes'[minuto], ASC
+			    )
+			
+			
+			    RETURN
+			    "<div style='background-color: #FFFFFF; padding: 8px; margin-bottom: 8px; border: 2px solid #FFFFFF; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-size: 75%;'>" & 
+			    
+			    "<div style='text-align: center; color: #000000; font-size: 15px;'>" & 
+			    _DataHora & 
+			    "</div>" &
+			
+			    "<div style='text-align: center; font-size: 25px; font-weight: bold; color: #000000; margin-top: 6px;'>" & 
+			    _Mandante & " " & 
+			    _MandantePlacar & " - " & 
+			    _VisitantePlacar & " " & 
+			    _Visitante & 
+			    "</div>" &
+			
+			    "<div style='text-align: center; font-size: 14px; color: #444; margin-top: 4px;'>" & 
+			    _Arena & _Estado & 
+			    "</div>" &
+			
+			    "<div style='display: flex; justify-content: space-between; font-size: 16px; color: #000000; margin-top: 6px;'>" &
+			        "<div style='text-align: left; white-space: pre-line; width: 48%;'>" & _MandanteGols & "</div>" &
+			        "<div style='text-align: right; white-space: pre-line; width: 48%;'>" & _VisitanteGols & "</div>" &
+			    "</div>" &
+			
+			    "<div style='text-align: center; font-size: 16px; font-weight: bold; color: #444; margin-top: 8px;'>Cartões</div>" &
+			
+			    "<div style='display: flex; justify-content: space-between; font-size: 14px; color: #444; margin-top: 4px;'>" &
+			        "<div style='text-align: left; white-space: pre-line; width: 48%;'>" & _MandanteCartoes & "</div>" &
+			        "<div style='text-align: right; white-space: pre-line; width: 48%;'>" & _VisitanteCartoes & "</div>" &
+			    "</div>" &
+			
+			    "</div>",
+			    UNICHAR(10)
+			)
+			
+			```
+		lineageTag: 7f5ded7b-fe69-4f35-ac91-8403a39c7561
+
+	measure Estatisticas = ```
+			
+			
+			    "<div style='background-color: #FFFFFF; padding: 12px; margin-bottom: 8px; border: 2px solid #FFFFFF; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-size: 77%;'>" & 
+			    
+			    "<div style='text-align: center; font-size: 22px; font-weight: bold; color: #000000; margin-bottom: 12px;'>ESTATÍSTICAS</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([chutes_mandante] > [chutes_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [chutes_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [chutes_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Chutes</div>" &
+			        IF([chutes_visitante] > [chutes_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [chutes_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [chutes_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([finalizacoes_mandante] > [finalizacoes_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [finalizacoes_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [finalizacoes_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Finalizações</div>" &
+			        IF([finalizacoes_visitante] > [finalizacoes_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [finalizacoes_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [finalizacoes_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([posse_mandante] > [posse_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [posse_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [posse_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Posse de Bola</div>" &
+			        IF([posse_visitante] > [posse_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [posse_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [posse_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([passes_mandante] > [passes_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [passes_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [passes_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Passes</div>" &
+			        IF([passes_visitante] > [passes_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [passes_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [passes_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([precisao_mandante] > [precisao_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [precisao_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [precisao_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Precisão de Passes</div>" &
+			        IF([precisao_visitante] > [precisao_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [precisao_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [precisao_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([faltas_mandante] > [faltas_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [faltas_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [faltas_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Faltas</div>" &
+			        IF([faltas_visitante] > [faltas_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [faltas_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [faltas_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([CartoesVermelho_mandante] > [CartoesVermelho_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [CartoesVermelho_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [CartoesVermelho_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Cartões Vermelhos</div>" &
+			        IF([CartoesVermelho_visitante] > [CartoesVermelho_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [CartoesVermelho_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [CartoesVermelho_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([CartoesAmarelo_mandante] > [CartoesAmarelo_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [CartoesAmarelo_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [CartoesAmarelo_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Cartões Amarelos</div>" &
+			        IF([CartoesAmarelo_visitante] > [CartoesAmarelo_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [CartoesAmarelo_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [CartoesAmarelo_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([Impedimentos_mandante] > [Impedimentos_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [Impedimentos_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [Impedimentos_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Impedimentos</div>" &
+			        IF([Impedimentos_visitante] > [Impedimentos_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [Impedimentos_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [Impedimentos_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
+			        IF([Escanteios_mandante] > [Escanteios_visitante], 
+			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [Escanteios_mandante] & "</div></div>",
+			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [Escanteios_mandante] & "</div>") &
+			        "<div style='text-align: center; width: 40%;'>Escanteios</div>" &
+			        IF([Escanteios_visitante] > [Escanteios_mandante], 
+			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [Escanteios_visitante] & "</div></div>",
+			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [Escanteios_visitante] & "</div>") &
+			    "</div>" &
+			    
+			    "</div>"
+			```
+		lineageTag: a4cee0fd-1cac-4456-ba08-2d21c8af9af0
 
 	column 'Coluna 1'
 		dataType: string

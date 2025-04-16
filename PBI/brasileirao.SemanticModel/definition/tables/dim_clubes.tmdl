@@ -11,7 +11,7 @@ table dim_clubes
 
 	column Fundacao
 		dataType: dateTime
-		formatString: Long Date
+		formatString: d" de "mmmm" de "yyyy
 		lineageTag: a64cc4e3-d015-4b94-9723-ec3cd835b0b3
 		summarizeBy: none
 		sourceColumn: Fundacao
@@ -24,6 +24,8 @@ table dim_clubes
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column Mascote
 		dataType: string
