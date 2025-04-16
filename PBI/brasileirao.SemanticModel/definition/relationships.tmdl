@@ -83,3 +83,7 @@ relationship 860f8375-3827-de03-e8fc-62f9b1913d3c
 	fromColumn: RadarChart_Visitante.id_time
 	toColumn: campeonato-brasileiro-estatisticas-full.id_time
 
+relationship 3b8f595e-3954-7934-c414-f90214b7b3a3
+	fromColumn: 'full - unpivot'.formacao
+	toColumn: dim_formacao.formacao
+

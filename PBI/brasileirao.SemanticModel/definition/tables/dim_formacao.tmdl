@@ -9,16 +9,25 @@ table dim_formacao
 
 		annotation SummarizationSetBy = Automatic
 
+	column url
+		dataType: string
+		lineageTag: d22bdbb1-50a0-4163-a1ae-a054552589ce
+		summarizeBy: none
+		sourceColumn: url
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_formacao = m
 		mode: import
 		source =
 				let
-				    Fonte = #"full - unpivot",
-				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"formacao"}),
-				    #"Linhas Filtradas" = Table.SelectRows(#"Outras Colunas Removidas", each [formacao] <> null and [formacao] <> ""),
-				    #"Duplicatas Removidas" = Table.Distinct(#"Linhas Filtradas")
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\formacao.xlsx"), null, true),
+				    Planilha1_Sheet = Fonte{[Item="Planilha1",Kind="Sheet"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Planilha1_Sheet,{{"Column1", type text}, {"Column2", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"formacao", type text}, {"url", type text}})
 				in
-				    #"Duplicatas Removidas"
+				    #"Tipo Alterado1"
 
 	annotation PBI_NavigationStepName = Navegação
 

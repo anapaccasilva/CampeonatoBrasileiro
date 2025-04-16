@@ -1585,6 +1585,133 @@ table Param_Estatistica
 			```
 		lineageTag: 59cdc208-db02-4f02-9989-9dd6d4a545f5
 
+	measure Formacao_Mandante_HTML = ```
+			
+			VAR _Formacao = 
+			    CALCULATE(
+			        MAX(dim_formacao[formacao]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[mandante_flag] = "S"
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
+			            'full - unpivot'[id_time]
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
+			            'full - unpivot'[rodata]
+			        ),
+			        USERELATIONSHIP(
+			            'full - unpivot'[id_time],
+			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			        )
+			    )
+			
+			VAR _UrlFormacao = 
+			    CALCULATE(
+			        MAX(dim_formacao[url]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[mandante_flag] = "S"
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
+			            'full - unpivot'[id_time]
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
+			            'full - unpivot'[rodata]
+			        ),
+			        USERELATIONSHIP(
+			            'full - unpivot'[id_time],
+			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			        )
+			    )
+			
+			VAR _tecnico = 
+			    CALCULATE(
+			        MAX('full - unpivot'[tecnico]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[mandante_flag] = "S"
+			        )
+			    )
+			
+			RETURN
+			"<div style='text-align: center;'>
+			    <h1>" & _Formacao & "</h1>
+			    <p style='font-size: 14px; margin-top: -10px; margin-bottom: 10px;'>Técnico: " & _tecnico & "</p>
+			    <img src='" & _UrlFormacao & "' alt='" & _Formacao & "' style='transform: scale(1); transform-origin: top center; margin-top: 10px;' />
+			</div>"
+			
+			```
+		lineageTag: bdacc314-bb20-47ce-af8f-9dafd2f2e601
+
+	measure Formacao_Visitante_HTML = ```
+			
+			VAR _Formacao = 
+			    CALCULATE(
+			        MAX(dim_formacao[formacao]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[mandante_flag] = "N"
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
+			            'full - unpivot'[id_time]
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
+			            'full - unpivot'[rodata]
+			        ),
+			        USERELATIONSHIP(
+			            'full - unpivot'[id_time],
+			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			        )
+			    )
+			
+			VAR _UrlFormacao = 
+			    CALCULATE(
+			        MAX(dim_formacao[url]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[mandante_flag] = "N"
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
+			            'full - unpivot'[id_time]
+			        ),
+			        TREATAS(
+			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
+			            'full - unpivot'[rodata]
+			        ),
+			        USERELATIONSHIP(
+			            'full - unpivot'[id_time],
+			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			        )
+			    )
+			
+			VAR _tecnico = 
+			    CALCULATE(
+			        MAX('full - unpivot'[tecnico]),
+			        FILTER(
+			            'full - unpivot',
+			            'full - unpivot'[mandante_flag] = "N"
+			        )
+			    )
+			
+			RETURN
+			"<div style='text-align: center;'>
+			    <h1>" & _Formacao & "</h1>
+			    <p style='font-size: 14px; margin-top: -10px; margin-bottom: 10px;'>Técnico: " & _tecnico & "</p>
+			    <img src='" & _UrlFormacao & "' alt='" & _Formacao & "' style='transform: scale(1); transform-origin: top center; margin-top: 10px;' />
+			</div>"
+			
+			
+			```
+		lineageTag: 752a28fa-6f86-4f1e-a437-af5724de0115
+
 	column Parâmetro
 		lineageTag: ae3ccc9d-1865-4171-bbfb-e1656d4b8ebf
 		summarizeBy: none
