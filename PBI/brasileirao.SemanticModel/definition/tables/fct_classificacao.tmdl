@@ -32,6 +32,11 @@ table fct_classificacao
 		formatString: 0
 		lineageTag: 8f0b018b-6bd3-499c-bb3f-654b0df0cd89
 
+	measure ranking_emoji = IF(selectedvalue(fct_classificacao[Ranking_times]) = 1, CONCATENATE("🏆", INT(selectedvalue(fct_classificacao[Ranking_times]))), INT(selectedvalue(fct_classificacao[Ranking_times])))
+		lineageTag: 766148fa-fdc1-4f4e-a934-2ece85d0f600
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column time
 		lineageTag: a8ad2e6d-33e3-4c40-92ae-3af6584a84b9
 		summarizeBy: none
@@ -149,6 +154,24 @@ table fct_classificacao
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: full - unpivot[Série]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusTime = ```
+			
+			VAR Ranking = [Ranking_times]
+			VAR TotalTimesAno = 
+			    CALCULATE(
+			        COUNTROWS(fct_classificacao),
+			        ALLEXCEPT(fct_classificacao, fct_classificacao[Ano])
+			    )
+			RETURN
+			IF(Ranking = 1, "Vencedor", 
+			    IF(Ranking > TotalTimesAno - 4, "Rebaixado", BLANK()))
+			
+			```
+		lineageTag: d7d8dd9f-d0ec-4b39-a135-88c1b6f7f1f5
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

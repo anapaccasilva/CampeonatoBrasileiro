@@ -43,6 +43,42 @@ table campeonato-brasileiro-cartoes
 		lineageTag: d434d11d-62ad-4513-9073-a491d5c03ec8
 		dataCategory: ImageUrl
 
+	measure _fundacaotimeselecionado = ```
+			
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    "",
+			    CONCATENATE("Fundação: ", FORMAT(DATEVALUE(SELECTEDVALUE(dim_clubes[Fundacao])), "d") & " de " & FORMAT(DATEVALUE(SELECTEDVALUE(dim_clubes[Fundacao])), "mmmm") & " de " & FORMAT(DATEVALUE(SELECTEDVALUE(dim_clubes[Fundacao])), "yyyy"))
+			)
+			
+			```
+		lineageTag: eed58b6a-bb0f-4dbe-81c9-a953e89db9de
+
+	measure _estadiotimeselecionado =
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    "",
+			    CONCATENATE("Estádio: ", SELECTEDVALUE(dim_clubes[Estadio]))
+			)
+		lineageTag: e1f3d743-5c23-4ccb-8126-f80a3de0058c
+
+	measure _mascotetimeselecionado =
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    "",
+			    CONCATENATE("Mascote: ", SELECTEDVALUE(dim_clubes[Mascote]))
+			)
+		lineageTag: 2756fd89-353f-4d35-82f2-14c22200b0cf
+
+	measure _biotimeselecionado = ```
+			COALESCE(
+			    SELECTEDVALUE(dim_clubes[Bio]), 
+			    "Desde 2003, o Campeonato Brasileiro adota o formato de pontos corridos, com 38 rodadas. Inicialmente com 24 times, passou para 22 em 2005 e, em 2006, fixou-se com 20 clubes. Os 4 últimos são rebaixados para a Série B."
+			)
+			
+			```
+		lineageTag: aa161845-b39a-4279-87e5-dddd960c43ff
+
 	column partida_id
 		dataType: int64
 		formatString: 0

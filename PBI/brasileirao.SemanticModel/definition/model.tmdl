@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Tabela","serie","dim_jogadores","dim_cores","dim_formacao"]
+annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Tabela","serie","dim_jogadores","dim_cores","dim_formacao","dEventos"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -21,7 +21,6 @@ ref table campeonato-brasileiro-gols
 ref table dim_clubes
 ref table 'full - unpivot'
 ref table Tabela
-ref table LocalDateTable_2ea599c2-7a12-48e5-845a-02093c9b8bcd
 ref table fct_classificacao
 ref table dim_jogadores
 ref table TabelaGolsPorClube
@@ -33,6 +32,7 @@ ref table LocalDateTable_6b161db7-deac-48d9-b7e0-6ec0cc4fc765
 ref table dim_formacao
 ref table RadarChart_Mandante
 ref table RadarChart_Visitante
+ref table dEventos
 
 ref cultureInfo pt-BR
 

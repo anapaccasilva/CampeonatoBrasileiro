@@ -30,7 +30,7 @@ table dim_cores
 		mode: import
 		source =
 				let
-				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("dZI9EsIgEIWvksE2BZsEk5TGSWorm0wKVEaL/DiMWngbz+LFJJDgghEq2I/H4y11TYCEZC/kSQQiOEjeHwe1sYIiZUlBmrAmkQE60V4GhylpoqZmYpe5SnHzEabWm+e9dSSigkFe6fp6qofBY+kyRKaWNGXF8Y5L0fpgNoKm4hqvSgpMI7la70a3y2KIBIqCQghKCmyWSO0sRf9++SQONQy4nwvKDWL7XB3rv1QgcSR/WazJvkYX08ZWx8YU82tsZ6kehpgb4jvK7EnnmkWNfP4ex5ZL1wxlGWwNFtG5Xy4xCTUf", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Índice = _t, Cor = _t, #"Código Hexadecimal" = _t]),
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("dZIxEsIgEEWvksE2BRuCJqUxSW1lk0mBymgRjcOohbfxLF5MEgQXjEMF+/j7+UvTECAx2Ui1l5GMtkqcd70+mEGx4GlB2rghiQFOsjv2HlPRVK+RYT5zUfIaIlzvl49b50kkBYe8HuvzTz2O7lPNELlwpClrTpyEkl0IZgNoKr7xuqLARyTX+/XgdloMkUBRUAhBSYHLEqkdlDy/niGJQ40jEeaCcgPmnjvG+i8VSD3JXxZr8q/RybSx1WEwhX2NmyyrWMlKQ9iBhI4yd9NrM6mR2++x64TyzVCewcoYT6idl0dYofYN", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Índice = _t, Cor = _t, #"Código Hexadecimal" = _t]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Índice", Int64.Type}})
 				in
 				    #"Tipo Alterado"

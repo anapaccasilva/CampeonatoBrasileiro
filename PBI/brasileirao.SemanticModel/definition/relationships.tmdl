@@ -20,11 +20,6 @@ relationship d4eaba62-9703-6eff-982f-01b8e3886a5b
 	fromColumn: dim_clubes.Cores
 	toColumn: Tabela.'Coluna 1'
 
-relationship 266e4fa8-1fc9-4be9-b247-e3d996aa4ef8
-	joinOnDateBehavior: datePartOnly
-	fromColumn: dim_clubes.Fundacao
-	toColumn: LocalDateTable_2ea599c2-7a12-48e5-845a-02093c9b8bcd.Date
-
 relationship 1d95649b-067b-260e-7b14-244f4b2c5bbb
 	fromColumn: campeonato-brasileiro-gols.atleta
 	toColumn: dim_jogadores.atleta
@@ -86,4 +81,14 @@ relationship 860f8375-3827-de03-e8fc-62f9b1913d3c
 relationship 3b8f595e-3954-7934-c414-f90214b7b3a3
 	fromColumn: 'full - unpivot'.formacao
 	toColumn: dim_formacao.formacao
+
+relationship 832c187b-e39a-2daf-5aa4-d0fd9c5b30b3
+	isActive: false
+	fromColumn: dEventos.time
+	toColumn: dim_clubes.Clube_s_acentos
+
+relationship cfab13f0-985e-026d-5cb0-bb85ae86952d
+	crossFilteringBehavior: bothDirections
+	fromColumn: dEventos.Ano
+	toColumn: dAno.Ano
 

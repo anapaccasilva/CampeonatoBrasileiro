@@ -112,6 +112,7 @@ table Param_Estatistica
 
 	measure Card_Desempenho2 = ```
 			
+			var timefiltrado = ISBLANK(SELECTEDVALUE(dim_clubes[Clube])) = FALSE()
 			VAR Total = [_jogos]
 			VAR V = [_vitorias]
 			VAR E = [_empates]
@@ -122,6 +123,24 @@ table Param_Estatistica
 			VAR PctD = DIVIDE(D, Total, 0)
 			
 			VAR AnoSelecionado = SELECTEDVALUE(dCalendar[Ano-Campeonato], "Ano não selecionado")
+			
+			VAR NumTimes = CALCULATE(DISTINCTCOUNT(dim_clubes[Clube]), REMOVEFILTERS(dim_clubes))
+			VAR Campeao = CALCULATE(
+			    SELECTEDVALUE(dim_clubes[Clube]),
+			    FILTER(
+			        ALL(fct_classificacao),
+			        fct_classificacao[Ranking_Times] = 1
+			            && fct_classificacao[Ano] = SELECTEDVALUE(dCalendar[Ano-Campeonato])
+			    )
+			)
+			
+			VAR JogosCampeao = 
+			    CALCULATE(
+			        DISTINCTCOUNT('full - unpivot'[ID]),
+			        'full - unpivot'[time] = Campeao
+			    )
+			
+			VAR Rodadas = JogosCampeao
 			
 			VAR _cores = IF(
 			    NOT(ISBLANK(CALCULATE(
@@ -138,7 +157,7 @@ table Param_Estatistica
 			            dim_cores[Cor] = SELECTEDVALUE(dim_clubes[Cores])
 			        )
 			    ),
-			    "#1a1a1a"  -- Tom de preto mais neutro/opaco
+			    "#2DCC70"  -- Tom de preto mais neutro/opaco
 			)
 			
 			var _card =  "
@@ -172,17 +191,43 @@ table Param_Estatistica
 			    </div>
 			    "
 			
+			VAR _card2 = "
+			<div style='width: 408px; height: 288px; background-color: #2DCC70; padding: 20px; border-radius: 12px; font-family: Arial, sans-serif; color: white; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: space-between; gap: 16px;'>
+			
+			    <div style='text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 16px;'>
+			        Brasileirão Série A - " & AnoSelecionado & "
+			    </div>
+			
+			    <div>
+			        <div style='margin-bottom: 4px;'><strong>Participantes:</strong> " & NumTimes & " clubes</div>
+			        <div style='height: 12px; background-color: #e0e0e0; border-radius: 6px; overflow: hidden;'>
+			            <div style='height: 100%; width: 100%; background-color: #ffffff33;'></div>
+			        </div>
+			    </div>
+			
+			    <div>
+			        <div style='margin-bottom: 4px;'><strong>Rodadas:</strong> " & Rodadas & "</div>
+			        <div style='height: 12px; background-color: #e0e0e0; border-radius: 6px; overflow: hidden;'>
+			            <div style='height: 100%; width: 100%; background-color: #ffffff33;'></div>
+			        </div>
+			    </div>
+			
+			    <div>
+			        <div style='margin-bottom: 4px; font-size: 16px;'><strong>Campeão:</strong> " & Campeao & "</div>
+			        <div style='height: 12px; background-color: #e0e0e0; border-radius: 6px; overflow: hidden;'>
+			            <div style='height: 100%; width: 100%; background-color: #ffffff33;'></div>
+			        </div>
+			    </div>
+			
+			</div>
+			"
+			
 			
 			RETURN
 			IF(
-			    ISBLANK(_card),
-			    // Retângulo branco com mensagem
-			    "
-			    <div style='width: 384px; height: 448px; background-color: white; padding: 20px; border-radius: 12px; font-family: Arial, sans-serif; color: #1a1a1a; font-size: 16px; display: flex; align-items: center; justify-content: center; text-align: center;'>
-			        Time não disputou a primeira divisão do campeonato nesse ano
-			    </div>
-			    ",
-			    _card
+			    timefiltrado, 
+			    _card,
+			    _card2
 			)
 			   
 			```
@@ -1711,6 +1756,78 @@ table Param_Estatistica
 			
 			```
 		lineageTag: 752a28fa-6f86-4f1e-a437-af5724de0115
+
+	measure 'Medida 4'
+		lineageTag: e774271e-5bab-484c-8301-7323206e66e2
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Medida 5'
+		lineageTag: a22d279a-c729-4bb1-9690-0d734bbaefdc
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Medida 6'
+		lineageTag: 76b3dd1e-b053-4d93-90fb-48c6984f3878
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure fc_classificacao = IF(SELECTEDVALUE(Param_Estatistica[Parâmetro Pedido])<=1, 2006, BLANK())
+		formatString: 0
+		lineageTag: dd56d5e9-3084-4131-b430-0e3ac0cfa419
+
+	measure 'Medida 7'
+		lineageTag: b6ff6007-45a8-4c06-b6f3-263ff9d3baaa
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure rebaixamento = IF(SELECTEDVALUE(Param_Estatistica[Parâmetro Pedido])=1, 17, blank())
+		formatString: 0
+		lineageTag: d2be7ecf-c37b-46e9-b81b-7e51c127a0cf
+
+	measure 'Medida 8'
+		lineageTag: 71b5d377-98b1-4c65-8c1e-ed20e1c33fca
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure label_emoji = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(dEventos[Emoji]),
+			    FILTER(
+			        dEventos,
+			        dEventos[time] = SELECTEDVALUE(dim_clubes[Clube_s_acentos]) &&
+			        dEventos[Ano] = SELECTEDVALUE(dAno[Ano])
+			    )
+			)
+			
+			```
+		lineageTag: eddf9a3a-ea19-40c0-a1d6-a2f47ca2a183
+
+	measure label_evento = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(dEventos[Evento]),
+			    FILTER(
+			        dEventos,
+			        dEventos[time] = SELECTEDVALUE(dim_clubes[Clube_s_acentos]) &&
+			        dEventos[Ano] = SELECTEDVALUE(dAno[Ano])
+			    )
+			)
+			
+			```
+		lineageTag: 63954e73-3d31-45ce-8c94-d4fa3e01fa58
+
+	measure label_evento_debug = ```
+			
+			"Evento: " & SELECTEDVALUE(dEventos[Evento]) & 
+			" | Time evento: " & SELECTEDVALUE(dEventos[time]) & 
+			" | Time contexto: " & SELECTEDVALUE(dim_clubes[Clube_s_acentos]) & 
+			" | Ano evento: " & SELECTEDVALUE(dEventos[Ano]) & 
+			" | Ano contexto: " & SELECTEDVALUE(dAno[Ano])
+			
+			```
+		lineageTag: b679c44b-1e4b-4b6d-845e-15179ebd1917
 
 	column Parâmetro
 		lineageTag: ae3ccc9d-1865-4171-bbfb-e1656d4b8ebf

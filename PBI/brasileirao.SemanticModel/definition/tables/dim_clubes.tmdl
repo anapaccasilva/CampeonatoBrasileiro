@@ -10,22 +10,12 @@ table dim_clubes
 		annotation SummarizationSetBy = Automatic
 
 	column Fundacao
-		dataType: dateTime
-		formatString: d" de "mmmm" de "yyyy
+		dataType: string
 		lineageTag: a64cc4e3-d015-4b94-9723-ec3cd835b0b3
 		summarizeBy: none
 		sourceColumn: Fundacao
 
-		variation Variation
-			isDefault
-			relationship: 266e4fa8-1fc9-4be9-b247-e3d996aa4ef8
-			defaultHierarchy: LocalDateTable_2ea599c2-7a12-48e5-845a-02093c9b8bcd.'Hierarquia de datas'
-
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column Mascote
 		dataType: string
@@ -113,6 +103,14 @@ table dim_clubes
 
 		annotation SummarizationSetBy = Automatic
 
+	column Bio
+		dataType: string
+		lineageTag: a85ed081-12a5-4b48-858f-0290eb972d8a
+		summarizeBy: none
+		sourceColumn: Bio
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_clubes = m
 		mode: import
 		source =
@@ -120,7 +118,7 @@ table dim_clubes
 				    Fonte = Excel.Workbook(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\clubes.xlsx"), null, true),
 				    Planilha2_Sheet = Fonte{[Item="Planilha2",Kind="Sheet"]}[Data],
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha2_Sheet, [PromoteAllScalars=true]),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Clube", type text}, {"Fundacao", type date}, {"Mascote", type text}, {"Estadio", type text}, {"Cores", type text}, {"Apelido", type text}, {"id", Int64.Type}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Clube", type text}, {"Fundacao", type text}, {"Mascote", type text}, {"Estadio", type text}, {"Cores", type text}, {"Apelido", type text}, {"id", Int64.Type}})
 				in
 				    #"Tipo Alterado"
 
