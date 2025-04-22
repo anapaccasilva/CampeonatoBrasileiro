@@ -1218,31 +1218,37 @@ table Tabela
 			
 			
 			    RETURN
-			    "<div style='background-color: #FFFFFF; padding: 8px; margin-bottom: 8px; border: 2px solid #FFFFFF; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-size: 75%;'>" & 
+			    "<div style='background-color: #FFFFFF; padding: 13px; margin-bottom: 12px; border: 2px solid #FFFFFF; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-size: 80%;'>"&
+			
+			      "<div style='background-color: #FFFFFF; padding: 17px; margin-bottom: 8px; border: 2px solid #FFFFFF; border-radiSs: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-size: 77%;'>" &  
 			    
 			    "<div style='text-align: center; color: #000000; font-size: 15px;'>" & 
 			    _DataHora & 
 			    "</div>" &
 			
-			    "<div style='text-align: center; font-size: 25px; font-weight: bold; color: #000000; margin-top: 6px;'>" & 
-			    _Mandante & " " & 
+			    "<div style='text-align: center; font-size: 28px; font-weight: bold; color: #000000; margin-top: 6px; font-family: Segoe UI, Roboto, Helvetica Neue, sans-serif; letter-spacing: 1px;'>" & 
+			    (_Mandante) & " " & 
 			    _MandantePlacar & " - " & 
 			    _VisitantePlacar & " " & 
-			    _Visitante & 
-			    "</div>" &
+			    (_Visitante) & 
+			"</div>" &
 			
-			    "<div style='text-align: center; font-size: 14px; color: #444; margin-top: 4px;'>" & 
-			    _Arena & _Estado & 
-			    "</div>" &
 			
-			    "<div style='display: flex; justify-content: space-between; font-size: 16px; color: #000000; margin-top: 6px;'>" &
+			    "<div style='text-align: center; font-size: 15px; color: #444; margin-top: 4px; margin-bottom: 12px;'>" & 
+			_Arena & _Estado & 
+			"</div>" &
+			
+			   "<div style='text-align: center; font-size: 16px; font-weight: bold; color: #444; margin-bottom: 4px;'>Gols</div>" & 
+			
+			
+			    "<div style='display: flex; justify-content: space-between; font-size: 17px; color: #000000; margin-top: 6px;'>" &
 			        "<div style='text-align: left; white-space: pre-line; width: 48%;'>" & _MandanteGols & "</div>" &
 			        "<div style='text-align: right; white-space: pre-line; width: 48%;'>" & _VisitanteGols & "</div>" &
 			    "</div>" &
 			
 			    "<div style='text-align: center; font-size: 16px; font-weight: bold; color: #444; margin-top: 8px;'>Cartões</div>" &
 			
-			    "<div style='display: flex; justify-content: space-between; font-size: 14px; color: #444; margin-top: 4px;'>" &
+			    "<div style='display: flex; justify-content: space-between; font-size: 15px; color: #444; margin-top: 4px;'>" &
 			        "<div style='text-align: left; white-space: pre-line; width: 48%;'>" & _MandanteCartoes & "</div>" &
 			        "<div style='text-align: right; white-space: pre-line; width: 48%;'>" & _VisitanteCartoes & "</div>" &
 			    "</div>" &
@@ -1256,112 +1262,240 @@ table Tabela
 
 	measure Estatisticas = ```
 			
+			    
+			    "<div style='background-color: #FFFFFF; padding: 16px; margin-bottom: 8px; border: 2px solid #FFFFFF; border-radiSs: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-size: 77%;'>" &  
 			
-			    "<div style='background-color: #FFFFFF; padding: 12px; margin-bottom: 8px; border: 2px solid #FFFFFF; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-size: 77%;'>" & 
+			    "<div style='text-align: center; font-size: 24px; font-weight: bold; color: #000000; margin-bottom: 4px;'>ESTATÍSTICAS</div>" & 
+			"<hr style='border: none; border-top: 1px solid #cccccc; margin-bottom: 12px;' />" &
+			     
 			    
-			    "<div style='text-align: center; font-size: 22px; font-weight: bold; color: #000000; margin-bottom: 12px;'>ESTATÍSTICAS</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([chutes_mandante] > [chutes_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [chutes_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [chutes_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Chutes</div>" &
-			        IF([chutes_visitante] > [chutes_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [chutes_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [chutes_visitante] & "</div>") &
-			    "</div>" &
+			        "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([chutes_mandante] > [chutes_visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [chutes_mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [chutes_mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Chutes</div>" &
+			
+			    IF([chutes_visitante] > [chutes_mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Chutes_Visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Chutes_Visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
+			
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([finalizacoes_mandante] > [finalizacoes_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [finalizacoes_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [finalizacoes_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Finalizações</div>" &
-			        IF([finalizacoes_visitante] > [finalizacoes_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [finalizacoes_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [finalizacoes_visitante] & "</div>") &
-			    "</div>" &
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([finalizacoes_mandante] > [finalizacoes_visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [finalizacoes_mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [finalizacoes_mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Finalizações</div>" &
+			
+			    IF([finalizacoes_visitante] > [finalizacoes_mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [finalizacoes_visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [finalizacoes_visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([posse_mandante] > [posse_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [posse_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [posse_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Posse de Bola</div>" &
-			        IF([posse_visitante] > [posse_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [posse_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [posse_visitante] & "</div>") &
-			    "</div>" &
+			        
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([posse_mandante] > [posse_visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [posse_mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [posse_mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Posse de Bola</div>" &
+			
+			    IF([posse_visitante] > [posse_mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [posse_visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [posse_visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([passes_mandante] > [passes_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [passes_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [passes_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Passes</div>" &
-			        IF([passes_visitante] > [passes_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [passes_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [passes_visitante] & "</div>") &
-			    "</div>" &
+			        
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([passes_mandante] > [passes_visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [passes_mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [passes_mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Passes</div>" &
+			
+			    IF([passes_visitante] > [passes_mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [passes_visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [passes_visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([precisao_mandante] > [precisao_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [precisao_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [precisao_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Precisão de Passes</div>" &
-			        IF([precisao_visitante] > [precisao_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [precisao_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [precisao_visitante] & "</div>") &
-			    "</div>" &
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([Precisao_Mandante] > [Precisao_Visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Precisao_Mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Precisao_Mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Precisão dos Passes</div>" &
+			
+			    IF([Precisao_Visitante] > [Precisao_Mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Precisao_Visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Precisao_Visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([faltas_mandante] > [faltas_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [faltas_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [faltas_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Faltas</div>" &
-			        IF([faltas_visitante] > [faltas_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [faltas_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [faltas_visitante] & "</div>") &
-			    "</div>" &
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([faltas_Mandante] > [faltas_Visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [faltas_Mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [faltas_Mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Faltas</div>" &
+			
+			    IF([faltas_Visitante] > [faltas_Mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [faltas_Visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [faltas_Visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([CartoesVermelho_mandante] > [CartoesVermelho_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [CartoesVermelho_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [CartoesVermelho_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Cartões Vermelhos</div>" &
-			        IF([CartoesVermelho_visitante] > [CartoesVermelho_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [CartoesVermelho_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [CartoesVermelho_visitante] & "</div>") &
-			    "</div>" &
+			      "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([CartoesVermelho_Mandante] > [CartoesVermelho_Visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesVermelho_Mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesVermelho_Mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Cartões Vermelho </div>" &
+			
+			    IF([CartoesVermelho_Visitante] > [CartoesVermelho_Mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesVermelho_Visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesVermelho_Visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([CartoesAmarelo_mandante] > [CartoesAmarelo_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [CartoesAmarelo_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [CartoesAmarelo_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Cartões Amarelos</div>" &
-			        IF([CartoesAmarelo_visitante] > [CartoesAmarelo_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [CartoesAmarelo_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [CartoesAmarelo_visitante] & "</div>") &
-			    "</div>" &
+			     "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([CartoesAmarelo_Mandante] > [CartoesAmarelo_Visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesAmarelo_Mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesAmarelo_Mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Cartões Amarelo</div>" &
+			
+			    IF([CartoesAmarelo_Visitante] > [CartoesAmarelo_Mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesAmarelo_Visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [CartoesAmarelo_Visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([Impedimentos_mandante] > [Impedimentos_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [Impedimentos_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [Impedimentos_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Impedimentos</div>" &
-			        IF([Impedimentos_visitante] > [Impedimentos_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [Impedimentos_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [Impedimentos_visitante] & "</div>") &
-			    "</div>" &
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([Impedimentos_Mandante] > [Impedimentos_Visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Impedimentos_Mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Impedimentos_Mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Impedimentos</div>" &
+			
+			    IF([Impedimentos_Visitante] > [Impedimentos_Mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Impedimentos_Visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Impedimentos_Visitante] & "</div>" &
+			        "</div>") &
+			
+			"</div>" &
 			    
-			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;'>" &
-			        IF([Escanteios_mandante] > [Escanteios_visitante], 
-			            "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-right: 5px;'>" & [Escanteios_mandante] & "</div></div>",
-			            "<div style='text-align: left; width: 30%; font-weight: bold;'>" & [Escanteios_mandante] & "</div>") &
-			        "<div style='text-align: center; width: 40%;'>Escanteios</div>" &
-			        IF([Escanteios_visitante] > [Escanteios_mandante], 
-			            "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'><div style='background-color: #B3E5FC; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-left: 5px;'>" & [Escanteios_visitante] & "</div></div>",
-			            "<div style='text-align: right; width: 30%; font-weight: bold;'>" & [Escanteios_visitante] & "</div>") &
-			    "</div>" &
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
+			    IF([Escanteios_Mandante] > [Escanteios_Visitante], 
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Escanteios_Mandante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Escanteios_Mandante] & "</div>" &
+			        "</div>") &
+			
+			    "<div style='text-align: center; width: 40%;'>Escanteios</div>" &
+			
+			    IF([Escanteios_Visitante] > [Escanteios_Mandante], 
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #CDFDE0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Escanteios_Visitante] & "</div>" &
+			        "</div>",
+			        "<div style='text-align: right; width: 30%; font-weight: bold; display: flex; align-items: center; justify-content: flex-end;'>" &
+			            "<div style='background-color: #ffffff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;'>" & [Escanteios_Visitante] & "</div>" &
+			        "</div>") &
+			
 			    
 			    "</div>"
+			
+			
+			
 			```
 		lineageTag: a4cee0fd-1cac-4456-ba08-2d21c8af9af0
 

@@ -239,6 +239,7 @@ table Param_Estatistica
 			VAR _Posicao = MIN(dim_jogadores[Posição]) 
 			VAR _Nascimento = MIN(dim_jogadores[Dt Nascimento]) 
 			VAR _Nacionalidade = MIN(dim_jogadores[Nacionalidade])  
+			VAR _idade = DATEDIFF(min(dim_jogadores[Dt Nascimento]), TODAY(), YEAR)
 			
 			RETURN
 			"<!DOCTYPE html>
@@ -254,7 +255,7 @@ table Param_Estatistica
 			            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 			        }
 			        .card {
-			            width: 215px;
+			            width: 300px;
 			            margin: 12px auto;
 			            border: 1px solid #ccc;
 			            background-color: #f9f9f9;
@@ -262,7 +263,7 @@ table Param_Estatistica
 			        }
 			        .card-image-container {
 			            position: relative;
-			            height: 245px;
+			            height: 300px;
 			            border: 6px solid #fff;
 			            box-sizing: border-box;
 			        }
@@ -276,7 +277,7 @@ table Param_Estatistica
 			            text-align: center;
 			        }
 			        .card-subtitle {
-			            font-size: 11px;
+			            font-size: 13px;
 			            font-weight: 500;
 			            color: #555;
 			            margin: 3px 0;
@@ -286,9 +287,15 @@ table Param_Estatistica
 			            background-color: #eee;
 			            color: #666666;
 			            padding: 5px 10px;
-			            font-size: 11px;
+			            font-size: 13px;
 			            font-weight: 600;
 			            margin-top: 10px;
+			        }
+			        .idade {
+			            font-style: italic;
+			            font-size: 12px;
+			            color: #777;
+			            margin-top: 4px;
 			        }
 			    </style>
 			</head>
@@ -300,10 +307,12 @@ table Param_Estatistica
 			        <div class='card-content'>
 			            <div class='card-subtitle'>"&_Nacionalidade&" - "&_Posicao&"</div>
 			            <div class='birth-box'>"&_Nascimento&"</div>
+			            <div class='idade'>"& _idade & " anos</div>
 			        </div>
 			    </div>
 			</body>
 			</html>"
+			
 			```
 		lineageTag: 6b3ac8ee-3a7e-41b6-933a-b83a142d9b81
 
@@ -1128,7 +1137,7 @@ table Param_Estatistica
 			            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 			        }
 			        .card {
-			            width: 215px;
+			            width: 250px;
 			            margin: 12px auto;
 			            border: 1px solid #ccc;
 			            background-color: #f9f9f9;
@@ -1136,7 +1145,7 @@ table Param_Estatistica
 			        }
 			        .card-image-container {
 			            position: relative;
-			            height: 215px;
+			            height: 250px;
 			            border: 6px solid #fff;
 			            box-sizing: border-box;
 			            background-color: #fff;
@@ -1152,7 +1161,7 @@ table Param_Estatistica
 			            text-align: center;
 			        }
 			        .card-title {
-			            font-size: 14px;
+			            font-size: 15.5px;
 			            font-weight: 600;
 			            color: #333;
 			            margin: 5px 0;
@@ -1230,7 +1239,7 @@ table Param_Estatistica
 			            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 			        }
 			        .card {
-			            width: 215px;
+			            width: 250px;
 			            margin: 12px auto;
 			            border: 1px solid #ccc;
 			            background-color: #f9f9f9;
@@ -1238,7 +1247,7 @@ table Param_Estatistica
 			        }
 			        .card-image-container {
 			            position: relative;
-			            height: 215px;
+			            height: 250px;
 			            border: 6px solid #fff;
 			            box-sizing: border-box;
 			            background-color: #fff;
@@ -1254,7 +1263,7 @@ table Param_Estatistica
 			            text-align: center;
 			        }
 			        .card-title {
-			            font-size: 14px;
+			            font-size: 15.5px;
 			            font-weight: 600;
 			            color: #333;
 			            margin: 5px 0;
@@ -1684,10 +1693,38 @@ table Param_Estatistica
 			    )
 			
 			RETURN
-			"<div style='text-align: center;'>
-			    <h1>" & _Formacao & "</h1>
-			    <p style='font-size: 14px; margin-top: -10px; margin-bottom: 10px;'>Técnico: " & _tecnico & "</p>
-			    <img src='" & _UrlFormacao & "' alt='" & _Formacao & "' style='transform: scale(1); transform-origin: top center; margin-top: 10px;' />
+			"<div style='
+			    background-color: white; 
+			    border-radius: 8px; 
+			    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+			    padding: 8px 12px; 
+			    width: fit-content; 
+			    margin: auto; 
+			    text-align: center;
+			    font-family: Segoe, sans-serif;
+			    transform: scale(2.1);
+			    transform-origin: top center;
+			'>
+			    <img src='" & _UrlFormacao & "' 
+			         alt='" & _Formacao & "' 
+			         style='
+			            width: 100%; 
+			            max-width: 160px; 
+			            margin-bottom: 8px; 
+			            border-radius: 4px;
+			        ' />
+			    <h2 style='
+			        font-size: 10px; 
+			        font-family: Tahoma, sans-serif;
+			        margin: 0;
+			    '>" & _Formacao & "</h2>
+			    <p style='
+			        font-size: 8px; 
+			        font-family: Tahoma, sans-serif;
+			        color: #444; 
+			        margin-top: 4px;
+			        margin-bottom: 0;
+			    '>Técnico: " & _tecnico & "</p>
 			</div>"
 			
 			```
@@ -1747,12 +1784,39 @@ table Param_Estatistica
 			    )
 			
 			RETURN
-			"<div style='text-align: center;'>
-			    <h1>" & _Formacao & "</h1>
-			    <p style='font-size: 14px; margin-top: -10px; margin-bottom: 10px;'>Técnico: " & _tecnico & "</p>
-			    <img src='" & _UrlFormacao & "' alt='" & _Formacao & "' style='transform: scale(1); transform-origin: top center; margin-top: 10px;' />
+			"<div style='
+			    background-color: white; 
+			    border-radius: 8px; 
+			    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+			    padding: 8px 12px; 
+			    width: fit-content; 
+			    margin: auto; 
+			    text-align: center;
+			    font-family: Segoe, sans-serif;
+			    transform: scale(2.1);
+			    transform-origin: top center;
+			'>
+			    <img src='" & _UrlFormacao & "' 
+			         alt='" & _Formacao & "' 
+			         style='
+			            width: 100%; 
+			            max-width: 160px; 
+			            margin-bottom: 8px; 
+			            border-radius: 4px;
+			        ' />
+			    <h2 style='
+			        font-size: 10px; 
+			        font-family: Tahoma, sans-serif;
+			        margin: 0;
+			    '>" & _Formacao & "</h2>
+			    <p style='
+			        font-size: 8px; 
+			        font-family: Tahoma, sans-serif;
+			        color: #444; 
+			        margin-top: 4px;
+			        margin-bottom: 0;
+			    '>Técnico: " & _tecnico & "</p>
 			</div>"
-			
 			
 			```
 		lineageTag: 752a28fa-6f86-4f1e-a437-af5724de0115
@@ -1828,6 +1892,44 @@ table Param_Estatistica
 			
 			```
 		lineageTag: b679c44b-1e4b-4b6d-845e-15179ebd1917
+
+	measure Radar_Mandande =
+			CALCULATE(
+			    MAX(dim_clubes[clube]),
+			    FILTER(
+			        'full - unpivot',
+			        'full - unpivot'[mandante_flag] = "S"
+			    ),
+			    TREATAS(
+			        VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
+			        'full - unpivot'[id_time]
+			    ),
+			    TREATAS(
+			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
+			        'full - unpivot'[rodata]
+			    ),
+			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			)
+		lineageTag: b6393cf0-fa2a-402b-b27e-b94921e350c8
+
+	measure Radar_Visitante =
+			CALCULATE(
+			    MAX(dim_clubes[clube]),
+			    FILTER(
+			        'full - unpivot',
+			        'full - unpivot'[mandante_flag] = "N"
+			    ),
+			    TREATAS(
+			        VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
+			        'full - unpivot'[id_time]
+			    ),
+			    TREATAS(
+			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
+			        'full - unpivot'[rodata]
+			    ),
+			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			)
+		lineageTag: f6d2f17f-70c0-4e3f-bb41-bf1f5687bb24
 
 	column Parâmetro
 		lineageTag: ae3ccc9d-1865-4171-bbfb-e1656d4b8ebf

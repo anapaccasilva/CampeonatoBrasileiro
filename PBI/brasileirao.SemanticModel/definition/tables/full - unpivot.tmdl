@@ -187,6 +187,18 @@ table 'full - unpivot'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Partida =
+			
+			var mandante = if('full - unpivot'[mandante_flag] = "S", ('full - unpivot'[time] & " X " & 'full - unpivot'[adversario]), ('full - unpivot'[adversario] & " X " & 'full - unpivot'[time]) )
+			
+			RETURN
+			
+			"[" & 'full - unpivot'[ID] & "] - " & mandante& " ("  & FORMAT('full - unpivot'[data], "dd/mm/yyyy") & ")"
+		lineageTag: a9596ccb-5bb1-43e2-b238-c9b6b36a0e5e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'full - unpivot' = m
 		mode: import
 		source =

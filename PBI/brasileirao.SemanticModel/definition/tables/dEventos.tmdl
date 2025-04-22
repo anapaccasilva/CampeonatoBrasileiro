@@ -41,7 +41,7 @@ table dEventos
 				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\campeoes.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Ano", Int64.Type}, {"Evento", type text}, {"time", type text}}),
-				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Tipo Alterado", "Emoji", each if [Evento] = "Vencedor" then "🏆" else if [Evento] = "Acidente" then "✞" else null)
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Tipo Alterado", "Emoji", each if [Evento] = "Campeão" then "🏆" else if [Evento] = "Acidente" then "✞" else null)
 				in
 				    #"Coluna Condicional Adicionada"
 
