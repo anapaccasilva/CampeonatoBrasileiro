@@ -4329,16 +4329,6 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.9
 			          }
-			        },
-			        {
-			          "Class.": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -4927,6 +4917,16 @@ cultureInfo pt-BR
 			          "_golsContraAno": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Gols Sofridos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -4945,7 +4945,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Gols Pro": {
+			          "Gols": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -8763,9 +8763,3852 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "campeonatobrasileirogol.faixa_minuto_categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualProperty": "Faixa Minuto Categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "faixa minuto categoria": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "full__unpivot.partida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualProperty": "Partida"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "partida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__jogosAtletaTemporadas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_jogosAtletaTemporadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_jogosAtletaTemporadas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hofa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hofa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hofa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hofa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hofa_title": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hofa_title"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hofa title": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hofa_title": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "switch param hofa designation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "switch param hofa name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofa award": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofa call": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofa heading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofa label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hosa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hosa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hosa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hosa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hosa_title": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hosa_title"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hosa title": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hosa_title": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "switch param hosa designation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "switch param hosa name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosa award": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosa call": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosa heading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosa label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__DesempenhoGolsFeitostotal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_DesempenhoGolsFeitostotal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_DesempenhoGolsFeitostotal": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Gols": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.radar_mandande": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "Radar_Mandande"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "radar mandande": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Radar_Mandande": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.radar_visitante": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "Radar_Visitante"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "radar visitante": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Radar_Visitante": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.medida_9": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "Medida 9"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida 9": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.label_titulos_corinthians": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "label_titulos_corinthians"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "label titulos corinthians": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "label_titulos_corinthians": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "sticker titulo corinthian": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "tag titulo corinthian": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "decal titulo corinthian": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "name tag titulo corinthian": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.484
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.orderatletas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "orderatletas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "orderatletas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.medida_10": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "Medida 10"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida 10": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.entity__orderatletas_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "_orderatletas FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_orderatletas FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fct gols jogador": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fct gol jogador": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "fct_gols_jogador": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.total_gol": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "TotalGols"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total gol": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TotalGols": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate gol": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall gol": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.imagem": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Imagem"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "imagem": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.nascimento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Nascimento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nascimento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fct_gols_jogador.nascimento.hierarquia_de_data": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "VariationSource": "Nascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hierarquia de data": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hierarquia de information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de document": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.nascimento.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "VariationSource": "Nascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nascimento ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.nascimento.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "VariationSource": "Nascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nascimento trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.nascimento.mê": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "VariationSource": "Nascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Mês"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mê": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nascimento mê": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.nascimento.dia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "VariationSource": "Nascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Dia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nascimento dia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.nacionalidade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Nacionalidade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nacionalidade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.posição": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Posição"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posição": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.situação": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Situação"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "situação": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.clube_atual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "ClubeAtual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "clube atual": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ClubeAtual": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.apelido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Apelido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "apelido": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.time": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Time"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "time": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "duration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "interval": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "moment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "timetable": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.atleta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "Atleta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "atleta": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.total_gols_por_atleta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "TotalGolsPorAtleta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total gols por atleta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total gol por atleta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "TotalGolsPorAtleta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate gol por atleta": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "overall gol por atleta": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.total_gols_por_atleta_ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "TotalGolsPorAtletaAno"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total gols por atleta ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total gol por atleta ano": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "TotalGolsPorAtletaAno": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate gol por atleta ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "overall gol por atleta ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.orderatletas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "orderatletas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "orderatletas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "orderatleta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.lista_jogadores_ordenada_por_gols": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "ListaJogadoresOrdenadaPorGols"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "lista jogadores ordenada por gols": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ListaJogadoresOrdenadaPorGols": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador.filtro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_gols_jogador",
+			          "ConceptualProperty": "filtro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "filtro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_atleta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFAtletas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro ho F atleta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ParâmetroHoFAtletas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_atleta.parâmetro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFAtletas",
+			          "ConceptualProperty": "Parâmetro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_atleta.parâmetro_campos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFAtletas",
+			          "ConceptualProperty": "Parâmetro Campos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro campos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_atleta.parâmetro_pedido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFAtletas",
+			          "ConceptualProperty": "Parâmetro Pedido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro pedido": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_atleta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSAtletas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro ho S atleta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ParâmetroHoSAtletas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_atleta.parâmetro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSAtletas",
+			          "ConceptualProperty": "Parâmetro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_atleta.parâmetro_campos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSAtletas",
+			          "ConceptualProperty": "Parâmetro Campos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro campos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_atleta.parâmetro_pedido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSAtletas",
+			          "ConceptualProperty": "Parâmetro Pedido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro pedido": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "campeonatobrasileirocartoe.faixa_minuto_categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualProperty": "Faixa Minuto Categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "faixa minuto categoria": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__DesempenhoCartõesVermelhosFeitos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_DesempenhoCartõesVermelhosFeitos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_DesempenhoCartõesVermelhosFeitos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__DesempenhoCartõesAmarelosFeitos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_DesempenhoCartõesAmarelosFeitos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_DesempenhoCartõesAmarelosFeitos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_dist_title": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_dist_title"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param dist title": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_dist_title": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "switch param dist designation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "switch param dist name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param dist award": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param dist call": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param dist heading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param dist label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__campeonatosAtleta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_campeonatosAtleta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_campeonatosAtleta": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__temporadas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_temporadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_temporadas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hofc_title": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hofc_title"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hofc title": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hofc_title": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "switch param hofc designation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "switch param hofc name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofc award": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofc call": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofc heading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hofc label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hofc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hofc"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hofc": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hofc": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__CartoesVermelhosClube": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_CartoesVermelhosClube"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_CartoesVermelhosClube": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.entity__CartoesAmarelosClube": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "_CartoesAmarelosClube"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_CartoesAmarelosClube": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hosc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hosc"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hosc": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hosc": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.switch_param_hosc_title": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "switch_param_hosc_title"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "switch param hosc title": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "switch_param_hosc_title": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "switch param hosc designation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "switch param hosc name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosc award": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosc call": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosc heading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "switch param hosc label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "ranking_clubes_ano.ID": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fct_classificacao",
+			          "ConceptualProperty": "ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "param_estatistica.entity__campeonatosatletas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "_campeonatosatletas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_campeonatosatletas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.entity__campeonatostimes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "_campeonatostimes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_campeonatostimes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Títulos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_minutagem_atleta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroMinutagemAtletas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro minutagem atleta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ParâmetroMinutagemAtletas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_minutagem_atleta.parâmetro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroMinutagemAtletas",
+			          "ConceptualProperty": "Parâmetro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_minutagem_atleta.parâmetro_campos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroMinutagemAtletas",
+			          "ConceptualProperty": "Parâmetro Campos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro campos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_minutagem_atleta.parâmetro_pedido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroMinutagemAtletas",
+			          "ConceptualProperty": "Parâmetro Pedido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro pedido": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "faixas_minutagem": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "faixas_minutagem"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "faixas minutagem": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "faixa minutagem": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "faixas_minutagem": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "faixas_minutagem.faixa_minuto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "faixas_minutagem",
+			          "ConceptualProperty": "Faixa Minuto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "faixa minuto": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "faixas_minutagem.intervalo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "faixas_minutagem",
+			          "ConceptualProperty": "Intervalo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "intervalo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tabela atletas por ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tabela atleta por ano": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "TabelaAtletasPorAno": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.atleta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Atleta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "atleta": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.time": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Time"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "time": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "duration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "interval": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "moment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "timetable": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.ID": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.status_time": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "StatusTime"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "status time": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "StatusTime": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "status duration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "status interval": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "status moment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "status period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "status timetable": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "category time": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "importance time": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "prestige time": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "prominence time": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "condition time": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.posicao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Posicao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posicao": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.data_nascimento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "DataNascimento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "data nascimento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DataNascimento": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "information nascimento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "fact nascimento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "info nascimento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "statistic nascimento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "document nascimento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "figure nascimento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "record nascimento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "VariationSource": "DataNascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hierarquia de data": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hierarquia de information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de document": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.data_nascimento.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "VariationSource": "DataNascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "data nascimento ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "information nascimento ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "fact nascimento ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "info nascimento ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "statistic nascimento ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "document nascimento ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "figure nascimento ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "record nascimento ano": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.data_nascimento.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "VariationSource": "DataNascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "data nascimento trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "information nascimento trimestre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "fact nascimento trimestre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "info nascimento trimestre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "statistic nascimento trimestre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "document nascimento trimestre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "figure nascimento trimestre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "record nascimento trimestre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.data_nascimento.mê": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "VariationSource": "DataNascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Mês"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mê": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "data nascimento mê": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "information nascimento mê": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "fact nascimento mê": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "info nascimento mê": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "statistic nascimento mê": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "document nascimento mê": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "figure nascimento mê": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "record nascimento mê": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.data_nascimento.dia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "VariationSource": "DataNascimento",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Dia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "data nascimento dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "information nascimento dia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "fact nascimento dia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "info nascimento dia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "statistic nascimento dia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "document nascimento dia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "figure nascimento dia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "record nascimento dia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.nacionalidade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Nacionalidade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nacionalidade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.situacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Situacao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "situacao": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.imagem": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Imagem"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "imagem": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano.ranking": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TabelaAtletasPorAno",
+			          "ConceptualProperty": "Ranking"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "status": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "classification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "position": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "place": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "grade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "standing": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "level": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_clube": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFClubes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro ho F clube": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ParâmetroHoFClubes": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_clube.parâmetro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFClubes",
+			          "ConceptualProperty": "Parâmetro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_clube.parâmetro_campos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFClubes",
+			          "ConceptualProperty": "Parâmetro Campos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro campos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_clube.parâmetro_pedido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoFClubes",
+			          "ConceptualProperty": "Parâmetro Pedido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro pedido": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_clube": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSClubes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro ho S clube": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ParâmetroHoSClubes": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_clube.parâmetro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSClubes",
+			          "ConceptualProperty": "Parâmetro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parâmetro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_clube.parâmetro_campos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSClubes",
+			          "ConceptualProperty": "Parâmetro Campos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro campos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_clube.parâmetro_pedido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ParâmetroHoSClubes",
+			          "ConceptualProperty": "Parâmetro Pedido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parâmetro pedido": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.totalcartoesamarelos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "totalcartoesamarelos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "totalcartoesamarelos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Total Cartões Amarelos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.totalcartoevermelhos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "totalcartoevermelhos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "totalcartoevermelhos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.totalfaltas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "totalfaltas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "totalfaltas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.totalgols": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "totalgols"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "totalgols": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Total de Gols": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "param_estatistica.estadio_mais_partidas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Param_Estatistica",
+			          "ConceptualProperty": "EstadioMaisPartidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estadio mais partidas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "EstadioMaisPartidas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "1.262 Partidas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "tabela_atletas_por_ano_data_nascimento_hierarquia_de_data_has_tabela_atletas_por_ano_data_nascimento_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "tabela_atletas_por_ano.data_nascimento.dia": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_dias"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_data_nascimento_hierarquia_de_data_has_tabela_atletas_por_ano_data_nascimento_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "tabela_atletas_por_ano.data_nascimento.mê": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_mê"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_data_nascimento_hierarquia_de_data_has_tabela_atletas_por_ano_data_nascimento_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "tabela_atletas_por_ano.data_nascimento.trimestre": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_trimestres"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_data_nascimento_hierarquia_de_data_has_tabela_atletas_por_ano_data_nascimento_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "tabela_atletas_por_ano.data_nascimento.ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_anos"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_data_nascimento_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano.data_nascimento": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento"
+			          }
+			        },
+			        "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "data_nascimentos_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_mê_has_fct_gols_jogador_nascimento_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento.mê": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.mê"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.dia": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.mê"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.dia"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê1"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_trimestre_has_fct_gols_jogador_nascimento_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento.trimestre": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.trimestre"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.mê": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.trimestre"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_mê"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.mê"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_trimestres"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.mê"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_are_in_trimestres1"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_ano_has_fct_gols_jogador_nascimento_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento.ano": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.ano"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.trimestre": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.ano"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "anos_have_trimestres"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.trimestre"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_anos"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_anos1"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_hierarquia_de_data_has_fct_gols_jogador_nascimento_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.dia": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_dias1"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_hierarquia_de_data_has_fct_gols_jogador_nascimento_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.mê": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_mê1"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_hierarquia_de_data_has_fct_gols_jogador_nascimento_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.trimestre": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_trimestres1"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_hierarquia_de_data_has_fct_gols_jogador_nascimento_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.ano": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_anos1"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_nascimento_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador.nascimento": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador.nascimento"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "nascimentos_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "dim_jogadore_dt_nascimento_mê_has_dim_jogadore_dt_nascimento_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_jogadores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_jogadore.dt_nascimento.mê": {
+			          "Target": {
+			            "Entity": "dim_jogadore.dt_nascimento.mê"
+			          }
+			        },
+			        "dim_jogadore.dt_nascimento.dia": {
+			          "Target": {
+			            "Entity": "dim_jogadore.dt_nascimento.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_jogadore.dt_nascimento.mê"
+			            },
+			            "Object": {
+			              "Role": "dim_jogadore.dt_nascimento.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_jogadore.dt_nascimento.dia"
+			            },
+			            "Object": {
+			              "Role": "dim_jogadore.dt_nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_jogadore.dt_nascimento.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_jogadore.dt_nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê"
+			        }
+			      ]
+			    },
+			    "dim_jogadore_dt_nascimento_trimestre_has_dim_jogadore_dt_nascimento_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_jogadores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_jogadore.dt_nascimento.trimestre": {
+			          "Target": {
+			            "Entity": "dim_jogadore.dt_nascimento.trimestre"
+			          }
+			        },
+			        "dim_jogadore.dt_nascimento.mê": {
+			          "Target": {
+			            "Entity": "dim_jogadore.dt_nascimento.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_jogadore.dt_nascimento.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dim_jogadore.dt_nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_mê1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_jogadore.dt_nascimento.mê"
+			            },
+			            "Object": {
+			              "Role": "dim_jogadore.dt_nascimento.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_trimestres1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_jogadore.dt_nascimento.mê"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_jogadore.dt_nascimento.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_are_in_trimestres"
+			        }
+			      ]
+			    },
 			    "dim_jogadore_dt_nascimento_ano_has_dim_jogadore_dt_nascimento_trimestre": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_jogadores"
@@ -8795,7 +12638,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "anos_have_trimestres"
+			          "ID": "anos_have_trimestres1"
 			        },
 			        {
 			          "Attribute": {
@@ -8808,7 +12651,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_anos"
+			          "ID": "trimestres_have_anos1"
 			        },
 			        {
 			          "Preposition": {
@@ -8861,7 +12704,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias"
+			          "ID": "hierarquia_de_data_have_dias2"
 			        }
 			      ]
 			    },
@@ -8894,7 +12737,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê"
+			          "ID": "hierarquia_de_data_have_mê2"
 			        }
 			      ]
 			    },
@@ -8927,7 +12770,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_trimestres"
+			          "ID": "hierarquia_de_data_have_trimestres2"
 			        }
 			      ]
 			    },
@@ -8960,7 +12803,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos"
+			          "ID": "hierarquia_de_data_have_anos2"
 			        }
 			      ]
 			    },
@@ -8994,6 +12837,144 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dt_nascimentos_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_d_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "d_ano": {
+			          "Target": {
+			            "Entity": "d_ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "d_ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_d_anos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_anos_have_tabela_atletas_por_anos"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_dim_jogadore": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "dim_jogadore": {
+			          "Target": {
+			            "Entity": "dim_jogadore"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "dim_jogadore"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_dim_jogadores"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_jogadore"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_jogadores_have_tabela_atletas_por_anos"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_d_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "d_ano": {
+			          "Target": {
+			            "Entity": "d_ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "d_ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_d_anos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_ano"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_anos_have_fct_gols_jogadors"
 			        }
 			      ]
 			    },
@@ -9648,6 +13629,52 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "campeonatobrasileirogol_has_faixas_minutagem": {
+			      "Binding": {
+			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "campeonatobrasileirogol": {
+			          "Target": {
+			            "Entity": "campeonatobrasileirogol"
+			          }
+			        },
+			        "faixas_minutagem": {
+			          "Target": {
+			            "Entity": "faixas_minutagem"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "campeonatobrasileirogol"
+			            },
+			            "Object": {
+			              "Role": "faixas_minutagem"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "campeonatobrasileirogols_have_faixas_minutagems"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "faixas_minutagem"
+			            },
+			            "Object": {
+			              "Role": "campeonatobrasileirogol"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "faixas_minutagems_have_campeonatobrasileirogols"
+			        }
+			      ]
+			    },
 			    "campeonatobrasileirogol_has_dim_jogadore": {
 			      "Binding": {
 			        "ConceptualEntity": "campeonato-brasileiro-gols"
@@ -9740,6 +13767,52 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "campeonatobrasileirocartoe_has_faixas_minutagem": {
+			      "Binding": {
+			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "campeonatobrasileirocartoe": {
+			          "Target": {
+			            "Entity": "campeonatobrasileirocartoe"
+			          }
+			        },
+			        "faixas_minutagem": {
+			          "Target": {
+			            "Entity": "faixas_minutagem"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "campeonatobrasileirocartoe"
+			            },
+			            "Object": {
+			              "Role": "faixas_minutagem"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "campeonatobrasileirocartoes_have_faixas_minutagems"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "faixas_minutagem"
+			            },
+			            "Object": {
+			              "Role": "campeonatobrasileirocartoe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "faixas_minutagems_have_campeonatobrasileirocartoes"
+			        }
+			      ]
+			    },
 			    "campeonatobrasileirocartoe_has_full__unpivot": {
 			      "Binding": {
 			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
@@ -9829,6 +13902,2098 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_jogadores_have_campeonatobrasileirocartoes"
+			        }
+			      ]
+			    },
+			    "param_estatistica_has_estadio_mais_partidas": {
+			      "Binding": {
+			        "ConceptualEntity": "Param_Estatistica"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "param_estatistica": {
+			          "Target": {
+			            "Entity": "param_estatistica"
+			          }
+			        },
+			        "param_estatistica.estadio_mais_partidas": {
+			          "Target": {
+			            "Entity": "param_estatistica.estadio_mais_partidas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "param_estatistica"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.estadio_mais_partidas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "param_estatisticas_have_estadio_mais_partidas"
+			        }
+			      ]
+			    },
+			    "full__unpivot_has_param_estatistica_totalgols": {
+			      "Binding": {
+			        "ConceptualEntity": "full - unpivot"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "full__unpivot": {
+			          "Target": {
+			            "Entity": "full__unpivot"
+			          }
+			        },
+			        "param_estatistica.totalgols": {
+			          "Target": {
+			            "Entity": "param_estatistica.totalgols"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "full__unpivot"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.totalgols"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "full__unpivots_have_totalgols"
+			        }
+			      ]
+			    },
+			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_totalfaltas": {
+			      "Binding": {
+			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "campeonatobrasileiroestatisticasfull": {
+			          "Target": {
+			            "Entity": "campeonatobrasileiroestatisticasfull"
+			          }
+			        },
+			        "param_estatistica.totalfaltas": {
+			          "Target": {
+			            "Entity": "param_estatistica.totalfaltas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "campeonatobrasileiroestatisticasfull"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.totalfaltas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "campeonatobrasileiroestatisticasfull_have_totalfaltas"
+			        }
+			      ]
+			    },
+			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_totalcartoevermelhos": {
+			      "Binding": {
+			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "campeonatobrasileiroestatisticasfull": {
+			          "Target": {
+			            "Entity": "campeonatobrasileiroestatisticasfull"
+			          }
+			        },
+			        "param_estatistica.totalcartoevermelhos": {
+			          "Target": {
+			            "Entity": "param_estatistica.totalcartoevermelhos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "campeonatobrasileiroestatisticasfull"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.totalcartoevermelhos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "campeonatobrasileiroestatisticasfull_have_totalcartoevermelhos"
+			        }
+			      ]
+			    },
+			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_totalcartoesamarelos": {
+			      "Binding": {
+			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "campeonatobrasileiroestatisticasfull": {
+			          "Target": {
+			            "Entity": "campeonatobrasileiroestatisticasfull"
+			          }
+			        },
+			        "param_estatistica.totalcartoesamarelos": {
+			          "Target": {
+			            "Entity": "param_estatistica.totalcartoesamarelos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "campeonatobrasileiroestatisticasfull"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.totalcartoesamarelos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "campeonatobrasileiroestatisticasfull_have_totalcartoesamarelos"
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_clube_has_parâmetro": {
+			      "Binding": {
+			        "ConceptualEntity": "ParâmetroHoSClubes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "parâmetro_ho_S_clube": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_S_clube"
+			          }
+			        },
+			        "parâmetro_ho_S_clube.parâmetro": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_S_clube.parâmetro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "parâmetro_ho_S_clube"
+			            },
+			            "Object": {
+			              "Role": "parâmetro_ho_S_clube.parâmetro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parâmetro_ho_S_clubes_have_parâmetros"
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_clube_has_parâmetro": {
+			      "Binding": {
+			        "ConceptualEntity": "ParâmetroHoFClubes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "parâmetro_ho_F_clube": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_F_clube"
+			          }
+			        },
+			        "parâmetro_ho_F_clube.parâmetro": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_F_clube.parâmetro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "parâmetro_ho_F_clube"
+			            },
+			            "Object": {
+			              "Role": "parâmetro_ho_F_clube.parâmetro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parâmetro_ho_F_clubes_have_parâmetros"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_ranking": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.ranking": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.ranking"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.ranking"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_ranking"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_imagem": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.imagem": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.imagem"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.imagem"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_imagems"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_situacao": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.situacao": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.situacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.situacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_situacaos"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_nacionalidade": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.nacionalidade": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.nacionalidade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.nacionalidade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_nacionalidades"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_data_nascimento": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.data_nascimento": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_data_nascimentos"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_posicao": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.posicao": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.posicao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.posicao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_posicaos"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_status_time": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.status_time": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.status_time"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.status_time"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_status_times"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.ID": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_ID"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_time": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "tabela_atletas_por_ano.time": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.time"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.time"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have_times"
+			        }
+			      ]
+			    },
+			    "faixas_minutagem_has_intervalo": {
+			      "Binding": {
+			        "ConceptualEntity": "faixas_minutagem"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "faixas_minutagem": {
+			          "Target": {
+			            "Entity": "faixas_minutagem"
+			          }
+			        },
+			        "faixas_minutagem.intervalo": {
+			          "Target": {
+			            "Entity": "faixas_minutagem.intervalo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "faixas_minutagem"
+			            },
+			            "Object": {
+			              "Role": "faixas_minutagem.intervalo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "faixas_minutagems_have_intervalos"
+			        }
+			      ]
+			    },
+			    "faixas_minutagem_has_faixa_minuto": {
+			      "Binding": {
+			        "ConceptualEntity": "faixas_minutagem"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "faixas_minutagem": {
+			          "Target": {
+			            "Entity": "faixas_minutagem"
+			          }
+			        },
+			        "faixas_minutagem.faixa_minuto": {
+			          "Target": {
+			            "Entity": "faixas_minutagem.faixa_minuto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "faixas_minutagem"
+			            },
+			            "Object": {
+			              "Role": "faixas_minutagem.faixa_minuto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "faixas_minutagems_have_faixa_minutos"
+			        }
+			      ]
+			    },
+			    "parâmetro_minutagem_atleta_has_parâmetro": {
+			      "Binding": {
+			        "ConceptualEntity": "ParâmetroMinutagemAtletas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "parâmetro_minutagem_atleta": {
+			          "Target": {
+			            "Entity": "parâmetro_minutagem_atleta"
+			          }
+			        },
+			        "parâmetro_minutagem_atleta.parâmetro": {
+			          "Target": {
+			            "Entity": "parâmetro_minutagem_atleta.parâmetro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "parâmetro_minutagem_atleta"
+			            },
+			            "Object": {
+			              "Role": "parâmetro_minutagem_atleta.parâmetro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parâmetro_minutagem_atletas_have_parâmetros"
+			        }
+			      ]
+			    },
+			    "ranking_clubes_ano_has_param_estatistica_entity__campeonatostimes": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_classificacao"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ranking_clubes_ano": {
+			          "Target": {
+			            "Entity": "ranking_clubes_ano"
+			          }
+			        },
+			        "param_estatistica.entity__campeonatostimes": {
+			          "Target": {
+			            "Entity": "param_estatistica.entity__campeonatostimes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ranking_clubes_ano"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.entity__campeonatostimes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_classificacaos_have__campeonatostimes"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_has_param_estatistica_entity__campeonatosatletas": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano"
+			          }
+			        },
+			        "param_estatistica.entity__campeonatosatletas": {
+			          "Target": {
+			            "Entity": "param_estatistica.entity__campeonatosatletas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.entity__campeonatosatletas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabela_atletas_por_anos_have__campeonatosatletas"
+			        }
+			      ]
+			    },
+			    "ranking_clubes_ano_has_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_classificacao"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ranking_clubes_ano": {
+			          "Target": {
+			            "Entity": "ranking_clubes_ano"
+			          }
+			        },
+			        "ranking_clubes_ano.ID": {
+			          "Target": {
+			            "Entity": "ranking_clubes_ano.ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ranking_clubes_ano"
+			            },
+			            "Object": {
+			              "Role": "ranking_clubes_ano.ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_classificacaos_have_ID"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "ranking_clubes_ano"
+			            },
+			            "Name": {
+			              "Role": "ranking_clubes_ano.ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ID_are_names_IDs_of_fct_classificacaos"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hosc_title": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hosc_title": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hosc_title"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hosc_title"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hosc_title"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hosc": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hosc": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hosc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hosc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hosc"
+			        }
+			      ]
+			    },
+			    "campeonatobrasileiroestatisticasfull_has_tabela_entity__CartoesAmarelosClube": {
+			      "Binding": {
+			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "campeonatobrasileiroestatisticasfull": {
+			          "Target": {
+			            "Entity": "campeonatobrasileiroestatisticasfull"
+			          }
+			        },
+			        "tabela.entity__CartoesAmarelosClube": {
+			          "Target": {
+			            "Entity": "tabela.entity__CartoesAmarelosClube"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "campeonatobrasileiroestatisticasfull"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__CartoesAmarelosClube"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "campeonatobrasileiroestatisticasfull_have__CartoesAmarelosClube"
+			        }
+			      ]
+			    },
+			    "campeonatobrasileiroestatisticasfull_has_tabela_entity__CartoesVermelhosClube": {
+			      "Binding": {
+			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "campeonatobrasileiroestatisticasfull": {
+			          "Target": {
+			            "Entity": "campeonatobrasileiroestatisticasfull"
+			          }
+			        },
+			        "tabela.entity__CartoesVermelhosClube": {
+			          "Target": {
+			            "Entity": "tabela.entity__CartoesVermelhosClube"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "campeonatobrasileiroestatisticasfull"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__CartoesVermelhosClube"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "campeonatobrasileiroestatisticasfull_have__CartoesVermelhosClube"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hofc": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hofc": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hofc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hofc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hofc"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hofc_title": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hofc_title": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hofc_title"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hofc_title"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hofc_title"
+			        }
+			      ]
+			    },
+			    "d_calendar_has_tabela_entity__temporadas": {
+			      "Binding": {
+			        "ConceptualEntity": "dCalendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        },
+			        "tabela.entity__temporadas": {
+			          "Target": {
+			            "Entity": "tabela.entity__temporadas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__temporadas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have__temporadas"
+			        }
+			      ]
+			    },
+			    "full__unpivot_has_tabela_entity__campeonatosAtleta": {
+			      "Binding": {
+			        "ConceptualEntity": "full - unpivot"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "full__unpivot": {
+			          "Target": {
+			            "Entity": "full__unpivot"
+			          }
+			        },
+			        "tabela.entity__campeonatosAtleta": {
+			          "Target": {
+			            "Entity": "tabela.entity__campeonatosAtleta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "full__unpivot"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__campeonatosAtleta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "full__unpivots_have__campeonatosAtleta"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_dist_title": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_dist_title": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_dist_title"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_dist_title"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_dist_title"
+			        }
+			      ]
+			    },
+			    "tabela_has_entity__DesempenhoCartõesAmarelosFeitos": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.entity__DesempenhoCartõesAmarelosFeitos": {
+			          "Target": {
+			            "Entity": "tabela.entity__DesempenhoCartõesAmarelosFeitos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__DesempenhoCartõesAmarelosFeitos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have__DesempenhoCartõesAmarelosFeitos"
+			        }
+			      ]
+			    },
+			    "tabela_has_entity__DesempenhoCartõesVermelhosFeitos": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.entity__DesempenhoCartõesVermelhosFeitos": {
+			          "Target": {
+			            "Entity": "tabela.entity__DesempenhoCartõesVermelhosFeitos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__DesempenhoCartõesVermelhosFeitos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have__DesempenhoCartõesVermelhosFeitos"
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_S_atleta_has_parâmetro": {
+			      "Binding": {
+			        "ConceptualEntity": "ParâmetroHoSAtletas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "parâmetro_ho_S_atleta": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_S_atleta"
+			          }
+			        },
+			        "parâmetro_ho_S_atleta.parâmetro": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_S_atleta.parâmetro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "parâmetro_ho_S_atleta"
+			            },
+			            "Object": {
+			              "Role": "parâmetro_ho_S_atleta.parâmetro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parâmetro_ho_S_atletas_have_parâmetros"
+			        }
+			      ]
+			    },
+			    "parâmetro_ho_F_atleta_has_parâmetro": {
+			      "Binding": {
+			        "ConceptualEntity": "ParâmetroHoFAtletas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "parâmetro_ho_F_atleta": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_F_atleta"
+			          }
+			        },
+			        "parâmetro_ho_F_atleta.parâmetro": {
+			          "Target": {
+			            "Entity": "parâmetro_ho_F_atleta.parâmetro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "parâmetro_ho_F_atleta"
+			            },
+			            "Object": {
+			              "Role": "parâmetro_ho_F_atleta.parâmetro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parâmetro_ho_F_atletas_have_parâmetros"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_filtro": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.filtro": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.filtro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.filtro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_filtro"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_lista_jogadores_ordenada_por_gols": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.lista_jogadores_ordenada_por_gols": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.lista_jogadores_ordenada_por_gols"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.lista_jogadores_ordenada_por_gols"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_lista_jogadores_ordenada_por_gols"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_orderatletas": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.orderatletas": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.orderatletas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.orderatletas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_orderatletas"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_total_gols_por_atleta_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.total_gols_por_atleta_ano": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.total_gols_por_atleta_ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.total_gols_por_atleta_ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_total_gols_por_atleta_anos"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_total_gols_por_atleta": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.total_gols_por_atleta": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.total_gols_por_atleta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.total_gols_por_atleta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_total_gols_por_atletas"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_atleta": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.atleta": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.atleta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.atleta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_atletas"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_time": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.time": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.time"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.time"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_times"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_apelido": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.apelido": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.apelido"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.apelido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_apelidos"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_clube_atual": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.clube_atual": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.clube_atual"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.clube_atual"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_clube_atuals"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_situação": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.situação": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.situação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.situação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_situaçãos"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_posição": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.posição": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.posição"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.posição"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_posiçãos"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_nacionalidade": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.nacionalidade": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nacionalidade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nacionalidade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_nacionalidades"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_nascimento": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.nascimento": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.nascimento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.nascimento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_nascimentos"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_imagem": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.imagem": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.imagem"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.imagem"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_imagems"
+			        }
+			      ]
+			    },
+			    "fct_gols_jogador_has_total_gol": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_gols_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_gols_jogador": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador"
+			          }
+			        },
+			        "fct_gols_jogador.total_gol": {
+			          "Target": {
+			            "Entity": "fct_gols_jogador.total_gol"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_gols_jogador"
+			            },
+			            "Object": {
+			              "Role": "fct_gols_jogador.total_gol"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_gols_jogadors_have_total_gols"
+			        }
+			      ]
+			    },
+			    "param_estatistica_has_medida_10": {
+			      "Binding": {
+			        "ConceptualEntity": "Param_Estatistica"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "param_estatistica": {
+			          "Target": {
+			            "Entity": "param_estatistica"
+			          }
+			        },
+			        "param_estatistica.medida_10": {
+			          "Target": {
+			            "Entity": "param_estatistica.medida_10"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "param_estatistica"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.medida_10"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "param_estatisticas_have_medida_10"
+			        }
+			      ]
+			    },
+			    "param_estatistica_has_orderatletas": {
+			      "Binding": {
+			        "ConceptualEntity": "Param_Estatistica"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "param_estatistica": {
+			          "Target": {
+			            "Entity": "param_estatistica"
+			          }
+			        },
+			        "param_estatistica.orderatletas": {
+			          "Target": {
+			            "Entity": "param_estatistica.orderatletas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "param_estatistica"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.orderatletas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "param_estatisticas_have_orderatletas"
+			        }
+			      ]
+			    },
+			    "ranking_clubes_ano_has_param_estatistica_label_titulos_corinthians": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_classificacao"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ranking_clubes_ano": {
+			          "Target": {
+			            "Entity": "ranking_clubes_ano"
+			          }
+			        },
+			        "param_estatistica.label_titulos_corinthians": {
+			          "Target": {
+			            "Entity": "param_estatistica.label_titulos_corinthians"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ranking_clubes_ano"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.label_titulos_corinthians"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fct_classificacaos_have_label_titulos_corinthians"
+			        }
+			      ]
+			    },
+			    "param_estatistica_has_medida_9": {
+			      "Binding": {
+			        "ConceptualEntity": "Param_Estatistica"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "param_estatistica": {
+			          "Target": {
+			            "Entity": "param_estatistica"
+			          }
+			        },
+			        "param_estatistica.medida_9": {
+			          "Target": {
+			            "Entity": "param_estatistica.medida_9"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "param_estatistica"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.medida_9"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "param_estatisticas_have_medida_9"
+			        }
+			      ]
+			    },
+			    "dim_clube_has_param_estatistica_radar_visitante": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_clubes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_clube": {
+			          "Target": {
+			            "Entity": "dim_clube"
+			          }
+			        },
+			        "param_estatistica.radar_visitante": {
+			          "Target": {
+			            "Entity": "param_estatistica.radar_visitante"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_clube"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.radar_visitante"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_clubes_have_radar_visitante"
+			        }
+			      ]
+			    },
+			    "dim_clube_has_param_estatistica_radar_mandande": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_clubes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_clube": {
+			          "Target": {
+			            "Entity": "dim_clube"
+			          }
+			        },
+			        "param_estatistica.radar_mandande": {
+			          "Target": {
+			            "Entity": "param_estatistica.radar_mandande"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_clube"
+			            },
+			            "Object": {
+			              "Role": "param_estatistica.radar_mandande"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_clubes_have_radar_mandande"
+			        }
+			      ]
+			    },
+			    "tabela_has_entity__DesempenhoGolsFeitostotal": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.entity__DesempenhoGolsFeitostotal": {
+			          "Target": {
+			            "Entity": "tabela.entity__DesempenhoGolsFeitostotal"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__DesempenhoGolsFeitostotal"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have__DesempenhoGolsFeitostotal"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hosa_title": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hosa_title": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hosa_title"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hosa_title"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hosa_title"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hosa": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hosa": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hosa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hosa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hosa"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hofa_title": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hofa_title": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hofa_title"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hofa_title"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hofa_title"
+			        }
+			      ]
+			    },
+			    "tabela_has_switch_param_hofa": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.switch_param_hofa": {
+			          "Target": {
+			            "Entity": "tabela.switch_param_hofa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.switch_param_hofa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_switch_param_hofa"
+			        }
+			      ]
+			    },
+			    "d_calendar_has_tabela_entity__jogosAtletaTemporadas": {
+			      "Binding": {
+			        "ConceptualEntity": "dCalendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        },
+			        "tabela.entity__jogosAtletaTemporadas": {
+			          "Target": {
+			            "Entity": "tabela.entity__jogosAtletaTemporadas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "tabela.entity__jogosAtletaTemporadas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have__jogosAtletaTemporadas"
+			        }
+			      ]
+			    },
+			    "full__unpivot_has_partida": {
+			      "Binding": {
+			        "ConceptualEntity": "full - unpivot"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "full__unpivot": {
+			          "Target": {
+			            "Entity": "full__unpivot"
+			          }
+			        },
+			        "full__unpivot.partida": {
+			          "Target": {
+			            "Entity": "full__unpivot.partida"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "full__unpivot"
+			            },
+			            "Object": {
+			              "Role": "full__unpivot.partida"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "full__unpivots_have_partidas"
 			        }
 			      ]
 			    },
@@ -14934,15 +21099,15 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "dim_jogadore_has_param_estatistica_figurinha": {
+			    "param_estatistica_has_figurinha": {
 			      "Binding": {
-			        "ConceptualEntity": "dim_jogadores"
+			        "ConceptualEntity": "Param_Estatistica"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_jogadore": {
+			        "param_estatistica": {
 			          "Target": {
-			            "Entity": "dim_jogadore"
+			            "Entity": "param_estatistica"
 			          }
 			        },
 			        "param_estatistica.figurinha": {
@@ -14955,7 +21120,7 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_jogadore"
+			              "Role": "param_estatistica"
 			            },
 			            "Object": {
 			              "Role": "param_estatistica.figurinha"
@@ -14963,7 +21128,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_jogadores_have_figurinha"
+			          "ID": "param_estatisticas_have_figurinha"
 			        }
 			      ]
 			    },
@@ -18139,20 +24304,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "dim_jogadore_dt_nascimento_trimestre_has_dim_jogadore_dt_nascimento_mê": {
+			    "tabela_atletas_por_ano_data_nascimento_ano_has_tabela_atletas_por_ano_data_nascimento_trimestre": {
 			      "Binding": {
-			        "ConceptualEntity": "dim_jogadores"
+			        "ConceptualEntity": "TabelaAtletasPorAno"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_jogadore.dt_nascimento.trimestre": {
+			        "tabela_atletas_por_ano.data_nascimento.ano": {
 			          "Target": {
-			            "Entity": "dim_jogadore.dt_nascimento.trimestre"
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.ano"
 			          }
 			        },
-			        "dim_jogadore.dt_nascimento.mê": {
+			        "tabela_atletas_por_ano.data_nascimento.trimestre": {
 			          "Target": {
-			            "Entity": "dim_jogadore.dt_nascimento.mê"
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			          }
 			        }
 			      },
@@ -18160,33 +24325,33 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_jogadore.dt_nascimento.trimestre"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.ano"
 			            },
 			            "Object": {
-			              "Role": "dim_jogadore.dt_nascimento.mê"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê"
+			          "ID": "anos_have_trimestres2"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_jogadore.dt_nascimento.mê"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			            },
 			            "Object": {
-			              "Role": "dim_jogadore.dt_nascimento.trimestre"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.ano"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres"
+			          "ID": "trimestres_have_anos2"
 			        },
 			        {
 			          "Preposition": {
 			            "Subject": {
-			              "Role": "dim_jogadore.dt_nascimento.mê"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			            },
 			            "Prepositions": [
 			              {
@@ -18196,29 +24361,29 @@ cultureInfo pt-BR
 			              }
 			            ],
 			            "Object": {
-			              "Role": "dim_jogadore.dt_nascimento.trimestre"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.ano"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_are_in_trimestres"
+			          "ID": "trimestres_are_in_anos2"
 			        }
 			      ]
 			    },
-			    "dim_jogadore_dt_nascimento_mê_has_dim_jogadore_dt_nascimento_dia": {
+			    "tabela_atletas_por_ano_data_nascimento_trimestre_has_tabela_atletas_por_ano_data_nascimento_mê": {
 			      "Binding": {
-			        "ConceptualEntity": "dim_jogadores"
+			        "ConceptualEntity": "TabelaAtletasPorAno"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_jogadore.dt_nascimento.mê": {
+			        "tabela_atletas_por_ano.data_nascimento.trimestre": {
 			          "Target": {
-			            "Entity": "dim_jogadore.dt_nascimento.mê"
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			          }
 			        },
-			        "dim_jogadore.dt_nascimento.dia": {
+			        "tabela_atletas_por_ano.data_nascimento.mê": {
 			          "Target": {
-			            "Entity": "dim_jogadore.dt_nascimento.dia"
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.mê"
 			          }
 			        }
 			      },
@@ -18226,33 +24391,33 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_jogadore.dt_nascimento.mê"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			            },
 			            "Object": {
-			              "Role": "dim_jogadore.dt_nascimento.dia"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.mê"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias"
+			          "ID": "trimestres_have_mê2"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_jogadore.dt_nascimento.dia"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.mê"
 			            },
 			            "Object": {
-			              "Role": "dim_jogadore.dt_nascimento.mê"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê"
+			          "ID": "mê_have_trimestres2"
 			        },
 			        {
 			          "Preposition": {
 			            "Subject": {
-			              "Role": "dim_jogadore.dt_nascimento.dia"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.mê"
 			            },
 			            "Prepositions": [
 			              {
@@ -18262,12 +24427,78 @@ cultureInfo pt-BR
 			              }
 			            ],
 			            "Object": {
-			              "Role": "dim_jogadore.dt_nascimento.mê"
+			              "Role": "tabela_atletas_por_ano.data_nascimento.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_are_in_mê"
+			          "ID": "mê_are_in_trimestres2"
+			        }
+			      ]
+			    },
+			    "tabela_atletas_por_ano_data_nascimento_mê_has_tabela_atletas_por_ano_data_nascimento_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "TabelaAtletasPorAno"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela_atletas_por_ano.data_nascimento.mê": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.mê"
+			          }
+			        },
+			        "tabela_atletas_por_ano.data_nascimento.dia": {
+			          "Target": {
+			            "Entity": "tabela_atletas_por_ano.data_nascimento.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.mê"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias2"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.dia"
+			            },
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê2"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "tabela_atletas_por_ano.data_nascimento.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê2"
 			        }
 			      ]
 			    }

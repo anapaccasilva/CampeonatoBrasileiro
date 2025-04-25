@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 1420,
+        "x": 2929.2056074766356,
         "y": 0
       },
       "nodes": [
@@ -215,6 +215,102 @@
             "y": 74
           },
           "nodeIndex": "dEventos",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5112,
+            "y": 50
+          },
+          "nodeIndex": "fct_gols_jogador",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5396,
+            "y": 74
+          },
+          "nodeIndex": "ParâmetroHoFAtletas",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5680,
+            "y": 74
+          },
+          "nodeIndex": "ParâmetroHoSAtletas",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5964,
+            "y": 74
+          },
+          "nodeIndex": "ParâmetroMinutagemAtletas",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6248,
+            "y": 50
+          },
+          "nodeIndex": "faixas_minutagem",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6532,
+            "y": 50
+          },
+          "nodeIndex": "TabelaAtletasPorAno",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6816,
+            "y": 74
+          },
+          "nodeIndex": "ParâmetroHoFClubes",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7100,
+            "y": 74
+          },
+          "nodeIndex": "ParâmetroHoSClubes",
           "size": {
             "height": 152,
             "width": 234

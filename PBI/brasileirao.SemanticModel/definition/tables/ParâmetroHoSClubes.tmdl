@@ -1,0 +1,50 @@
+table ParâmetroHoSClubes
+	lineageTag: a36b9ca0-5ee2-401b-8ae5-68474134e898
+
+	column Parâmetro
+		lineageTag: c9080324-e0bd-4412-ad9c-4ddf9ce127e6
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		isHidden
+		lineageTag: 7e35fb86-6052-4693-8201-2fd25df4f844
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 87fb30ef-7aa8-45f7-b039-e67400051c46
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ParâmetroHoSClubes = calculated
+		mode: import
+		source =
+				{
+				    ("Amarelos", NAMEOF([_CartoesAmarelosClube]), 0),
+				    ("Vermelhos", NAMEOF([_CartoesVermelhosClube]), 1),
+				    ("Derrotas", NAMEOF([_derrotas]), 2),
+				    ("Gols Sofridos", NAMEOF([_golsContraAno]), 3)
+				}
+
+	annotation PBI_Id = 1a55bdac5e5c4301b855c685b3a859cc
+

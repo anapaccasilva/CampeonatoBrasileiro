@@ -1931,6 +1931,349 @@ table Param_Estatistica
 			)
 		lineageTag: f6d2f17f-70c0-4e3f-bb41-bf1f5687bb24
 
+	measure 'Medida 9'
+		lineageTag: 5fc2ec19-2c3a-48dc-a860-91b4e0087675
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure label_titulos_corinthians = ```
+			
+			CALCULATE(
+			    CONCATENATEX(
+			        VALUES(fct_classificacao[Ano]),
+			        fct_classificacao[Ano],
+			        ", "
+			    ),
+			    fct_classificacao[time] = "Corinthians",
+			    fct_classificacao[StatusTime] = "Vencedor"
+			)
+			
+			```
+		lineageTag: 5070b0a5-3045-4ce0-8235-98cfca06e6de
+
+	measure orderatletas = if(ISBLANK(SELECTEDVALUE(dAno[Ano])), SELECTEDVALUE(fct_gols_jogador[TotalGolsPorAtleta]), SELECTEDVALUE(fct_gols_jogador[TotalGolsPorAtletaAno]))
+		lineageTag: 72003b65-f2c2-480f-b272-8de6e9a52c34
+
+		formatStringDefinition = "0"
+
+	measure 'Medida 10'
+		lineageTag: af0c9e1a-670a-4f58-945c-6c5990028b6d
+
+	measure _campeonatosatletas = DISTINCTCOUNT(TabelaAtletasPorAno[Ano])
+		formatString: 0
+		lineageTag: 9488c7d9-779f-4eb7-bd0e-e9329a8b442f
+
+	measure _campeonatostimes = CALCULATE(DISTINCTCOUNT(fct_classificacao[Ano]), fct_classificacao[StatusTime] = "Vencedor")
+		formatString: 0
+		lineageTag: 0e19d22b-1f99-4099-9bd7-530c8f38aefd
+
+	measure totalcartoesamarelos = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]),0)
+		formatString: #,0
+		lineageTag: 1d1227e5-bbb6-4f00-a54f-811c017ebda2
+
+	measure totalcartoevermelhos = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]),0)
+		formatString: 0
+		lineageTag: 4a17eaf7-1e1c-4ed9-b497-c2df911c9c87
+
+	measure totalfaltas = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[faltas]),0)
+		formatString: #,0
+		lineageTag: aa6396a8-4ece-4e2c-bf98-33c8c5eba259
+
+	measure totalgols = COALESCE(SUM('full - unpivot'[gols_pro]),0)
+		formatString: #,0
+		lineageTag: 5f36a6f9-5bca-4bba-bf52-c749e96a1c16
+
+	measure EstadioMaisPartidas = ```
+			
+			VAR TabelaResumo = 
+			    ADDCOLUMNS(
+			        SUMMARIZE('full - unpivot', 'full - unpivot'[arena], 'full - unpivot'[mandante_Estado]),
+			        "TotalPartidas", CALCULATE(DISTINCTCOUNT('full - unpivot'[id]))
+			    )
+			VAR MaxPartidas = MAXX(TabelaResumo, [TotalPartidas])
+			VAR EstadioUF = 
+			    MAXX(
+			        FILTER(TabelaResumo, [TotalPartidas] = MaxPartidas),
+			        'full - unpivot'[arena] & " (" & 'full - unpivot'[mandante_Estado] & ")"
+			    )
+			RETURN
+			    EstadioUF
+			
+			```
+		lineageTag: 4f05ddb6-1183-4680-9a0d-de8d2ecde815
+
+	measure 'Medida 11'
+		lineageTag: 65d0674e-a7c7-4597-874d-f83cd400f569
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Botão Gols' = ```
+			
+			VAR _partida = "Média por Partidas: " & FORMAT([Média Gols por Partida], "0.00")
+			VAR _temporada = "Média por Temporadas: " & FORMAT([Média Gols por Temporada], "0.00")
+			VAR _times = "Média por Times: " & FORMAT([Média Gols por Time], "0.00")
+			
+			VAR espaco = UNICHAR(8202)
+			VAR largura = 36
+			
+			VAR espaco_partida = largura - LEN(_partida)
+			VAR espaco_temporada = largura - LEN(_temporada)
+			VAR espaco_times = largura - LEN(_times)
+			
+			VAR texto = 
+			    _partida & REPT(espaco, espaco_partida) & 
+			    _temporada & REPT(espaco, espaco_temporada) & 
+			    _times
+			
+			RETURN 
+			texto
+			
+			```
+		lineageTag: a31fc9a7-14c6-452b-b236-226a2a26836f
+
+	measure 'Média Gols por Partida' =
+			
+			COALESCE(
+			    AVERAGE(
+			        'full - unpivot'[gols_pro]
+			    ),
+			    0
+			)
+		formatString: 0.00
+		lineageTag: 2abee985-8752-4b29-a0c6-f51e2f97a6fa
+
+	measure 'Média Gols por Temporada' = ```
+			
+			VAR TotalGols = COALESCE(SUM(fct_classificacao[GolsPro]), 0)
+			VAR TotalTemporadas = CALCULATE(DISTINCTCOUNT(dCalendar[Ano-Campeonato]), dCalendar[Ano-Campeonato] >=14)
+			RETURN
+			DIVIDE(TotalGols, TotalTemporadas, 0)
+			
+			```
+		lineageTag: c84baece-7511-4ceb-a43a-c2b9c110d1a0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Gols por Time' = ```
+			
+			COALESCE(
+			    AVERAGE(
+			        fct_classificacao[GolsPro]
+			    ),
+			    0
+			)
+			
+			```
+		formatString: 0.00
+		lineageTag: fbf0b116-08d7-4ca5-8efc-88dfb6fab398
+
+	measure 'Botão Cartoes Amarelos' = ```
+			
+			VAR _partida = "Média por Partidas: " & FORMAT([Média Cartoes Amarelos por Partida], "0.00")
+			VAR _temporada = "Média por Temporadas: " & FORMAT([Média Cartoes Amarelos por Temporada], "0.00")
+			VAR _times = "Média por Times: " & FORMAT([Média Cartões Amarelos por Time], "0.00")
+			
+			VAR espaco = UNICHAR(8202)
+			VAR largura = 36
+			
+			VAR espaco_partida = largura - LEN(_partida)
+			VAR espaco_temporada = largura - LEN(_temporada)
+			VAR espaco_times = largura - LEN(_times)
+			
+			VAR texto = 
+			    _partida & REPT(espaco, espaco_partida) & 
+			    _temporada & REPT(espaco, espaco_temporada) & 
+			    _times
+			
+			RETURN 
+			texto
+			
+			```
+		lineageTag: c062deba-7502-42f3-bec8-802a8b7cc8e9
+
+	measure 'Média Cartoes Amarelos por Partida' = ```
+			
+			COALESCE(
+			    AVERAGE(
+			        'campeonato-brasileiro-estatisticas-full'[cartao_amarelo]
+			    ),
+			    0
+			)
+			
+			```
+		lineageTag: f22479d4-13a0-4c36-a66d-1aae81e2082b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Cartões Amarelos por Time' =
+			
+			VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]), 0)
+			VAR TotalTimes = DISTINCTCOUNT('campeonato-brasileiro-estatisticas-full'[clube])
+			RETURN
+			DIVIDE(Total, TotalTimes, 0)
+		lineageTag: d5b7a5e8-677b-462d-91a8-fe17552ddcdb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Cartoes Amarelos por Temporada' = ```
+			
+			VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]), 0)
+			VAR TotalTemporadas = CALCULATE(DISTINCTCOUNT(dCalendar[Ano-Campeonato]), dCalendar[Ano-Campeonato] >=14)
+			RETURN
+			DIVIDE(Total, TotalTemporadas, 0)
+			
+			```
+		lineageTag: 66deec9f-41c8-4bcf-9076-c18fed4e2b4b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Cartoes Vermelhos por Temporada' = ```
+			
+			VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]), 0)
+			VAR TotalTemporadas = CALCULATE(DISTINCTCOUNT(dCalendar[Ano-Campeonato]), dCalendar[Ano-Campeonato] >=14)
+			RETURN
+			DIVIDE(Total, TotalTemporadas, 0)
+			
+			
+			
+			```
+		lineageTag: 649d9d8c-804c-4252-93ad-bfb26e8f0e8e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Medida 12'
+		lineageTag: 0013098e-e6b7-4804-904c-39ceee853c76
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Média Cartoes Vermelhos por Partida' = ```
+			
+			COALESCE(
+			    AVERAGE(
+			        'campeonato-brasileiro-estatisticas-full'[cartao_vermelho]
+			    ),
+			    0
+			)
+			
+			```
+		lineageTag: d0134569-8ded-4085-8cd1-09558937f467
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Cartões Vermelhos por Time' =
+			
+			VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]), 0)
+			VAR TotalTimes = DISTINCTCOUNT('campeonato-brasileiro-estatisticas-full'[clube])
+			RETURN
+			DIVIDE(Total, TotalTimes, 0)
+		lineageTag: 563497f8-a95b-452e-b656-336d250f8575
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Botão Cartoes Vermelhos' = ```
+			
+			VAR _partida = "Média por Partidas: " & FORMAT([Média Cartoes Vermelhos por Partida], "0.00")
+			VAR _temporada = "Média por Temporadas: " & FORMAT([Média Cartoes Vermelhos por Temporada], "0.00")
+			VAR _times = "Média por Times: " & FORMAT([Média Cartões Vermelhos por Time], "0.00")
+			
+			VAR espaco = UNICHAR(8202)
+			VAR largura = 36
+			
+			VAR espaco_partida = largura - LEN(_partida)
+			VAR espaco_temporada = largura - LEN(_temporada)
+			VAR espaco_times = largura - LEN(_times)
+			
+			VAR texto = 
+			    _partida & REPT(espaco, espaco_partida) & 
+			    _temporada & REPT(espaco, espaco_temporada) & 
+			    _times
+			
+			RETURN 
+			texto
+			
+			```
+		lineageTag: 16a98236-c081-4b4b-9233-4de4241c9550
+
+	measure 'Média Faltas por Temporada' =
+			
+			VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[faltas]), 0)
+			VAR TotalTemporadas = CALCULATE(DISTINCTCOUNT(dCalendar[Ano-Campeonato]), dCalendar[Ano-Campeonato] >=14)
+			RETURN
+			DIVIDE(Total, TotalTemporadas, 0)
+		lineageTag: 12f51273-10f4-4a91-b534-ae873e46f54b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Faltas por Partida' = ```
+			
+			COALESCE(
+			    AVERAGE(
+			        'campeonato-brasileiro-estatisticas-full'[faltas]
+			    ),
+			    0
+			)
+			
+			```
+		lineageTag: 4f2d9e9b-8fc5-4fcf-8ae8-8f97390e2d98
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Faltas por Time' =
+			
+			VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[faltas]), 0)
+			VAR TotalTimes = DISTINCTCOUNT('campeonato-brasileiro-estatisticas-full'[clube])
+			RETURN
+			DIVIDE(Total, TotalTimes, 0)
+		lineageTag: 2a58b5bf-2749-467f-ab08-c7b61427355e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Botão Faltas' = ```
+			
+			VAR _partida = "Média por Partidas: " & FORMAT([Média faltas por Partida], "0.00")
+			VAR _temporada = "Média por Temporadas: " & FORMAT([Média faltas por Temporada], "0,00")
+			VAR _times = "Média por Times: " & FORMAT([Média faltas por Time], "0,00")
+			
+			VAR espaco = UNICHAR(8202)
+			VAR largura = 41.49
+			
+			VAR espaco_partida = largura - LEN(_partida)
+			VAR espaco_temporada = largura - LEN(_temporada) -4
+			
+			VAR texto = 
+			    _partida & REPT(espaco, espaco_partida) & 
+			    _temporada & REPT(espaco, espaco_temporada) & 
+			    _times
+			
+			RETURN 
+			texto
+			
+			```
+		lineageTag: ba4596ed-f662-4bb2-8d2a-8ed682ff310e
+
+	measure 'Botão Estadios' = ```
+			
+			VAR _primeiro = "Mineirão (MG): 918" 
+			VAR _segundo = "Morumbi (SP): 826"
+			VAR _terceiro = "Couto Moreira (PR): 590"
+			
+			VAR espaco = UNICHAR(8202)
+			VAR largura = 44
+			
+			VAR espaco_primeiro = largura - LEN(_primeiro)
+			VAR espaco_segundo = largura - LEN(_segundo) +8
+			
+			VAR texto = 
+			    _primeiro & REPT(espaco, espaco_primeiro) & 
+			    _segundo & REPT(espaco, espaco_segundo) & 
+			    _terceiro
+			
+			RETURN 
+			texto
+			
+			```
+		lineageTag: 377d8a9e-42c3-4e63-83a2-87889e390246
+
 	column Parâmetro
 		lineageTag: ae3ccc9d-1865-4171-bbfb-e1656d4b8ebf
 		summarizeBy: none

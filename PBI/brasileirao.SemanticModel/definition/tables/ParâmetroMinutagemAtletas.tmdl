@@ -1,0 +1,49 @@
+table ParâmetroMinutagemAtletas
+	lineageTag: a7b02db2-05e5-4a0b-8d76-192d5f0481d2
+
+	column Parâmetro
+		lineageTag: e8877b56-861d-4860-8fab-4e87a910a62b
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		isHidden
+		lineageTag: a305cb5d-cd27-43be-8964-5131dcd365b3
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 3f2dcafc-aa9d-411d-a0ee-fc417f129a41
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ParâmetroMinutagemAtletas = calculated
+		mode: import
+		source =
+				{
+				    ("Gols", NAMEOF([_DesempenhoGolsFeitostotal]), 0),
+				    ("Vermelhos", NAMEOF([_DesempenhoCartõesVermelhosFeitos]), 2),
+				    ("Amarelos", NAMEOF([_DesempenhoCartõesAmarelosFeitos]), 1)
+				}
+
+	annotation PBI_Id = b007ae650d434beaa03933c5f06536af
+

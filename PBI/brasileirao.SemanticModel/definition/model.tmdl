@@ -33,6 +33,16 @@ ref table dim_formacao
 ref table RadarChart_Mandante
 ref table RadarChart_Visitante
 ref table dEventos
+ref table fct_gols_jogador
+ref table LocalDateTable_70fc6a57-934d-491c-922b-da12b4e2d60f
+ref table ParâmetroHoFAtletas
+ref table ParâmetroHoSAtletas
+ref table ParâmetroMinutagemAtletas
+ref table faixas_minutagem
+ref table TabelaAtletasPorAno
+ref table LocalDateTable_475605b0-9571-4a93-8abf-036f30d92b59
+ref table ParâmetroHoFClubes
+ref table ParâmetroHoSClubes
 
 ref cultureInfo pt-BR
 

@@ -175,6 +175,12 @@ table fct_classificacao
 
 		annotation SummarizationSetBy = Automatic
 
+	column ID = CONCATENATE(fct_classificacao[Ano], fct_classificacao[time])
+		lineageTag: b38ce58e-55b4-4cbb-aba8-1cb512b83ff7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fct_classificacao = calculated
 		mode: import
 		source = ```

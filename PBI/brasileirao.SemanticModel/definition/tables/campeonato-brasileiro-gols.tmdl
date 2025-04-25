@@ -60,6 +60,12 @@ table campeonato-brasileiro-gols
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Faixa Minuto Categoria' = SWITCH(true(), 'campeonato-brasileiro-gols'[minuto] <=15, "15", AND('campeonato-brasileiro-gols'[minuto] <=30, 'campeonato-brasileiro-gols'[minuto] >15), "30", AND('campeonato-brasileiro-gols'[minuto] <=45, 'campeonato-brasileiro-gols'[minuto] >30), "45", AND('campeonato-brasileiro-gols'[minuto] <=60, 'campeonato-brasileiro-gols'[minuto] >45), "60", AND('campeonato-brasileiro-gols'[minuto] <=75, 'campeonato-brasileiro-gols'[minuto] >60), "75", AND('campeonato-brasileiro-gols'[minuto] <=90, 'campeonato-brasileiro-gols'[minuto] >75), "90", 'campeonato-brasileiro-gols'[minuto] >90, "Acréscimos")
+		lineageTag: 402ae423-dc9d-4daa-ba2a-6b2338a22a99
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition campeonato-brasileiro-gols = m
 		mode: import
 		source =

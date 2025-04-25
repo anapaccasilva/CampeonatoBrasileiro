@@ -139,10 +139,13 @@ table campeonato-brasileiro-cartoes
 		annotation SummarizationSetBy = Automatic
 
 	column minuto
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: f76660b8-6feb-4d8f-a3c3-96ab152364b2
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: minuto
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -151,6 +154,12 @@ table campeonato-brasileiro-cartoes
 		lineageTag: 141ac270-33c2-4350-bc4a-08399352da48
 		summarizeBy: none
 		sourceColumn: id_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faixa Minuto Categoria' = SWITCH(true(), 'campeonato-brasileiro-cartoes'[minuto] <=15, "15", AND('campeonato-brasileiro-cartoes'[minuto] <=30, 'campeonato-brasileiro-cartoes'[minuto] >15), "30", AND('campeonato-brasileiro-cartoes'[minuto] <=45, 'campeonato-brasileiro-cartoes'[minuto] >30), "45", AND('campeonato-brasileiro-cartoes'[minuto] <=60, 'campeonato-brasileiro-cartoes'[minuto] >45), "60", AND('campeonato-brasileiro-cartoes'[minuto] <=75, 'campeonato-brasileiro-cartoes'[minuto] >60), "75", AND('campeonato-brasileiro-cartoes'[minuto] <=90, 'campeonato-brasileiro-cartoes'[minuto] >75), "90", 'campeonato-brasileiro-cartoes'[minuto] >90, "Acréscimos")
+		lineageTag: 42f1e1ed-10f3-40bf-a04d-4b2afa7374a4
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
