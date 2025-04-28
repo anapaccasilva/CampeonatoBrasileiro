@@ -1,0 +1,49 @@
+table Param_EstatisticasGerais
+	lineageTag: ba276148-95a0-405a-bf26-03f37a1ad10e
+
+	column Parâmetro
+		lineageTag: ae3ccc9d-1865-4171-bbfb-e1656d4b8ebf
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		lineageTag: 94ebfbb7-bf43-49e4-a0b5-0b7e0bd8168e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "kind": 2,
+				  "version": 3
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		formatString: 0
+		lineageTag: b495d8c2-7952-48b4-9ee1-037e5006e2b6
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Param_EstatisticasGerais = calculated
+		mode: import
+		source =
+				{
+				    ("Pontuação", NAMEOF([PontosAno]), 0),
+				    ("Classificação", NAMEOF([PosicaoMaximaAno]), 1),
+				    ("Gols Pro", NAMEOF([GolsProAno]), 2),
+				    ("Gols Contra", NAMEOF([GolsContraAno]), 3),
+				    ("Saldo de Gols", NAMEOF([SaldoGolsAno]), 4)
+				}
+
+	annotation PBI_Id = 3572fb447f164050a1dcf0822cc610d2
+

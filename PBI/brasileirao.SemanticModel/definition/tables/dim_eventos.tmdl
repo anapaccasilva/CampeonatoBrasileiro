@@ -1,0 +1,59 @@
+table dim_eventos
+	lineageTag: 193ee6f7-02a8-4c75-8e32-a4b8e116d423
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c32561c-c591-4679-8929-27c5afcf5ba3
+		summarizeBy: none
+		sourceColumn: Ano
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column time
+		dataType: string
+		lineageTag: f6fe1c5e-de4c-450a-a87b-5d5fc380007e
+		summarizeBy: none
+		sourceColumn: time
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Evento
+		dataType: string
+		lineageTag: 9b4e5132-537a-44cd-a7a3-cac3d47f9a22
+		summarizeBy: none
+		sourceColumn: Evento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Emoji
+		dataType: string
+		lineageTag: ec5c50ce-b891-46fd-90ac-26255f6b77b0
+		summarizeBy: none
+		sourceColumn: Emoji
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_eventos = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\campeoes.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Ano", Int64.Type}, {"Evento", type text}, {"time", type text}}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Tipo Alterado", "Emoji", each if [Evento] = "Campeão" then "🏆" else if [Evento] = "Acidente" then "✞" else null)
+				in
+				    #"Coluna Condicional Adicionada"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

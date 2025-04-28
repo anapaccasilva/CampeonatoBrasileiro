@@ -7,6 +7,8 @@ table dim_formacao
 		summarizeBy: none
 		sourceColumn: formacao
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column url
@@ -14,6 +16,8 @@ table dim_formacao
 		lineageTag: d22bdbb1-50a0-4163-a1ae-a054552589ce
 		summarizeBy: none
 		sourceColumn: url
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

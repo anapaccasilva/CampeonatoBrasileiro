@@ -6,43 +6,40 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Tabela","serie","dim_jogadores","dim_cores","dim_formacao","dEventos"]
+annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Medidas","serie","dim_jogadores","dim_cores","dim_formacao","dim_eventos"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBIDesktopVersion = 2.141.1580.0 (25.03)+aa8628f0e8285c810874f1464275f27e3b63a25b
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
 
 ref table campeonato-brasileiro-cartoes
 ref table campeonato-brasileiro-estatisticas-full
-ref table DateTableTemplate_009a5668-6064-4e0d-bf66-b0c62ba2080c
 ref table campeonato-brasileiro-gols
 ref table dim_clubes
 ref table 'full - unpivot'
-ref table Tabela
-ref table fct_classificacao
+ref table Medidas
+ref table sum_classificacao_times
 ref table dim_jogadores
-ref table TabelaGolsPorClube
-ref table dCalendar
-ref table dAno
-ref table Param_Estatistica
+ref table sum_GolsPorClube
+ref table dim_Calendario
+ref table dimAno_Campeonato
+ref table Param_EstatisticasGerais
 ref table dim_cores
-ref table LocalDateTable_6b161db7-deac-48d9-b7e0-6ec0cc4fc765
 ref table dim_formacao
-ref table RadarChart_Mandante
-ref table RadarChart_Visitante
-ref table dEventos
-ref table fct_gols_jogador
-ref table LocalDateTable_70fc6a57-934d-491c-922b-da12b4e2d60f
-ref table ParâmetroHoFAtletas
-ref table ParâmetroHoSAtletas
-ref table ParâmetroMinutagemAtletas
-ref table faixas_minutagem
-ref table TabelaAtletasPorAno
+ref table sum_radar_mandante
+ref table sum_radar_visitante
+ref table dim_eventos
+ref table Param_HoFAtletas
+ref table Param_HoSAtletas
+ref table Param_MinutagemAtletas
+ref table dim_minutagem
+ref table sum_titulos_atletas
+ref table Param_HoFClubes
+ref table Param_HoSClubes
+ref table DateTableTemplate_d8866286-5615-4442-b59f-684c92018e26
 ref table LocalDateTable_475605b0-9571-4a93-8abf-036f30d92b59
-ref table ParâmetroHoFClubes
-ref table ParâmetroHoSClubes
 
 ref cultureInfo pt-BR
 

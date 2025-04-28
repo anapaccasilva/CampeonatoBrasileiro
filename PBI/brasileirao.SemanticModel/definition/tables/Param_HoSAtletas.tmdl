@@ -1,0 +1,49 @@
+/// Hall of Shame
+table Param_HoSAtletas
+	lineageTag: 1dff6495-af4c-493c-a8bc-efe4437281dd
+
+	column Parâmetro
+		lineageTag: 72132fcb-f548-4ca4-ac9f-8d24b830304a
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		lineageTag: 8e0692a0-1a51-4490-90e5-edcc2b3f545a
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		formatString: 0
+		lineageTag: 9083c46d-ab2d-4f87-98c3-eb7c9e53ba0c
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Param_HoSAtletas = calculated
+		mode: import
+		source =
+				{
+				    ("Amarelos", NAMEOF([TotalCartoesAmarelos]), 0),
+				    ("Vermelhos", NAMEOF([TotalCartoesVermelhos]), 1),
+				    ("Derrotas", NAMEOF([JogosDerrotasAtleta]), 2),
+				    ("Gols Contra", NAMEOF([DesempenhoGolsFeitosContra]), 3)
+				}
+
+	annotation PBI_Id = 89c9d48c51fb48ac8ac818e1afbdce0c
+

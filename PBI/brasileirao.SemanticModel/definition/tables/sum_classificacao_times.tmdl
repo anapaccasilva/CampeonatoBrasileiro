@@ -1,0 +1,170 @@
+table sum_classificacao_times
+	lineageTag: 542f90ee-9360-4b32-8af8-77287be71bf2
+
+	column TotalPontos
+		formatString: 0
+		lineageTag: 6205ee72-9e4a-42d3-b45a-56bd677066b7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalPontos]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ranking_times =
+			
+			VAR AnoAtual = [Ano]
+			RETURN
+			RANKX(
+			    FILTER(
+			        sum_classificacao_times,
+			        [ano] = AnoAtual
+			    ),
+			     sum_classificacao_times[TotalPontos] * 1000000 +
+			     sum_classificacao_times[TotalVitorias] * 10000 +
+			     sum_classificacao_times[SaldoGols] * 100 +
+			     sum_classificacao_times[GolsPro],
+			    ,
+			    DESC,
+			    DENSE
+			)
+		formatString: 0
+		lineageTag: 6cc7a3fd-af2c-4595-8c43-fa29368d322c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalVitorias
+		formatString: 0
+		lineageTag: 7f893e42-1859-45ea-a7dc-7a9895042a15
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalVitorias]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SaldoGols
+		formatString: 0
+		lineageTag: a6e9ed28-7e9f-41bb-859c-d599fa9526f8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [SaldoGols]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalJogos
+		formatString: 0
+		lineageTag: c366fd43-4aba-4ac9-92d6-bcadc973975a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalJogos]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalDerrotas
+		formatString: 0
+		lineageTag: c925ee07-fdc5-4026-99f6-29b2ffddb289
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalDerrotas]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalEmpates
+		formatString: 0
+		lineageTag: 1af3fced-06fb-4ed5-99ed-fe8a49dbad6f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalEmpates]
+
+		annotation SummarizationSetBy = Automatic
+
+	column GolsPro
+		formatString: 0
+		lineageTag: 88a16f07-5506-4e8d-83fa-d205e25251c4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [GolsPro]
+
+		annotation SummarizationSetBy = Automatic
+
+	column GolsContra
+		formatString: 0
+		lineageTag: 55609c83-d5da-4af3-9140-1f4f9d5ebf1f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [GolsContra]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusTime = ```
+			
+			VAR Ranking = [Ranking_times]
+			VAR TotalTimesAno = 
+			    CALCULATE(
+			        COUNTROWS(sum_classificacao_times),
+			        ALLEXCEPT(sum_classificacao_times, sum_classificacao_times[Ano])
+			    )
+			RETURN
+			IF(Ranking = 1, "Vencedor", 
+			    IF(Ranking > TotalTimesAno - 4, "Rebaixado", BLANK()))
+			
+			```
+		lineageTag: d7d8dd9f-d0ec-4b39-a135-88c1b6f7f1f5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column time
+		lineageTag: fc4e1b15-0042-4852-a5f7-96077596f9ac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [time]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano
+		formatString: 0
+		lineageTag: d8a851d3-30d3-4d4c-b34d-7d27f963a182
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sum_classificacao_times = calculated
+		mode: import
+		source = ```
+				
+				SELECTCOLUMNS(
+				    SUMMARIZE(
+				        FILTER(
+				            'full - unpivot',
+				            'full - unpivot'[AnoCampeonato]
+				        ),
+				        'full - unpivot'[time],
+				        'full - unpivot'[AnoCampeonato],
+				        "TotalJogos", DISTINCTCOUNT('full - unpivot'[ID]),
+				        "TotalPontos", SUM('full - unpivot'[Pontos]),
+				        "TotalVitorias", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = "V"),
+				        "TotalDerrotas", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = "D"),
+				        "TotalEmpates", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = "E"),
+				        "GolsPro", SUM('full - unpivot'[gols_pro]),
+				        "GolsContra", SUM('full - unpivot'[gols_contra]),
+				        "SaldoGols", SUM('full - unpivot'[Saldo Gols])
+				    ),
+				    "time", 'full - unpivot'[time],
+				    "ano", 'full - unpivot'[AnoCampeonato],  
+				    "TotalJogos", [TotalJogos],
+				    "TotalPontos", [TotalPontos],
+				    "TotalVitorias", [TotalVitorias],
+				    "TotalDerrotas", [TotalDerrotas],
+				    "TotalEmpates", [TotalEmpates],
+				    "GolsPro", [GolsPro],
+				    "GolsContra", [GolsContra],
+				    "SaldoGols", [SaldoGols]
+				)
+				
+				```
+
+	annotation PBI_Id = 69c9dc6adcd04c4d9c2c6f35b9d53761
+

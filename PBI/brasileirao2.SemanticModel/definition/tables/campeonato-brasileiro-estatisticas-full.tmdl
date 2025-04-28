@@ -1,0 +1,146 @@
+table campeonato-brasileiro-estatisticas-full
+	lineageTag: 8d6dccab-488c-4245-9950-6a8d8ce1d50e
+
+	column partida_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 64866a08-9ca2-4bb9-9cfa-8d3334b46e91
+		summarizeBy: sum
+		sourceColumn: partida_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodata
+		dataType: int64
+		formatString: 0
+		lineageTag: c2b3657e-d4f5-4eb1-a8fb-cbe7090a80fb
+		summarizeBy: sum
+		sourceColumn: rodata
+
+		annotation SummarizationSetBy = Automatic
+
+	column clube
+		dataType: string
+		lineageTag: 37c37d2c-7353-45e1-a5bb-d42ccb11a056
+		summarizeBy: none
+		sourceColumn: clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column chutes
+		dataType: int64
+		formatString: 0
+		lineageTag: fd0f1b3e-41c2-4bcd-a5bb-927c2a8543fa
+		summarizeBy: sum
+		sourceColumn: chutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column chutes_no_alvo
+		dataType: int64
+		formatString: 0
+		lineageTag: 7658e934-8706-4b41-918d-89ee3cec2d45
+		summarizeBy: sum
+		sourceColumn: chutes_no_alvo
+
+		annotation SummarizationSetBy = Automatic
+
+	column posse_de_bola
+		dataType: double
+		lineageTag: 1b4f5f9d-2975-4783-afc5-cc44c37b5db2
+		summarizeBy: sum
+		sourceColumn: posse_de_bola
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column passes
+		dataType: int64
+		formatString: 0
+		lineageTag: a1a61e68-d33e-4d18-b5a2-7e29a26ff150
+		summarizeBy: sum
+		sourceColumn: passes
+
+		annotation SummarizationSetBy = Automatic
+
+	column precisao_passes
+		dataType: double
+		lineageTag: 0de7ace3-083d-4b18-8447-359aa203d72b
+		summarizeBy: sum
+		sourceColumn: precisao_passes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column faltas
+		dataType: int64
+		formatString: 0
+		lineageTag: d0684aac-3272-43a4-8b4b-72c387f23a97
+		summarizeBy: sum
+		sourceColumn: faltas
+
+		annotation SummarizationSetBy = Automatic
+
+	column cartao_amarelo
+		dataType: int64
+		formatString: 0
+		lineageTag: 159595d8-25e9-4895-91c8-6fc23b6be9b8
+		summarizeBy: sum
+		sourceColumn: cartao_amarelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cartao_vermelho
+		dataType: int64
+		formatString: 0
+		lineageTag: 70d26830-4172-45df-82cc-24b4bd147b14
+		summarizeBy: sum
+		sourceColumn: cartao_vermelho
+
+		annotation SummarizationSetBy = Automatic
+
+	column impedimentos
+		dataType: int64
+		formatString: 0
+		lineageTag: 29444abc-c977-42b5-a0fa-ee3535bb5965
+		summarizeBy: sum
+		sourceColumn: impedimentos
+
+		annotation SummarizationSetBy = Automatic
+
+	column escanteios
+		dataType: int64
+		formatString: 0
+		lineageTag: 0714fe4e-3980-425c-af56-f4fd6791480c
+		summarizeBy: sum
+		sourceColumn: escanteios
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_time
+		dataType: string
+		lineageTag: 6d0f9eb6-ab0b-4cd9-90e3-21eb8de147b2
+		summarizeBy: none
+		sourceColumn: id_time
+
+		annotation SummarizationSetBy = Automatic
+
+	partition campeonato-brasileiro-estatisticas-full = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-estatisticas-full.csv"),[Delimiter=",", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Cabeçalhos Promovidos","None","",Replacer.ReplaceText,{"posse_de_bola"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","None","",Replacer.ReplaceText,{"precisao_passes"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído1",{{"partida_id", Int64.Type}, {"rodata", Int64.Type}, {"clube", type text}, {"chutes", Int64.Type}, {"chutes_no_alvo", Int64.Type}, {"posse_de_bola", Percentage.Type}, {"passes", Int64.Type}, {"precisao_passes", Percentage.Type}, {"faltas", Int64.Type}, {"cartao_amarelo", Int64.Type}, {"cartao_vermelho", Int64.Type}, {"impedimentos", Int64.Type}, {"escanteios", Int64.Type}}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Tipo Alterado", "id_time", each Text.Combine({Text.From([partida_id], "pt-BR"), "_", [clube]}), type text)
+				in
+				    #"Coluna Mesclada Inserida"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

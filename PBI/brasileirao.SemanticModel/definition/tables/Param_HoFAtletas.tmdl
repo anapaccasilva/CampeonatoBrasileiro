@@ -1,0 +1,49 @@
+/// Hall of Fame
+table Param_HoFAtletas
+	lineageTag: 261c5dce-57f5-4756-b27b-a841c10905d7
+
+	column Parâmetro
+		lineageTag: b01a5e43-cba6-4059-aca1-516a775ea2ea
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		lineageTag: 6e622b53-295d-484c-a363-fd01a64eaf5b
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		formatString: 0
+		lineageTag: 5fe6f038-0f28-4397-b3e4-2348cccf1984
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Param_HoFAtletas = calculated
+		mode: import
+		source =
+				{
+				    ("Temporadas", NAMEOF([JogosAtletaTemporadas]), 0),
+				    ("Partidas", NAMEOF([JogosAtleta]), 1),
+				    ("Vitórias", NAMEOF([JogosVitoriasAtleta]), 2),
+				    ("Gols", NAMEOF([DesempenhoGolsFeitos]), 3)
+				}
+
+	annotation PBI_Id = b32394700f104d528b8c93bc92e5d52b
+

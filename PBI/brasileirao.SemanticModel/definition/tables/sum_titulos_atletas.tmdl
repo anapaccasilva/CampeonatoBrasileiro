@@ -1,0 +1,196 @@
+table sum_titulos_atletas
+	lineageTag: b2e0a7b0-c5e3-43de-8fdd-88c744ac01e8
+
+	column Atleta
+		lineageTag: da3e26a6-7708-4cb5-bfbc-31dd10fb118e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [atleta]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time
+		lineageTag: eaa8e7ed-1813-4f42-954b-32d61ccc9e47
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Time]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		formatString: 0
+		lineageTag: 5c5c0958-0fcc-4a43-96a4-f29f425b71d0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		lineageTag: a41edc2c-6a8c-4dca-ba14-27971f738708
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusTime
+		lineageTag: 39b87d5a-42cb-4c9d-8dab-3e9ec9972480
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [StatusTime]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Posicao
+		lineageTag: 93c07db6-e8ca-4a59-a9d8-ea3c687de506
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Posicao]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataNascimento
+		formatString: General Date
+		lineageTag: b2b82545-08a4-41d1-b4ef-2d725f6a816a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DataNascimento]
+
+		variation Variation
+			isDefault
+			relationship: 727f3b98-747a-43ac-945e-50113c14fdf1
+			defaultHierarchy: LocalDateTable_475605b0-9571-4a93-8abf-036f30d92b59.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nacionalidade
+		lineageTag: f20b9873-4c10-44eb-b148-4788930aac21
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nacionalidade]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Situacao
+		lineageTag: 48b47d69-dad9-4478-9d94-a611f1b63a3d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Situacao]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Imagem
+		lineageTag: 7543e9cb-91fa-42b9-b6be-b9c53bbc3e16
+		dataCategory: ImageUrl
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Imagem]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ranking = ```
+			
+			CALCULATE(
+			    COUNTROWS(sum_titulos_atletas), 
+			    FILTER(
+			        sum_titulos_atletas, 
+			        sum_titulos_atletas[Atleta] = EARLIER(sum_titulos_atletas[Atleta])
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 29ea0d26-8427-4bda-85b9-eb54b3fd5fe9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sum_titulos_atletas = calculated
+		mode: import
+		source = ```
+				
+				VAR PartidasGols = 
+				    SELECTCOLUMNS(
+				        'campeonato-brasileiro-gols',
+				        "Atleta", 'campeonato-brasileiro-gols'[atleta],
+				        "TimeID", 'campeonato-brasileiro-gols'[id_time]
+				    )
+				VAR PartidasCartoes = 
+				    SELECTCOLUMNS(
+				        'campeonato-brasileiro-cartoes',
+				        "Atleta", 'campeonato-brasileiro-cartoes'[atleta],
+				        "TimeID", 'campeonato-brasileiro-cartoes'[id_time]
+				    )
+				VAR TodasPartidas = 
+				    UNION(PartidasGols, PartidasCartoes)
+				VAR PartidasComAnoETime = 
+				    ADDCOLUMNS(
+				        TodasPartidas,
+				        "Ano", 
+				        LOOKUPVALUE(
+				            'full - unpivot'[Ano], 
+				            'full - unpivot'[id_time], 
+				            [TimeID]
+				        ),
+				        "Time", 
+				        LOOKUPVALUE(
+				            'full - unpivot'[time], 
+				            'full - unpivot'[id_time], 
+				            [TimeID]
+				        )
+				    )
+				VAR PartidasDistinct = 
+				    ADDCOLUMNS(
+				        DISTINCT(
+				            SELECTCOLUMNS(
+				                PartidasComAnoETime,
+				                "Atleta", [Atleta],
+				                "Time", [Time],
+				                "Ano", [Ano]
+				            )
+				        ),
+				        "ID", [Ano] & [Time],
+				        "StatusTime", LOOKUPVALUE(
+				            'sum_classificacao_times'[StatusTime],
+				            'sum_classificacao_times'[Ano], [Ano],
+				            'sum_classificacao_times'[Time], [Time]
+				        )
+				    )
+				VAR PartidasVencedoras = 
+				    FILTER(
+				        PartidasDistinct,
+				        [StatusTime] = "Vencedor"
+				    )
+				VAR PartidasComJogadorInfo = 
+				    ADDCOLUMNS(
+				        PartidasVencedoras,
+				        "Posicao", LOOKUPVALUE(
+				            'dim_jogadores'[Posição], 
+				            'dim_jogadores'[Atleta], [Atleta]
+				        ),
+				        "DataNascimento", LOOKUPVALUE(
+				            'dim_jogadores'[Dt Nascimento], 
+				            'dim_jogadores'[Atleta], [Atleta]
+				        ),
+				        "Nacionalidade", LOOKUPVALUE(
+				            'dim_jogadores'[Nacionalidade], 
+				            'dim_jogadores'[Atleta], [Atleta]
+				        ),
+				        "Imagem", LOOKUPVALUE(
+				            'dim_jogadores'[Imagem], 
+				            'dim_jogadores'[Atleta], [Atleta]
+				        ),
+				        "Situacao", LOOKUPVALUE(
+				            'dim_jogadores'[Situação], 
+				            'dim_jogadores'[Atleta], [Atleta]
+				        )
+				    )
+				
+				RETURN
+				    PartidasComJogadorInfo
+				
+				```
+
+	annotation PBI_Id = d7cd0b5075114ee5a96d6d13debb1e72
+

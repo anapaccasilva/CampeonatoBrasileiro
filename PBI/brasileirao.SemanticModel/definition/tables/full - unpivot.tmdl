@@ -8,6 +8,8 @@ table 'full - unpivot'
 		summarizeBy: count
 		sourceColumn: ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column rodata
@@ -17,6 +19,8 @@ table 'full - unpivot'
 		summarizeBy: sum
 		sourceColumn: rodata
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column data
@@ -25,6 +29,8 @@ table 'full - unpivot'
 		lineageTag: 894ef71e-38c2-468c-9996-bbb5ac7a72b0
 		summarizeBy: none
 		sourceColumn: data
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -37,6 +43,8 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: hora
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Time
@@ -47,6 +55,8 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: time
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column formacao
@@ -54,6 +64,8 @@ table 'full - unpivot'
 		lineageTag: dce43fa3-7568-45eb-b32b-1cb791392a1a
 		summarizeBy: none
 		sourceColumn: formacao
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -63,6 +75,8 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: tecnico
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column vencedor
@@ -71,6 +85,8 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: vencedor
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column arena
@@ -78,6 +94,8 @@ table 'full - unpivot'
 		lineageTag: 91b67f38-369c-4a5e-8d90-4257724ca75a
 		summarizeBy: none
 		sourceColumn: arena
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -88,6 +106,8 @@ table 'full - unpivot'
 		summarizeBy: sum
 		sourceColumn: gols_contra
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column gols_pro
@@ -97,6 +117,8 @@ table 'full - unpivot'
 		summarizeBy: sum
 		sourceColumn: gols_pro
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column mandante_flag
@@ -105,6 +127,8 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: mandante_flag
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column R
@@ -112,6 +136,8 @@ table 'full - unpivot'
 		lineageTag: 520c3056-7d1a-46ae-b752-a8de3d17a9ff
 		summarizeBy: none
 		sourceColumn: R
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -122,6 +148,8 @@ table 'full - unpivot'
 		summarizeBy: sum
 		sourceColumn: Pontos
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Saldo Gols'
@@ -129,6 +157,8 @@ table 'full - unpivot'
 		lineageTag: 182e1428-0d4b-420e-a2fb-c9c10c81421e
 		summarizeBy: sum
 		sourceColumn: Saldo Gols
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -139,6 +169,8 @@ table 'full - unpivot'
 		lineageTag: 51c127ad-ef29-45be-ba45-d4b5932e0ed1
 		summarizeBy: sum
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Série
@@ -147,12 +179,16 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: Série
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Ranking por Ano'
 		type: calculated
 		lineageTag: 3444a759-2348-4606-9696-b8e17ae18056
 		summarizeBy: sum
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -169,6 +205,8 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: id_time
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column adversario
@@ -177,6 +215,8 @@ table 'full - unpivot'
 		summarizeBy: none
 		sourceColumn: adversario
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column mandante_Estado
@@ -184,6 +224,8 @@ table 'full - unpivot'
 		lineageTag: 06b3cf26-212c-4919-a6cd-b2dc654ccbb6
 		summarizeBy: none
 		sourceColumn: mandante_Estado
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -195,6 +237,20 @@ table 'full - unpivot'
 			
 			"[" & 'full - unpivot'[ID] & "] - " & mandante& " ("  & FORMAT('full - unpivot'[data], "dd/mm/yyyy") & ")"
 		lineageTag: a9596ccb-5bb1-43e2-b238-c9b6b36a0e5e
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoCampeonato = ```
+			IF(
+			                'full - unpivot'[Ano] = 2021 && month('full - unpivot'[data]) < 3, 
+			                2020, 
+			                'full - unpivot'[Ano])
+			```
+		formatString: 0
+		lineageTag: c2cdd5bb-fb7a-4b6e-b3dc-5a3854817713
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic

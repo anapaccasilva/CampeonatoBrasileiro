@@ -1,0 +1,21 @@
+table dimAno_Campeonato
+	lineageTag: 27bcc12f-7130-432f-8547-f738d5852de6
+
+	column Ano
+		formatString: 0
+		lineageTag: 0c45b3fe-3bef-4263-89d6-fbad19f951b5
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimAno_Campeonato = calculated
+		mode: import
+		source = ```
+				
+				    GENERATESERIES(2003, 2023, 1)
+				
+				```
+
+	annotation PBI_Id = 6dcb3cac74cf45baa76054a997842210
+

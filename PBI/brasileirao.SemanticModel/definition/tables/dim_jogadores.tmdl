@@ -7,6 +7,8 @@ table dim_jogadores
 		summarizeBy: none
 		sourceColumn: atleta
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Imagem
@@ -14,6 +16,8 @@ table dim_jogadores
 		lineageTag: 491eb021-c823-48db-b409-077e532542a8
 		summarizeBy: none
 		sourceColumn: Imagem
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -24,10 +28,7 @@ table dim_jogadores
 		summarizeBy: none
 		sourceColumn: Dt Nascimento
 
-		variation Variation
-			isDefault
-			relationship: 53887932-ad46-4220-8e0f-1675baad1392
-			defaultHierarchy: LocalDateTable_6b161db7-deac-48d9-b7e0-6ec0cc4fc765.'Hierarquia de datas'
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -39,6 +40,8 @@ table dim_jogadores
 		summarizeBy: none
 		sourceColumn: Local Nascimento
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Nacionalidade
@@ -46,6 +49,8 @@ table dim_jogadores
 		lineageTag: 9a23b68c-f979-4f35-bcdb-26fd58adfacb
 		summarizeBy: none
 		sourceColumn: Nacionalidade
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -55,6 +60,8 @@ table dim_jogadores
 		summarizeBy: none
 		sourceColumn: Posição
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Situação
@@ -62,6 +69,8 @@ table dim_jogadores
 		lineageTag: a17182c5-3120-41ae-a453-e3569108cb65
 		summarizeBy: none
 		sourceColumn: Situação
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -71,6 +80,8 @@ table dim_jogadores
 		summarizeBy: none
 		sourceColumn: Clube Atual
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Biografia
@@ -78,6 +89,8 @@ table dim_jogadores
 		lineageTag: d8434654-5bc0-4cad-b03c-9ff435e8afae
 		summarizeBy: none
 		sourceColumn: Biografia
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -87,6 +100,8 @@ table dim_jogadores
 		summarizeBy: none
 		sourceColumn: Pé-Preferencial
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Nome
@@ -94,6 +109,8 @@ table dim_jogadores
 		lineageTag: 7f00dde3-38e5-4d14-aa17-a7e35e5ea9d9
 		summarizeBy: none
 		sourceColumn: Nome
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -136,6 +153,8 @@ table dim_jogadores
 			```
 		lineageTag: 51064e85-c414-4437-9b22-1dc8c0595234
 		summarizeBy: none
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

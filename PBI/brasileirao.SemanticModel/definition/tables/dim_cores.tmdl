@@ -8,6 +8,8 @@ table dim_cores
 		summarizeBy: none
 		sourceColumn: Índice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Cor
@@ -16,6 +18,8 @@ table dim_cores
 		summarizeBy: none
 		sourceColumn: Cor
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Código Hexadecimal'
@@ -23,6 +27,8 @@ table dim_cores
 		lineageTag: 24629a4b-c774-487f-ad0f-88abe51e79d2
 		summarizeBy: none
 		sourceColumn: Código Hexadecimal
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

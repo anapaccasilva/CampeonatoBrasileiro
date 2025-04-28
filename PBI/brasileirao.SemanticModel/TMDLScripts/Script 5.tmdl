@@ -1,0 +1,192 @@
+createOrReplace
+
+	ref table Medidas
+
+		measure Precisao_Visitante = ```
+				
+				VAR _precisao = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[precisao_passes]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(FORMAT(_precisao, "0%"), "-")
+				```
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: eefaa647-6957-4258-80b9-87c79ef6cd5f
+
+			changedProperty = IsHidden
+
+		measure Posse_Visitante = ```
+				
+				VAR _posse = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[posse_de_bola]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(FORMAT(_posse, "0%"), "-")
+				```
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: 89815c21-9cec-4761-a183-ba125741329e
+
+			changedProperty = IsHidden
+
+		measure Passes_Visitante = ```
+				
+				VAR _passes = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[passes]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_passes, "-")
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: dfc0374d-3de5-481a-9a9f-ed791c585e95
+
+			changedProperty = IsHidden
+
+		measure Impedimentos_Visitante = ```
+				
+				VAR _impedimentos = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[impedimentos]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_impedimentos, "-")
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: 08b6e05d-660a-42b2-9b7e-94c7c0791f18
+
+			changedProperty = IsHidden
+
+		measure Faltas_Visitante = ```
+				
+				VAR _faltas = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[faltas]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_faltas, "-")
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: 171147c7-7ec4-4a8e-90b4-0ea9efa68774
+
+			changedProperty = IsHidden
+
+		measure Finalizacoes_Visitante = ```
+				
+				VAR _chutes = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[chutes_no_alvo]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_chutes, 0)
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: e750624c-f735-4f2e-bc7a-e5c68507965b
+
+			changedProperty = IsHidden
+
+		measure Escanteios_Visitante = ```
+				
+				VAR _escanteios = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[escanteios]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_escanteios, "-")
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: 953f0129-d562-41a5-a948-4e12ba6648b3
+
+			changedProperty = IsHidden
+
+		measure Chutes_Visitante = ```
+				
+				VAR _chutes = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[chutes]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_chutes, 0)
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: 2ff4b78d-3920-4acb-af24-18c06ad4b628
+
+			changedProperty = IsHidden
+
+		measure CartoesVermelho_Visitante = ```
+				
+				VAR _cartoes = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_cartoes, "-")
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: 272feaf4-7a23-45f0-977f-7b23fe0687da
+
+			changedProperty = IsHidden
+
+		measure CartoesAmarelo_Visitante = ```
+				
+				VAR _cartoes = 
+				    CALCULATE(
+				        MAX('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]),
+				        FILTER('full - unpivot','full - unpivot'[id_time] =  CALCULATE(MIN('campeonato-brasileiro-estatisticas-full'[id_time]), 'full - unpivot'[mandante_flag] = "N")
+				        
+				    )
+				)
+				
+				RETURN
+				COALESCE(_cartoes, "-")
+				```
+			formatString: 0
+			displayFolder: Partidas\Estatisticas\Visitante
+			lineageTag: c96a4c52-2632-4b80-80fe-c73359bcd3e9
+
+			changedProperty = IsHidden
+

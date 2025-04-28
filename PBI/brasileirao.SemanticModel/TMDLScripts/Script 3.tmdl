@@ -1,0 +1,373 @@
+createOrReplace
+
+	ref table Medidas
+
+		measure StatusArtilheiro1 = ```
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				RETURN
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Situação], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: 80bc264a-3e43-488d-9fa7-ce31eedde2fc
+
+			changedProperty = IsHidden
+
+		measure Artilheiro1 = ```
+				
+				VAR JogadorComMais = 
+				    TOPN(1, sum_GolsPorClube, sum_GolsPorClube[TotalGols], DESC, sum_GolsPorClube[atleta], ASC)  -- Desempate pelo nome (alfabeticamente)
+				RETURN
+				    SELECTCOLUMNS(JogadorComMais, "Atleta", sum_GolsPorClube[atleta])
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: d9e11ff6-cfa0-466f-a857-d9b71ca1ca5e
+
+			changedProperty = IsHidden
+
+		measure BioArtilheiro1 = ```
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				RETURN
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Biografia], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: 79a24cf4-4585-46f7-8f7d-74a2de6e7764
+
+			changedProperty = IsHidden
+
+		measure ClubeArtilheiro1 =
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				RETURN
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Clube Atual], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: a4a57f70-29d6-4859-974c-17ee0ad9a34d
+
+			changedProperty = IsHidden
+
+		measure Cards_Artilheiro1 = ```
+				
+				VAR _JogadorComMais = [Artilheiro1]
+				VAR _Imagem = COALESCE(CALCULATE(MIN(dim_jogadores[Imagem]), dim_jogadores[atleta] = _JogadorComMais), "https://i.pinimg.com/736x/7c/cb/01/7ccb010d8fddc4bcd84587ef3c34d100.jpg")
+				VAR _Posicao = CALCULATE(MIN(dim_jogadores[Posição]), dim_jogadores[atleta] = _JogadorComMais) 
+				VAR _JogadorNome = _JogadorComMais
+				VAR _Nascimento = CALCULATE(MIN(dim_jogadores[Dt Nascimento]), dim_jogadores[atleta] = _JogadorComMais) 
+				VAR _Nacionalidade = CALCULATE(MIN(dim_jogadores[Nacionalidade]), dim_jogadores[atleta] = _JogadorComMais)  
+				VAR _GolsTemporada = CALCULATE(COUNT('campeonato-brasileiro-gols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
+				
+				VAR _cores = 
+				    CALCULATE(
+				        SELECTEDVALUE(dim_cores[Código Hexadecimal]), 
+				        FILTER(
+				            dim_cores, 
+				            dim_cores[Cor] = SELECTEDVALUE(dim_clubes[Cores])
+				        )
+				    )
+				
+				RETURN
+				"<!DOCTYPE html> 
+				<html lang='en'>
+				<head>
+				    <meta charset='UTF-8'>
+				    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+				    <title>Compact Gallery Card</title>
+				    <style>
+				        body {
+				            margin: 0;
+				            padding: 8px;
+				            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				        }
+				        .card {
+				            width: 177px; 
+				            margin: 12px auto;
+				            border-radius: 10px;
+				            overflow: hidden;
+				            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+				            transition: transform 0.3s ease, box-shadow 0.3s ease;
+				            background-color: #ffffff;
+				        }
+				        .card:hover {
+				            transform: translateY(-6px);
+				            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+				        }
+				        .card-image-container {
+				            position: relative;
+				            height: 165px;
+				            overflow: hidden;
+				        }
+				        .card-image {
+				            width: 100%;
+				            height: 100%;
+				            object-fit: cover;
+				            transition: transform 0.3s ease;
+				        }
+				        .card:hover .card-image {
+				            transform: scale(1.05);
+				        }
+				        .card-content {
+				            padding: 10px;
+				        }
+				        .card-title,
+				        .card-subtitle,
+				        .card-subtitle-small {
+				            white-space: nowrap;
+				            overflow: hidden;
+				            text-overflow: ellipsis;
+				        }
+				        .card-title {
+				            margin: 0;
+				            font-size: 11px;
+				            font-weight: 600;
+				            color: #333;
+				            height: 16px;
+				        }
+				        .card-subtitle {
+				            margin: 5px 0 0;
+				            font-size: 13px;
+				            color: #1A1A1A; /* Cinza quase preto para o nome do jogador */
+				            font-weight: 500;
+				            height: 18px;
+				        }
+				        .card-subtitle-small {
+				            margin: 2px 0 0;
+				            font-size: 13px;
+				            color: #666;
+				            font-weight: 400;
+				            height: 16px;
+				        }
+				        .price-tag {
+				            position: absolute;
+				            top: 6px;
+				            right: 6px;
+				            background-color: " & _cores & "; /* Cor do círculo puxada da cor do time */
+				            color: white;
+				            padding: 6px 10px;
+				            border-radius: 50%;
+				            font-size: 13px;
+				            font-weight: bold;
+				        }
+				    </style>
+				</head>
+				<body>
+				    <div class='card'>
+				        <div class='card-image-container'>
+				            <img src='" & _Imagem & "' alt='" & _Posicao & "' class='card-image'>
+				            <span class='price-tag'>" & _GolsTemporada & "</span>
+				        </div>
+				        <div class='card-content'>
+				            <h2 class='card-title'>" & _Posicao & "</h2>
+				            <p class='card-subtitle'>" & _JogadorNome & "</p>
+				            <p class='card-subtitle-small'>" & _Nacionalidade & "</p>
+				            <p class='card-subtitle-small'>" & _Nascimento & "</p>
+				        </div>
+				    </div>
+				</body>
+				</html>"
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: 0bddcb4d-927d-4c56-ba8a-e3fc4e8e1cc6
+
+			changedProperty = IsHidden
+
+		measure FigurinhaArtilheiro1 = ```
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				VAR _Imagem = 
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[imagem], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				
+				VAR _Posicao = [PosicaoArtilheiro1]
+				VAR _Nascimento = 
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Dt Nascimento], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				VAR _Nacionalidade =
+				     CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Nacionalidade], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				VAR _idade = DATEDIFF(_Nascimento, TODAY(), YEAR)
+				
+				RETURN
+				"<!DOCTYPE html>
+				<html lang='en'>
+				<head>
+				    <meta charset='UTF-8'>
+				    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+				    <title>Panini Style Card</title>
+				    <style>
+				        body {
+				            margin: 0;
+				            padding: 8px;
+				            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				        }
+				        .card {
+				            width: 300px;
+				            margin: 12px auto;
+				            border: 1px solid #ccc;
+				            background-color: #f9f9f9;
+				            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				        }
+				        .card-image-container {
+				            position: relative;
+				            height: 300px;
+				            border: 6px solid #fff;
+				            box-sizing: border-box;
+				        }
+				        .card-image {
+				            width: 100%;
+				            height: 100%;
+				            object-fit: cover;
+				        }
+				        .card-content {
+				            padding: 12px;
+				            text-align: center;
+				        }
+				        .card-subtitle {
+				            font-size: 13px;
+				            font-weight: 500;
+				            color: #555;
+				            margin: 3px 0;
+				        }
+				        .birth-box {
+				            display: inline-block;
+				            background-color: #eee;
+				            color: #666666;
+				            padding: 5px 10px;
+				            font-size: 13px;
+				            font-weight: 600;
+				            margin-top: 10px;
+				        }
+				        .idade {
+				            font-style: italic;
+				            font-size: 12px;
+				            color: #777;
+				            margin-top: 4px;
+				        }
+				    </style>
+				</head>
+				<body>
+				    <div class='card'>
+				        <div class='card-image-container'>
+				            <img src='"&_Imagem&"' alt='"&_Posicao&"' class='card-image'>
+				        </div>
+				        <div class='card-content'>
+				            <div class='card-subtitle'>"&_Nacionalidade&" - "&_Posicao&"</div>
+				            <div class='birth-box'>"&_Nascimento&"</div>
+				            <div class='idade'>"& _idade & " anos</div>
+				        </div>
+				    </div>
+				</body>
+				</html>"
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: 970aa354-0aac-4315-84ea-522f0b87b063
+
+			changedProperty = IsHidden
+
+		measure LocalNascArtilheiro1 = ```
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				RETURN
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Local Nascimento], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: 30367cc7-876a-4a90-b4e7-0cc3ab04a7ee
+
+			changedProperty = IsHidden
+
+		measure PeArtilheiro1 = ```
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				RETURN
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Pé-Preferencial], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: be747990-6d37-43d5-9d4b-4897b2808752
+
+			changedProperty = IsHidden
+
+		measure NomeArtilheiro1 = ```
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				RETURN
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[_apelido], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+				
+				```
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: 5b4fbab2-2047-450b-b05b-91f3fbe98cbb
+
+			changedProperty = IsHidden
+
+		measure PosicaoArtilheiro1 =
+				
+				VAR NomeArtilheiro = [Artilheiro1]
+				RETURN
+				    CALCULATE(
+				        FIRSTNONBLANK(dim_jogadores[Posição], 1),
+				        FILTER(
+				            dim_jogadores,
+				            dim_jogadores[atleta] = NomeArtilheiro
+				        )
+				    )
+			displayFolder: Clubes\Artilheiros\Artilheiro1
+			lineageTag: 73a946e7-eaeb-436b-910e-e674d19d8cab
+
+			changedProperty = IsHidden
+

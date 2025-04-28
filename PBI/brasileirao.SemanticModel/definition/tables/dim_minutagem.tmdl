@@ -1,0 +1,41 @@
+table dim_minutagem
+	lineageTag: f5ea536b-1de2-4c4f-9cdb-602873eb3af9
+
+	column 'Faixa Minuto'
+		lineageTag: 45205861-a99e-46a5-b655-7952389ff843
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Faixa Minuto]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Intervalo
+		lineageTag: 9d76aa85-085d-41ce-8b69-305838f11833
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Intervalo]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_minutagem = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "Faixa Minuto", STRING,
+				    "Intervalo", STRING,
+				    {
+				        {"15", "<=15"},
+				        {"30", "<=30"},
+				        {"45", "<=45"},
+				        {"60", "<=60"},
+				        {"75", "<=75"},
+				        {"90", "<=90"},
+				        {"Acréscimos", ">90"}
+				    }
+				)
+				
+				```
+
+	annotation PBI_Id = 8376520f71754424932b081787ef3940
+

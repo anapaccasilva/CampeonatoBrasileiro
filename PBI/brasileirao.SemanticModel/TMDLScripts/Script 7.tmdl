@@ -1,0 +1,17 @@
+createOrReplace
+
+	ref table Medidas
+
+		measure _DesempenhoCartõesVermelhosFeitos = ```
+				
+				VAR GOLS = DISTINCTCOUNT('campeonato-brasileiro-cartoes'[partida_id]) 
+				
+				RETURN
+				if(ISBLANK(SELECTEDVALUE(dim_jogadores[atleta])), GOLS, [_TotalCartoesVermelhos])
+				```
+			formatString: 0
+			displayFolder: Estatísticas\Gráfico
+			lineageTag: 5e58342c-8a5c-4828-afbc-1a4985fab5bd
+
+			changedProperty = IsHidden
+

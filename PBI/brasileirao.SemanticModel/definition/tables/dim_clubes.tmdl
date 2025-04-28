@@ -7,6 +7,8 @@ table dim_clubes
 		summarizeBy: none
 		sourceColumn: Clube
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Fundacao
@@ -14,6 +16,8 @@ table dim_clubes
 		lineageTag: a64cc4e3-d015-4b94-9723-ec3cd835b0b3
 		summarizeBy: none
 		sourceColumn: Fundacao
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -23,6 +27,8 @@ table dim_clubes
 		summarizeBy: none
 		sourceColumn: Mascote
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Estadio
@@ -30,6 +36,8 @@ table dim_clubes
 		lineageTag: f0780a50-d2d2-4a15-9b9f-8d720e02d151
 		summarizeBy: none
 		sourceColumn: Estadio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -39,6 +47,8 @@ table dim_clubes
 		summarizeBy: none
 		sourceColumn: Cores
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Apelido
@@ -47,6 +57,8 @@ table dim_clubes
 		summarizeBy: none
 		sourceColumn: Apelido
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Clube_s_acentos
@@ -54,6 +66,8 @@ table dim_clubes
 		lineageTag: c90f949c-d573-4d03-8112-8c39f2d69e89
 		summarizeBy: none
 		sourceColumn: Clube_s_acentos
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -67,6 +81,8 @@ table dim_clubes
 
 		changedProperty = SortByColumn
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column id
@@ -76,12 +92,7 @@ table dim_clubes
 		summarizeBy: sum
 		sourceColumn: id
 
-		annotation SummarizationSetBy = Automatic
-
-	column bg = RELATED(Tabela[Coluna 2])
-		lineageTag: d531195d-512e-4fc5-a352-78722c398019
-		dataCategory: ImageUrl
-		summarizeBy: none
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -92,6 +103,8 @@ table dim_clubes
 		summarizeBy: none
 		sourceColumn: Cidade
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Estado
@@ -101,6 +114,8 @@ table dim_clubes
 		summarizeBy: none
 		sourceColumn: Estado
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Bio
@@ -108,6 +123,8 @@ table dim_clubes
 		lineageTag: a85ed081-12a5-4b48-858f-0290eb972d8a
 		summarizeBy: none
 		sourceColumn: Bio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

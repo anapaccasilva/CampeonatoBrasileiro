@@ -1,0 +1,218 @@
+table 'full - unpivot'
+	lineageTag: 7e701944-8194-40b8-b1c8-86c00e76efa4
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: cf5dbd8c-0a70-4285-835e-6be244e8ea11
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodata
+		dataType: int64
+		formatString: 0
+		lineageTag: 72d09a71-e285-4f24-aaba-c43e059e2e1d
+		summarizeBy: sum
+		sourceColumn: rodata
+
+		annotation SummarizationSetBy = Automatic
+
+	column data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 894ef71e-38c2-468c-9996-bbb5ac7a72b0
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hora
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 576e1f24-5c18-40fb-ae88-3acd5e8b321b
+		summarizeBy: none
+		sourceColumn: hora
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column time
+		dataType: string
+		lineageTag: 1a566142-801d-41b2-8dee-73a96e0e3fe1
+		summarizeBy: none
+		sourceColumn: time
+
+		annotation SummarizationSetBy = Automatic
+
+	column formacao
+		dataType: string
+		lineageTag: dce43fa3-7568-45eb-b32b-1cb791392a1a
+		summarizeBy: none
+		sourceColumn: formacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column tecnico
+		dataType: string
+		lineageTag: 05284de8-5658-4a1d-be57-3b95f337e031
+		summarizeBy: none
+		sourceColumn: tecnico
+
+		annotation SummarizationSetBy = Automatic
+
+	column vencedor
+		dataType: string
+		lineageTag: 386e8b4c-e764-4f92-a067-5c6797656c06
+		summarizeBy: none
+		sourceColumn: vencedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column arena
+		dataType: string
+		lineageTag: 91b67f38-369c-4a5e-8d90-4257724ca75a
+		summarizeBy: none
+		sourceColumn: arena
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_contra
+		dataType: int64
+		formatString: 0
+		lineageTag: dc9a9eef-ad47-464d-b371-e80f9a60399b
+		summarizeBy: sum
+		sourceColumn: gols_contra
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_pro
+		dataType: int64
+		formatString: 0
+		lineageTag: 238d6d9e-cd94-4f4e-862e-21384565fe7c
+		summarizeBy: sum
+		sourceColumn: gols_pro
+
+		annotation SummarizationSetBy = Automatic
+
+	column mandante_flag
+		dataType: string
+		lineageTag: a247ab7e-a83a-437f-8b26-29023274918a
+		summarizeBy: none
+		sourceColumn: mandante_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column R
+		dataType: string
+		lineageTag: 520c3056-7d1a-46ae-b752-a8de3d17a9ff
+		summarizeBy: none
+		sourceColumn: R
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pontos
+		dataType: int64
+		formatString: 0
+		lineageTag: 786d8ccd-6b26-4ae9-9cc4-cdf5cd2b83cf
+		summarizeBy: sum
+		sourceColumn: Pontos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Saldo Gols'
+		dataType: double
+		lineageTag: 182e1428-0d4b-420e-a2fb-c9c10c81421e
+		summarizeBy: sum
+		sourceColumn: Saldo Gols
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Ano = YEAR('full - unpivot'[data])
+		formatString: 0
+		lineageTag: 51c127ad-ef29-45be-ba45-d4b5932e0ed1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Série
+		dataType: string
+		lineageTag: 214d680a-65d7-4c44-b6c0-5f75a35b4554
+		summarizeBy: none
+		sourceColumn: Série
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ranking por Ano'
+		type: calculated
+		lineageTag: 3444a759-2348-4606-9696-b8e17ae18056
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":"\nVAR anoLinha = YEAR('full - unpivot'[data])\nVAR clubeLinha = 'full - unpivot'[time]\n\nRETURN\nRANKX(\n    FILTER(\n        'full - unpivot',\n        YEAR('full - unpivot'[data]) = anoLinha\n    ),\n    CALCULATE(SUM('full - unpivot'[Pontos])),\n    ,\n    DESC,\n    DENSE\n)\n"}
+
+		annotation 277cc1b9-af89-4597-8e15-cacc25c0886b = ```
+				Uma dependência circular foi detectada: full - unpivot[Ranking por Ano].
+				
+				```
+
+	column id_time
+		dataType: string
+		lineageTag: 422ea965-2497-43e2-8142-23a05b9bc430
+		summarizeBy: none
+		sourceColumn: id_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column adversario
+		dataType: string
+		lineageTag: e717dc16-bbab-49c2-aecf-812fc717ebc5
+		summarizeBy: none
+		sourceColumn: adversario
+
+		annotation SummarizationSetBy = Automatic
+
+	column mandante_Estado
+		dataType: string
+		lineageTag: 06b3cf26-212c-4919-a6cd-b2dc654ccbb6
+		summarizeBy: none
+		sourceColumn: mandante_Estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Partida =
+			
+			var mandante = if('full - unpivot'[mandante_flag] = "S", ('full - unpivot'[time] & " X " & 'full - unpivot'[adversario]), ('full - unpivot'[adversario] & " X " & 'full - unpivot'[time]) )
+			
+			RETURN
+			
+			"[" & 'full - unpivot'[ID] & "] - " & mandante& " ("  & FORMAT('full - unpivot'[data], "dd/mm/yyyy") & ")"
+		lineageTag: a9596ccb-5bb1-43e2-b238-c9b6b36a0e5e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'full - unpivot' = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.Combine({#"campeonato-brasileiro-full - visitantes", #"campeonato-brasileiro-full - mandantes"}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(Fonte, "Pontos", each if [R] = "V" then 3 else if [R] = "E" then 1 else 0),
+				    #"Subtração Inserida" = Table.AddColumn(#"Coluna Condicional Adicionada", "Saldo Gols", each [gols_pro] - [gols_contra], type number),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Subtração Inserida",{{"Pontos", Int64.Type}}),
+				    #"Texto Aparado" = Table.TransformColumns(#"Tipo Alterado",{{"arena", Text.Trim, type text}}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Texto Aparado", "id_time", each Text.Combine({Text.From([ID], "pt-BR"), "_", [time]}), type text)
+				in
+				    #"Coluna Mesclada Inserida"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

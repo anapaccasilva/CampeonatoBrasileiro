@@ -8,6 +8,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: partida_id
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column rodata
@@ -17,6 +19,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: rodata
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column clube
@@ -24,6 +28,8 @@ table campeonato-brasileiro-estatisticas-full
 		lineageTag: 37c37d2c-7353-45e1-a5bb-d42ccb11a056
 		summarizeBy: none
 		sourceColumn: clube
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -34,6 +40,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: chutes
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column chutes_no_alvo
@@ -43,6 +51,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: chutes_no_alvo
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column posse_de_bola
@@ -50,6 +60,8 @@ table campeonato-brasileiro-estatisticas-full
 		lineageTag: 1b4f5f9d-2975-4783-afc5-cc44c37b5db2
 		summarizeBy: sum
 		sourceColumn: posse_de_bola
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -62,6 +74,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: passes
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column precisao_passes
@@ -69,6 +83,8 @@ table campeonato-brasileiro-estatisticas-full
 		lineageTag: 0de7ace3-083d-4b18-8447-359aa203d72b
 		summarizeBy: sum
 		sourceColumn: precisao_passes
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -81,6 +97,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: faltas
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column cartao_amarelo
@@ -89,6 +107,8 @@ table campeonato-brasileiro-estatisticas-full
 		lineageTag: 159595d8-25e9-4895-91c8-6fc23b6be9b8
 		summarizeBy: sum
 		sourceColumn: cartao_amarelo
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -99,6 +119,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: cartao_vermelho
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column impedimentos
@@ -107,6 +129,8 @@ table campeonato-brasileiro-estatisticas-full
 		lineageTag: 29444abc-c977-42b5-a0fa-ee3535bb5965
 		summarizeBy: sum
 		sourceColumn: impedimentos
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -117,6 +141,8 @@ table campeonato-brasileiro-estatisticas-full
 		summarizeBy: sum
 		sourceColumn: escanteios
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column id_time
@@ -124,6 +150,8 @@ table campeonato-brasileiro-estatisticas-full
 		lineageTag: 6d0f9eb6-ab0b-4cd9-90e3-21eb8de147b2
 		summarizeBy: none
 		sourceColumn: id_time
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

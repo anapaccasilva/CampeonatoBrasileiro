@@ -1,0 +1,91 @@
+table campeonato-brasileiro-gols
+	lineageTag: 83731422-4df4-47e4-894f-8788026dff4d
+
+	column partida_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cd9d884b-3499-467f-b31c-2eb4a8af14ee
+		summarizeBy: sum
+		sourceColumn: partida_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodata
+		dataType: int64
+		formatString: 0
+		lineageTag: 4196f343-b53e-4fab-ac86-7e1955c601af
+		summarizeBy: sum
+		sourceColumn: rodata
+
+		annotation SummarizationSetBy = Automatic
+
+	column clube
+		dataType: string
+		lineageTag: 70ae1092-7790-470e-97a6-71171f1cb29b
+		summarizeBy: none
+		sourceColumn: clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column atleta
+		dataType: string
+		lineageTag: b9b44213-2fe1-4802-bfa4-67a335e64866
+		summarizeBy: none
+		sourceColumn: atleta
+
+		annotation SummarizationSetBy = Automatic
+
+	column minuto
+		dataType: int64
+		formatString: 0
+		lineageTag: 5272bed5-50e5-4418-ad9e-97e9467a63a6
+		summarizeBy: sum
+		sourceColumn: minuto
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_de_gol
+		dataType: string
+		lineageTag: 5828078e-c212-49bf-9445-a216a737b0df
+		summarizeBy: none
+		sourceColumn: tipo_de_gol
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_time
+		dataType: string
+		lineageTag: a5153a47-d14d-4b0b-86bf-71382cbddd30
+		summarizeBy: none
+		sourceColumn: id_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faixa Minuto Categoria' = SWITCH(true(), 'campeonato-brasileiro-gols'[minuto] <=15, "15", AND('campeonato-brasileiro-gols'[minuto] <=30, 'campeonato-brasileiro-gols'[minuto] >15), "30", AND('campeonato-brasileiro-gols'[minuto] <=45, 'campeonato-brasileiro-gols'[minuto] >30), "45", AND('campeonato-brasileiro-gols'[minuto] <=60, 'campeonato-brasileiro-gols'[minuto] >45), "60", AND('campeonato-brasileiro-gols'[minuto] <=75, 'campeonato-brasileiro-gols'[minuto] >60), "75", AND('campeonato-brasileiro-gols'[minuto] <=90, 'campeonato-brasileiro-gols'[minuto] >75), "90", 'campeonato-brasileiro-gols'[minuto] >90, "Acréscimos")
+		lineageTag: 402ae423-dc9d-4daa-ba2a-6b2338a22a99
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition campeonato-brasileiro-gols = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-gols.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"partida_id", Int64.Type}, {"rodata", Int64.Type}, {"clube", type text}, {"atleta", type text}, {"minuto", type text}, {"tipo_de_gol", type text}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado","Everton Kempes dos Santos Gonçalves","Everton Kempes dos Santos",Replacer.ReplaceText,{"atleta"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","Gabriel Barbosa Almeida","Gabriel Barbosa",Replacer.ReplaceText,{"atleta"}),
+				    #"Dividir Coluna por Delimitador" = Table.SplitColumn(#"Valor Substituído1", "minuto", Splitter.SplitTextByDelimiter("+", QuoteStyle.Csv), {"minuto.1", "minuto.2"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador",{{"minuto.1", Int64.Type}, {"minuto.2", Int64.Type}}),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Tipo Alterado1",null,0,Replacer.ReplaceValue,{"minuto.2"}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Valor Substituído2", "minuto", each [minuto.1]+[minuto.2]),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Personalização Adicionada",{"minuto.2", "minuto.1"}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Colunas Removidas",{{"minuto", Int64.Type}}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Tipo Alterado2", "id_time", each Text.Combine({Text.From([partida_id], "pt-BR"), "_", [clube]}), type text)
+				in
+				    #"Coluna Mesclada Inserida"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

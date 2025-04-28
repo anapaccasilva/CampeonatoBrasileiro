@@ -1,0 +1,188 @@
+table campeonato-brasileiro-cartoes
+	lineageTag: 38b31757-60fd-41af-8ae7-4f9a0b290e9c
+
+	measure _timeselecionado =
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    "Brasileirão",
+			    UPPER(MIN(dim_clubes[Clube]))
+			)
+		lineageTag: 791b3ce7-966e-4eef-8d75-d810279fce2e
+
+	measure _playhino = ```
+			
+			VAR clube = SELECTEDVALUE(dim_clubes[Clube_s_acentos])
+			VAR clubeFormatado = SUBSTITUTE(clube, " ", "-")
+			
+			RETURN 
+			IF(
+			    NOT ISBLANK(clube),
+			    "<audio controls
+			        src='https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Hinos/hino-" & clubeFormatado & ".mp3' 
+			        type='audio/mp3'
+			        style='width: 100%; height: 80px; transform: scale(1);'>
+			    </audio>",
+			    ""
+			)
+			
+			```
+		lineageTag: 94176c8e-8c94-48d9-81bb-087f7da2dcbd
+
+	measure _escudo = ```
+			
+			VAR clube = SELECTEDVALUE(dim_clubes[Clube_s_acentos])
+			
+			RETURN 
+			IF(
+			    NOT ISBLANK(clube),
+			    MAX(dim_clubes[Url]),
+			    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1uSPqhbyjTCOXnknUKaEbXKEFeFFakCl0zwVEHp9dfwDS8un4vi9Xal0ey5qO4epyv_E&usqp=CAU"
+			)
+			
+			```
+		lineageTag: d434d11d-62ad-4513-9073-a491d5c03ec8
+		dataCategory: ImageUrl
+
+	measure _fundacaotimeselecionado = ```
+			
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    "",
+			    CONCATENATE("Fundação: ", FORMAT(DATEVALUE(SELECTEDVALUE(dim_clubes[Fundacao])), "d") & " de " & FORMAT(DATEVALUE(SELECTEDVALUE(dim_clubes[Fundacao])), "mmmm") & " de " & FORMAT(DATEVALUE(SELECTEDVALUE(dim_clubes[Fundacao])), "yyyy"))
+			)
+			
+			```
+		lineageTag: eed58b6a-bb0f-4dbe-81c9-a953e89db9de
+
+	measure _estadiotimeselecionado =
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    "",
+			    CONCATENATE("Estádio: ", SELECTEDVALUE(dim_clubes[Estadio]))
+			)
+		lineageTag: e1f3d743-5c23-4ccb-8126-f80a3de0058c
+
+	measure _mascotetimeselecionado =
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    "",
+			    CONCATENATE("Mascote: ", SELECTEDVALUE(dim_clubes[Mascote]))
+			)
+		lineageTag: 2756fd89-353f-4d35-82f2-14c22200b0cf
+
+	measure _biotimeselecionado = ```
+			COALESCE(
+			    SELECTEDVALUE(dim_clubes[Bio]), 
+			    "Desde 2003, o Campeonato Brasileiro adota o formato de pontos corridos, com 38 rodadas. Inicialmente com 24 times, passou para 22 em 2005 e, em 2006, fixou-se com 20 clubes. Os 4 últimos são rebaixados para a Série B."
+			)
+			
+			```
+		lineageTag: aa161845-b39a-4279-87e5-dddd960c43ff
+
+	column partida_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 51ac3b8e-202c-4793-b28c-debf99b6f03a
+		summarizeBy: sum
+		sourceColumn: partida_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodata
+		dataType: int64
+		formatString: 0
+		lineageTag: 70d52035-2994-488e-91b8-b00cd86a67f7
+		summarizeBy: sum
+		sourceColumn: rodata
+
+		annotation SummarizationSetBy = Automatic
+
+	column clube
+		dataType: string
+		lineageTag: 0562273c-c1f2-4a32-9ce5-fb414705a8ca
+		summarizeBy: none
+		sourceColumn: clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column cartao
+		dataType: string
+		lineageTag: acecaff9-b1a4-4d47-86c1-52e2628e6e06
+		summarizeBy: none
+		sourceColumn: cartao
+
+		annotation SummarizationSetBy = Automatic
+
+	column atleta
+		dataType: string
+		lineageTag: 6cf16c92-e7fd-494c-ad62-e1ca6f8ac21f
+		summarizeBy: none
+		sourceColumn: atleta
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_camisa
+		dataType: int64
+		formatString: 0
+		lineageTag: a0840383-fc53-41f2-b2a5-648e4faa15ff
+		summarizeBy: sum
+		sourceColumn: num_camisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column posicao
+		dataType: string
+		lineageTag: 93d352a3-6b87-42f5-8897-cdc04ec8cdc6
+		summarizeBy: none
+		sourceColumn: posicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column minuto
+		dataType: int64
+		formatString: 0
+		lineageTag: f76660b8-6feb-4d8f-a3c3-96ab152364b2
+		summarizeBy: sum
+		sourceColumn: minuto
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_time
+		dataType: string
+		lineageTag: 141ac270-33c2-4350-bc4a-08399352da48
+		summarizeBy: none
+		sourceColumn: id_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faixa Minuto Categoria' = SWITCH(true(), 'campeonato-brasileiro-cartoes'[minuto] <=15, "15", AND('campeonato-brasileiro-cartoes'[minuto] <=30, 'campeonato-brasileiro-cartoes'[minuto] >15), "30", AND('campeonato-brasileiro-cartoes'[minuto] <=45, 'campeonato-brasileiro-cartoes'[minuto] >30), "45", AND('campeonato-brasileiro-cartoes'[minuto] <=60, 'campeonato-brasileiro-cartoes'[minuto] >45), "60", AND('campeonato-brasileiro-cartoes'[minuto] <=75, 'campeonato-brasileiro-cartoes'[minuto] >60), "75", AND('campeonato-brasileiro-cartoes'[minuto] <=90, 'campeonato-brasileiro-cartoes'[minuto] >75), "90", 'campeonato-brasileiro-cartoes'[minuto] >90, "Acréscimos")
+		lineageTag: 42f1e1ed-10f3-40bf-a04d-4b2afa7374a4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition campeonato-brasileiro-cartoes = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-cartoes.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"partida_id", Int64.Type}, {"rodata", Int64.Type}, {"clube", type text}, {"cartao", type text}, {"atleta", type text}, {"num_camisa", Int64.Type}, {"posicao", type text}, {"minuto", type text}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado","Clayson","Clayson Henrique da Silva Vieira",Replacer.ReplaceValue,{"atleta"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","","Everton Kempes dos Santos",Replacer.ReplaceValue,{"atleta"}),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","Gabriel Barbosa Almeida","Gabriel Barbosa",Replacer.ReplaceText,{"atleta"}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Valor Substituído2", "id_time", each Text.Combine({Text.From([partida_id], "pt-BR"), "_", [clube]}), type text),
+				    #"Dividir Coluna por Delimitador" = Table.SplitColumn(#"Coluna Mesclada Inserida", "minuto", Splitter.SplitTextByDelimiter("+", QuoteStyle.Csv), {"minuto.1", "minuto.2"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador",{{"minuto.1", Int64.Type}, {"minuto.2", Int64.Type}}),
+				    #"Valor Substituído3" = Table.ReplaceValue(#"Tipo Alterado1",null,0,Replacer.ReplaceValue,{"minuto.2"}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Valor Substituído3", "minuto", each [minuto.1]+[minuto.2]),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Personalização Adicionada",{"minuto.1", "minuto.2"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+
