@@ -1,4 +1,4 @@
-table campeonato-brasileiro-gols
+table fato_CBGols
 	lineageTag: 83731422-4df4-47e4-894f-8788026dff4d
 
 	column partida_id
@@ -74,7 +74,7 @@ table campeonato-brasileiro-gols
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Faixa Minuto Categoria' = SWITCH(true(), 'campeonato-brasileiro-gols'[minuto] <=15, "15", AND('campeonato-brasileiro-gols'[minuto] <=30, 'campeonato-brasileiro-gols'[minuto] >15), "30", AND('campeonato-brasileiro-gols'[minuto] <=45, 'campeonato-brasileiro-gols'[minuto] >30), "45", AND('campeonato-brasileiro-gols'[minuto] <=60, 'campeonato-brasileiro-gols'[minuto] >45), "60", AND('campeonato-brasileiro-gols'[minuto] <=75, 'campeonato-brasileiro-gols'[minuto] >60), "75", AND('campeonato-brasileiro-gols'[minuto] <=90, 'campeonato-brasileiro-gols'[minuto] >75), "90", 'campeonato-brasileiro-gols'[minuto] >90, "Acréscimos")
+	column 'Faixa Minuto Categoria' = SWITCH(true(), 'fato_CBGols'[minuto] <=15, "15", AND('fato_CBGols'[minuto] <=30, 'fato_CBGols'[minuto] >15), "30", AND('fato_CBGols'[minuto] <=45, 'fato_CBGols'[minuto] >30), "45", AND('fato_CBGols'[minuto] <=60, 'fato_CBGols'[minuto] >45), "60", AND('fato_CBGols'[minuto] <=75, 'fato_CBGols'[minuto] >60), "75", AND('fato_CBGols'[minuto] <=90, 'fato_CBGols'[minuto] >75), "90", 'fato_CBGols'[minuto] >90, "Acréscimos")
 		lineageTag: 402ae423-dc9d-4daa-ba2a-6b2338a22a99
 		summarizeBy: none
 
@@ -82,11 +82,12 @@ table campeonato-brasileiro-gols
 
 		annotation SummarizationSetBy = Automatic
 
-	partition campeonato-brasileiro-gols = m
+	partition fato_CBGols = m
 		mode: import
+		queryGroup: 'Tabelas Fato'
 		source =
 				let
-				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-gols.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Fonte = Csv.Document(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/campeonato-brasileiro-gols.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"partida_id", Int64.Type}, {"rodata", Int64.Type}, {"clube", type text}, {"atleta", type text}, {"minuto", type text}, {"tipo_de_gol", type text}}),
 				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado","Everton Kempes dos Santos Gonçalves","Everton Kempes dos Santos",Replacer.ReplaceText,{"atleta"}),
@@ -100,6 +101,8 @@ table campeonato-brasileiro-gols
 				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Tipo Alterado2", "id_time", each Text.Combine({Text.From([partida_id], "pt-BR"), "_", [clube]}), type text)
 				in
 				    #"Coluna Mesclada Inserida"
+
+	changedProperty = Name
 
 	annotation PBI_ResultType = Table
 

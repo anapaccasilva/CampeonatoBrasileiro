@@ -1,7 +1,7 @@
 table Medidas
 	lineageTag: 68364dc8-d8c8-497e-ae8d-c800d7471d72
 
-	measure Jogos = DISTINCTCOUNT('full - unpivot'[ID])
+	measure Jogos = DISTINCTCOUNT('fato_CBPartidas'[ID])
 		formatString: 0
 		displayFolder: Clubes\Ranking
 		lineageTag: ef39c0b8-2ddf-4084-ad5f-4cdde504fefb
@@ -11,8 +11,8 @@ table Medidas
 	measure Vitorias = ```
 			
 			CALCULATE(
-			    DISTINCTCOUNT('full - unpivot'[ID]), 
-			    'full - unpivot'[R] = "V"
+			    DISTINCTCOUNT('fato_CBPartidas'[ID]), 
+			    'fato_CBPartidas'[R] = "V"
 			)
 			
 			```
@@ -25,8 +25,8 @@ table Medidas
 	measure Empates = ```
 			
 			CALCULATE(
-			    DISTINCTCOUNT('full - unpivot'[ID]), 
-			    'full - unpivot'[R] = "E"
+			    DISTINCTCOUNT('fato_CBPartidas'[ID]), 
+			    'fato_CBPartidas'[R] = "E"
 			)
 			
 			```
@@ -39,8 +39,8 @@ table Medidas
 	measure Derrotas = ```
 			
 			CALCULATE(
-			    DISTINCTCOUNT('full - unpivot'[ID]), 
-			    'full - unpivot'[R] = "D"
+			    DISTINCTCOUNT('fato_CBPartidas'[ID]), 
+			    'fato_CBPartidas'[R] = "D"
 			)
 			
 			```
@@ -57,7 +57,7 @@ table Medidas
 			VAR _JogadorNome = MIN(dim_jogadores[atleta])
 			VAR _Nascimento = MIN(dim_jogadores[Dt Nascimento])
 			VAR _Nacionalidade = MIN(dim_jogadores[Nacionalidade]) 
-			VAR _GolsTemporada = CALCULATE(COUNT('campeonato-brasileiro-gols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
+			VAR _GolsTemporada = CALCULATE(COUNT('fato_CBGols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
 			
 			RETURN
 			
@@ -177,7 +177,7 @@ table Medidas
 			VAR _JogadorNome = _JogadorComMais
 			VAR _Nascimento = CALCULATE(MIN(dim_jogadores[Dt Nascimento]), dim_jogadores[atleta] = _JogadorComMais) 
 			VAR _Nacionalidade = CALCULATE(MIN(dim_jogadores[Nacionalidade]), dim_jogadores[atleta] = _JogadorComMais)  
-			VAR _GolsTemporada = CALCULATE(COUNT('campeonato-brasileiro-gols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
+			VAR _GolsTemporada = CALCULATE(COUNT('fato_CBGols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
 			
 			VAR _cores = 
 			    CALCULATE(
@@ -337,7 +337,7 @@ table Medidas
 			VAR _JogadorNome = _JogadorComMais
 			VAR _Nascimento = CALCULATE(MIN(dim_jogadores[Dt Nascimento]), dim_jogadores[atleta] = _JogadorComMais) 
 			VAR _Nacionalidade = CALCULATE(MIN(dim_jogadores[Nacionalidade]), dim_jogadores[atleta] = _JogadorComMais)  
-			VAR _GolsTemporada = CALCULATE(COUNT('campeonato-brasileiro-gols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
+			VAR _GolsTemporada = CALCULATE(COUNT('fato_CBGols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
 			
 			VAR _cores = 
 			    CALCULATE(
@@ -497,7 +497,7 @@ table Medidas
 			VAR _JogadorNome = _JogadorComMais
 			VAR _Nascimento = CALCULATE(MIN(dim_jogadores[Dt Nascimento]), dim_jogadores[atleta] = _JogadorComMais) 
 			VAR _Nacionalidade = CALCULATE(MIN(dim_jogadores[Nacionalidade]), dim_jogadores[atleta] = _JogadorComMais)  
-			VAR _GolsTemporada = CALCULATE(COUNT('campeonato-brasileiro-gols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
+			VAR _GolsTemporada = CALCULATE(COUNT('fato_CBGols'[partida_id]), dim_jogadores[atleta] = _JogadorNome)
 			
 			VAR _cores = 
 			    CALCULATE(
@@ -614,18 +614,19 @@ table Medidas
 
 		changedProperty = IsHidden
 
-	measure Partidas = ```
+	measure PartidasTimes = ```
+			
 			
 			CONCATENATEX(
-			    'full - unpivot',  
-			    VAR DataHora = FORMAT('full - unpivot'[data], "DD/MM/YYYY") & " " & FORMAT('full - unpivot'[hora], "HH:mm")
-			    VAR Mandante = IF('full - unpivot'[mandante_flag] = "S", MIN('full - unpivot'[time]), MIN('full - unpivot'[adversario]))
-			    VAR MandantePlacar = IF('full - unpivot'[mandante_flag] = "S", MIN('full - unpivot'[gols_pro]), MIN('full - unpivot'[gols_contra]))
-			    VAR Visitante = IF('full - unpivot'[mandante_flag] = "N", MIN('full - unpivot'[time]), MIN('full - unpivot'[adversario]))
-			    VAR VisitantePlacar = IF('full - unpivot'[mandante_flag] = "N", MIN('full - unpivot'[gols_pro]), MIN('full - unpivot'[gols_contra]))
-			    VAR Arena = 'full - unpivot'[arena]
-			    VAR Estado = IF(ISBLANK('full - unpivot'[mandante_Estado]), "", " (" & 'full - unpivot'[mandante_Estado] & ")")
-			    VAR PartidaID = 'full - unpivot'[ID]
+			    'fato_CBPartidas',  
+			    VAR DataHora = FORMAT('fato_CBPartidas'[data], "DD/MM/YYYY") & " " & FORMAT('fato_CBPartidas'[hora], "HH:mm")
+			    VAR Mandante = IF('fato_CBPartidas'[mandante_flag] = "S", MIN('fato_CBPartidas'[time]), MIN('fato_CBPartidas'[adversario]))
+			    VAR MandantePlacar = IF('fato_CBPartidas'[mandante_flag] = "S", MIN('fato_CBPartidas'[gols_pro]), MIN('fato_CBPartidas'[gols_contra]))
+			    VAR Visitante = IF('fato_CBPartidas'[mandante_flag] = "N", MIN('fato_CBPartidas'[time]), MIN('fato_CBPartidas'[adversario]))
+			    VAR VisitantePlacar = IF('fato_CBPartidas'[mandante_flag] = "N", MIN('fato_CBPartidas'[gols_pro]), MIN('fato_CBPartidas'[gols_contra]))
+			    VAR Arena = 'fato_CBPartidas'[arena]
+			    VAR Estado = IF(ISBLANK('fato_CBPartidas'[mandante_Estado]), "", " (" & 'fato_CBPartidas'[mandante_Estado] & ")")
+			    VAR PartidaID = 'fato_CBPartidas'[ID]
 			
 			    VAR Cores = IF(
 			        NOT(ISBLANK(CALCULATE(
@@ -701,15 +702,15 @@ table Medidas
 
 	measure PontosAno =
 			
-			VAR TemFiltroTime = ISFILTERED('full - unpivot'[Time])
+			VAR TemFiltroTime = ISFILTERED('fato_CBPartidas'[Time])
 			RETURN
 			    IF(
 			        TemFiltroTime,
-			        SUM('full - unpivot'[Pontos]),
+			        SUM('fato_CBPartidas'[Pontos]),
 			        CALCULATE(
 			            MAXX(
-			                VALUES('full - unpivot'[Time]),
-			                CALCULATE(SUM('full - unpivot'[Pontos]))
+			                VALUES('fato_CBPartidas'[Time]),
+			                CALCULATE(SUM('fato_CBPartidas'[Pontos]))
 			            )
 			        )
 			    )
@@ -721,15 +722,15 @@ table Medidas
 
 	measure GolsProAno =
 			
-			VAR TemFiltroTime = ISFILTERED('full - unpivot'[Time])
+			VAR TemFiltroTime = ISFILTERED('fato_CBPartidas'[Time])
 			RETURN
 			    IF(
 			        TemFiltroTime,
-			        SUM('full - unpivot'[gols_pro]),
+			        SUM('fato_CBPartidas'[gols_pro]),
 			        CALCULATE(
 			            MAXX(
-			                VALUES('full - unpivot'[Time]),
-			                CALCULATE(SUM('full - unpivot'[gols_pro]))
+			                VALUES('fato_CBPartidas'[Time]),
+			                CALCULATE(SUM('fato_CBPartidas'[gols_pro]))
 			            )
 			        )
 			    )
@@ -741,15 +742,15 @@ table Medidas
 
 	measure GolsContraAno =
 			
-			VAR TemFiltroTime = ISFILTERED('full - unpivot'[Time])
+			VAR TemFiltroTime = ISFILTERED('fato_CBPartidas'[Time])
 			RETURN
 			    IF(
 			        TemFiltroTime,
-			        SUM('full - unpivot'[gols_contra]),
+			        SUM('fato_CBPartidas'[gols_contra]),
 			        CALCULATE(
 			            MAXX(
-			                VALUES('full - unpivot'[Time]),
-			                CALCULATE(SUM('full - unpivot'[gols_contra]))
+			                VALUES('fato_CBPartidas'[Time]),
+			                CALCULATE(SUM('fato_CBPartidas'[gols_contra]))
 			            )
 			        )
 			    )
@@ -761,15 +762,15 @@ table Medidas
 
 	measure SaldoGolsAno =
 			
-			VAR TemFiltroTime = ISFILTERED('full - unpivot'[Time])
+			VAR TemFiltroTime = ISFILTERED('fato_CBPartidas'[Time])
 			RETURN
 			    IF(
 			        TemFiltroTime,
-			        SUM('full - unpivot'[Saldo Gols]),
+			        SUM('fato_CBPartidas'[Saldo Gols]),
 			        CALCULATE(
 			            MAXX(
-			                VALUES('full - unpivot'[Time]),
-			                CALCULATE(SUM('full - unpivot'[Saldo Gols]))
+			                VALUES('fato_CBPartidas'[Time]),
+			                CALCULATE(SUM('fato_CBPartidas'[Saldo Gols]))
 			            )
 			        )
 			    )
@@ -784,31 +785,31 @@ table Medidas
 			
 			VAR jogos =
 			    CALCULATE(
-			        DISTINCTCOUNT('full - unpivot'[id]),
+			        DISTINCTCOUNT('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            (
 			                SELECTCOLUMNS(
 			                    UNION(
-			                        SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                        SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                        SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                        SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                    ),
 			                    "partida_id", [partida_id]
 			                )
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols', 
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols', 
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes', 
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes', 
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[R] = "V"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[R] = "V"
 			        )
 			    )
 			
@@ -826,31 +827,31 @@ table Medidas
 			
 			VAR Jogos =
 			    CALCULATE(
-			        DISTINCTCOUNT('full - unpivot'[id]),
+			        DISTINCTCOUNT('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            (
 			                SELECTCOLUMNS(
 			                    UNION(
-			                        SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                        SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                        SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                        SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                    ),
 			                    "partida_id", [partida_id]
 			                )
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols', 
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols', 
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes', 
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes', 
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[R] = "D"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[R] = "D"
 			        )
 			    )
 			
@@ -868,31 +869,31 @@ table Medidas
 			
 			VAR jogos =
 			    CALCULATE(
-			        DISTINCTCOUNT('full - unpivot'[id]),
+			        DISTINCTCOUNT('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            (
 			                SELECTCOLUMNS(
 			                    UNION(
-			                        SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                        SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                        SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                        SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                    ),
 			                    "partida_id", [partida_id]
 			                )
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols', 
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols', 
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes', 
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes', 
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[R] = "E"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[R] = "E"
 			        )
 			    )
 			
@@ -910,33 +911,33 @@ table Medidas
 			
 			VAR JogosValidosDoAtleta =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        )
 			    )
 			
 			VAR GOLS = 
 			    CALCULATE(
-			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
-			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
-			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
+			        DISTINCTCOUNT('fato_CBGols'[partida_id]),
+			        'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'fato_CBGols'[partida_id])
 			    )
 			
 			RETURN
@@ -953,34 +954,34 @@ table Medidas
 			
 			VAR JogosValidosDoAtleta =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        )
 			    )
 			
 			VAR GOLS = 
 			    CALCULATE(
-			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
-			        'campeonato-brasileiro-gols'[tipo_de_gol] = "Gol Contra",
-			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
-			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
+			        DISTINCTCOUNT('fato_CBGols'[partida_id]),
+			        'fato_CBGols'[tipo_de_gol] = "Gol Contra",
+			        'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'fato_CBGols'[partida_id])
 			    )
 			
 			RETURN
@@ -997,27 +998,27 @@ table Medidas
 			
 			VAR Jogos = 
 			    CALCULATE(
-			        DISTINCTCOUNT('full - unpivot'[id]),
+			        DISTINCTCOUNT('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            (
 			                SELECTCOLUMNS(
 			                    UNION(
-			                        SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                        SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                        SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                        SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                    ),
 			                    "partida_id", [partida_id]
 			                )
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols', 
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols', 
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes', 
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes', 
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        )
 			    )
 			
@@ -1035,86 +1036,86 @@ table Medidas
 			
 			    CONCATENATEX(
 			        CALCULATETABLE(
-			            'full - unpivot',
-			            'full - unpivot'[mandante_flag] = "S",
-			            USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[mandante_flag] = "S",
+			            USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 			            TREATAS(
-			                VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                'full - unpivot'[id_time]
+			                VALUES('fato_CBEstatisticas'[id_time]),
+			                'fato_CBPartidas'[id_time]
 			            )
 			        ),
-			        VAR _DataHora = FORMAT('full - unpivot'[data], "DD/MM/YYYY") & " " & FORMAT('full - unpivot'[hora], "HH:mm")
-			        VAR _Mandante = 'full - unpivot'[time]
-			        VAR _MandantePlacar = 'full - unpivot'[gols_pro]
-			        VAR _Visitante = 'full - unpivot'[adversario]
-			        VAR _VisitantePlacar = 'full - unpivot'[gols_contra]
-			        VAR _Arena = 'full - unpivot'[arena]
-			        VAR _Estado = IF(ISBLANK('full - unpivot'[mandante_Estado]), "", " (" & 'full - unpivot'[mandante_Estado] & ")")
-			        VAR _PartidaID = 'full - unpivot'[ID]
-			        VAR _MandanteID = 'full - unpivot'[id_time]
+			        VAR _DataHora = FORMAT('fato_CBPartidas'[data], "DD/MM/YYYY") & " " & FORMAT('fato_CBPartidas'[hora], "HH:mm")
+			        VAR _Mandante = 'fato_CBPartidas'[time]
+			        VAR _MandantePlacar = 'fato_CBPartidas'[gols_pro]
+			        VAR _Visitante = 'fato_CBPartidas'[adversario]
+			        VAR _VisitantePlacar = 'fato_CBPartidas'[gols_contra]
+			        VAR _Arena = 'fato_CBPartidas'[arena]
+			        VAR _Estado = IF(ISBLANK('fato_CBPartidas'[mandante_Estado]), "", " (" & 'fato_CBPartidas'[mandante_Estado] & ")")
+			        VAR _PartidaID = 'fato_CBPartidas'[ID]
+			        VAR _MandanteID = 'fato_CBPartidas'[id_time]
 			
 			        VAR _MandanteGols = 
 			            CONCATENATEX(
 			                FILTER(
-			                    'campeonato-brasileiro-gols',
-			                    'campeonato-brasileiro-gols'[partida_id] = _PartidaID &&
-			                    'campeonato-brasileiro-gols'[id_time] = _MandanteID
+			                    'fato_CBGols',
+			                    'fato_CBGols'[partida_id] = _PartidaID &&
+			                    'fato_CBGols'[id_time] = _MandanteID
 			                ),
-			                'campeonato-brasileiro-gols'[atleta] & " " & 
-			                'campeonato-brasileiro-gols'[minuto] & 
+			                'fato_CBGols'[atleta] & " " & 
+			                'fato_CBGols'[minuto] & 
 			                IF(
-			                    NOT(ISBLANK('campeonato-brasileiro-gols'[tipo_de_gol])) && 'campeonato-brasileiro-gols'[tipo_de_gol] <> "", 
-			                    "' (" & 'campeonato-brasileiro-gols'[tipo_de_gol] & ")", 
+			                    NOT(ISBLANK('fato_CBGols'[tipo_de_gol])) && 'fato_CBGols'[tipo_de_gol] <> "", 
+			                    "' (" & 'fato_CBGols'[tipo_de_gol] & ")", 
 			                    "'"
 			                ),
 			                UNICHAR(10),
-			                'campeonato-brasileiro-gols'[minuto], ASC
+			                'fato_CBGols'[minuto], ASC
 			            )
 			
 			        VAR _VisitanteGols = 
 			            CONCATENATEX(
 			                FILTER(
-			                    'campeonato-brasileiro-gols',
-			                    'campeonato-brasileiro-gols'[partida_id] = _PartidaID &&
-			                    'campeonato-brasileiro-gols'[id_time] <> _MandanteID
+			                    'fato_CBGols',
+			                    'fato_CBGols'[partida_id] = _PartidaID &&
+			                    'fato_CBGols'[id_time] <> _MandanteID
 			                ),
-			                'campeonato-brasileiro-gols'[atleta] & " " & 
-			                'campeonato-brasileiro-gols'[minuto] & 
+			                'fato_CBGols'[atleta] & " " & 
+			                'fato_CBGols'[minuto] & 
 			                IF(
-			                    NOT(ISBLANK('campeonato-brasileiro-gols'[tipo_de_gol])) && 'campeonato-brasileiro-gols'[tipo_de_gol] <> "", 
-			                    " (" & 'campeonato-brasileiro-gols'[tipo_de_gol] & ")", 
+			                    NOT(ISBLANK('fato_CBGols'[tipo_de_gol])) && 'fato_CBGols'[tipo_de_gol] <> "", 
+			                    " (" & 'fato_CBGols'[tipo_de_gol] & ")", 
 			                    ""
 			                ) & "'",
 			                UNICHAR(10),
-			                'campeonato-brasileiro-gols'[minuto], ASC
+			                'fato_CBGols'[minuto], ASC
 			            )
 			
 			        VAR _MandanteCartoes = 
 			            CONCATENATEX(
 			                FILTER(
-			                    'campeonato-brasileiro-cartoes',
-			                    'campeonato-brasileiro-cartoes'[partida_id] = _PartidaID &&
-			                    'campeonato-brasileiro-cartoes'[id_time] = _MandanteID
+			                    'fato_CBCartoes',
+			                    'fato_CBCartoes'[partida_id] = _PartidaID &&
+			                    'fato_CBCartoes'[id_time] = _MandanteID
 			                ),
-			                IF('campeonato-brasileiro-cartoes'[cartao] = "Vermelho", "🟥", "🟨") & " " &
-			                'campeonato-brasileiro-cartoes'[atleta] & " " &
-			                'campeonato-brasileiro-cartoes'[minuto] & "'",
+			                IF('fato_CBCartoes'[cartao] = "Vermelho", "🟥", "🟨") & " " &
+			                'fato_CBCartoes'[atleta] & " " &
+			                'fato_CBCartoes'[minuto] & "'",
 			                UNICHAR(10),
-			                'campeonato-brasileiro-cartoes'[minuto], ASC
+			                'fato_CBCartoes'[minuto], ASC
 			            )
 			
 			        VAR _VisitanteCartoes = 
 			            CONCATENATEX(
 			                FILTER(
-			                    'campeonato-brasileiro-cartoes',
-			                    'campeonato-brasileiro-cartoes'[partida_id] = _PartidaID &&
-			                    'campeonato-brasileiro-cartoes'[id_time] <> _MandanteID
+			                    'fato_CBCartoes',
+			                    'fato_CBCartoes'[partida_id] = _PartidaID &&
+			                    'fato_CBCartoes'[id_time] <> _MandanteID
 			                ),
-			                'campeonato-brasileiro-cartoes'[atleta] & " " &
-			                'campeonato-brasileiro-cartoes'[minuto] & "' " &
-			                IF('campeonato-brasileiro-cartoes'[cartao] = "Vermelho", "🟥", "🟨"),
+			                'fato_CBCartoes'[atleta] & " " &
+			                'fato_CBCartoes'[minuto] & "' " &
+			                IF('fato_CBCartoes'[cartao] = "Vermelho", "🟥", "🟨"),
 			                UNICHAR(10),
-			                'campeonato-brasileiro-cartoes'[minuto], ASC
+			                'fato_CBCartoes'[minuto], ASC
 			            )
 			
 			        RETURN
@@ -1400,25 +1401,25 @@ table Medidas
 			    CALCULATE(
 			        DISTINCTCOUNT(dim_Calendario[Ano-Campeonato]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            (
 			                SELECTCOLUMNS(
 			                    UNION(
-			                        SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                        SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                        SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                        SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                    ),
 			                    "partida_id", [partida_id]
 			                )
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols', 
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols', 
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes', 
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes', 
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        )
 			    )
 			
@@ -1435,7 +1436,7 @@ table Medidas
 	measure SwitchHoFAtletas = ```
 			
 			SWITCH(
-			    SELECTEDVALUE('Param_HoFAtletas'[Parâmetro Pedido]), 
+			    SELECTEDVALUE('param_HoFAtletas'[Parâmetro Pedido]), 
 			    0, [JogosAtletaTemporadas], 
 			    1, [JogosAtleta], 
 			    2, [JogosVitoriasAtleta], 
@@ -1452,7 +1453,7 @@ table Medidas
 	measure TituloSwitchHoFAtletas = ```
 			
 			SWITCH(
-			    SELECTEDVALUE('Param_HoFAtletas'[Parâmetro Pedido]), 
+			    SELECTEDVALUE('param_HoFAtletas'[Parâmetro Pedido]), 
 			    0, "Jogadores que mais campeonatos disputaram", 
 			    1, "Jogadores que mais partidas jogaram", 
 			    2, "Jogadores que mais partidas venceram", 
@@ -1468,7 +1469,7 @@ table Medidas
 	measure SwitchHoSAtletas = ```
 			
 			SWITCH(
-			    SELECTEDVALUE('Param_HoSAtletas'[Parâmetro Pedido]), 
+			    SELECTEDVALUE('param_HoSAtletas'[Parâmetro Pedido]), 
 			    0, [TotalCartoesAmarelos], 
 			    1, [TotalCartoesVermelhos], 
 			    2, [JogosDerrotasAtleta], 
@@ -1485,7 +1486,7 @@ table Medidas
 	measure TituloSwitchHoSAtletas = ```
 			
 			SWITCH(
-			    SELECTEDVALUE('Param_HoSAtletas'[Parâmetro Pedido]), 
+			    SELECTEDVALUE('param_HoSAtletas'[Parâmetro Pedido]), 
 			    0, "Jogadores que mais cartões amarelos receberam", 
 			    1, "Jogadores que mais cartões vermelhos receberam", 
 			    2, "Jogadores que mais partidas perderam", 
@@ -1500,7 +1501,7 @@ table Medidas
 
 	measure DesempenhoGolsFeitosTotal = ```
 			
-			    VAR GOLS = DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]) 
+			    VAR GOLS = DISTINCTCOUNT('fato_CBGols'[partida_id]) 
 			    RETURN
 			        IF(
 			            ISBLANK(SELECTEDVALUE(dim_jogadores[atleta])), 
@@ -1517,7 +1518,7 @@ table Medidas
 
 	measure DesempenhoCartoesVermelhosFeitos = ```
 			
-			    VAR GOLS = DISTINCTCOUNT('campeonato-brasileiro-cartoes'[partida_id]) 
+			    VAR GOLS = DISTINCTCOUNT('fato_CBCartoes'[partida_id]) 
 			    RETURN
 			        IF(
 			            ISBLANK(SELECTEDVALUE(dim_jogadores[atleta])), 
@@ -1534,7 +1535,7 @@ table Medidas
 
 	measure DesempenhoCartoesAmarelosFeitos = ```
 			
-			    VAR GOLS = DISTINCTCOUNT('campeonato-brasileiro-cartoes'[partida_id]) 
+			    VAR GOLS = DISTINCTCOUNT('fato_CBCartoes'[partida_id]) 
 			    RETURN
 			        IF(
 			            ISBLANK(SELECTEDVALUE(dim_jogadores[atleta])), 
@@ -1552,7 +1553,7 @@ table Medidas
 	measure DistribuicaoEventosPorMinuto = ```
 			
 			    SWITCH(
-			        SELECTEDVALUE('Param_MinutagemAtletas'[Parâmetro Pedido]),
+			        SELECTEDVALUE('param_MinutagemAtletas'[Parâmetro Pedido]),
 			        0, "Distribuição de Gols por Minuto",
 			        1, "Distribuição de Cartões Amarelos por Minuto",
 			        2, "Distribuição de Cartões Vermelhos por Minuto"
@@ -1569,8 +1570,8 @@ table Medidas
 			CALCULATE(
 			    DISTINCTCOUNT(dim_Calendario[Ano-Campeonato]),
 			    FILTER(
-			        'full - unpivot',
-			        'full - unpivot'[data] >= SELECTEDVALUE(dim_Calendario[Date])
+			        'fato_CBPartidas',
+			        'fato_CBPartidas'[data] >= SELECTEDVALUE(dim_Calendario[Date])
 			    )
 			)
 			
@@ -1584,7 +1585,7 @@ table Medidas
 	measure TituloSwitchHoFClubes = ```
 			
 			    SWITCH(
-			        SELECTEDVALUE('Param_HoFClubes'[Parâmetro Pedido]),
+			        SELECTEDVALUE('param_HoFClubes'[Parâmetro Pedido]),
 			        0, "Times que mais campeonatos disputaram",
 			        1, "Times que mais partidas jogaram",
 			        2, "Times que mais partidas venceram",
@@ -1600,7 +1601,7 @@ table Medidas
 	measure SwitchHoFClubes = ```
 			
 			    SWITCH(
-			        SELECTEDVALUE('Param_HoFClubes'[Parâmetro Pedido]),
+			        SELECTEDVALUE('param_HoFClubes'[Parâmetro Pedido]),
 			        0, [NumTemporadas],
 			        1, [Vitorias],
 			        2, [Jogos],
@@ -1617,7 +1618,7 @@ table Medidas
 	measure CartoesVermelhosClube = ```
 			
 			    CALCULATE(
-			        SUM('campeonato-brasileiro-estatisticas-full'[cartao_vermelho])
+			        SUM('fato_CBEstatisticas'[cartao_vermelho])
 			    )
 			
 			```
@@ -1630,7 +1631,7 @@ table Medidas
 	measure CartoesAmarelosClube = ```
 			
 			    CALCULATE(
-			        SUM('campeonato-brasileiro-estatisticas-full'[cartao_amarelo])
+			        SUM('fato_CBEstatisticas'[cartao_amarelo])
 			    )
 			
 			```
@@ -1643,7 +1644,7 @@ table Medidas
 	measure SwitchHoSClubes = ```
 			
 			    SWITCH(
-			        SELECTEDVALUE('Param_HoSClubes'[Parâmetro Pedido]),
+			        SELECTEDVALUE('param_HoSClubes'[Parâmetro Pedido]),
 			        0, [CartoesAmarelosClube],
 			        1, [CartoesVermelhosClube],
 			        2, [Derrotas],
@@ -1660,7 +1661,7 @@ table Medidas
 	measure TituloSwitchHoSClubes = ```
 			
 			    SWITCH(
-			        SELECTEDVALUE(Param_HoSClubes[Parâmetro Pedido]),
+			        SELECTEDVALUE(param_HoSClubes[Parâmetro Pedido]),
 			        0, "Times que mais cartões amarelos receberam",
 			        1, "Times que mais cartões vermelhos receberam",
 			        2, "Times que mais partidas perderam",
@@ -1800,8 +1801,8 @@ table Medidas
 			
 			VAR JogosCampeao = 
 			    CALCULATE(
-			        DISTINCTCOUNT('full - unpivot'[ID]),
-			        'full - unpivot'[time] = Campeao
+			        DISTINCTCOUNT('fato_CBPartidas'[ID]),
+			        'fato_CBPartidas'[time] = Campeao
 			    )
 			
 			VAR Rodadas = JogosCampeao
@@ -2620,18 +2621,18 @@ table Medidas
 			VAR _NomeClube = CALCULATE(
 			    MAX(dim_clubes[clube]),
 			    FILTER(
-			        'full - unpivot',
-			        'full - unpivot'[mandante_flag] = "N"
+			        'fato_CBPartidas',
+			        'fato_CBPartidas'[mandante_flag] = "N"
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			        'full - unpivot'[id_time]
+			        VALUES('fato_CBEstatisticas'[id_time]),
+			        'fato_CBPartidas'[id_time]
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			        'full - unpivot'[rodata]
+			        VALUES('fato_CBEstatisticas'[rodata]),
+			        'fato_CBPartidas'[rodata]
 			    ),
-			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time])
 			)
 			
 			RETURN
@@ -2703,18 +2704,18 @@ table Medidas
 			VAR _NomeClube = CALCULATE(
 			    MAX(dim_clubes[clube]),
 			    FILTER(
-			        'full - unpivot',
-			        'full - unpivot'[mandante_flag] = "S"
+			        'fato_CBPartidas',
+			        'fato_CBPartidas'[mandante_flag] = "S"
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			        'full - unpivot'[id_time]
+			        VALUES('fato_CBEstatisticas'[id_time]),
+			        'fato_CBPartidas'[id_time]
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			        'full - unpivot'[rodata]
+			        VALUES('fato_CBEstatisticas'[rodata]),
+			        'fato_CBPartidas'[rodata]
 			    ),
-			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time])
 			)
 			
 			RETURN
@@ -2786,20 +2787,20 @@ table Medidas
 			    CALCULATE(
 			        MAX(dim_formacao[formacao]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[mandante_flag] = "S"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[mandante_flag] = "S"
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			            'full - unpivot'[id_time]
+			            VALUES('fato_CBEstatisticas'[id_time]),
+			            'fato_CBPartidas'[id_time]
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			            'full - unpivot'[rodata]
+			            VALUES('fato_CBEstatisticas'[rodata]),
+			            'fato_CBPartidas'[rodata]
 			        ),
 			        USERELATIONSHIP(
-			            'full - unpivot'[id_time],
-			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			            'fato_CBPartidas'[id_time],
+			            'fato_CBEstatisticas'[id_time]
 			        )
 			    )
 			
@@ -2807,29 +2808,29 @@ table Medidas
 			    CALCULATE(
 			        MAX(dim_formacao[url]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[mandante_flag] = "S"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[mandante_flag] = "S"
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			            'full - unpivot'[id_time]
+			            VALUES('fato_CBEstatisticas'[id_time]),
+			            'fato_CBPartidas'[id_time]
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			            'full - unpivot'[rodata]
+			            VALUES('fato_CBEstatisticas'[rodata]),
+			            'fato_CBPartidas'[rodata]
 			        ),
 			        USERELATIONSHIP(
-			            'full - unpivot'[id_time],
-			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			            'fato_CBPartidas'[id_time],
+			            'fato_CBEstatisticas'[id_time]
 			        )
 			    )
 			
 			VAR _tecnico = 
 			    CALCULATE(
-			        MAX('full - unpivot'[tecnico]),
+			        MAX('fato_CBPartidas'[tecnico]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[mandante_flag] = "S"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[mandante_flag] = "S"
 			        )
 			    )
 			
@@ -2880,20 +2881,20 @@ table Medidas
 			    CALCULATE(
 			        MAX(dim_formacao[formacao]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[mandante_flag] = "N"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[mandante_flag] = "N"
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			            'full - unpivot'[id_time]
+			            VALUES('fato_CBEstatisticas'[id_time]),
+			            'fato_CBPartidas'[id_time]
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			            'full - unpivot'[rodata]
+			            VALUES('fato_CBEstatisticas'[rodata]),
+			            'fato_CBPartidas'[rodata]
 			        ),
 			        USERELATIONSHIP(
-			            'full - unpivot'[id_time],
-			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			            'fato_CBPartidas'[id_time],
+			            'fato_CBEstatisticas'[id_time]
 			        )
 			    )
 			
@@ -2901,29 +2902,29 @@ table Medidas
 			    CALCULATE(
 			        MAX(dim_formacao[url]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[mandante_flag] = "N"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[mandante_flag] = "N"
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			            'full - unpivot'[id_time]
+			            VALUES('fato_CBEstatisticas'[id_time]),
+			            'fato_CBPartidas'[id_time]
 			        ),
 			        TREATAS(
-			            VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			            'full - unpivot'[rodata]
+			            VALUES('fato_CBEstatisticas'[rodata]),
+			            'fato_CBPartidas'[rodata]
 			        ),
 			        USERELATIONSHIP(
-			            'full - unpivot'[id_time],
-			            'campeonato-brasileiro-estatisticas-full'[id_time]
+			            'fato_CBPartidas'[id_time],
+			            'fato_CBEstatisticas'[id_time]
 			        )
 			    )
 			
 			VAR _tecnico = 
 			    CALCULATE(
-			        MAX('full - unpivot'[tecnico]),
+			        MAX('fato_CBPartidas'[tecnico]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[mandante_flag] = "N"
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[mandante_flag] = "N"
 			        )
 			    )
 			
@@ -3253,21 +3254,21 @@ table Medidas
 			
 			VAR JogosComCartao =
 			    CALCULATE(
-			        DISTINCTCOUNT('campeonato-brasileiro-cartoes'[partida_id]),
-			        'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta]),
+			        DISTINCTCOUNT('fato_CBCartoes'[partida_id]),
+			        'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta]),
 			        TREATAS(
-			            VALUES('full - unpivot'[id]),
-			            'campeonato-brasileiro-cartoes'[partida_id]
+			            VALUES('fato_CBPartidas'[id]),
+			            'fato_CBCartoes'[partida_id]
 			        )
 			    )
 			
 			VAR JogosAtletaComParticipacao =
 			    CALCULATE(
-			        DISTINCTCOUNT('full - unpivot'[id]),
-			        'full - unpivot'[id] IN VALUES('campeonato-brasileiro-cartoes'[partida_id]) || 
-			        'full - unpivot'[id] IN VALUES('campeonato-brasileiro-gols'[partida_id]),
-			        'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta]),
-			        'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta])
+			        DISTINCTCOUNT('fato_CBPartidas'[id]),
+			        'fato_CBPartidas'[id] IN VALUES('fato_CBCartoes'[partida_id]) || 
+			        'fato_CBPartidas'[id] IN VALUES('fato_CBGols'[partida_id]),
+			        'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta]),
+			        'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta])
 			    )
 			
 			RETURN
@@ -3286,34 +3287,34 @@ table Medidas
 			
 			VAR JogosValidosDoAtleta =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta])
 			        )
 			    )
 			
 			VAR JogosComGol =
 			    CALCULATE(
-			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
-			        'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra",
-			        'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta]),
-			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
+			        DISTINCTCOUNT('fato_CBGols'[partida_id]),
+			        'fato_CBGols'[tipo_de_gol] <> "Gol Contra",
+			        'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'fato_CBGols'[partida_id])
 			    )
 			
 			VAR TotalJogos =
@@ -3332,12 +3333,12 @@ table Medidas
 	measure GolsClutch = ```
 			
 			CALCULATE(
-			    COUNTROWS('campeonato-brasileiro-gols'),
-			    'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta]),
-			    'campeonato-brasileiro-gols'[minuto] >= 75,
+			    COUNTROWS('fato_CBGols'),
+			    'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta]),
+			    'fato_CBGols'[minuto] >= 75,
 			    TREATAS(
-			        VALUES('full - unpivot'[id]),
-			        'campeonato-brasileiro-gols'[partida_id]
+			        VALUES('fato_CBPartidas'[id]),
+			        'fato_CBGols'[partida_id]
 			    )
 			)
 			
@@ -3352,34 +3353,34 @@ table Medidas
 			
 			VAR JogosValidosDoAtleta =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        )
 			    )
 			
 			VAR GOLS = 
 			    CALCULATE(
-			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
-			        'campeonato-brasileiro-gols'[tipo_de_gol] = "",
-			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
-			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
+			        DISTINCTCOUNT('fato_CBGols'[partida_id]),
+			        'fato_CBGols'[tipo_de_gol] = "",
+			        'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'fato_CBGols'[partida_id])
 			    )
 			
 			RETURN
@@ -3396,34 +3397,34 @@ table Medidas
 			
 			VAR JogosValidosDoAtleta =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX(dim_jogadores[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX(dim_jogadores[atleta])
 			        )
 			    )
 			
 			VAR GOLS = 
 			    CALCULATE(
-			        DISTINCTCOUNT('campeonato-brasileiro-gols'[partida_id]),
-			        'campeonato-brasileiro-gols'[tipo_de_gol] = "Penalty",
-			        'campeonato-brasileiro-gols'[atleta] = MAX(dim_jogadores[atleta]),
-			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-gols'[partida_id])
+			        DISTINCTCOUNT('fato_CBGols'[partida_id]),
+			        'fato_CBGols'[tipo_de_gol] = "Penalty",
+			        'fato_CBGols'[atleta] = MAX(dim_jogadores[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'fato_CBGols'[partida_id])
 			    )
 			
 			RETURN
@@ -3471,35 +3472,35 @@ table Medidas
 			
 			VAR JogosValidosDoAtleta =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta])
 			        )
 			    )
 			
 			RETURN
 			COALESCE(
 			    CALCULATE(
-			        COUNTROWS('campeonato-brasileiro-cartoes'),
-			        'campeonato-brasileiro-cartoes'[cartao] = "Vermelho",
-			        'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta]),
-			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-cartoes'[partida_id])
+			        COUNTROWS('fato_CBCartoes'),
+			        'fato_CBCartoes'[cartao] = "Vermelho",
+			        'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'fato_CBCartoes'[partida_id])
 			    ),
 			    0
 			)
@@ -3513,35 +3514,35 @@ table Medidas
 			
 			VAR JogosValidosDoAtleta =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta])
 			        )
 			    )
 			
 			RETURN
 			COALESCE(
 			    CALCULATE(
-			        COUNTROWS('campeonato-brasileiro-cartoes'),
-			        'campeonato-brasileiro-cartoes'[cartao] = "Amarelo",
-			        'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta]),
-			        TREATAS(JogosValidosDoAtleta, 'campeonato-brasileiro-cartoes'[partida_id])
+			        COUNTROWS('fato_CBCartoes'),
+			        'fato_CBCartoes'[cartao] = "Amarelo",
+			        'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta]),
+			        TREATAS(JogosValidosDoAtleta, 'fato_CBCartoes'[partida_id])
 			    ),
 			    0
 			)
@@ -3555,8 +3556,8 @@ table Medidas
 			
 			VAR TotalCartoes =
 			    CALCULATE(
-			        COUNTROWS('campeonato-brasileiro-cartoes'),
-			        'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta])
+			        COUNTROWS('fato_CBCartoes'),
+			        'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta])
 			    )
 			RETURN
 			COALESCE(
@@ -3576,13 +3577,13 @@ table Medidas
 			
 			VAR TotalCartoes =
 			    CALCULATE(
-			        COUNTROWS('campeonato-brasileiro-cartoes'),
-			        'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta])
+			        COUNTROWS('fato_CBCartoes'),
+			        'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta])
 			    )
 			VAR MinutosJogador =
 			    CALCULATE(
-			        SUM('campeonato-brasileiro-gols'[minuto]),
-			        'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta])
+			        SUM('fato_CBGols'[minuto]),
+			        'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta])
 			    )
 			RETURN
 			COALESCE(
@@ -3602,11 +3603,11 @@ table Medidas
 			
 			VAR TotalGolsSofridos =
 			    CALCULATE(
-			        COUNTROWS('campeonato-brasileiro-gols'),
+			        COUNTROWS('fato_CBGols'),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[clube] <> MAX('campeonato-brasileiro-gols'[clube]) &&
-			            'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra"
+			            'fato_CBGols',
+			            'fato_CBGols'[clube] <> MAX('fato_CBGols'[clube]) &&
+			            'fato_CBGols'[tipo_de_gol] <> "Gol Contra"
 			        )
 			    )
 			VAR MinutosTotais = [JogosAtleta] * 90
@@ -3625,33 +3626,33 @@ table Medidas
 			
 			VAR PartidasJogadas =
 			    CALCULATETABLE(
-			        VALUES('full - unpivot'[id]),
+			        VALUES('fato_CBPartidas'[id]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id] IN
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id] IN
 			            SELECTCOLUMNS(
 			                UNION(
-			                    SELECTCOLUMNS('campeonato-brasileiro-gols', "partida_id", 'campeonato-brasileiro-gols'[partida_id]),
-			                    SELECTCOLUMNS('campeonato-brasileiro-cartoes', "partida_id", 'campeonato-brasileiro-cartoes'[partida_id])
+			                    SELECTCOLUMNS('fato_CBGols', "partida_id", 'fato_CBGols'[partida_id]),
+			                    SELECTCOLUMNS('fato_CBCartoes', "partida_id", 'fato_CBCartoes'[partida_id])
 			                ),
 			                "partida_id", [partida_id]
 			            )
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-gols',
-			            'campeonato-brasileiro-gols'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBGols',
+			            'fato_CBGols'[atleta] = MAX('dim_jogadores'[atleta])
 			        ),
 			        FILTER(
-			            'campeonato-brasileiro-cartoes',
-			            'campeonato-brasileiro-cartoes'[atleta] = MAX('dim_jogadores'[atleta])
+			            'fato_CBCartoes',
+			            'fato_CBCartoes'[atleta] = MAX('dim_jogadores'[atleta])
 			        )
 			    )
 			VAR GolsSofridos = 
 			    CALCULATE(
-			        COUNTROWS('campeonato-brasileiro-gols'),
-			        'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra",
-			        'campeonato-brasileiro-gols'[clube] <> MAX('campeonato-brasileiro-gols'[clube]),
-			        'campeonato-brasileiro-gols'[partida_id] IN PartidasJogadas
+			        COUNTROWS('fato_CBGols'),
+			        'fato_CBGols'[tipo_de_gol] <> "Gol Contra",
+			        'fato_CBGols'[clube] <> MAX('fato_CBGols'[clube]),
+			        'fato_CBGols'[partida_id] IN PartidasJogadas
 			    )
 			RETURN COALESCE(GolsSofridos, 0)
 			
@@ -3684,14 +3685,14 @@ table Medidas
 			
 			    VAR TabelaResumo = 
 			        ADDCOLUMNS(
-			            SUMMARIZE('full - unpivot', 'full - unpivot'[arena], 'full - unpivot'[mandante_Estado]),
-			            "TotalPartidas", CALCULATE(DISTINCTCOUNT('full - unpivot'[id]))
+			            SUMMARIZE('fato_CBPartidas', 'fato_CBPartidas'[arena], 'fato_CBPartidas'[mandante_Estado]),
+			            "TotalPartidas", CALCULATE(DISTINCTCOUNT('fato_CBPartidas'[id]))
 			        )
 			    VAR MaxPartidas = MAXX(TabelaResumo, [TotalPartidas])
 			    VAR EstadioUF = 
 			        MAXX(
 			            FILTER(TabelaResumo, [TotalPartidas] = MaxPartidas),
-			            'full - unpivot'[arena] & " (" & 'full - unpivot'[mandante_Estado] & ")"
+			            'fato_CBPartidas'[arena] & " (" & 'fato_CBPartidas'[mandante_Estado] & ")"
 			        )
 			    RETURN
 			        EstadioUF
@@ -3749,7 +3750,7 @@ table Medidas
 
 	measure TotalGols = ```
 			
-			    COALESCE(SUM('full - unpivot'[gols_pro]), 0)
+			    COALESCE(SUM('fato_CBPartidas'[gols_pro]), 0)
 			
 			```
 		formatString: #,0
@@ -3761,7 +3762,7 @@ table Medidas
 	measure TotalFaltas = ```
 			
 			    COALESCE(
-			        SUM('campeonato-brasileiro-estatisticas-full'[faltas]), 
+			        SUM('fato_CBEstatisticas'[faltas]), 
 			        0
 			    )
 			
@@ -3860,7 +3861,7 @@ table Medidas
 	measure KPICartoesAmarelos = ```
 			
 			    COALESCE(
-			        SUM('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]), 
+			        SUM('fato_CBEstatisticas'[cartao_amarelo]), 
 			        0
 			    )
 			
@@ -3873,7 +3874,7 @@ table Medidas
 
 	measure KPIsCartoesVermelhos = ```
 			
-			    COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]), 0)
+			    COALESCE(SUM('fato_CBEstatisticas'[cartao_vermelho]), 0)
 			
 			```
 		formatString: 0
@@ -3885,7 +3886,7 @@ table Medidas
 	measure MediaCartoesAmarelosPorPartida = ```
 			
 			    COALESCE(
-			        AVERAGE('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]),
+			        AVERAGE('fato_CBEstatisticas'[cartao_amarelo]),
 			        0
 			    )
 			
@@ -3899,7 +3900,7 @@ table Medidas
 
 	measure MediaCartoesAmarelosPorTemporada = ```
 			
-			    VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]), 0)
+			    VAR Total = COALESCE(SUM('fato_CBEstatisticas'[cartao_amarelo]), 0)
 			    VAR TotalTemporadas = CALCULATE(
 			        DISTINCTCOUNT(dim_Calendario[Ano-Campeonato]), 
 			        dim_Calendario[Ano-Campeonato] >= 14
@@ -3917,8 +3918,8 @@ table Medidas
 
 	measure MediaCartoesAmarelosPorTime = ```
 			
-			    VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]), 0)
-			    VAR TotalTimes = DISTINCTCOUNT('campeonato-brasileiro-estatisticas-full'[clube])
+			    VAR Total = COALESCE(SUM('fato_CBEstatisticas'[cartao_amarelo]), 0)
+			    VAR TotalTimes = DISTINCTCOUNT('fato_CBEstatisticas'[clube])
 			    RETURN 
 			        DIVIDE(Total, TotalTimes, 0)
 			
@@ -3933,7 +3934,7 @@ table Medidas
 	measure MediaCartoesVermelhosPorPartida = ```
 			
 			    COALESCE(
-			        AVERAGE('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]),
+			        AVERAGE('fato_CBEstatisticas'[cartao_vermelho]),
 			        0
 			    )
 			
@@ -3947,7 +3948,7 @@ table Medidas
 
 	measure MediaCartoesVermelhosPorTemporada = ```
 			
-			    VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]), 0)
+			    VAR Total = COALESCE(SUM('fato_CBEstatisticas'[cartao_vermelho]), 0)
 			    VAR TotalTemporadas = CALCULATE(
 			        DISTINCTCOUNT(dim_Calendario[Ano-Campeonato]), 
 			        dim_Calendario[Ano-Campeonato] >= 14
@@ -3964,8 +3965,8 @@ table Medidas
 
 	measure MediaCartoesVermelhosPorTime = ```
 			
-			    VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]), 0)
-			    VAR TotalTimes = DISTINCTCOUNT('campeonato-brasileiro-estatisticas-full'[clube])
+			    VAR Total = COALESCE(SUM('fato_CBEstatisticas'[cartao_vermelho]), 0)
+			    VAR TotalTimes = DISTINCTCOUNT('fato_CBEstatisticas'[clube])
 			    RETURN
 			        DIVIDE(Total, TotalTimes, 0)
 			
@@ -3981,13 +3982,13 @@ table Medidas
 			
 			VAR _cartoes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]),
+			        MAX('fato_CBEstatisticas'[cartao_amarelo]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4005,13 +4006,13 @@ table Medidas
 			
 			VAR _chutes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[chutes]),
+			        MAX('fato_CBEstatisticas'[chutes]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4029,13 +4030,13 @@ table Medidas
 			
 			VAR _escanteios = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[escanteios]),
+			        MAX('fato_CBEstatisticas'[escanteios]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4053,13 +4054,13 @@ table Medidas
 			
 			VAR _impedimentos = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[impedimentos]),
+			        MAX('fato_CBEstatisticas'[impedimentos]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4077,13 +4078,13 @@ table Medidas
 			
 			VAR _faltas = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[faltas]),
+			        MAX('fato_CBEstatisticas'[faltas]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4101,13 +4102,13 @@ table Medidas
 			
 			VAR _cartoes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]),
+			        MAX('fato_CBEstatisticas'[cartao_vermelho]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4125,13 +4126,13 @@ table Medidas
 			
 			VAR _chutes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[chutes_no_alvo]),
+			        MAX('fato_CBEstatisticas'[chutes_no_alvo]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4149,13 +4150,13 @@ table Medidas
 			
 			VAR _precisao = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[precisao_passes]),
+			        MAX('fato_CBEstatisticas'[precisao_passes]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4172,13 +4173,13 @@ table Medidas
 			
 			VAR _passes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[passes]),
+			        MAX('fato_CBEstatisticas'[passes]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4196,13 +4197,13 @@ table Medidas
 			
 			VAR _posse = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[posse_de_bola]),
+			        MAX('fato_CBEstatisticas'[posse_de_bola]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "N"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "N"
 			                )
 			        )
 			    )
@@ -4219,13 +4220,13 @@ table Medidas
 			
 			VAR _cartoes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[cartao_amarelo]),
+			        MAX('fato_CBEstatisticas'[cartao_amarelo]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4243,13 +4244,13 @@ table Medidas
 			
 			VAR _cartoes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[cartao_vermelho]),
+			        MAX('fato_CBEstatisticas'[cartao_vermelho]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4267,13 +4268,13 @@ table Medidas
 			
 			VAR _chutes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[chutes]),
+			        MAX('fato_CBEstatisticas'[chutes]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4291,13 +4292,13 @@ table Medidas
 			
 			VAR _escanteios = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[escanteios]),
+			        MAX('fato_CBEstatisticas'[escanteios]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4315,13 +4316,13 @@ table Medidas
 			
 			VAR _faltas = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[faltas]),
+			        MAX('fato_CBEstatisticas'[faltas]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4339,13 +4340,13 @@ table Medidas
 			
 			VAR _chutes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[chutes_no_alvo]),
+			        MAX('fato_CBEstatisticas'[chutes_no_alvo]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4363,13 +4364,13 @@ table Medidas
 			
 			VAR _impedimentos = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[impedimentos]),
+			        MAX('fato_CBEstatisticas'[impedimentos]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4387,13 +4388,13 @@ table Medidas
 			
 			VAR _precisao = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[precisao_passes]),
+			        MAX('fato_CBEstatisticas'[precisao_passes]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4410,13 +4411,13 @@ table Medidas
 			
 			VAR _passes = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[passes]),
+			        MAX('fato_CBEstatisticas'[passes]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4434,13 +4435,13 @@ table Medidas
 			
 			VAR _posse = 
 			    CALCULATE(
-			        MAX('campeonato-brasileiro-estatisticas-full'[posse_de_bola]),
+			        MAX('fato_CBEstatisticas'[posse_de_bola]),
 			        FILTER(
-			            'full - unpivot',
-			            'full - unpivot'[id_time] = 
+			            'fato_CBPartidas',
+			            'fato_CBPartidas'[id_time] = 
 			                CALCULATE(
-			                    MIN('campeonato-brasileiro-estatisticas-full'[id_time]),
-			                    'full - unpivot'[mandante_flag] = "S"
+			                    MIN('fato_CBEstatisticas'[id_time]),
+			                    'fato_CBPartidas'[mandante_flag] = "S"
 			                )
 			        )
 			    )
@@ -4456,7 +4457,7 @@ table Medidas
 	measure MediaFaltasPorPartida = ```
 			
 			    COALESCE(
-			        AVERAGE('campeonato-brasileiro-estatisticas-full'[faltas]),
+			        AVERAGE('fato_CBEstatisticas'[faltas]),
 			        0
 			    )
 			
@@ -4470,7 +4471,7 @@ table Medidas
 
 	measure MediaFaltasPorTemporada = ```
 			
-			    VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[faltas]), 0)
+			    VAR Total = COALESCE(SUM('fato_CBEstatisticas'[faltas]), 0)
 			    VAR TotalTemporadas = CALCULATE(
 			        DISTINCTCOUNT(dim_Calendario[Ano-Campeonato]), 
 			        dim_Calendario[Ano-Campeonato] >= 14
@@ -4488,8 +4489,8 @@ table Medidas
 
 	measure MediaFaltasPorTime = ```
 			
-			    VAR Total = COALESCE(SUM('campeonato-brasileiro-estatisticas-full'[faltas]), 0)
-			    VAR TotalTimes = DISTINCTCOUNT('campeonato-brasileiro-estatisticas-full'[clube])
+			    VAR Total = COALESCE(SUM('fato_CBEstatisticas'[faltas]), 0)
+			    VAR TotalTimes = DISTINCTCOUNT('fato_CBEstatisticas'[clube])
 			    RETURN
 			        DIVIDE(Total, TotalTimes, 0)
 			
@@ -4504,7 +4505,7 @@ table Medidas
 	measure MediaGolsPorPartida = ```
 			
 			    COALESCE(
-			        AVERAGE('full - unpivot'[gols_pro]),
+			        AVERAGE('fato_CBPartidas'[gols_pro]),
 			        0
 			    )
 			
@@ -4573,18 +4574,18 @@ table Medidas
 			CALCULATE(
 			    MAX(dim_clubes[url]),
 			    FILTER(
-			        'full - unpivot',
-			        'full - unpivot'[mandante_flag] = "S"
+			        'fato_CBPartidas',
+			        'fato_CBPartidas'[mandante_flag] = "S"
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[partida_id]),
-			        'full - unpivot'[id]
+			        VALUES('fato_CBEstatisticas'[partida_id]),
+			        'fato_CBPartidas'[id]
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			        'full - unpivot'[rodata]
+			        VALUES('fato_CBEstatisticas'[rodata]),
+			        'fato_CBPartidas'[rodata]
 			    ),
-			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time])
 			)
 			
 			```
@@ -4598,18 +4599,18 @@ table Medidas
 			CALCULATE(
 			    MAX(dim_clubes[url]),
 			    FILTER(
-			        'full - unpivot',
-			        'full - unpivot'[mandante_flag] = "N"
+			        'fato_CBPartidas',
+			        'fato_CBPartidas'[mandante_flag] = "N"
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[partida_id]),
-			        'full - unpivot'[id]
+			        VALUES('fato_CBEstatisticas'[partida_id]),
+			        'fato_CBPartidas'[id]
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			        'full - unpivot'[rodata]
+			        VALUES('fato_CBEstatisticas'[rodata]),
+			        'fato_CBPartidas'[rodata]
 			    ),
-			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time])
 			)
 			
 			```
@@ -4663,18 +4664,18 @@ table Medidas
 			CALCULATE(
 			    MAX(dim_clubes[clube]),
 			    FILTER(
-			        'full - unpivot',
-			        'full - unpivot'[mandante_flag] = "S"
+			        'fato_CBPartidas',
+			        'fato_CBPartidas'[mandante_flag] = "S"
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			        'full - unpivot'[id_time]
+			        VALUES('fato_CBEstatisticas'[id_time]),
+			        'fato_CBPartidas'[id_time]
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			        'full - unpivot'[rodata]
+			        VALUES('fato_CBEstatisticas'[rodata]),
+			        'fato_CBPartidas'[rodata]
 			    ),
-			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time])
 			)
 		displayFolder: Partidas\Partida
 		lineageTag: 9aa18d7d-dc24-4e81-a37a-774283bf31f0
@@ -4683,18 +4684,18 @@ table Medidas
 			CALCULATE(
 			    MAX(dim_clubes[clube]),
 			    FILTER(
-			        'full - unpivot',
-			        'full - unpivot'[mandante_flag] = "N"
+			        'fato_CBPartidas',
+			        'fato_CBPartidas'[mandante_flag] = "N"
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[id_time]),
-			        'full - unpivot'[id_time]
+			        VALUES('fato_CBEstatisticas'[id_time]),
+			        'fato_CBPartidas'[id_time]
 			    ),
 			    TREATAS(
-			        VALUES('campeonato-brasileiro-estatisticas-full'[rodata]),
-			        'full - unpivot'[rodata]
+			        VALUES('fato_CBEstatisticas'[rodata]),
+			        'fato_CBPartidas'[rodata]
 			    ),
-			    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time])
+			    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time])
 			)
 		displayFolder: Partidas\Partida
 		lineageTag: a9ebcfb0-a1f0-4f69-a7ea-95480e5e26ab
@@ -4723,12 +4724,83 @@ table Medidas
 		displayFolder: Atletas
 		lineageTag: 07d0723b-245d-4d3d-b49c-55dc03897dfc
 
-	measure Medida
-		lineageTag: e4813d37-79cb-47fe-9ee5-b6fcb2a0a83c
-
 	measure SituacaoSelecionado = SELECTEDVALUE(dim_jogadores[Situação])
 		displayFolder: Atletas
 		lineageTag: 348b0b49-2d3c-49da-9c3c-88c3622641bd
+
+	measure PartidasDefault = ```
+			
+			
+			CONCATENATEX(
+			    'fato_CBPartidas',  
+			    VAR DataHora = FORMAT('fato_CBPartidas'[data], "DD/MM/YYYY") & " " & FORMAT('fato_CBPartidas'[hora], "HH:mm")
+			    VAR Mandante = IF('fato_CBPartidas'[mandante_flag] = "S", MIN('fato_CBPartidas'[time]), MIN('fato_CBPartidas'[adversario]))
+			    VAR MandantePlacar = IF('fato_CBPartidas'[mandante_flag] = "S", MIN('fato_CBPartidas'[gols_pro]), MIN('fato_CBPartidas'[gols_contra]))
+			    VAR Visitante = IF('fato_CBPartidas'[mandante_flag] = "N", MIN('fato_CBPartidas'[time]), MIN('fato_CBPartidas'[adversario]))
+			    VAR VisitantePlacar = IF('fato_CBPartidas'[mandante_flag] = "N", MIN('fato_CBPartidas'[gols_pro]), MIN('fato_CBPartidas'[gols_contra]))
+			    VAR Arena = 'fato_CBPartidas'[arena]
+			    VAR Estado = IF(ISBLANK('fato_CBPartidas'[mandante_Estado]), "", " (" & 'fato_CBPartidas'[mandante_Estado] & ")")
+			    VAR PartidaID = 'fato_CBPartidas'[ID]
+			
+			    VAR Cores = IF(
+			        NOT(ISBLANK(CALCULATE(
+			            SELECTEDVALUE(dim_cores[Código Hexadecimal]), 
+			            FILTER(
+			                dim_cores, 
+			                dim_cores[Cor] = SELECTEDVALUE(dim_clubes[Cores])
+			            )
+			        ))),
+			        CALCULATE(
+			            SELECTEDVALUE(dim_cores[Código Hexadecimal]), 
+			            FILTER(
+			                dim_cores, 
+			                dim_cores[Cor] = SELECTEDVALUE(dim_clubes[Cores])
+			            )
+			        ),
+			        "#2DCC70"  -- Cor padrão caso não tenha cor válida
+			    )
+			
+			
+			
+			    RETURN
+			    "<div style='background-color: " & "#2DCC70" & "; padding: 8px; margin-bottom: 8px; border: 2px solid " & "#2DCC70" & "; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); font-size: 75%;'>" & 
+			
+			    "<div style='text-align: center; color: " & "#f1f1f1" & "; font-size: 14px;'>" & 
+			    DataHora & 
+			    "</div>" &
+			
+			    "<div style='text-align: center; font-size: 16px; font-weight: bold; color: " & "#f1f1f1" & ";'>" & 
+			    Mandante & " " & 
+			    MandantePlacar & " - " & 
+			    VisitantePlacar & " " & 
+			    Visitante & 
+			    "</div>" &
+			
+			    "<div style='text-align: center; font-size: 12px; color: " & "#f1f1f1" & ";'> " & Arena  & Estado &  "</div>" &
+			
+			    "</div>",
+			    UNICHAR(10)
+			)
+			
+			```
+		displayFolder: Clubes\Jogos
+		lineageTag: f2bca299-7282-46cb-8b84-ec7f0e65ce02
+
+	measure Confrontos = ```
+			
+			IF(
+			    ISBLANK(SELECTEDVALUE(dim_clubes[Clube])),
+			    CALCULATE(
+			        [PartidasDefault],
+			        dim_Calendario[Ano-Campeonato] = SELECTEDVALUE(dim_eventos[Ano]),
+			        dim_clubes[Clube] = SELECTEDVALUE(dim_eventos[time])
+			    ),
+			    [PartidasTimes]
+			)
+			
+			```
+		displayFolder: Clubes\Jogos
+		lineageTag: 9d744427-933d-421b-a2d8-7d4b83fb807d
 
 	partition Medidas = m
 		mode: import

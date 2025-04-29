@@ -138,22 +138,22 @@ table sum_classificacao_times
 				SELECTCOLUMNS(
 				    SUMMARIZE(
 				        FILTER(
-				            'full - unpivot',
-				            'full - unpivot'[AnoCampeonato]
+				            'fato_CBPartidas',
+				            'fato_CBPartidas'[AnoCampeonato]
 				        ),
-				        'full - unpivot'[time],
-				        'full - unpivot'[AnoCampeonato],
-				        "TotalJogos", DISTINCTCOUNT('full - unpivot'[ID]),
-				        "TotalPontos", SUM('full - unpivot'[Pontos]),
-				        "TotalVitorias", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = "V"),
-				        "TotalDerrotas", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = "D"),
-				        "TotalEmpates", CALCULATE(DISTINCTCOUNT('full - unpivot'[ID]), 'full - unpivot'[R] = "E"),
-				        "GolsPro", SUM('full - unpivot'[gols_pro]),
-				        "GolsContra", SUM('full - unpivot'[gols_contra]),
-				        "SaldoGols", SUM('full - unpivot'[Saldo Gols])
+				        'fato_CBPartidas'[time],
+				        'fato_CBPartidas'[AnoCampeonato],
+				        "TotalJogos", DISTINCTCOUNT('fato_CBPartidas'[ID]),
+				        "TotalPontos", SUM('fato_CBPartidas'[Pontos]),
+				        "TotalVitorias", CALCULATE(DISTINCTCOUNT('fato_CBPartidas'[ID]), 'fato_CBPartidas'[R] = "V"),
+				        "TotalDerrotas", CALCULATE(DISTINCTCOUNT('fato_CBPartidas'[ID]), 'fato_CBPartidas'[R] = "D"),
+				        "TotalEmpates", CALCULATE(DISTINCTCOUNT('fato_CBPartidas'[ID]), 'fato_CBPartidas'[R] = "E"),
+				        "GolsPro", SUM('fato_CBPartidas'[gols_pro]),
+				        "GolsContra", SUM('fato_CBPartidas'[gols_contra]),
+				        "SaldoGols", SUM('fato_CBPartidas'[Saldo Gols])
 				    ),
-				    "time", 'full - unpivot'[time],
-				    "ano", 'full - unpivot'[AnoCampeonato],  
+				    "time", 'fato_CBPartidas'[time],
+				    "ano", 'fato_CBPartidas'[AnoCampeonato],  
 				    "TotalJogos", [TotalJogos],
 				    "TotalPontos", [TotalPontos],
 				    "TotalVitorias", [TotalVitorias],

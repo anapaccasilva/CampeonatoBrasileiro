@@ -1,4 +1,4 @@
-table campeonato-brasileiro-estatisticas-full
+table fato_CBEstatisticas
 	lineageTag: 8d6dccab-488c-4245-9950-6a8d8ce1d50e
 
 	column partida_id
@@ -155,11 +155,12 @@ table campeonato-brasileiro-estatisticas-full
 
 		annotation SummarizationSetBy = Automatic
 
-	partition campeonato-brasileiro-estatisticas-full = m
+	partition fato_CBEstatisticas = m
 		mode: import
+		queryGroup: 'Tabelas Fato'
 		source =
 				let
-				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-estatisticas-full.csv"),[Delimiter=",", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    Fonte = Csv.Document(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/campeonato-brasileiro-estatisticas-full.csv"),[Delimiter=",", Columns=13, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 				    #"Valor Substituído" = Table.ReplaceValue(#"Cabeçalhos Promovidos","None","",Replacer.ReplaceText,{"posse_de_bola"}),
 				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","None","",Replacer.ReplaceText,{"precisao_passes"}),
@@ -167,6 +168,8 @@ table campeonato-brasileiro-estatisticas-full
 				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Tipo Alterado", "id_time", each Text.Combine({Text.From([partida_id], "pt-BR"), "_", [clube]}), type text)
 				in
 				    #"Coluna Mesclada Inserida"
+
+	changedProperty = Name
 
 	annotation PBI_ResultType = Table
 

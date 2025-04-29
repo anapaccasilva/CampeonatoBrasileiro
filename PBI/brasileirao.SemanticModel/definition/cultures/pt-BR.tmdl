@@ -8,7 +8,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			          "ConceptualEntity": "fato_CBCartoes"
 			        }
 			      },
 			      "State": "Generated",
@@ -29,7 +29,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.atleta": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "atleta"
 			        }
 			      },
@@ -48,7 +48,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.cartao": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "cartao"
 			        }
 			      },
@@ -64,7 +64,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.clube": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "clube"
 			        }
 			      },
@@ -80,7 +80,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.id_time": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "id_time"
 			        }
 			      },
@@ -196,7 +196,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.minuto": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "minuto"
 			        }
 			      },
@@ -212,7 +212,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.num_camisa": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "num_camisa"
 			        }
 			      },
@@ -245,7 +245,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.partida_id": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "partida_id"
 			        }
 			      },
@@ -308,7 +308,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.posicao": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "posicao"
 			        }
 			      },
@@ -324,7 +324,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.rodata": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "rodata"
 			        }
 			      },
@@ -372,7 +372,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			          "ConceptualEntity": "fato_CBEstatisticas"
 			        }
 			      },
 			      "State": "Generated",
@@ -437,7 +437,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.cartao_amarelo": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "cartao_amarelo"
 			        }
 			      },
@@ -460,7 +460,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.cartao_vermelho": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "cartao_vermelho"
 			        }
 			      },
@@ -483,7 +483,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.chute": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "chutes"
 			        }
 			      },
@@ -599,7 +599,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.chutes_no_alvo": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "chutes_no_alvo"
 			        }
 			      },
@@ -639,7 +639,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.clube": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "clube"
 			        }
 			      },
@@ -655,7 +655,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.escanteio": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "escanteios"
 			        }
 			      },
@@ -671,7 +671,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.falta": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "faltas"
 			        }
 			      },
@@ -687,7 +687,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.id_time": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "id_time"
 			        }
 			      },
@@ -800,7 +800,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.impedimento": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "impedimentos"
 			        }
 			      },
@@ -816,7 +816,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.partida_id": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "partida_id"
 			        }
 			      },
@@ -879,7 +879,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.pass": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "passes"
 			        }
 			      },
@@ -995,7 +995,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.posse_de_bola": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "posse_de_bola"
 			        }
 			      },
@@ -1018,7 +1018,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.precisao_pass": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "precisao_passes"
 			        }
 			      },
@@ -1141,7 +1141,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileiroestatisticasfull.rodata": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-estatisticas-full",
+			          "ConceptualEntity": "fato_CBEstatisticas",
 			          "ConceptualProperty": "rodata"
 			        }
 			      },
@@ -1157,7 +1157,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols"
+			          "ConceptualEntity": "fato_CBGols"
 			        }
 			      },
 			      "State": "Generated",
@@ -1178,7 +1178,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.atleta": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "atleta"
 			        }
 			      },
@@ -1197,7 +1197,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.clube": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "clube"
 			        }
 			      },
@@ -1216,7 +1216,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.id_time": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "id_time"
 			        }
 			      },
@@ -1329,7 +1329,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.minuto": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "minuto"
 			        }
 			      },
@@ -1345,7 +1345,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.partida_id": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "partida_id"
 			        }
 			      },
@@ -1408,7 +1408,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.rodata": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "rodata"
 			        }
 			      },
@@ -1424,7 +1424,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.tipo_de_gol": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "tipo_de_gol"
 			        }
 			      },
@@ -2828,7 +2828,7 @@ cultureInfo pt-BR
 			    "full__unpivot": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot"
+			          "ConceptualEntity": "fato_CBPartidas"
 			        }
 			      },
 			      "State": "Generated",
@@ -2909,7 +2909,7 @@ cultureInfo pt-BR
 			    "full__unpivot.ID": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "ID"
 			        }
 			      },
@@ -2955,7 +2955,7 @@ cultureInfo pt-BR
 			    "full__unpivot.ano": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "Ano"
 			        }
 			      },
@@ -2971,7 +2971,7 @@ cultureInfo pt-BR
 			    "full__unpivot.arena": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "arena"
 			        }
 			      },
@@ -3067,7 +3067,7 @@ cultureInfo pt-BR
 			    "full__unpivot.data": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "data"
 			        }
 			      },
@@ -3160,7 +3160,7 @@ cultureInfo pt-BR
 			    "full__unpivot.formacao": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "formacao"
 			        }
 			      },
@@ -3179,7 +3179,7 @@ cultureInfo pt-BR
 			    "full__unpivot.gol_pro": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "gols_pro"
 			        }
 			      },
@@ -3202,7 +3202,7 @@ cultureInfo pt-BR
 			    "full__unpivot.gols_contra": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "gols_contra"
 			        }
 			      },
@@ -3232,7 +3232,7 @@ cultureInfo pt-BR
 			    "full__unpivot.hora": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "hora"
 			        }
 			      },
@@ -3255,7 +3255,7 @@ cultureInfo pt-BR
 			    "full__unpivot.id_time": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "id_time"
 			        }
 			      },
@@ -3371,7 +3371,7 @@ cultureInfo pt-BR
 			    "full__unpivot.mandante_flag": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "mandante_flag"
 			        }
 			      },
@@ -3474,7 +3474,7 @@ cultureInfo pt-BR
 			    "full__unpivot.ponto": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "Pontos"
 			        }
 			      },
@@ -3490,7 +3490,7 @@ cultureInfo pt-BR
 			    "full__unpivot.r": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "R"
 			        }
 			      },
@@ -3506,7 +3506,7 @@ cultureInfo pt-BR
 			    "full__unpivot.ranking_por_ano": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "Ranking por Ano"
 			        }
 			      },
@@ -3522,7 +3522,7 @@ cultureInfo pt-BR
 			    "full__unpivot.rodata": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "rodata"
 			        }
 			      },
@@ -3538,7 +3538,7 @@ cultureInfo pt-BR
 			    "full__unpivot.saldo_gol": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "Saldo Gols"
 			        }
 			      },
@@ -3554,7 +3554,7 @@ cultureInfo pt-BR
 			    "full__unpivot.série": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "Série"
 			        }
 			      },
@@ -3570,7 +3570,7 @@ cultureInfo pt-BR
 			    "full__unpivot.tecnico": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "tecnico"
 			        }
 			      },
@@ -3586,7 +3586,7 @@ cultureInfo pt-BR
 			    "full__unpivot.time": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "time"
 			        }
 			      },
@@ -3655,7 +3655,7 @@ cultureInfo pt-BR
 			    "full__unpivot.vencedor": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "vencedor"
 			        }
 			      },
@@ -4721,7 +4721,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Partidas"
+			          "ConceptualProperty": "PartidasTimes"
 			        }
 			      },
 			      "State": "Generated",
@@ -4910,7 +4910,7 @@ cultureInfo pt-BR
 			    "full__unpivot.adversario": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "adversario"
 			        }
 			      },
@@ -4926,7 +4926,7 @@ cultureInfo pt-BR
 			    "full__unpivot.mandante_estado": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "mandante_Estado"
 			        }
 			      },
@@ -7348,7 +7348,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirogol.faixa_minuto_categoria": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-gols",
+			          "ConceptualEntity": "fato_CBGols",
 			          "ConceptualProperty": "Faixa Minuto Categoria"
 			        }
 			      },
@@ -7367,7 +7367,7 @@ cultureInfo pt-BR
 			    "full__unpivot.partida": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "full - unpivot",
+			          "ConceptualEntity": "fato_CBPartidas",
 			          "ConceptualProperty": "Partida"
 			        }
 			      },
@@ -7656,7 +7656,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_atleta": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFAtletas"
+			          "ConceptualEntity": "param_HoFAtletas"
 			        }
 			      },
 			      "State": "Generated",
@@ -7678,7 +7678,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_atleta.parâmetro": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFAtletas",
+			          "ConceptualEntity": "param_HoFAtletas",
 			          "ConceptualProperty": "Parâmetro"
 			        }
 			      },
@@ -7694,7 +7694,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_atleta.parâmetro_campos": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFAtletas",
+			          "ConceptualEntity": "param_HoFAtletas",
 			          "ConceptualProperty": "Parâmetro Campos"
 			        }
 			      },
@@ -7713,7 +7713,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_atleta.parâmetro_pedido": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFAtletas",
+			          "ConceptualEntity": "param_HoFAtletas",
 			          "ConceptualProperty": "Parâmetro Pedido"
 			        }
 			      },
@@ -7732,7 +7732,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_atleta": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSAtletas"
+			          "ConceptualEntity": "param_HoSAtletas"
 			        }
 			      },
 			      "State": "Generated",
@@ -7754,7 +7754,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_atleta.parâmetro": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSAtletas",
+			          "ConceptualEntity": "param_HoSAtletas",
 			          "ConceptualProperty": "Parâmetro"
 			        }
 			      },
@@ -7770,7 +7770,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_atleta.parâmetro_campos": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSAtletas",
+			          "ConceptualEntity": "param_HoSAtletas",
 			          "ConceptualProperty": "Parâmetro Campos"
 			        }
 			      },
@@ -7789,7 +7789,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_atleta.parâmetro_pedido": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSAtletas",
+			          "ConceptualEntity": "param_HoSAtletas",
 			          "ConceptualProperty": "Parâmetro Pedido"
 			        }
 			      },
@@ -7808,7 +7808,7 @@ cultureInfo pt-BR
 			    "campeonatobrasileirocartoe.faixa_minuto_categoria": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "campeonato-brasileiro-cartoes",
+			          "ConceptualEntity": "fato_CBCartoes",
 			          "ConceptualProperty": "Faixa Minuto Categoria"
 			        }
 			      },
@@ -8244,7 +8244,7 @@ cultureInfo pt-BR
 			    "parâmetro_minutagem_atleta": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_MinutagemAtletas"
+			          "ConceptualEntity": "param_MinutagemAtletas"
 			        }
 			      },
 			      "State": "Generated",
@@ -8266,7 +8266,7 @@ cultureInfo pt-BR
 			    "parâmetro_minutagem_atleta.parâmetro": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_MinutagemAtletas",
+			          "ConceptualEntity": "param_MinutagemAtletas",
 			          "ConceptualProperty": "Parâmetro"
 			        }
 			      },
@@ -8282,7 +8282,7 @@ cultureInfo pt-BR
 			    "parâmetro_minutagem_atleta.parâmetro_campos": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_MinutagemAtletas",
+			          "ConceptualEntity": "param_MinutagemAtletas",
 			          "ConceptualProperty": "Parâmetro Campos"
 			        }
 			      },
@@ -8301,7 +8301,7 @@ cultureInfo pt-BR
 			    "parâmetro_minutagem_atleta.parâmetro_pedido": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_MinutagemAtletas",
+			          "ConceptualEntity": "param_MinutagemAtletas",
 			          "ConceptualProperty": "Parâmetro Pedido"
 			        }
 			      },
@@ -9397,7 +9397,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_clube": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFClubes"
+			          "ConceptualEntity": "param_HoFClubes"
 			        }
 			      },
 			      "State": "Generated",
@@ -9419,7 +9419,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_clube.parâmetro": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFClubes",
+			          "ConceptualEntity": "param_HoFClubes",
 			          "ConceptualProperty": "Parâmetro"
 			        }
 			      },
@@ -9435,7 +9435,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_clube.parâmetro_campos": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFClubes",
+			          "ConceptualEntity": "param_HoFClubes",
 			          "ConceptualProperty": "Parâmetro Campos"
 			        }
 			      },
@@ -9454,7 +9454,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_F_clube.parâmetro_pedido": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoFClubes",
+			          "ConceptualEntity": "param_HoFClubes",
 			          "ConceptualProperty": "Parâmetro Pedido"
 			        }
 			      },
@@ -9473,7 +9473,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_clube": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSClubes"
+			          "ConceptualEntity": "param_HoSClubes"
 			        }
 			      },
 			      "State": "Generated",
@@ -9495,7 +9495,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_clube.parâmetro": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSClubes",
+			          "ConceptualEntity": "param_HoSClubes",
 			          "ConceptualProperty": "Parâmetro"
 			        }
 			      },
@@ -9511,7 +9511,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_clube.parâmetro_campos": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSClubes",
+			          "ConceptualEntity": "param_HoSClubes",
 			          "ConceptualProperty": "Parâmetro Campos"
 			        }
 			      },
@@ -9530,7 +9530,7 @@ cultureInfo pt-BR
 			    "parâmetro_ho_S_clube.parâmetro_pedido": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_HoSClubes",
+			          "ConceptualEntity": "param_HoSClubes",
 			          "ConceptualProperty": "Parâmetro Pedido"
 			        }
 			      },
@@ -10609,7 +10609,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_dim_formacao": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -10655,7 +10655,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_campeonatobrasileiroestatisticasfull": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -10701,7 +10701,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_d_calendar": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -10754,7 +10754,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_dim_clube": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -10938,7 +10938,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_faixas_minutagem": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -10984,7 +10984,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_dim_jogadore": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11030,7 +11030,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_dim_clube": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11076,7 +11076,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_faixas_minutagem": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11122,7 +11122,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_full__unpivot": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11168,7 +11168,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_dim_jogadore": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11247,7 +11247,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_totalgols": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11280,7 +11280,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_totalfaltas": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11313,7 +11313,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_totalcartoevermelhos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11346,7 +11346,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_totalcartoesamarelos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11379,7 +11379,7 @@ cultureInfo pt-BR
 			    },
 			    "parâmetro_ho_S_clube_has_parâmetro": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_HoSClubes"
+			        "ConceptualEntity": "param_HoSClubes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11412,7 +11412,7 @@ cultureInfo pt-BR
 			    },
 			    "parâmetro_ho_F_clube_has_parâmetro": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_HoFClubes"
+			        "ConceptualEntity": "param_HoFClubes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -11808,7 +11808,7 @@ cultureInfo pt-BR
 			    },
 			    "parâmetro_minutagem_atleta_has_parâmetro": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_MinutagemAtletas"
+			        "ConceptualEntity": "param_MinutagemAtletas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12019,7 +12019,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_tabela_entity__CartoesAmarelosClube": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12052,7 +12052,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_tabela_entity__CartoesVermelhosClube": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12184,7 +12184,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_entity__campeonatosAtleta": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12316,7 +12316,7 @@ cultureInfo pt-BR
 			    },
 			    "parâmetro_ho_S_atleta_has_parâmetro": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_HoSAtletas"
+			        "ConceptualEntity": "param_HoSAtletas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12349,7 +12349,7 @@ cultureInfo pt-BR
 			    },
 			    "parâmetro_ho_F_atleta_has_parâmetro": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_HoFAtletas"
+			        "ConceptualEntity": "param_HoFAtletas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12778,7 +12778,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_partida": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13603,7 +13603,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_formacao_visitante_HTML": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13669,7 +13669,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_formacao_mandante_HTML": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13768,7 +13768,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_escanteios_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13801,7 +13801,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_escanteios_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13834,7 +13834,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_impedimentos_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13867,7 +13867,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_impedimentos_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13900,7 +13900,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_cartoes_amarelo_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13933,7 +13933,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_cartoes_amarelo_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13966,7 +13966,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_cartoes_vermelho_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13999,7 +13999,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_cartoes_vermelho_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14032,7 +14032,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_faltas_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14065,7 +14065,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_faltas_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14131,7 +14131,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_precisao_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14164,7 +14164,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_precisao_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14197,7 +14197,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_passes_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14230,7 +14230,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_passes_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14263,7 +14263,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_posse_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14296,7 +14296,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_posse_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14329,7 +14329,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_finalizacoes_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14362,7 +14362,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_finalizacoes_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14395,7 +14395,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_chutes_visitante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14428,7 +14428,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_chutes_mandante": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14956,7 +14956,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_entity__GolsSofridosACadaXMinutos": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14989,7 +14989,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__GolsSofridosACadaXMinutos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15022,7 +15022,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__GolsClutch": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15055,7 +15055,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_jogos_com_cartão": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15088,7 +15088,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_param_estatistica_jogos_com_cartão": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15121,7 +15121,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_jogos_com_gol": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15154,7 +15154,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_jogos_com_gol": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15187,7 +15187,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__CartoesPorMinuto": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15220,7 +15220,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_param_estatistica_entity__CartoesPorMinuto": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15253,7 +15253,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_entity__CartoesPorJogo": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15286,7 +15286,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_param_estatistica_entity__CartoesPorJogo": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15319,7 +15319,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_param_estatistica_entity__TotalCartoesVermelhos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15352,7 +15352,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_param_estatistica_entity__TotalCartoesAmarelos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15385,7 +15385,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_entity__MediaGolsSofridosPorJogo": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15418,7 +15418,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__MediaGolsSofridosPorJogo": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15451,7 +15451,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__GolssofridosComJogador": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15517,7 +15517,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_entity__MediaGolsPorJogo": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15550,7 +15550,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__MediaGolsPorJogo": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15583,7 +15583,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_entity__GolACadaXMinutos": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15616,7 +15616,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__GolACadaXMinutos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15847,7 +15847,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_entity__jogosAtleta": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15880,7 +15880,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__DesempenhoGolsFeitosNormal": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15913,7 +15913,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__DesempenhoGolsFeitosPenalty": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15946,7 +15946,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_tabela_entity__DesempenhoGolsFeitosContra": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15979,7 +15979,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_tabela_entity__DesempenhoGolsFeitos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16045,7 +16045,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_param_estatistica_entity__GolsFeitosJogadorLabel": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16078,7 +16078,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_entity__GolsSofridosJogadorLabel": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16144,7 +16144,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_param_estatistica_entity__GolsSofridosJogador": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16177,7 +16177,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_tabela_entity__GolsFeitos": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16210,7 +16210,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_mandante_estado": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16243,7 +16243,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_adversario": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16362,7 +16362,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_vitorias_vitorias": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16428,7 +16428,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_pontos_pontos": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16461,7 +16461,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_jogos_jogos": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16494,7 +16494,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_empates_empates": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16527,7 +16527,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_derrotas_derrotas": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16560,7 +16560,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_SG_sg": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16593,7 +16593,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_GP_gp": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16626,7 +16626,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_v_GC_gc": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16857,7 +16857,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_entity__jogosVAtleta": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16890,7 +16890,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_entity__jogosEAtleta": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16923,7 +16923,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tabela_entity__jogosDAtleta": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -17253,7 +17253,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_tabela_cards": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -17814,7 +17814,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_param_estatistica_teste": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18243,7 +18243,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_vencedor": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18276,7 +18276,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_tecnico": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18309,7 +18309,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_série": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18342,7 +18342,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_saldo_gol": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18375,7 +18375,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_rodata": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18408,7 +18408,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_ranking_por_ano": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18441,7 +18441,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_r": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18474,7 +18474,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_ponto": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18507,7 +18507,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_mandante_flag": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18540,7 +18540,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_hora": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18573,7 +18573,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_gols_contra": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18606,7 +18606,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_gol_pro": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18639,7 +18639,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_data": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18672,7 +18672,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_arena": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18705,7 +18705,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_ano": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18738,7 +18738,7 @@ cultureInfo pt-BR
 			    },
 			    "full__unpivot_has_ID": {
 			      "Binding": {
-			        "ConceptualEntity": "full - unpivot"
+			        "ConceptualEntity": "fato_CBPartidas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -19378,7 +19378,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_entity__fundacaotimeselecionado": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -19411,7 +19411,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_entity__estadiotimeselecionado": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -19444,7 +19444,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_entity__mascotetimeselecionado": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -19477,7 +19477,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_entity__biotimeselecionado": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20071,7 +20071,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_tipo_de_gol": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20104,7 +20104,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_rodata": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20137,7 +20137,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_partida_id": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20170,7 +20170,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_minuto": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20203,7 +20203,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirogol_has_id_time": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-gols"
+			        "ConceptualEntity": "fato_CBGols"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20236,7 +20236,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_rodata": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20269,7 +20269,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_precisao_pass": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20302,7 +20302,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_posse_de_bola": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20335,7 +20335,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_pass": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20368,7 +20368,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_partida_id": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20401,7 +20401,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_impedimento": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20434,7 +20434,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_id_time": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20467,7 +20467,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_falta": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20500,7 +20500,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_escanteio": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20533,7 +20533,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_clube": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20566,7 +20566,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_chutes_no_alvo": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20599,7 +20599,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_chute": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20632,7 +20632,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_cartao_vermelho": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20665,7 +20665,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileiroestatisticasfull_has_cartao_amarelo": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-estatisticas-full"
+			        "ConceptualEntity": "fato_CBEstatisticas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20698,7 +20698,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_v_timeselecionado_timeselecionado": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20731,7 +20731,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_v_playhino_playhino": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20764,7 +20764,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_v_escudo_escudo": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20797,7 +20797,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_rodata": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20830,7 +20830,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_posicao": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20863,7 +20863,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_partida_id": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20896,7 +20896,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_num_camisa": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20929,7 +20929,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_minuto": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20962,7 +20962,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_clube": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -20995,7 +20995,7 @@ cultureInfo pt-BR
 			    },
 			    "campeonatobrasileirocartoe_has_cartao": {
 			      "Binding": {
-			        "ConceptualEntity": "campeonato-brasileiro-cartoes"
+			        "ConceptualEntity": "fato_CBCartoes"
 			      },
 			      "State": "Generated",
 			      "Roles": {

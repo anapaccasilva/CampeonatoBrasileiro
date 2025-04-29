@@ -1,5 +1,5 @@
 /// Hall of Fame
-table Param_HoFAtletas
+table param_HoFAtletas
 	lineageTag: 261c5dce-57f5-4756-b27b-a841c10905d7
 
 	column Parâmetro
@@ -35,7 +35,7 @@ table Param_HoFAtletas
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Param_HoFAtletas = calculated
+	partition param_HoFAtletas = calculated
 		mode: import
 		source =
 				{

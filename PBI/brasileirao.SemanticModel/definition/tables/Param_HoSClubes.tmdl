@@ -1,5 +1,5 @@
 /// Hall of Shame
-table Param_HoSClubes
+table param_HoSClubes
 	lineageTag: a36b9ca0-5ee2-401b-8ae5-68474134e898
 
 	column Parâmetro
@@ -35,7 +35,7 @@ table Param_HoSClubes
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Param_HoSClubes = calculated
+	partition param_HoSClubes = calculated
 		mode: import
 		source =
 				{

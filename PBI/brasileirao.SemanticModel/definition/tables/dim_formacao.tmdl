@@ -23,9 +23,10 @@ table dim_formacao
 
 	partition dim_formacao = m
 		mode: import
+		queryGroup: 'Tabelas Dimensão'
 		source =
 				let
-				    Fonte = Excel.Workbook(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\formacao.xlsx"), null, true),
+				    Fonte = Excel.Workbook(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/formacao.xlsx"), null, true),
 				    Planilha1_Sheet = Fonte{[Item="Planilha1",Kind="Sheet"]}[Data],
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Planilha1_Sheet,{{"Column1", type text}, {"Column2", type text}}),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),

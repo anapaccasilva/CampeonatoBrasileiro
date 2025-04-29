@@ -160,9 +160,10 @@ table dim_jogadores
 
 	partition dim_jogadores = m
 		mode: import
+		queryGroup: 'Tabelas Dimensão'
 		source =
 				let
-				    Fonte = Excel.Workbook(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\jogadores.xlsx"), null, true),
+				    Fonte = Excel.Workbook(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/jogadores.xlsx"), null, true),
 				    campeonato_brasileiro_gols_Table = Fonte{[Item="campeonato_brasileiro_gols",Kind="Table"]}[Data],
 				    #"Tipo Alterado" = Table.TransformColumnTypes(campeonato_brasileiro_gols_Table,{{"clube", type text}, {"atleta", type text}, {"Imagem", type text}, {"Dt Nascimento", type date}, {"Local Nascimento", type text}, {"Nacionalidade", type text}, {"Posição", type text}, {"Pé-Preferencial", type text}, {"Situação", type text}, {"Clube Atual", type text}, {"Biografia", type text}}),
 				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado", {"atleta"}),

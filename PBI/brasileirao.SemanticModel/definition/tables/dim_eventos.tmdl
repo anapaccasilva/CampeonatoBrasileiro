@@ -44,9 +44,10 @@ table dim_eventos
 
 	partition dim_eventos = m
 		mode: import
+		queryGroup: 'Tabelas Dimensão'
 		source =
 				let
-				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\campeoes.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Fonte = Csv.Document(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/campeoes.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Ano", Int64.Type}, {"Evento", type text}, {"time", type text}}),
 				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Tipo Alterado", "Emoji", each if [Evento] = "Campeão" then "🏆" else if [Evento] = "Acidente" then "✞" else null)

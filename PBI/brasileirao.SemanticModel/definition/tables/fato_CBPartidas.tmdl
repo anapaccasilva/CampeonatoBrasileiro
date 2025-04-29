@@ -1,4 +1,4 @@
-table 'full - unpivot'
+table fato_CBPartidas
 	lineageTag: 7e701944-8194-40b8-b1c8-86c00e76efa4
 
 	column ID
@@ -164,7 +164,7 @@ table 'full - unpivot'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Ano = YEAR('full - unpivot'[data])
+	column Ano = YEAR('fato_CBPartidas'[data])
 		formatString: 0
 		lineageTag: 51c127ad-ef29-45be-ba45-d4b5932e0ed1
 		summarizeBy: sum
@@ -231,11 +231,11 @@ table 'full - unpivot'
 
 	column Partida =
 			
-			var mandante = if('full - unpivot'[mandante_flag] = "S", ('full - unpivot'[time] & " X " & 'full - unpivot'[adversario]), ('full - unpivot'[adversario] & " X " & 'full - unpivot'[time]) )
+			var mandante = if('fato_CBPartidas'[mandante_flag] = "S", ('fato_CBPartidas'[time] & " X " & 'fato_CBPartidas'[adversario]), ('fato_CBPartidas'[adversario] & " X " & 'fato_CBPartidas'[time]) )
 			
 			RETURN
 			
-			"[" & 'full - unpivot'[ID] & "] - " & mandante& " ("  & FORMAT('full - unpivot'[data], "dd/mm/yyyy") & ")"
+			"[" & 'fato_CBPartidas'[ID] & "] - " & mandante& " ("  & FORMAT('fato_CBPartidas'[data], "dd/mm/yyyy") & ")"
 		lineageTag: a9596ccb-5bb1-43e2-b238-c9b6b36a0e5e
 		summarizeBy: none
 
@@ -245,9 +245,9 @@ table 'full - unpivot'
 
 	column AnoCampeonato = ```
 			IF(
-			                'full - unpivot'[Ano] = 2021 && month('full - unpivot'[data]) < 3, 
+			                'fato_CBPartidas'[Ano] = 2021 && month('fato_CBPartidas'[data]) < 3, 
 			                2020, 
-			                'full - unpivot'[Ano])
+			                'fato_CBPartidas'[Ano])
 			```
 		formatString: 0
 		lineageTag: c2cdd5bb-fb7a-4b6e-b3dc-5a3854817713
@@ -255,8 +255,17 @@ table 'full - unpivot'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'full - unpivot' = m
+	column Column1
+		dataType: string
+		lineageTag: 1c2b5674-607c-4ef3-8724-ff93ef6f5c73
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_CBPartidas = m
 		mode: import
+		queryGroup: 'Tabelas Fato'
 		source =
 				let
 				    Fonte = Table.Combine({#"campeonato-brasileiro-full - visitantes", #"campeonato-brasileiro-full - mandantes"}),
@@ -267,6 +276,8 @@ table 'full - unpivot'
 				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Texto Aparado", "id_time", each Text.Combine({Text.From([ID], "pt-BR"), "_", [time]}), type text)
 				in
 				    #"Coluna Mesclada Inserida"
+
+	changedProperty = Name
 
 	annotation PBI_NavigationStepName = Navegação
 

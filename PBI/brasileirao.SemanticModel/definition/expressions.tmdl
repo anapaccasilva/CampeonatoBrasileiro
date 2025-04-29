@@ -36,7 +36,7 @@ expression 'campeonato-brasileiro-full - visitantes' =
 
 expression serie =
 		let
-		    Fonte = Excel.Workbook(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\bases\serie.xlsx"), null, true),
+		    Fonte = Excel.Workbook(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/serie.xlsx"), null, true),
 		    Planilha1_Sheet = Fonte{[Item="Planilha1",Kind="Sheet"]}[Data],
 		    #"Tipo Alterado" = Table.TransformColumnTypes(Planilha1_Sheet,{{"Column1", type text}, {"Column2", type any}, {"Column3", type any}, {"Column4", type any}, {"Column5", type any}, {"Column6", type any}, {"Column7", type any}, {"Column8", type any}, {"Column9", type any}, {"Column10", type any}, {"Column11", type any}, {"Column12", type any}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}}),
 		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
@@ -54,7 +54,7 @@ expression serie =
 
 expression campeonato-brasileiro-full =
 		let
-		    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-full.csv"),[Delimiter=",", Columns=16, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    Fonte = Csv.Document(Web.Contents("https://raw.githubusercontent.com/anapaccasilva/CampeonatoBrasileiro/refs/heads/main/Bases/campeonato-brasileiro-full.csv"),[Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID", Int64.Type}, {"rodata", Int64.Type}, {"data", type date}, {"hora", type time}, {"mandante", type text}, {"visitante", type text}, {"formacao_mandante", type text}, {"formacao_visitante", type text}, {"tecnico_mandante", type text}, {"tecnico_visitante", type text}, {"vencedor", type text}, {"arena", type text}, {"mandante_Placar", Int64.Type}, {"visitante_Placar", Int64.Type}, {"mandante_Estado", type text}, {"visitante_Estado", type text}}),
 		    #"Coluna Duplicada" = Table.DuplicateColumn(#"Tipo Alterado", "data", "Ano"),

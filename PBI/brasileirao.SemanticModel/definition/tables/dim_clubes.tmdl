@@ -130,9 +130,10 @@ table dim_clubes
 
 	partition dim_clubes = m
 		mode: import
+		queryGroup: 'Tabelas Dimensão'
 		source =
 				let
-				    Fonte = Excel.Workbook(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\clubes.xlsx"), null, true),
+				    Fonte = Excel.Workbook(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/clubes.xlsx"), null, true),
 				    Planilha2_Sheet = Fonte{[Item="Planilha2",Kind="Sheet"]}[Data],
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha2_Sheet, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Clube", type text}, {"Fundacao", type text}, {"Mascote", type text}, {"Estadio", type text}, {"Cores", type text}, {"Apelido", type text}, {"id", Int64.Type}})

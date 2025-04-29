@@ -1,4 +1,4 @@
-table Param_MinutagemAtletas
+table param_MinutagemAtletas
 	lineageTag: a7b02db2-05e5-4a0b-8d76-192d5f0481d2
 
 	column Parâmetro
@@ -34,7 +34,7 @@ table Param_MinutagemAtletas
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Param_MinutagemAtletas = calculated
+	partition param_MinutagemAtletas = calculated
 		mode: import
 		source =
 				{

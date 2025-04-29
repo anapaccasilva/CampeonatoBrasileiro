@@ -3,10 +3,19 @@ model Model
 	defaultPowerBIDataSourceVersion: powerBI_V3
 	sourceQueryCulture: pt-BR
 	dataAccessOptions
+		fastCombine
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["campeonato-brasileiro-cartoes","campeonato-brasileiro-estatisticas-full","campeonato-brasileiro-full","campeonato-brasileiro-gols","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","full - unpivot","Medidas","serie","dim_jogadores","dim_cores","dim_formacao","dim_eventos"]
+queryGroup 'Tabelas Fato'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Tabelas Dimensão'
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation PBI_QueryOrder = ["fato_CBCartoes","fato_CBGols","fato_CBEstatisticas","fato_CBPartidas","campeonato-brasileiro-full","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","Medidas","serie","dim_jogadores","dim_cores","dim_formacao","dim_eventos"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -14,11 +23,11 @@ annotation PBIDesktopVersion = 2.141.1580.0 (25.03)+aa8628f0e8285c810874f1464275
 
 annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
 
-ref table campeonato-brasileiro-cartoes
-ref table campeonato-brasileiro-estatisticas-full
-ref table campeonato-brasileiro-gols
+ref table fato_CBCartoes
+ref table fato_CBEstatisticas
+ref table fato_CBGols
 ref table dim_clubes
-ref table 'full - unpivot'
+ref table fato_CBPartidas
 ref table Medidas
 ref table sum_classificacao_times
 ref table dim_jogadores
@@ -31,13 +40,13 @@ ref table dim_formacao
 ref table sum_radar_mandante
 ref table sum_radar_visitante
 ref table dim_eventos
-ref table Param_HoFAtletas
-ref table Param_HoSAtletas
-ref table Param_MinutagemAtletas
+ref table param_HoFAtletas
+ref table param_HoSAtletas
+ref table param_MinutagemAtletas
 ref table dim_minutagem
 ref table sum_titulos_atletas
-ref table Param_HoFClubes
-ref table Param_HoSClubes
+ref table param_HoFClubes
+ref table param_HoSClubes
 ref table DateTableTemplate_d8866286-5615-4442-b59f-684c92018e26
 ref table LocalDateTable_475605b0-9571-4a93-8abf-036f30d92b59
 

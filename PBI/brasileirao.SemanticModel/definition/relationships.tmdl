@@ -1,27 +1,27 @@
 relationship 7485692f-a21c-ed78-46ac-ff7e067e30de
 	isActive: false
-	fromColumn: campeonato-brasileiro-cartoes.clube
+	fromColumn: fato_CBCartoes.clube
 	toColumn: dim_clubes.Clube_s_acentos
 
 relationship 4ce88cbb-9a99-57ec-5273-eee35e11f492
 	isActive: false
-	fromColumn: campeonato-brasileiro-estatisticas-full.clube
+	fromColumn: fato_CBEstatisticas.clube
 	toColumn: dim_clubes.Clube_s_acentos
 
 relationship e69b2d93-c2f9-378d-928e-e8e508c40545
-	fromColumn: campeonato-brasileiro-gols.clube
+	fromColumn: fato_CBGols.clube
 	toColumn: dim_clubes.Clube_s_acentos
 
 relationship b35b2f32-6cd9-bb2f-9626-2c745a5a829a
-	fromColumn: 'full - unpivot'.time
+	fromColumn: fato_CBPartidas.time
 	toColumn: dim_clubes.Clube_s_acentos
 
 relationship 1d95649b-067b-260e-7b14-244f4b2c5bbb
-	fromColumn: campeonato-brasileiro-gols.atleta
+	fromColumn: fato_CBGols.atleta
 	toColumn: dim_jogadores.atleta
 
 relationship b6dc83ee-06a7-cb97-42c8-9b3cdcfa3166
-	fromColumn: campeonato-brasileiro-cartoes.atleta
+	fromColumn: fato_CBCartoes.atleta
 	toColumn: dim_jogadores.atleta
 
 relationship e72fa365-0992-b9bf-770b-a0b417c4b329
@@ -30,15 +30,15 @@ relationship e72fa365-0992-b9bf-770b-a0b417c4b329
 
 relationship AutoDetected_0a430a71-595b-412e-92cd-27929d06705a
 	crossFilteringBehavior: bothDirections
-	fromColumn: 'full - unpivot'.id_time
-	toColumn: campeonato-brasileiro-estatisticas-full.id_time
+	fromColumn: fato_CBPartidas.id_time
+	toColumn: fato_CBEstatisticas.id_time
 
 relationship 4ed7969c-3dc4-6a8e-fda5-a503605cb842
-	fromColumn: campeonato-brasileiro-cartoes.id_time
-	toColumn: 'full - unpivot'.id_time
+	fromColumn: fato_CBCartoes.id_time
+	toColumn: fato_CBPartidas.id_time
 
 relationship 3b8f595e-3954-7934-c414-f90214b7b3a3
-	fromColumn: 'full - unpivot'.formacao
+	fromColumn: fato_CBPartidas.formacao
 	toColumn: dim_formacao.formacao
 
 relationship 832c187b-e39a-2daf-5aa4-d0fd9c5b30b3
@@ -47,11 +47,11 @@ relationship 832c187b-e39a-2daf-5aa4-d0fd9c5b30b3
 	toColumn: dim_clubes.Clube_s_acentos
 
 relationship 0ef0dd45-65db-d2c1-7ff2-93bfd3672568
-	fromColumn: campeonato-brasileiro-gols.'Faixa Minuto Categoria'
+	fromColumn: fato_CBGols.'Faixa Minuto Categoria'
 	toColumn: dim_minutagem.'Faixa Minuto'
 
 relationship adb74eea-e66e-ad5d-4572-fbe420b9a1bf
-	fromColumn: campeonato-brasileiro-cartoes.'Faixa Minuto Categoria'
+	fromColumn: fato_CBCartoes.'Faixa Minuto Categoria'
 	toColumn: dim_minutagem.'Faixa Minuto'
 
 relationship cfab13f0-985e-026d-5cb0-bb85ae86952d
@@ -61,11 +61,11 @@ relationship cfab13f0-985e-026d-5cb0-bb85ae86952d
 
 relationship ff2d9f2c-2a24-81d8-0bb1-06c6a68ccc85
 	fromColumn: sum_radar_mandante.id_time
-	toColumn: campeonato-brasileiro-estatisticas-full.id_time
+	toColumn: fato_CBEstatisticas.id_time
 
 relationship 860f8375-3827-de03-e8fc-62f9b1913d3c
 	fromColumn: sum_radar_visitante.id_time
-	toColumn: campeonato-brasileiro-estatisticas-full.id_time
+	toColumn: fato_CBEstatisticas.id_time
 
 relationship 79e612ee-585f-8653-be08-3c2220c4601a
 	fromColumn: sum_titulos_atletas.Atleta
@@ -99,7 +99,7 @@ relationship df349a85-77b5-d076-99d3-83a0c87ae279
 
 relationship 6046248c-8d2a-e3b7-904e-4c1f3c257df4
 	isActive: false
-	fromColumn: 'full - unpivot'.data
+	fromColumn: fato_CBPartidas.data
 	toColumn: dim_Calendario.Date
 
 relationship ac3dc609-50a5-cbc8-63af-42ec24c1e44e
@@ -111,6 +111,6 @@ relationship 1e927ebd-3e4c-766d-c658-72803aa139d6
 	toColumn: dimAno_Campeonato.Ano
 
 relationship 2bf5ea44-2b4b-fe6a-1e57-dfdcf6e8b662
-	fromColumn: 'full - unpivot'.AnoCampeonato
+	fromColumn: fato_CBPartidas.AnoCampeonato
 	toColumn: dimAno_Campeonato.Ano
 

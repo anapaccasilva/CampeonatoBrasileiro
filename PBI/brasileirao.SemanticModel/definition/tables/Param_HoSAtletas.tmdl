@@ -1,5 +1,5 @@
 /// Hall of Shame
-table Param_HoSAtletas
+table param_HoSAtletas
 	lineageTag: 1dff6495-af4c-493c-a8bc-efe4437281dd
 
 	column Parâmetro
@@ -35,7 +35,7 @@ table Param_HoSAtletas
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Param_HoSAtletas = calculated
+	partition param_HoSAtletas = calculated
 		mode: import
 		source =
 				{

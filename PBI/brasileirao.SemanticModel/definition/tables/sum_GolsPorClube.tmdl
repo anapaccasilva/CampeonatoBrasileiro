@@ -5,7 +5,7 @@ table sum_GolsPorClube
 		lineageTag: ef81f6ff-2cb2-4313-9128-d6ee3c22707b
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: campeonato-brasileiro-gols[clube]
+		sourceColumn: fato_CBGols[clube]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -13,7 +13,7 @@ table sum_GolsPorClube
 		lineageTag: a5c70e03-3df3-42cb-a2ef-c6f81cf7fe11
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: campeonato-brasileiro-gols[atleta]
+		sourceColumn: fato_CBGols[atleta]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -31,13 +31,13 @@ table sum_GolsPorClube
 		source = ```
 				
 				SUMMARIZE(
-				    'campeonato-brasileiro-gols', 
-				    'campeonato-brasileiro-gols'[clube], 
-				    'campeonato-brasileiro-gols'[atleta], 
+				    'fato_CBGols', 
+				    'fato_CBGols'[clube], 
+				    'fato_CBGols'[atleta], 
 				    "TotalGols", 
 				    CALCULATE(
-				        COUNTROWS('campeonato-brasileiro-gols'),
-				        'campeonato-brasileiro-gols'[tipo_de_gol] <> "Gol Contra"
+				        COUNTROWS('fato_CBGols'),
+				        'fato_CBGols'[tipo_de_gol] <> "Gol Contra"
 				    )
 				)
 				```

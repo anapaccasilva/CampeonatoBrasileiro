@@ -1,4 +1,4 @@
-table campeonato-brasileiro-cartoes
+table fato_CBCartoes
 	lineageTag: 38b31757-60fd-41af-8ae7-4f9a0b290e9c
 
 	column partida_id
@@ -97,7 +97,7 @@ table campeonato-brasileiro-cartoes
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Faixa Minuto Categoria' = SWITCH(true(), 'campeonato-brasileiro-cartoes'[minuto] <=15, "15", AND('campeonato-brasileiro-cartoes'[minuto] <=30, 'campeonato-brasileiro-cartoes'[minuto] >15), "30", AND('campeonato-brasileiro-cartoes'[minuto] <=45, 'campeonato-brasileiro-cartoes'[minuto] >30), "45", AND('campeonato-brasileiro-cartoes'[minuto] <=60, 'campeonato-brasileiro-cartoes'[minuto] >45), "60", AND('campeonato-brasileiro-cartoes'[minuto] <=75, 'campeonato-brasileiro-cartoes'[minuto] >60), "75", AND('campeonato-brasileiro-cartoes'[minuto] <=90, 'campeonato-brasileiro-cartoes'[minuto] >75), "90", 'campeonato-brasileiro-cartoes'[minuto] >90, "Acréscimos")
+	column 'Faixa Minuto Categoria' = SWITCH(true(), 'fato_CBCartoes'[minuto] <=15, "15", AND('fato_CBCartoes'[minuto] <=30, 'fato_CBCartoes'[minuto] >15), "30", AND('fato_CBCartoes'[minuto] <=45, 'fato_CBCartoes'[minuto] >30), "45", AND('fato_CBCartoes'[minuto] <=60, 'fato_CBCartoes'[minuto] >45), "60", AND('fato_CBCartoes'[minuto] <=75, 'fato_CBCartoes'[minuto] >60), "75", AND('fato_CBCartoes'[minuto] <=90, 'fato_CBCartoes'[minuto] >75), "90", 'fato_CBCartoes'[minuto] >90, "Acréscimos")
 		lineageTag: 42f1e1ed-10f3-40bf-a04d-4b2afa7374a4
 		summarizeBy: none
 
@@ -105,11 +105,12 @@ table campeonato-brasileiro-cartoes
 
 		annotation SummarizationSetBy = Automatic
 
-	partition campeonato-brasileiro-cartoes = m
+	partition fato_CBCartoes = m
 		mode: import
+		queryGroup: 'Tabelas Fato'
 		source =
 				let
-				    Fonte = Csv.Document(File.Contents("C:\Users\MSI\Documents\PBI\Brasileirao\07-Brasileirao\campeonato-brasileiro-cartoes.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Fonte = Csv.Document(Web.Contents("https://raw.githubusercontent.com/anapaccasilva/CampeonatoBrasileiro/refs/heads/main/Bases/campeonato-brasileiro-cartoes.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"partida_id", Int64.Type}, {"rodata", Int64.Type}, {"clube", type text}, {"cartao", type text}, {"atleta", type text}, {"num_camisa", Int64.Type}, {"posicao", type text}, {"minuto", type text}}),
 				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado","Clayson","Clayson Henrique da Silva Vieira",Replacer.ReplaceValue,{"atleta"}),
@@ -123,6 +124,8 @@ table campeonato-brasileiro-cartoes
 				    #"Colunas Removidas" = Table.RemoveColumns(#"Personalização Adicionada",{"minuto.1", "minuto.2"})
 				in
 				    #"Colunas Removidas"
+
+	changedProperty = Name
 
 	annotation PBI_ResultType = Table
 

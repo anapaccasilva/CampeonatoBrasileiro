@@ -112,15 +112,15 @@ table sum_titulos_atletas
 				
 				VAR PartidasGols = 
 				    SELECTCOLUMNS(
-				        'campeonato-brasileiro-gols',
-				        "Atleta", 'campeonato-brasileiro-gols'[atleta],
-				        "TimeID", 'campeonato-brasileiro-gols'[id_time]
+				        'fato_CBGols',
+				        "Atleta", 'fato_CBGols'[atleta],
+				        "TimeID", 'fato_CBGols'[id_time]
 				    )
 				VAR PartidasCartoes = 
 				    SELECTCOLUMNS(
-				        'campeonato-brasileiro-cartoes',
-				        "Atleta", 'campeonato-brasileiro-cartoes'[atleta],
-				        "TimeID", 'campeonato-brasileiro-cartoes'[id_time]
+				        'fato_CBCartoes',
+				        "Atleta", 'fato_CBCartoes'[atleta],
+				        "TimeID", 'fato_CBCartoes'[id_time]
 				    )
 				VAR TodasPartidas = 
 				    UNION(PartidasGols, PartidasCartoes)
@@ -129,14 +129,14 @@ table sum_titulos_atletas
 				        TodasPartidas,
 				        "Ano", 
 				        LOOKUPVALUE(
-				            'full - unpivot'[Ano], 
-				            'full - unpivot'[id_time], 
+				            'fato_CBPartidas'[Ano], 
+				            'fato_CBPartidas'[id_time], 
 				            [TimeID]
 				        ),
 				        "Time", 
 				        LOOKUPVALUE(
-				            'full - unpivot'[time], 
-				            'full - unpivot'[id_time], 
+				            'fato_CBPartidas'[time], 
+				            'fato_CBPartidas'[id_time], 
 				            [TimeID]
 				        )
 				    )

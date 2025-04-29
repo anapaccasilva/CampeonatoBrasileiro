@@ -1,5 +1,5 @@
 /// Hall of Fame
-table Param_HoFClubes
+table param_HoFClubes
 	lineageTag: 4e1611ca-b977-483b-928e-de53047dbe2b
 
 	column Parâmetro
@@ -35,7 +35,7 @@ table Param_HoFClubes
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Param_HoFClubes = calculated
+	partition param_HoFClubes = calculated
 		mode: import
 		source =
 				{

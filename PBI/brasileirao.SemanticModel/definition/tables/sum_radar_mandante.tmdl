@@ -43,11 +43,11 @@ table sum_radar_mandante
 				VAR TabelaBase =
 				    SELECTCOLUMNS(
 				        FILTER(
-				            'full - unpivot',
-				            'full - unpivot'[mandante_flag] = "S"
+				            'fato_CBPartidas',
+				            'fato_CBPartidas'[mandante_flag] = "S"
 				        ),
-				        "partida_id", 'full - unpivot'[id],
-				        "id_time", 'full - unpivot'[id_time]
+				        "partida_id", 'fato_CBPartidas'[id],
+				        "id_time", 'fato_CBPartidas'[id_time]
 				    )
 				
 				RETURN
@@ -61,12 +61,12 @@ table sum_radar_mandante
 				            VAR idTime = [id_time]
 				            RETURN
 				                CALCULATE(
-				                    MAX('campeonato-brasileiro-estatisticas-full'[posse_de_bola]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    MAX('fato_CBEstatisticas'[posse_de_bola]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTime &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTime &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				    ),
@@ -80,12 +80,12 @@ table sum_radar_mandante
 				            VAR idTime = [id_time]
 				            RETURN
 				                CALCULATE(
-				                    MAX('campeonato-brasileiro-estatisticas-full'[precisao_passes]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    MAX('fato_CBEstatisticas'[precisao_passes]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTime &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTime &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				    ),
@@ -100,33 +100,33 @@ table sum_radar_mandante
 				
 				            VAR passesMandante =
 				                CALCULATE(
-				                    SUM('campeonato-brasileiro-estatisticas-full'[passes]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    SUM('fato_CBEstatisticas'[passes]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTimeMandante &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTimeMandante &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				
 				            VAR idTimeVisitante =
 				                CALCULATE(
-				                    MIN('full - unpivot'[id_time]),
+				                    MIN('fato_CBPartidas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id] = partidaId &&
-				                        'full - unpivot'[mandante_flag] = "N"
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id] = partidaId &&
+				                        'fato_CBPartidas'[mandante_flag] = "N"
 				                    )
 				                )
 				
 				            VAR passesVisitante =
 				                CALCULATE(
-				                    SUM('campeonato-brasileiro-estatisticas-full'[passes]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    SUM('fato_CBEstatisticas'[passes]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTimeVisitante &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTimeVisitante &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				
@@ -146,34 +146,34 @@ table sum_radar_mandante
 				            -- Chutes no Alvo do Mandante
 				            VAR chutesMandante =
 				                CALCULATE(
-				                    SUM('campeonato-brasileiro-estatisticas-full'[chutes_no_alvo]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    SUM('fato_CBEstatisticas'[chutes_no_alvo]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTimeMandante &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTimeMandante &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				
 				            -- Chutes no Alvo do Visitante
 				            VAR idTimeVisitante =
 				                CALCULATE(
-				                    MIN('full - unpivot'[id_time]),
+				                    MIN('fato_CBPartidas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id] = partidaId &&
-				                        'full - unpivot'[mandante_flag] = "N"
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id] = partidaId &&
+				                        'fato_CBPartidas'[mandante_flag] = "N"
 				                    )
 				                )
 				
 				            VAR chutesVisitante =
 				                CALCULATE(
-				                    SUM('campeonato-brasileiro-estatisticas-full'[chutes_no_alvo]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    SUM('fato_CBEstatisticas'[chutes_no_alvo]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTimeVisitante &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTimeVisitante &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				
@@ -194,24 +194,24 @@ table sum_radar_mandante
 				            -- Gols do Mandante
 				            VAR golsMandante =
 				                CALCULATE(
-				                    SUM('full - unpivot'[gols_pro]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    SUM('fato_CBPartidas'[gols_pro]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTimeMandante &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTimeMandante &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				
 				            -- Chutes no Alvo do Mandante
 				            VAR chutesMandante =
 				                CALCULATE(
-				                    SUM('campeonato-brasileiro-estatisticas-full'[chutes_no_alvo]),
-				                    USERELATIONSHIP('full - unpivot'[id_time], 'campeonato-brasileiro-estatisticas-full'[id_time]),
+				                    SUM('fato_CBEstatisticas'[chutes_no_alvo]),
+				                    USERELATIONSHIP('fato_CBPartidas'[id_time], 'fato_CBEstatisticas'[id_time]),
 				                    FILTER(
-				                        'full - unpivot',
-				                        'full - unpivot'[id_time] = idTimeMandante &&
-				                        'full - unpivot'[id] = partidaId
+				                        'fato_CBPartidas',
+				                        'fato_CBPartidas'[id_time] = idTimeMandante &&
+				                        'fato_CBPartidas'[id] = partidaId
 				                    )
 				                )
 				
