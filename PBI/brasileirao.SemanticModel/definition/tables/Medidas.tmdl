@@ -4802,6 +4802,47 @@ table Medidas
 		displayFolder: Clubes\Jogos
 		lineageTag: 9d744427-933d-421b-a2d8-7d4b83fb807d
 
+	measure Resposta = ```
+			
+			IF(
+			    and(SELECTEDVALUE(quizz_Alternativas[Mascote]) = Medidas[mascote_selecionado], not(ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])))),
+			    "✅ Resposta Correta",
+			    IF(
+			    or(isblank(SELECTEDVALUE(quizz_Alternativas[Mascote])), (ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])))),
+			    "",
+			    "❌ Resposta Errada. O mascote do " & 
+			    SELECTEDVALUE(dim_clubes[Clube]) & 
+			    " é o " & 
+			    Medidas[mascote_selecionado]
+			))
+			```
+		displayFolder: Trivia
+		lineageTag: 9b28ec30-d799-4061-ac01-071e40432541
+
+	measure Pergunta = ```
+			
+			IF(
+			    ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])),
+			    "Selecione um número e teste seus conhecimentos!",
+			    "Quem é o mascote do " & SELECTEDVALUE(dim_clubes[Clube]) & "?"
+			)
+			
+			```
+		displayFolder: Trivia
+		lineageTag: 30ee19ab-5d81-4a46-8280-88bb50c0fa70
+
+	measure mascote_selecionado = SELECTEDVALUE(quizz_Mascotes[Mascote], "")
+		displayFolder: Trivia
+		lineageTag: 4fd9e5ad-0faf-483b-800a-2b0c61d81e54
+
+	measure mascote_imagem_selecionado =
+			
+			IF(
+			    not(isblank(SELECTEDVALUE(quizz_Alternativas[Mascote]))), SELECTEDVALUE(quizz_Mascotes[URL Mascote]), "")
+		displayFolder: Trivia
+		lineageTag: 23e0b9f1-e9e8-436a-966b-bca9ee27937c
+		dataCategory: ImageUrl
+
 	partition Medidas = m
 		mode: import
 		source =

@@ -277,8 +277,6 @@ table fato_CBPartidas
 				in
 				    #"Coluna Mesclada Inserida"
 
-	changedProperty = Name
-
 	annotation PBI_NavigationStepName = Navegação
 
 	annotation PBI_ResultType = Table

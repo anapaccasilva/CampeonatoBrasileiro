@@ -1,0 +1,30 @@
+table quizz_Alternativas
+	lineageTag: 55336c97-aecb-4373-b7fd-b6d2a599803c
+
+	column Mascote
+		dataType: string
+		lineageTag: 8d65735d-6158-4e78-9033-175b8b0eb9e7
+		summarizeBy: none
+		sourceColumn: Mascote
+
+		annotation SummarizationSetBy = Automatic
+
+	partition quizz_Alternativas = m
+		mode: import
+		queryGroup: Quizz
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/clubes.xlsx"), null, true),
+				    Planilha2_Sheet = Fonte{[Item="Planilha2",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha2_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Clube", type text}, {"Fundacao", type text}, {"Mascote", type text}, {"Estadio", type text}, {"Cores", type text}, {"Apelido", type text}, {"id", Int64.Type}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id", "Clube", "Mascote"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Outras Colunas Removidas", each [Mascote] <> null and [Mascote] <> ""),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Linhas Filtradas",{"Mascote"})
+				in
+				    #"Outras Colunas Removidas1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

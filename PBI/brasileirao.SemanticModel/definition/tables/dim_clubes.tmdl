@@ -89,7 +89,7 @@ table dim_clubes
 		dataType: int64
 		formatString: 0
 		lineageTag: 49b7da18-fcbe-418e-864a-e7a932dc00a0
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: id
 
 		changedProperty = IsHidden
@@ -125,6 +125,14 @@ table dim_clubes
 		sourceColumn: Bio
 
 		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'URL Mascote'
+		dataType: string
+		lineageTag: daa842ea-800c-4dce-b073-9fcfb022e054
+		summarizeBy: none
+		sourceColumn: URL Mascote
 
 		annotation SummarizationSetBy = Automatic
 

@@ -125,8 +125,6 @@ table fato_CBCartoes
 				in
 				    #"Colunas Removidas"
 
-	changedProperty = Name
-
 	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navegação

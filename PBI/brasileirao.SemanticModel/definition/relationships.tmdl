@@ -114,3 +114,9 @@ relationship 2bf5ea44-2b4b-fe6a-1e57-dfdcf6e8b662
 	fromColumn: fato_CBPartidas.AnoCampeonato
 	toColumn: dimAno_Campeonato.Ano
 
+relationship d085a221-1be5-bfb2-2750-1a3f29cc8827
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dim_clubes.id
+	toColumn: quizz_Mascotes.id
+

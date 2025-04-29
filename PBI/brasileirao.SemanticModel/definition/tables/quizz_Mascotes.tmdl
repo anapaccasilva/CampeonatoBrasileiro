@@ -1,0 +1,47 @@
+table quizz_Mascotes
+	lineageTag: de9199b2-8072-4946-97f4-08cc4c193672
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: c4dfa802-1d06-4987-bb01-bab6ec551210
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mascote
+		dataType: string
+		lineageTag: 5290dd71-7b95-47c8-85b9-955a93c4d643
+		summarizeBy: none
+		sourceColumn: Mascote
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'URL Mascote'
+		dataType: string
+		lineageTag: 9400e704-7b40-4ccc-85d3-8b8d46ecbe01
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: URL Mascote
+
+		annotation SummarizationSetBy = Automatic
+
+	partition quizz_Mascotes = m
+		mode: import
+		queryGroup: Quizz
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Bases/clubes.xlsx"), null, true),
+				    Planilha2_Sheet = Fonte{[Item="Planilha2",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha2_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Clube", type text}, {"Fundacao", type text}, {"Mascote", type text}, {"Estadio", type text}, {"Cores", type text}, {"Apelido", type text}, {"id", Int64.Type}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id", "Mascote", "URL Mascote"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Outras Colunas Removidas", each [Mascote] <> null and [Mascote] <> "")
+				in
+				    #"Linhas Filtradas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

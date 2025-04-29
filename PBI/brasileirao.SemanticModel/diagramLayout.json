@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 654.71923504674839,
+        "x": 588.46786901490077,
         "y": 0
       },
       "nodes": [
@@ -310,6 +310,30 @@
             "width": 234
           },
           "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 4320.389828137485,
+            "y": 884.936166175759
+          },
+          "nodeIndex": "quizz_Mascotes",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4036.389828137485,
+            "y": 896.936166175759
+          },
+          "nodeIndex": "quizz_Alternativas",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",
@@ -587,8 +611,62 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 5,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 398.99999872843426,
+            "y": 245.66666666666669
+          },
+          "nodeIndex": "quizz_Mascotes",
+          "nodeLineageTag": "de9199b2-8072-4946-97f4-08cc4c193672",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 376.66666603088379,
+            "y": 127
+          },
+          "nodeIndex": "quizz_Alternativas",
+          "nodeLineageTag": "55336c97-aecb-4373-b7fd-b6d2a599803c",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2.6666660308837891,
+            "y": 233.33333333333334
+          },
+          "nodeIndex": "dim_clubes",
+          "nodeLineageTag": "56adcef3-ffc6-4210-ba8e-c9f949acac9c",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Trivia",
+      "zoomValue": 60,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Todas as tabelas",
+  "selectedDiagram": "Trivia",
   "defaultDiagram": "Todas as tabelas"
 }
