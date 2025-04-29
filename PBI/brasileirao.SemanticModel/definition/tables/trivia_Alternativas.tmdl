@@ -1,4 +1,4 @@
-table quizz_Alternativas
+table trivia_Alternativas
 	lineageTag: 55336c97-aecb-4373-b7fd-b6d2a599803c
 
 	column Mascote
@@ -9,7 +9,7 @@ table quizz_Alternativas
 
 		annotation SummarizationSetBy = Automatic
 
-	partition quizz_Alternativas = m
+	partition trivia_Alternativas = m
 		mode: import
 		queryGroup: Quizz
 		source =
@@ -23,6 +23,8 @@ table quizz_Alternativas
 				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Linhas Filtradas",{"Mascote"})
 				in
 				    #"Outras Colunas Removidas1"
+
+	changedProperty = Name
 
 	annotation PBI_NavigationStepName = Navegação
 

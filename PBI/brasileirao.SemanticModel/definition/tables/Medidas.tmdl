@@ -4806,14 +4806,14 @@ table Medidas
 			
 			IF (
 			    AND (
-			        SELECTEDVALUE(quizz_Alternativas[Mascote]) = Medidas[mascote_selecionado],
-			        NOT ( ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])) )
+			        SELECTEDVALUE(trivia_Alternativas[Mascote]) = Medidas[mascote_selecionado],
+			        NOT ( ISBLANK(SELECTEDVALUE(trivia_Mascotes[id])) )
 			    ),
 			    "✅ Resposta Correta",
 			    IF (
 			        OR (
-			            ISBLANK(SELECTEDVALUE(quizz_Alternativas[Mascote])),
-			            ISBLANK(SELECTEDVALUE(quizz_Mascotes[id]))
+			            ISBLANK(SELECTEDVALUE(trivia_Alternativas[Mascote])),
+			            ISBLANK(SELECTEDVALUE(trivia_Mascotes[id]))
 			        ),
 			        "",
 			        "❌ Resposta Errada. O mascote do " & 
@@ -4830,7 +4830,7 @@ table Medidas
 	measure Pergunta = ```
 			
 			IF(
-			    ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])),
+			    ISBLANK(SELECTEDVALUE(trivia_Mascotes[id])),
 			    "Selecione um número e teste seus conhecimentos!",
 			    "Quem é o mascote do " & SELECTEDVALUE(dim_clubes[Clube]) & "?"
 			)
@@ -4839,14 +4839,14 @@ table Medidas
 		displayFolder: Trivia
 		lineageTag: 30ee19ab-5d81-4a46-8280-88bb50c0fa70
 
-	measure mascote_selecionado = SELECTEDVALUE(quizz_Mascotes[Mascote], "")
+	measure mascote_selecionado = SELECTEDVALUE(trivia_Mascotes[Mascote], "")
 		displayFolder: Trivia
 		lineageTag: 4fd9e5ad-0faf-483b-800a-2b0c61d81e54
 
 	measure mascote_imagem_selecionado =
 			
 			IF(
-			    not(isblank(SELECTEDVALUE(quizz_Alternativas[Mascote]))), SELECTEDVALUE(quizz_Mascotes[URL Mascote]), "")
+			    not(isblank(SELECTEDVALUE(trivia_Alternativas[Mascote]))), SELECTEDVALUE(trivia_Mascotes[URL Mascote]), "")
 		displayFolder: Trivia
 		lineageTag: 23e0b9f1-e9e8-436a-966b-bca9ee27937c
 		dataCategory: ImageUrl
@@ -4872,14 +4872,14 @@ table Medidas
 			
 			IF (
 			    AND (
-			        SELECTEDVALUE(quizz_Alternativas[Mascote]) = Medidas[mascote_selecionado],
-			        NOT ( ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])) )
+			        SELECTEDVALUE(trivia_Alternativas[Mascote]) = Medidas[mascote_selecionado],
+			        NOT ( ISBLANK(SELECTEDVALUE(trivia_Mascotes[id])) )
 			    ),
 			    correto,
 			    IF (
 			        OR (
-			            ISBLANK(SELECTEDVALUE(quizz_Alternativas[Mascote])),
-			            ISBLANK(SELECTEDVALUE(quizz_Mascotes[id]))
+			            ISBLANK(SELECTEDVALUE(trivia_Alternativas[Mascote])),
+			            ISBLANK(SELECTEDVALUE(trivia_Mascotes[id]))
 			        ),
 			        "",
 			        errado

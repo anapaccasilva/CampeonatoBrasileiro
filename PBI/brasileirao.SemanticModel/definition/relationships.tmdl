@@ -118,5 +118,5 @@ relationship d085a221-1be5-bfb2-2750-1a3f29cc8827
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: dim_clubes.id
-	toColumn: quizz_Mascotes.id
+	toColumn: trivia_Mascotes.id
 

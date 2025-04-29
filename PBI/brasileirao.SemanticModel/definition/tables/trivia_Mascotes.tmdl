@@ -1,4 +1,4 @@
-table quizz_Mascotes
+table trivia_Mascotes
 	lineageTag: de9199b2-8072-4946-97f4-08cc4c193672
 
 	column id
@@ -27,7 +27,7 @@ table quizz_Mascotes
 
 		annotation SummarizationSetBy = Automatic
 
-	partition quizz_Mascotes = m
+	partition trivia_Mascotes = m
 		mode: import
 		queryGroup: Quizz
 		source =
@@ -40,6 +40,8 @@ table quizz_Mascotes
 				    #"Linhas Filtradas" = Table.SelectRows(#"Outras Colunas Removidas", each [Mascote] <> null and [Mascote] <> "")
 				in
 				    #"Linhas Filtradas"
+
+	changedProperty = Name
 
 	annotation PBI_NavigationStepName = Navegação
 

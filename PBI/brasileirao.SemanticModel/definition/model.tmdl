@@ -19,7 +19,7 @@ queryGroup Quizz
 
 	annotation PBI_QueryGroupOrder = 2
 
-annotation PBI_QueryOrder = ["fato_CBCartoes","fato_CBGols","fato_CBEstatisticas","fato_CBPartidas","campeonato-brasileiro-full","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","Medidas","serie","dim_jogadores","dim_cores","dim_formacao","dim_eventos","quizz_Mascotes","quizz_Alternativas"]
+annotation PBI_QueryOrder = ["fato_CBCartoes","fato_CBGols","fato_CBEstatisticas","fato_CBPartidas","campeonato-brasileiro-full","dim_clubes","campeonato-brasileiro-full - mandantes","campeonato-brasileiro-full - visitantes","Medidas","serie","dim_jogadores","dim_cores","dim_formacao","dim_eventos","trivia_Mascotes","trivia_Alternativas"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -53,8 +53,8 @@ ref table param_HoFClubes
 ref table param_HoSClubes
 ref table DateTableTemplate_d8866286-5615-4442-b59f-684c92018e26
 ref table LocalDateTable_475605b0-9571-4a93-8abf-036f30d92b59
-ref table quizz_Mascotes
-ref table quizz_Alternativas
+ref table trivia_Mascotes
+ref table trivia_Alternativas
 
 ref cultureInfo pt-BR
 
