@@ -1,0 +1,42 @@
+createOrReplace
+
+	ref table Medidas
+
+		measure audio_respostas = ```
+				
+				VAR correto = 
+				"<audio autoplay 
+				        src='https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Sound%20Effects/Correct%20Answer%20sound%20effect.mp3' 
+				        type='audio/mp3' 
+				        style='display: none;'>
+				</audio>"
+				
+				VAR errado = 
+				"<audio autoplay 
+				        src='https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Sound%20Effects/Incorrect%20Answer%20sound%20effect.mp3' 
+				        type='audio/mp3' 
+				        style='display: none;'>
+				</audio>"
+				
+				
+				RETURN 
+				
+				IF (
+				    AND (
+				        SELECTEDVALUE(quizz_Alternativas[Mascote]) = Medidas[mascote_selecionado],
+				        NOT ( ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])) )
+				    ),
+				    correto,
+				    IF (
+				        OR (
+				            ISBLANK(SELECTEDVALUE(quizz_Alternativas[Mascote])),
+				            ISBLANK(SELECTEDVALUE(quizz_Mascotes[id]))
+				        ),
+				        "",
+				        errado
+				    )
+				)
+				```
+			displayFolder: Trivia
+			lineageTag: 71cc0c19-24e0-4bea-99af-8290e06893b4
+

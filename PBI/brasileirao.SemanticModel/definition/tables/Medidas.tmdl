@@ -4804,17 +4804,25 @@ table Medidas
 
 	measure Resposta = ```
 			
-			IF(
-			    and(SELECTEDVALUE(quizz_Alternativas[Mascote]) = Medidas[mascote_selecionado], not(ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])))),
+			IF (
+			    AND (
+			        SELECTEDVALUE(quizz_Alternativas[Mascote]) = Medidas[mascote_selecionado],
+			        NOT ( ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])) )
+			    ),
 			    "✅ Resposta Correta",
-			    IF(
-			    or(isblank(SELECTEDVALUE(quizz_Alternativas[Mascote])), (ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])))),
-			    "",
-			    "❌ Resposta Errada. O mascote do " & 
-			    SELECTEDVALUE(dim_clubes[Clube]) & 
-			    " é o " & 
-			    Medidas[mascote_selecionado]
-			))
+			    IF (
+			        OR (
+			            ISBLANK(SELECTEDVALUE(quizz_Alternativas[Mascote])),
+			            ISBLANK(SELECTEDVALUE(quizz_Mascotes[id]))
+			        ),
+			        "",
+			        "❌ Resposta Errada. O mascote do " & 
+			        SELECTEDVALUE(dim_clubes[Clube]) & 
+			        " é o " & 
+			        Medidas[mascote_selecionado]
+			    )
+			)
+			
 			```
 		displayFolder: Trivia
 		lineageTag: 9b28ec30-d799-4061-ac01-071e40432541
@@ -4842,6 +4850,44 @@ table Medidas
 		displayFolder: Trivia
 		lineageTag: 23e0b9f1-e9e8-436a-966b-bca9ee27937c
 		dataCategory: ImageUrl
+
+	measure audio_respostas = ```
+			
+			VAR correto = 
+			"<audio autoplay 
+			        src='https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Sound%20Effects/Correct%20Answer%20sound%20effect.mp3' 
+			        type='audio/mp3' 
+			        style='display: none;'>
+			</audio>"
+			
+			VAR errado = 
+			"<audio autoplay 
+			        src='https://github.com/anapaccasilva/CampeonatoBrasileiro/raw/refs/heads/main/Sound%20Effects/Wrong%20Answer,%20Television%20Game%20Show%20(Sound%20Effect%20-%20HD).mp3' 
+			        type='audio/mp3' 
+			        style='display: none;'>
+			</audio>"
+			
+			
+			RETURN 
+			
+			IF (
+			    AND (
+			        SELECTEDVALUE(quizz_Alternativas[Mascote]) = Medidas[mascote_selecionado],
+			        NOT ( ISBLANK(SELECTEDVALUE(quizz_Mascotes[id])) )
+			    ),
+			    correto,
+			    IF (
+			        OR (
+			            ISBLANK(SELECTEDVALUE(quizz_Alternativas[Mascote])),
+			            ISBLANK(SELECTEDVALUE(quizz_Mascotes[id]))
+			        ),
+			        "",
+			        errado
+			    )
+			)
+			```
+		displayFolder: Trivia
+		lineageTag: 71cc0c19-24e0-4bea-99af-8290e06893b4
 
 	partition Medidas = m
 		mode: import

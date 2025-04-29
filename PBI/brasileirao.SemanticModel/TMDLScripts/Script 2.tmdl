@@ -1,0 +1,8 @@
+createOrReplace
+
+	ref table Medidas
+
+		measure mascote_selecionado = SELECTEDVALUE(quizz_Mascotes[Mascote], "")
+			displayFolder: Trivia
+			lineageTag: 4fd9e5ad-0faf-483b-800a-2b0c61d81e54
+
