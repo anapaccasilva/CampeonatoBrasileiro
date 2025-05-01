@@ -46,14 +46,6 @@ relationship 832c187b-e39a-2daf-5aa4-d0fd9c5b30b3
 	fromColumn: dim_eventos.time
 	toColumn: dim_clubes.Clube_s_acentos
 
-relationship 0ef0dd45-65db-d2c1-7ff2-93bfd3672568
-	fromColumn: fato_CBGols.'Faixa Minuto Categoria'
-	toColumn: dim_minutagem.'Faixa Minuto'
-
-relationship adb74eea-e66e-ad5d-4572-fbe420b9a1bf
-	fromColumn: fato_CBCartoes.'Faixa Minuto Categoria'
-	toColumn: dim_minutagem.'Faixa Minuto'
-
 relationship cfab13f0-985e-026d-5cb0-bb85ae86952d
 	crossFilteringBehavior: bothDirections
 	fromColumn: dim_eventos.Ano
@@ -119,4 +111,12 @@ relationship d085a221-1be5-bfb2-2750-1a3f29cc8827
 	fromCardinality: one
 	fromColumn: dim_clubes.id
 	toColumn: trivia_Mascotes.id
+
+relationship 0ef0dd45-65db-d2c1-7ff2-93bfd3672568
+	fromColumn: fato_CBGols.'Faixa Minuto Categoria'
+	toColumn: dim_minutagem.'Faixa Minuto'
+
+relationship adb74eea-e66e-ad5d-4572-fbe420b9a1bf
+	fromColumn: fato_CBCartoes.'Faixa Minuto Categoria'
+	toColumn: dim_minutagem.'Faixa Minuto'
 

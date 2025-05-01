@@ -1,4 +1,4 @@
-table Param_EstatisticasGerais
+table param_EstatisticasGerais
 	lineageTag: ba276148-95a0-405a-bf26-03f37a1ad10e
 
 	column Parâmetro
@@ -34,7 +34,7 @@ table Param_EstatisticasGerais
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Param_EstatisticasGerais = calculated
+	partition param_EstatisticasGerais = calculated
 		mode: import
 		source =
 				{

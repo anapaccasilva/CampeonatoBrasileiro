@@ -3671,7 +3671,7 @@ cultureInfo pt-BR
 			    "param_estatistica": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_EstatisticasGerais"
+			          "ConceptualEntity": "param_EstatisticasGerais"
 			        }
 			      },
 			      "State": "Generated",
@@ -3732,7 +3732,7 @@ cultureInfo pt-BR
 			    "param_estatistica.parâmetro": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_EstatisticasGerais",
+			          "ConceptualEntity": "param_EstatisticasGerais",
 			          "ConceptualProperty": "Parâmetro"
 			        }
 			      },
@@ -3748,7 +3748,7 @@ cultureInfo pt-BR
 			    "param_estatistica.parâmetro_campos": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_EstatisticasGerais",
+			          "ConceptualEntity": "param_EstatisticasGerais",
 			          "ConceptualProperty": "Parâmetro Campos"
 			        }
 			      },
@@ -3767,7 +3767,7 @@ cultureInfo pt-BR
 			    "param_estatistica.parâmetro_pedido": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_EstatisticasGerais",
+			          "ConceptualEntity": "param_EstatisticasGerais",
 			          "ConceptualProperty": "Parâmetro Pedido"
 			        }
 			      },
@@ -7637,7 +7637,7 @@ cultureInfo pt-BR
 			    "param_estatistica.entity__orderatletas_FormatString": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Param_EstatisticasGerais",
+			          "ConceptualEntity": "param_EstatisticasGerais",
 			          "ConceptualProperty": "_orderatletas FormatString"
 			        }
 			      },
@@ -11214,7 +11214,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_estadio_mais_partidas": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12382,7 +12382,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_10": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12415,7 +12415,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_orderatletas": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12481,7 +12481,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_9": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -12811,7 +12811,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_label_evento_debug": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13306,7 +13306,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_label_evento": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13339,7 +13339,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_label_emoji": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13372,7 +13372,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_8": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13405,7 +13405,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_rebaixamento": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13438,7 +13438,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_7": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13471,7 +13471,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_fc_classificacao": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13504,7 +13504,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_6": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13537,7 +13537,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_5": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13570,7 +13570,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_4": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -13735,7 +13735,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_valor_radar": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14098,7 +14098,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_3": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14461,7 +14461,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_teste_stat": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14626,7 +14626,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_glossario_score_ataque": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14659,7 +14659,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_score_delta_influencia": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14692,7 +14692,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_score_delta_disciplina": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14725,7 +14725,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_score_delta_defesa": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14758,7 +14758,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_score_delta_ataque": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14791,7 +14791,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__ScoreInfluenciaBalanceado": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14824,7 +14824,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_score_disciplina": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14857,7 +14857,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_score_defesa_balanceado": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14890,7 +14890,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_score_ataque": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -14923,7 +14923,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_svg": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15484,7 +15484,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__ParticipacaoPorPartida": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -15649,7 +15649,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_dummy": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16012,7 +16012,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__GolsFeitosJogadorLabel_": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -16111,7 +16111,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__GolsSofridosJogadorLabel_": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -17847,7 +17847,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_parâmetro": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -17880,7 +17880,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_medida_2": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -17913,7 +17913,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_figurinha": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -17946,7 +17946,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__status": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -17979,7 +17979,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__pe": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18012,7 +18012,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__nome": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18045,7 +18045,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__nascimento": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18078,7 +18078,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_entity__clubeatual": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18111,7 +18111,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_card_vazio_2": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18144,7 +18144,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_card_vazio": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18177,7 +18177,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_card_desempenho_2": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -18210,7 +18210,7 @@ cultureInfo pt-BR
 			    },
 			    "param_estatistica_has_card_desempenho": {
 			      "Binding": {
-			        "ConceptualEntity": "Param_EstatisticasGerais"
+			        "ConceptualEntity": "param_EstatisticasGerais"
 			      },
 			      "State": "Generated",
 			      "Roles": {

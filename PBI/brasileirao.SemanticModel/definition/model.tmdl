@@ -38,7 +38,7 @@ ref table dim_jogadores
 ref table sum_GolsPorClube
 ref table dim_Calendario
 ref table dimAno_Campeonato
-ref table Param_EstatisticasGerais
+ref table param_EstatisticasGerais
 ref table dim_cores
 ref table dim_formacao
 ref table sum_radar_mandante

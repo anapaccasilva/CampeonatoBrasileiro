@@ -1155,15 +1155,13 @@ table Medidas
 
 	measure Estatisticas = ```
 			
-			    
-			    "<div style='background-color: #FFFFFF; padding: 16px; margin-bottom: 8px; border: 2px solid #FFFFFF; border-radiSs: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-size: 77%;'>" &  
+			    "<div style='background-color: transparent; padding: 16px; margin-bottom: 8px; border: 0px solid transparent; border-radius: 0px; font-size: 77%;'>" &  
 			
-			    "<div style='text-align: center; font-size: 24px; font-weight: bold; color: #000000; margin-bottom: 4px;'>ESTATÍSTICAS</div>" & 
-			"<hr style='border: none; border-top: 1px solid #cccccc; margin-bottom: 12px;' />" &
-			     
-			    
-			    
-			        "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			    "<div style='text-align: center; font-size: 23px; font-weight: bold; color: #000000; margin-bottom: 4px;'>ESTATÍSTICAS</div>" & 
+			    "<hr style='border: none; border-top: 1px solid #cccccc; margin-bottom: 12px;' />" &
+			
+			    "<div style='display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 19px;'>" &
+			
 			
 			    IF([chutesmandante] > [chutesvisitante], 
 			        "<div style='text-align: left; width: 30%; font-weight: bold; display: flex; align-items: center;'>" &
@@ -3727,11 +3725,11 @@ table Medidas
 
 	measure BotaoGols = ```
 			
-			    VAR _partida = "Média por Partidas: " & FORMAT([MediaGolsPorPartida], "0.00")
-			    VAR _temporada = "Média por Temporadas: " & FORMAT([MediaGolsPorTemporada], "0.00")
-			    VAR _times = "Média por Times: " & FORMAT([MediaGolsPorTime], "0.00")
+			    VAR _partida = "Média por Partida: " & FORMAT([MediaGolsPorPartida], "0.00")
+			    VAR _temporada = "Média por Temporada: " & FORMAT([MediaGolsPorTemporada], "0.00")
+			    VAR _times = "Média por Time: " & FORMAT([MediaGolsPorTime], "0.00")
 			    VAR espaco = UNICHAR(8202)
-			    VAR largura = 36
+			    VAR largura = 39
 			    VAR espaco_partida = largura - LEN(_partida)
 			    VAR espaco_temporada = largura - LEN(_temporada)
 			    VAR espaco_times = largura - LEN(_times)
@@ -3775,11 +3773,11 @@ table Medidas
 
 	measure BotaoFaltas = ```
 			
-			    VAR _partida = "Média por Partidas: " & FORMAT([MediaFaltasPorPartida], "0.00")
-			    VAR _temporada = "Média por Temporadas: " & FORMAT([MediaFaltasPorTemporada], "0,00")
-			    VAR _times = "Média por Times: " & FORMAT([MediaFaltasPorTime], "0,00")
+			    VAR _partida = "Média por Partida: " & FORMAT([MediaFaltasPorPartida], "0.00")
+			    VAR _temporada = "Média por Temporada: " & FORMAT([MediaFaltasPorTemporada], "0,00")
+			    VAR _times = "Média por Time: " & FORMAT([MediaFaltasPorTime], "0,00")
 			    VAR espaco = UNICHAR(8202)
-			    VAR largura = 41.49
+			    VAR largura = 43
 			    VAR espaco_partida = largura - LEN(_partida)
 			    VAR espaco_temporada = largura - LEN(_temporada) - 4
 			    VAR texto = 
@@ -3797,11 +3795,11 @@ table Medidas
 
 	measure BotaoCartoesAmarelos = ```
 			
-			    VAR _partida = "Média por Partidas: " & FORMAT([MediaCartoesAmarelosPorPartida], "0.00")
-			    VAR _temporada = "Média por Temporadas: " & FORMAT([MediaCartoesAmarelosPorTemporada], "0.00")
-			    VAR _times = "Média por Times: " & FORMAT([MediaCartoesAmarelosPorTime], "0.00")
+			    VAR _partida = "Média por Partida: " & FORMAT([MediaCartoesAmarelosPorPartida], "0.00")
+			    VAR _temporada = "Média por Temporada: " & FORMAT([MediaCartoesAmarelosPorTemporada], "0.00")
+			    VAR _times = "Média por Time: " & FORMAT([MediaCartoesAmarelosPorTime], "0.00")
 			    VAR espaco = UNICHAR(8202)
-			    VAR largura = 36
+			    VAR largura = 39
 			    VAR espaco_partida = largura - LEN(_partida)
 			    VAR espaco_temporada = largura - LEN(_temporada)
 			    VAR espaco_times = largura - LEN(_times)
@@ -3820,11 +3818,11 @@ table Medidas
 
 	measure BotaoCartoesVermelhos = ```
 			
-			    VAR _partida = "Média por Partidas: " & FORMAT([MediaCartoesVermelhosPorPartida], "0.00")
-			    VAR _temporada = "Média por Temporadas: " & FORMAT([MediaCartoesVermelhosPorTemporada], "0.00")
-			    VAR _times = "Média por Times: " & FORMAT([MediaCartoesVermelhosPorTime], "0.00")
+			    VAR _partida = "Média por Partida: " & FORMAT([MediaCartoesVermelhosPorPartida], "0.00")
+			    VAR _temporada = "Média por Temporada: " & FORMAT([MediaCartoesVermelhosPorTemporada], "0.00")
+			    VAR _times = "Média por Time: " & FORMAT([MediaCartoesVermelhosPorTime], "0.00")
 			    VAR espaco = UNICHAR(8202)
-			    VAR largura = 36
+			    VAR largura = 39
 			    VAR espaco_partida = largura - LEN(_partida)
 			    VAR espaco_temporada = largura - LEN(_temporada)
 			    VAR espaco_times = largura - LEN(_times)
@@ -3844,7 +3842,7 @@ table Medidas
 	measure EstatisticasGeraisTitulo = ```
 			
 			SWITCH(
-			    SELECTEDVALUE(Param_EstatisticasGerais[Parâmetro Pedido]),
+			    SELECTEDVALUE(param_EstatisticasGerais[Parâmetro Pedido]),
 			    0, "Pontuação por Ano",
 			    1, "Classificação por Ano",
 			    2, "Gols Pro por Ano",
@@ -4620,7 +4618,7 @@ table Medidas
 
 		changedProperty = IsHidden
 
-	measure LimiarRebaixamento = IF(SELECTEDVALUE(Param_EstatisticasGerais[Parâmetro Pedido])=1, 17, blank())
+	measure LimiarRebaixamento = IF(SELECTEDVALUE(param_EstatisticasGerais[Parâmetro Pedido])=1, 17, blank())
 		formatString: 0
 		displayFolder: Clubes\Gráfico
 		lineageTag: d2be7ecf-c37b-46e9-b81b-7e51c127a0cf
@@ -4640,7 +4638,7 @@ table Medidas
 		displayFolder: Clubes\Gráfico
 		lineageTag: 63954e73-3d31-45ce-8c94-d4fa3e01fa58
 
-	measure LimiarClassificacao = IF(SELECTEDVALUE(Param_EstatisticasGerais[Parâmetro Pedido])<=1, 2006, BLANK())
+	measure LimiarClassificacao = IF(SELECTEDVALUE(param_EstatisticasGerais[Parâmetro Pedido])<=1, 2006, BLANK())
 		formatString: 0
 		displayFolder: Clubes\Gráfico
 		lineageTag: dd56d5e9-3084-4131-b430-0e3ac0cfa419

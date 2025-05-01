@@ -99,18 +99,6 @@
         },
         {
           "location": {
-            "x": 3408,
-            "y": 74
-          },
-          "nodeIndex": "Param_EstatisticasGerais",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 8
-        },
-        {
-          "location": {
             "x": 3124,
             "y": 50
           },
@@ -331,6 +319,18 @@
           "nodeIndex": "trivia_Alternativas",
           "size": {
             "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3408,
+            "y": 74
+          },
+          "nodeIndex": "param_EstatisticasGerais",
+          "size": {
+            "height": 152,
             "width": 234
           },
           "zIndex": 0
